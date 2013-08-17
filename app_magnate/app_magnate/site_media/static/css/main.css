@@ -1,0 +1,287 @@
+
+/* header */
+header{ width:100%; float:left; background:#4d4c4b; padding:14px 0; position:relative; z-index:10}
+header .logo{ float:left; line-height:.5em; padding-left:10px}
+header .topnav{ float:right; padding:13px 10px 0 0}
+header .topnav p{ color:#FFFFFF; font-size:13px}
+header .topnav .signin{ color:#FFFFFF; border-left:1px solid #5c704a; padding-left:15px; margin-left:15px}
+
+/* contentmain */
+.contentmain{ width:89.6%; float:left; padding:0 5.2% 140px 5.2%}
+
+/* banner */
+.banner{ width:100%; float:left; padding-bottom:50px; position:relative}
+.banner figure{ width:100%; float:left; line-height:.5em}
+.banner figure img{box-shadow: #676767 0 1px 3px; behavior: url(PIE.htc); position:relative}
+.banner aside{ width:100%; float:left; position:absolute; top:97px; left:6.9%}
+.banner aside h1{ font-family:"helveticaneuemedium", Arial, Helvetica, sans-serif; font-size:40px; color:#FFFFFF; padding-bottom:6px}
+.banner aside h1 a{ color:#FFFFFF}
+.banner aside p{ font-size:24px; color:#FFFFFF; padding-bottom:22px}
+.banner aside p a{ color:#FFFFFF}
+
+.contentbox{ width:100%; float:left; background:#FFFFFF; box-shadow:#999 0 0 3px; border-radius:3px; behavior: url(PIE.htc); position:relative; margin-bottom:50px}
+
+.guidance-info{ width:86.2%; float:left; padding:43px 6.9% 10px 6.9%}
+.guidance-info h1{ font-family:"helveticaneuemedium", Arial, Helvetica, sans-serif; color:#85bc4f; text-align:center; padding-bottom:17px}
+.guidance-info h1 a{ color:#85bc4f}
+.guidance-info h2{ padding-bottom:19px}
+.guidance-info p{ font-size:18px; padding-bottom:32px}
+.guidance-info article{ width:100%; float:left; padding-bottom:38px}
+.guidance-info article figure{ float:left; line-height:.5em}
+.guidance-info aside{ width:76.38%; float:left; padding-left:10px}
+.guidance-info aside h3{ padding-bottom:4px}
+.guidance-info aside p{ line-height:1.2em; font-size:14px; padding-bottom:0}
+.guidance-info .align-center{ font-size:18px; text-align:center; padding:0 5% 50px 5%}
+.guidance-info .articles{ width:100%; float:left}
+
+.get-in-early{ width:86.2%; float:left; padding:35px 6.9% 40px 6.9%}
+.get-in-early h2{ padding-bottom:26px}
+.get-in-early ul{ width:44%; float:left}
+.get-in-early ul li{ width:100%; float:left; padding-bottom:15px}
+.get-in-early ul.right{ float:right}
+.get-in-early ul.right li{ padding-bottom:18px}
+.get-in-early .first{ width:48.5%; float:left}
+.get-in-early .last{ float:right}
+.get-in-early .input{ width:91.5%; height:16px; float:left; background:#FFFFFF; box-shadow:none; box-shadow:inset #bebebe 1px 1px 2px; border:1px solid #bebebe; border-radius:3px; behavior: url(PIE.htc); position:relative; font-family:"HelveticaNeueLTStd55Roman", Arial, Helvetica, sans-serif; font-size:14px; color:#9f9f9f; padding:7px 4%}
+.get-in-early .input:focus{ box-shadow:none; box-shadow:inset #bebebe 1px 1px 2px; border:1px solid #bebebe;}
+.get-in-early .email{ width:80%; float:left}
+.get-in-early .code{ width:59%; float:left}
+.get-in-early .gender{ width:37.3%; float:left}
+.get-in-early .sbOptions{ width: 100%}
+.get-in-early .sbOptions li{ padding:0; margin:0}
+.get-in-early .date{ width:21.53%; float:left}
+.get-in-early .date .sbHolder{ width:98.4%}
+.get-in-early .month{ width:37%; float:left; padding:0 25px}
+.get-in-early .month .sbHolder{ width:99%}
+.get-in-early .year{ width:24%; float:left}
+.get-in-early .options{ float:left; font-size:10px; color:#808080; padding:10px 7px 0 0}
+.get-in-early .options .radio{ width:14px; height:14px; float:left; margin:-1px 5px 0 0}
+.get-in-early .income{ width:42.5%; float:left}
+.get-in-early .income .sbHolder{ width:98.6%}
+.get-in-early .income2{ float:right; padding-right:8px}
+.get-in-early .select2{ width:80%; float:left}
+.get-in-early .select3{ width:37.57%; float:left}
+.get-in-early .select3 .sbHolder{ width:98.4%}
+.get-in-early .btns{ float:left; padding:67px 0 0 0}
+.get-in-early .btn{ width:140px; box-shadow: #888 0 1px 2px;}
+.get-in-early .btn:active, .btn.active { box-shadow: inset #5a872e 0 2px 3px, #888 0 1px 2px;}
+
+/* footer */
+footer{ width:100%; float:left; padding:0 0 80px 0}
+footer .divider{ width:100%; height:5px; float:left; background:#a6c987; border-radius:2px; behavior: url(PIE.htc); position:relative}
+footer aside{ float:left; padding:7px 0 0 0}
+footer p{ font-size:14px; color:#a6c987; padding-bottom:2px}
+footer p a{ color:#344e1c; margin:0 12px}
+footer p a.first{ margin-left:0}
+footer p a.active{ text-decoration:underline}
+footer p span{ font-size:12px; color:#484848}
+footer p span a{ color:#484848; margin:0}
+
+footer .socialmedia{ float:right}
+footer .socialmedia ul{ float:left; padding-top:18px}
+footer .socialmedia ul li{ float:left; padding-left:6px}
+footer .socialmedia ul li a{ width:46px; height:46px; float:left; background:url(../img/twitter01.png) no-repeat; text-indent:-9999px}
+footer .socialmedia ul li .facebook{ background:url(../img/facebook01.png) no-repeat}
+footer .socialmedia ul li .pinterest{ background:url(../img/pinterest01.png) no-repeat}
+
+/* lightbox */
+.popup{ width:100%; float:left; background:#FFFFFF; box-shadow: #333 0 0 5px; border-radius:3px; behavior: url(PIE.htc); position:relative}
+.popup h3{ font-size:24px; color:#4c4c4c; font-family:"helveticaneuebold", Arial, Helvetica, sans-serif; padding-bottom:16px}
+.popup h3 a{ color:#4c4c4c} 
+.popup p{ font-size:16px; color:#4c4c4c}
+.popup .btn{ width:110px; height:42px; float:right; box-shadow: #888 0 1px 2px; font-size:18px; line-height:42px}
+.popup .btn:active, .btn.active { box-shadow: inset #5a872e 0 2px 3px, #888 0 1px 2px}
+.lightbox{ width:340px; float:left; padding:5px}
+.lightbox form{ width:70.6%; float:left; padding:28px 14.70% 40px 14.70%}
+.lightbox form p{ width:100%; float: left; text-align:right}
+.lightbox form p a{ color:#00468c}
+
+.lightbox form label{ width:100%; float:left; font-size:14px; padding-bottom:4px; margin-bottom:0}
+.lightbox form .input{ width:91.5%; height:16px; float:left; background:#FFFFFF; box-shadow:none; box-shadow:inset #aeaeae 1px 1px 2px; border:1px solid #bebebe; border-radius:4px; behavior: url(PIE.htc); position:relative; font-family:"HelveticaNeueLTStd55Roman", Arial, Helvetica, sans-serif; font-size:14px; padding:7px 4%}
+.lightbox form ul{ width:100%; float:left; padding-bottom:25px}
+.lightbox form ul li{  width:100%; float:left; padding-bottom:15px}
+.lightbox form .btn{ box-shadow: #888 0 1px 2px; margin-bottom:25px}
+.lightbox form .btn:active, .btn.active { box-shadow: inset #6a872e 0 2px 3px, #888 0 1px 2px}
+
+.lightboxsignup{ width:564px; float:left; padding:5px}
+.lightboxsignup aside{ width:100%; float:left; padding:28px 0}
+.lightboxsignup h3{ text-align:center}
+.lightboxsignup p{ text-align:center; padding:0 23% 40px 23%}
+.lightboxsignup .btns{ width:110px; margin:0 auto}
+
+/* Account detail */
+header .toplinks{ float:right; padding-right:10px; padding-top:13px}
+header .toplinks ul{ float:left; font-size:13px}
+header .toplinks ul li{ height:28px; float:left; font-family:"helveticaneuebold", Arial, Helvetica, sans-serif; padding:0 0 0 44px; position:relative}
+header .toplinks ul li a{ color:#FFFFFF; text-decoration:none}
+
+header .toplinks .user-info{ height:37px; float:left; font-size:13px; font-family:"Helvetica Neue", Arial, Helvetica, sans-serif; margin-top:-2px; position:relative; padding-left:44px}
+header .toplinks .user-info a{ color:#FFFFFF; text-decoration:none}
+header .toplinks .user-info img{ margin:-3px 5px 0 0; box-shadow: #333 0 0 4px; behavior: url(PIE.htc); position:relative}
+header .toplinks .user-info:hover .dropbox{ position:absolute; display: block}
+header .toplinks .user-info .dropbox{ width:147px; float:left; position:absolute; top:37px; right:0; display: none; padding-right:44px}
+header .toplinks .user-info .dropbox .curve{ width:19px; height:10px; float:left; background:url(../img/curve01.png) no-repeat; position:absolute; top:-10px; left:88px; z-index:100}
+header .toplinks .user-info .dropbox ul{ width:100%; float:left; background:#5e5e5e; box-shadow: #f0efeb 0 0 4px; border-radius:1px; behavior: url(PIE.htc); position:relative; padding:5px 0}
+header .toplinks .user-info .dropbox ul li{ width:100%; height:auto; float:left; font-family:"helveticaneuemedium", Arial, Helvetica, sans-serif; padding:0}
+header .toplinks .user-info .dropbox ul li a{ width:86.4%; float:left; color:#d8d5d5; padding:4px 0 4px 13.6%}
+header .toplinks .user-info .dropbox ul li a:hover{ background:#525252; color:#FFFFFF; text-decoration:none}
+header .toplinks .user-info .dropbox ul li a.active{ background:#525252; color:#FFFFFF; text-decoration:none}
+header .toplinks .user-info .dropbox ul li.logout{ background:url(../img/divider02.gif) repeat-x top left; padding-top:5px; margin-top:4px}
+
+.accountdetail{ width:100%; float:left; padding:58px 0 100px 0}
+.accountdetail h1{ padding-bottom:45px}
+.accountdetail h2{ font-family:"helveticaneuelight",Arial, Helvetica, sans-serif; font-size:36px; padding-bottom:9px}
+.accountdetail article{ width:100%; float:left}
+.accountdetail article aside{ width:380px; float:left; padding-bottom:97px}
+.accountdetail article ul{ width:100%; padding-bottom:15px}
+.accountdetail label{ font-size:16px; color:#4c4c4c}
+.accountdetail .input{ width:87.5%; height:25px; color:#9f9f9f; padding:5px 6%}
+.accountdetail .first{ width:47.70%}
+.accountdetail .email .input{ width:91.5%; padding:7px 4%}
+.accountdetail .sbHolder{ font-size:14px}
+.accountdetail .sbSelector{ top:-1px}
+.accountdetail .city{ width:36.84%; float:left}
+.accountdetail .city .input{ width:82%; padding:7px 8%}
+.accountdetail .state{ width:21%; float:left; padding:0 30px}
+.accountdetail .state .sbHolder{ color:#999999; margin-top:2px}
+.accountdetail .state .sbSelector{ color:#999999}
+.accountdetail .code{ width:26.31%; float:left}
+.accountdetail .code .input{ width:85%; height:21px; color:#9f9f9f; padding:7px 8%}
+.accountdetail .btn{ margin-right:20px}
+
+.lightboxaccount{ width:515px; float:left; padding:5px}
+.lightboxaccount aside{ width:100%; float:left; padding:28px 0}
+.lightboxaccount h3{ text-align:center; padding-bottom:30px}
+.lightboxaccount p{ text-align:center; padding:0 0 35px 0}
+.lightboxaccount .btns{ width:186px; margin:0 auto}
+.lightboxaccount .btn{ width:186px}
+
+/* Marketspace Discussion */
+.contentinner{ width:100%; float:left; padding:40px 0 170px 0}
+
+.articlebox{ width:100%; float:left; background:#fafafa; background:-moz-linear-gradient(#ffffff, #f5f5f5); background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#f5f5f5)); background: -o-linear-gradient(#ffffff, #f5f5f5); -pie-background: linear-gradient(#ffffff, #f5f5f5); border-radius:4px; box-shadow:#878786 0 3px 4px; behavior: url(PIE.htc); position:relative}
+
+.forumpost{ width:100%; float:left; padding-bottom:21px}
+.forumpost .heading{ width:95.8%; float:left; border-bottom:1px solid #cccaca; padding:14px 2.8% 5px 1.4%}
+.forumpost .heading h3{ font-size:24px; color:#000000; padding-bottom:18px}
+.forumpost .heading p{ font-size:16px; color:#9591a3; padding-bottom:14px}
+.forumpost .heading p span{ font-size:12px; padding:0 1px}
+.forumpost .heading p a{ color:#9591a3}
+.forumpost .heading figure{ float:right; line-height:.5em; padding:10px 0 0 0; margin:-38px 0 0 0; position:relative}
+.forumpost .heading .leftcolumn{ width:85%; float:left}
+.forumpost .heading .leftcolumn p{ font-size:10px}
+
+.forumpost article{ width:94%; float:left; padding:20px 3% 10px 3%}
+.forumpost article h4{ width:100%; float:left; font-size:16px; color:#010101; padding:0 0 23px 0}
+.forumpost article h4 span{ float:left; background:url(../img/divider01.png) repeat-x bottom left; padding:0 16px 15px 0}
+.forumpost article p{ font-size:16px; color:#010101; padding:0 90px 20px 0}
+.forumpost article p.link{ float:right; font-family:"helveticaneuebold", Arial, Helvetica, sans-serif; font-size:10px; padding:0; margin-top:-10px; position:relative}
+.forumpost article p.link a{ color:#9591a3; margin-left:7px}
+.forumpost article ul{ width:100%; float:left; font-size:16px; padding-bottom:20px}
+.forumpost article ul li{ width:100%; float:left; color:#010101; padding:0 0 0 0}
+.forumpost article ul li a{ color:#010101}
+
+.forumresponse{ width:100%; float:left; padding-bottom:21px}
+.forumresponse h4{ border-bottom:1px solid #cccaca; font-family:"helveticaneuemediummedium",Arial, Helvetica, sans-serif; font-size:12px; color:#9591a3; padding:0 0 11px 11px}
+.forumresponse h4 a{ color:#9591a3}
+.forumresponse h4 .date{ padding-left:10px}
+.forumresponse h4 .quote{ float:right; font-family:"Helvetica Neue", Arial, Helvetica, sans-serif; color:#dcd9d9}
+.forumresponse h4 .quote a{ color:#dcd9d9}
+.forumresponse h4 .divider{ padding:0 5px}
+.forumresponse p{ font-size:16px; color:#010101; line-height:19px}
+.forumresponse figure{ width:48px; height:48px; float:left}
+.forumresponse article{ width:95.9%; float:left; border-bottom:1px solid #cac9c9; padding:10px 2.7% 10px 1.4%}
+.forumresponse article h4{ border:none; font-family:"helveticaneuebold", Arial, Helvetica, sans-serif; padding:0 0 5px 0}
+.forumresponse article aside{ width:91.20%; float:right}
+.forumresponse .articlebox{ padding:19px 0 20px 0}
+
+.quickreply{ width:100%; float:left; padding-bottom:20px}
+.quickreply h3{ border-bottom:1px solid #cccaca; font-family:"Helvetica Neue", Arial, Helvetica, sans-serif; padding:0 19px 11px 11px}
+.quickreply h4{ border-bottom:1px solid #cccaca; font-family:"Helvetica Neue", Arial, Helvetica, sans-serif; font-size:12px; color:#9591a3; padding:0 19px 11px 11px}
+.quickreply h4 a{ color:#9591a3}
+.quickreply h4 span{ float:right}
+.quickreply article{ width:95.9%; float:left; padding:0 2.7% 0 1.4%}
+.quickreply .articlebox{ padding:19px 0 18px 0}
+.quickreply form{ width:100%; float:left; padding:13px 0 0 0}
+.quickreply form .textarea{ width:95.7%; height:169px; float:left; background:#ffffff; border:1px solid #dcd9d9; border-radius:3px; behavior: url(PIE.htc); position:relative; font-family:"Helvetica Neue", Arial, Helvetica, sans-serif; font-size:14px; color:#9591a3; padding:8px 2%}
+.quickreply form .textarea:focus{ box-shadow:none; border:1px solid #dcd9d9;}
+.quickreply form .bgbtn{ width:100%; float:left; padding:10px 0 0 0}
+.quickreply form .btn-gray{ width:90px; height:27px; border-radius:4px; font-family:"helveticaneuemediummedium",Arial, Helvetica, sans-serif; font-size:12px; line-height:27px; margin:20px 10px 0 0}
+
+.sidemenu{ width:100%; float:left}
+.sidemenu h3{ border-bottom:1px solid #cccaca; font-family:"Helvetica Neue", Arial, Helvetica, sans-serif; font-size:14px; color:#787878; padding:0 0 19px 10px; margin-bottom:18px}
+.sidemenu h4{ font-family:"helveticaneuemediummedium",Arial, Helvetica, sans-serif; font-size:14px; color:#a6c987; padding-bottom:13px}
+.sidemenu p{ font-size:12px; color:#787878; line-height:1.2em; padding-bottom:10px}
+.sidemenu aside{ width:90.8%; float:left; padding:0 4.6% 0 4.6%}
+.sidemenu aside ul{ width:91%; float:left; font-size:14px; padding:0 4.5% 14px 4.5%}
+.sidemenu aside ul li{ width:100%; float:left; line-height:1em; padding-bottom:10px}
+.sidemenu aside ul li a{ float:left; background:#dcd9d9; color:#787878; padding:4px 9px 5px 9px}
+.sidemenu aside ul li a:hover{ color:#ffffff; background:#36501d; background:-moz-linear-gradient(#476b27, #36501d); 	background: -webkit-gradient(linear, left top, left bottom, from(#476b27), to(#36501d)); background: -o-linear-gradient(#476b27, #36501d); -pie-background: linear-gradient(#476b27, #36501d); behavior: url(PIE.htc); position:relative; text-decoration:none; margin:0}
+.sidemenu aside ul li a.active{ color:#ffffff; background:#36501d; background:-moz-linear-gradient(#476b27, #36501d); 	background: -webkit-gradient(linear, left top, left bottom, from(#476b27), to(#36501d)); background: -o-linear-gradient(#476b27, #36501d); -pie-background: linear-gradient(#476b27, #36501d); behavior: url(PIE.htc); position:relative; text-decoration:none; margin:0}
+.sidemenu aside .magnate{ padding-bottom:0}
+
+.sidemenu .board-state{ float:left}
+.sidemenu .board-state ul{ width:100%; font-size:12px; color:#787878; padding:0}
+.sidemenu .board-state ul li{ color:#787878; line-height:1.2em; padding:0 0 7px 0}
+.sidemenu .board-state ul li .left{ width:98px; float:left}
+.sidemenu .board-state ul li .right{ width:98px; float:left; font-family:"helveticaneuebold", Arial, Helvetica, sans-serif; padding:8px 0 0 0}
+.sidemenu .articlebox{ padding:17px 0 10px 0; margin-bottom:20px}
+
+/* Dashboard */
+.welcomeinfo{ width:100%; float:left; padding:0 0 46px 0}
+.welcomeinfo h1{ padding-bottom:10px}
+.welcomeinfo p{ width:70%; float:left; font-size:18px; color:#4c4c4c; padding:0 30% 2px 0}
+.welcomeinfo p a{ font-size:16px; color:#5454fd; text-decoration:underline}
+.welcomeinfo p a:hover{ text-decoration:none}
+
+.image-colage{ width:100%; float:left; padding-bottom:37px}
+.image-colage h2{ font-family:"helveticaneuebold", Arial, Helvetica, sans-serif; color:#ffffff; line-height:1.2em; padding-bottom:5px}
+.image-colage h2 a{ color:#ffffff}
+.image-colage h3{ color:#ffffff; line-height:1.3em; padding-bottom:1px}
+.image-colage h3 a{ color:#ffffff}
+.image-colage p{ font-size:11px; color:#fefefe}
+.image-colage .figuremain{ width:100%; float:left; line-height:.5em; box-shadow:#878786 0 3px 4px; behavior: url(PIE.htc); position:relative; margin-bottom:6px}
+.image-colage .figuremain img{ width:100%}
+
+.image-colage article{ width:90%; float:left; position:absolute; top:15px; left:20px}
+.image-colage .bottom{ top:auto; bottom:20px}
+.image-colage article h4{ font-family:"helveticaneuebold", Arial, Helvetica, sans-serif; color:#fefefe}
+.image-colage article h4 span{ font-family:"Helvetica Neue", Arial, Helvetica, sans-serif}
+.image-colage article h4 a{ color:#fefefe}
+.image-colage article p{ padding-bottom:8px}
+.image-colage article figure{ width:34px; float:left; line-height:.5em}
+.image-colage article aside{ max-width:346px; float:left; background:url(../img/divider03.png) repeat-x top left; padding:10px 0 0 0}
+.image-colage article .info{ width:125px; float:left; padding-left:10px}
+
+.image-colage .updates{ width:155px; float:left; position:absolute; bottom:5px; right:14px}
+.image-colage .updates h3{ padding-bottom:8px; margin-bottom:1px}
+.image-colage .updates h4{ font-size:16px; color:#fefefe; line-height:1.2em; padding-bottom:5px}
+.image-colage .updates h4 a{ color:#fefefe}
+.image-colage .updates p{ padding-bottom:10px}
+.image-colage .updates p a{ color:#cda506}
+.image-colage .updates .set{ width:100%; float:left; background:url(../img/divider03.png) repeat-x top left; padding:8px 0 0 0}
+.image-colage .leftcolumn{ width:49.42%; float:left}
+.image-colage .rightcolumn{ width:49.42%; float:right}
+
+/* Marketspace Main Page */
+.market-info{ width:100%; float:left; padding-bottom:42px}
+.market-info figure{ width:100%; float:left; line-height:.5em; box-shadow:#878786 0 3px 4px; behavior: url(PIE.htc); position:relative}
+
+.edutech-info{ width:100%; float:left; padding-bottom:20px}
+.edutech-info h3{ border-bottom:1px solid #cccaca; font-size:14px; color:#000000; padding:0 0 15px 10px}
+.edutech-info h3 span{ font-family:"Helvetica Neue", Arial, Helvetica, sans-serif}
+.edutech-info h4{ color:#817d8e; padding-bottom:8px}
+.edutech-info h4 a{ color:#817d8e}
+.edutech-info p{ font-size:10px; color:#817d8e; padding-bottom:5px}
+.edutech-info p .divider{ padding:0 5px}
+.edutech-info p a{ color:#817d8e}
+.edutech-info figure{ width:48px; float:left; line-height:.5em}
+.edutech-info article{ width:94.4%; float:left; border-bottom:1px solid #cccaca; padding:9px 4.2% 10px 1.4%}
+.edutech-info article aside{ width:75%; float:left; padding:8px 0 0 1.8%}
+.edutech-info article .comments{ width:40px; height:26px; float:right; background:url(../img/bg_comments.png) no-repeat; text-align:center; font-size:14px; color:#ffffff; line-height:26px; border-radius:80px 80px 80px 80px; behavior: url(PIE.htc); position:relative; margin:11px 0 0 0}
+.edutech-info .more{ border-bottom:none}
+.edutech-info .articlebox{ padding:17px 0 0 0}
+
+.sidemenu .text-color{ float:left}
+.sidemenu .text-color h4{ color:#2e1f63}
+
