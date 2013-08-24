@@ -1,4 +1,5 @@
 {% extends "banner_base.html" %}
+{% load staticfiles %}
 
 {% load i18n %}
 {% load url from future %}
@@ -8,27 +9,75 @@
 {% block body_class %}home{% endblock %}
 
 {% block banner %}
-    <h1>{% trans "Welcome to Pinax" %}</h1>
+    <h1>{% trans "Fund Confidently" %}</h1>
     <p>
         {% blocktrans %}
-        <b>Pinax</b> is a <a href="http://djangoproject.com/">Django</a>
-        project intended to provide a starting point for websites. By
-        integrating numerous reusable Django apps to take care of the
-        things that many sites have in common, it lets you focus on what
-        makes your site different.
+        Whether you're supporting your favorite local artist, a worthy cause,
+        or the latest creative idea, Magnate helps you stay focused on what 
+        you care about. No need to feel uniformed or unsure, go ahead and 
+        crowdfund--we got your back.
+      
         {% endblocktrans %}
     </p>
     
-    <h2>About Account Project</h2>
-    <p>
+    <h2>Your Very Own A-Team</h2>
+    <p id="secondp">
         {% blocktrans %}
-        In addition to what is provided by the "zero" project, this project
-        provides thorough integration with django-user-accounts, adding
-        comprehensive account management functionality. It is a foundation
-        suitable for most sites that have user accounts.
+        Magnate places you in the hands of industry heavyweights, and vetted 
+        financial advisors--giving you the confidence, the insight and tools
+        to act on your intuition.         
         {% endblocktrans %}
     </p>
-    
+
+	<article>
+        <div class="feature_grid">
+        <img src="{% static "img/img_icon01.png" %}" alt="icon"/>
+        
+        <aside>
+        <h3>Real Guidance</h3>
+        
+        <p>Our "Crowd Advisors" scour the net and reach out on your behalf. Giving you more time to focus on the good stuff.</p>
+        </aside>
+        </div>
+        
+        <div class="feature_grid">
+        <img src="{% static "img/img_icon03.png" %}" alt="icon" />
+        
+        <aside>
+        <h3>Expert Advice</h3>
+        
+        <p>Get the goods direct from the horse's mouth. Opinions on the site are reviewed,and verified by industry insiders.</p>
+        </aside>
+        </div>
+        </article>
+        
+        <article>
+        <div class="feature_grid">
+        <img src="{% static "img/img_icon02.png" %}" alt="icon" />
+        
+        <aside>
+        <h3>Hit The Streets</h3>
+        
+        <p>We don't just sit around doing research, our teams reach out to meet founders and see prototypes so you you don't have to.</p>
+        </aside>
+        </div>
+        
+        <div class="feature_grid">
+        <img src="{% static "img/img_icon01.png" %}" alt="icon" />
+        
+        <aside>
+        <h3>Better Over Time</h3>
+        
+        <p>The more feedback you give your "Crowd Advisor" the better they are at finding startups you'll love and providing you with the right information.</p>
+        </aside>
+        </div>
+	</article>
+        
+        {% url "account_signup" as signup_url %}
+        <p id="hackcheat">.</p>
+        
+	<!--
+	old ones!
     {% if user.is_authenticated %}
         {% url "what_next" as what_next_url %}
         <p class="what_next">{% blocktrans %}Wondering <a href="{{ what_next_url }}" class="btn primary large">What Next</a>?{% endblocktrans %}</p>
@@ -37,4 +86,10 @@
         {% url "account_signup" as signup_url %}
         <p>{% blocktrans %}You can <a href="{{ login_url }}" class="btn">Log In</a> or <a href="{{ signup_url }}" class="btn primary">Sign Up</a> to try out the site.{% endblocktrans %}</p>
     {% endif %}
+    
+    new one!
+    {% url "account_signup" as signup_url %}
+        <p id="signupselect"><a href="{{ signup_url }}">{% blocktrans %}Already have a signup code? Enter it here to login.{% endblocktrans %}</a></p>
+    
+    -->
 {% endblock %}
