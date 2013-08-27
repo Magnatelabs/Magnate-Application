@@ -37,6 +37,7 @@ def ajax_list_signup(request):
                 "form": form,
             },  context_instance=RequestContext(request))
         }
+    return HttpResponse(data["html"])    
     return HttpResponse(json.dumps(data), mimetype="application/json")
 
 
@@ -77,8 +78,8 @@ def survey(request, code):
 
 def cohort_list(request):
     
-    if not request.user.is_staff:
-        raise Http404()
+   # if not request.user.is_staff:
+    #    raise Http404()
     
     ctx = {
         "cohorts": Cohort.objects.order_by("-created")
