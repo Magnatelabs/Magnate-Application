@@ -27,19 +27,23 @@ def ajax_list_signup(request):
                 "location": reverse("waitinglist_survey", args=[entry.surveyinstance.code])
             }
         except SurveyInstance.DoesNotExist:
-            data = {
-                "html": render_to_string("waitinglist/_success.html", {
-                },  context_instance=RequestContext(request))
-            }
+            return redirect("startedsurvey/")
+# (just trying out another form)           return redirect("/testform/testform/formtest.html")
+
+#            data = {
+#                "html": render_to_string("testFormApp/formtest.html", {  
+#                "html": render_to_string("questionnaire.html", {
+#                "html": render_to_string("waitinglist/_success.html", {
+#                },  context_instance=RequestContext(request))
+#            }
     else:
         data = {
-            "html": render_to_string("waitinglist/_list_signup.html", {
+            "html": render_to_string("waitinglist/_errors.html", {
                 "form": form,
             },  context_instance=RequestContext(request))
         }
     return HttpResponse(data["html"])    
     return HttpResponse(json.dumps(data), mimetype="application/json")
-
 
 def list_signup(request, post_save_redirect=None):
     if request.method == "POST":
@@ -78,8 +82,8 @@ def survey(request, code):
 
 def cohort_list(request):
     
-    if not request.user.is_staff:
-        raise Http404()
+   # if not request.user.is_staff:
+    #    raise Http404()
     
     ctx = {
         "cohorts": Cohort.objects.order_by("-created")

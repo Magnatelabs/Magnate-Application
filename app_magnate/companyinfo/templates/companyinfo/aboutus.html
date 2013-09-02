@@ -1,0 +1,109 @@
+{% extends "site_base.html" %}
+{% load staticfiles %}
+
+{% block body %}
+
+<div class="hero-grid">
+	<div id="aboutstory" class="aboutus">
+        
+            <div class="sidemenu-inner">
+            <ul>
+            <li><a href="#aboutstory" class="active">Our Story</a></li>
+            <li><a href="#aboutteam">Our Team</a></li>
+            <li><a href="#aboutcontact">Contact Us</a></li>
+            </ul>
+            
+            <form action="#" method="post">
+            <fieldset>
+            <ul>
+            <li><label>Media Updates</label></li>
+            
+            <li class="bg-input">
+            <input name="" type="text" class="input" value="Name" onFocus="if(this.value == 'Name') {this.value = '';}" onBlur="if (this.value == '') {this.value = 'Name';}" />
+            </li>
+            
+            <li class="bg-input right">
+            <input name="" type="text" class="input" value="Email" onFocus="if(this.value == 'Email') {this.value = '';}" onBlur="if (this.value == '') {this.value = 'Email';}" />
+            </li>
+            </ul>
+            
+            <input name="" type="submit" class="startedbtn" value="Subscribe">
+            </fieldset>
+            </form>
+            </div>
+        
+            <div class="hero-gridright">
+            <div class="bgourstory-info">
+            <div class="ourstory-info">
+            <article class="nodivider">
+            <h2>Our Story</h2>
+            
+            <figure><img src="{% static "img/img_magnate02.jpg" %}" alt="PHOTO" /></figure>
+            
+            <p>Our Story, the Canva journey begins back in 2007, while Melanie Perkins was still studying at the University of Western Australia. Melanie was teaching students how to use programs like InDesign and Photoshop — programs that people found hard to learn, and harder to use.</p>
+            
+            <p>After tossing around the idea for Fusion Books with co-founder Cliff Obrecht, the pair decided to take out a loan and bring in a great tech 
+        team to build their online tool for creating school yearbooks. They didn’t really know what they were in for but thankfully they learned a lot in 
+        those early days; how to sell, how to recruit great people, and how to build a business.</p>
+        
+            <p>Five years later and Fusion Books is going strong. It’s now the largest school yearbook publisher in Australia and last year expanded into France and New Zealand. The pair always believed the technology had applications beyond the yearbook market, and knew they had to pursue their vision.</p>
+            
+            <p>The only thing Melanie and Cliff needed now was a fantastic tech co-founder. They looked for a while before finally finding Cameron Adams; 
+        an ex-Google gun, who’d worked on Wave and a few other projects. He was someone who shared their vision and culture, and is now Canva’s Chief Product Officer.</p>
+            </article>
+            
+            <article id="aboutteam">
+            <div class="team-list">
+            <h2>Our Team</h2>
+            
+            <ul>
+            <li><a href="#"><img src="{% static "img/photo25.jpg" %}" alt="PHOTO" /></a></li>
+            <li><a href="#"><img src="{% static "img/photo25.jpg" %}" alt="PHOTO" /></a></li>
+            <li><a href="#"><img src="{% static "img/photo25.jpg" %}" alt="PHOTO" /></a></li>
+            <li><a href="#"><img src="{% static "img/photo25.jpg" %}" alt="PHOTO" /></a></li>
+            <li><a href="#"><img src="{% static "img/photo25.jpg" %}" alt="PHOTO" /></a></li>
+            <li><a href="#"><img src="{% static "img/photo25.jpg" %}" alt="PHOTO" /></a></li>
+            <li><a href="#"><img src="{% static "img/photo25.jpg" %}" alt="PHOTO" /></a></li>
+            <li><a href="#"><img src="{% static "img/photo25.jpg" %}" alt="PHOTO" /></a></li>
+            <li><a href="#"><img src="{% static "img/photo25.jpg" %}" alt="PHOTO" /></a></li>
+            </ul>
+            </div>
+            
+            <aside>
+            <h3>Rahib Ali <br /> <span>Crazy Karate Master</span></h3>
+            
+            <p>Melanie Perkins was still studying at the University of Western Australia. Melanie was teaching students how to use programs like InDesign and Photoshop — programs that people found hard to learn, and harder to use.</p>
+            
+            <p>After tossing around the idea for Fusion Books with co-founder Cliff Obrecht, the pair decided to take out a loan and bring in a great tech team to build their online tool for creating school yearbooks. They didn’t really know what they were in for but thankfully they learned a lot in those early days; how to sell, how to recruit great people, and how to build a business.</p>
+            </aside>       
+            </article>
+            
+            <article id="aboutcontact">
+            <h2>Contact Us</h2>            
+            
+            <div class="map"><a href="#"><img src="{% static "img/map01.jpg" %}" alt="MAP" /></a></div>
+            
+            <p><span>Our Magic Dungeon: 32344 Greenpoint Ave. Brooklyn, NY 11928</span></p>
+            
+            <div class="contactus">
+            <p>If you have any suggestions or questions please shoot us an email, or reach out to us on Twitter!</p>
+            
+            <ul>
+            <li><a href="#" class="email">hello@magnate.io</a></li>
+            <li><a href="#" class="twitter">@magnate</a></li>
+            <li><a href="#" class="facebook">facebook.com/magnate</a></li>
+            </ul>
+            </div>
+            </article>        
+            </div>
+            </div>
+            </div>
+            
+        </div><!-- aboutus -->
+    </div><!-- grid_16 -->
+
+
+
+
+
+{% endblock %}

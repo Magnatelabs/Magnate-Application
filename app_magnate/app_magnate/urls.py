@@ -12,6 +12,12 @@ urlpatterns = patterns("",
     url(r"^admin/", include(admin.site.urls)),
     url(r"^account/", include("account.urls")),
     url(r"^waitinglist/", include("waitinglist.urls")),
+#    url(r"^contacts/", include("phonebook.urls")),
+#    url(r"^testform/", include("testFormApp.urls")),
+    url(r"^startedsurvey/", include("startedQuestionnaire.urls")), 
+    url(r"^aboutus/", include("companyinfo.urls")),
+    url(r"^errors/", include("siteErrors.urls")),
+    url(r"^dash/", include("dashboard.urls")),
 )
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

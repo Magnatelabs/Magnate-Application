@@ -139,13 +139,19 @@ INSTALLED_APPS = [
     "account",
     "metron",
     "eventlog",
-     "waitinglist",
+    "waitinglist",
 
     # project
     "app_magnate",
 
     #migrations
     "south",
+
+    #created 
+    "startedQuestionnaire",
+    "companyinfo",
+    "siteErrors",
+    "dashboard",
 ]
 
 # A sample logging configuration. The only tangible logging

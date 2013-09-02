@@ -416,7 +416,11 @@
 	$.selectbox.version = "0.1.3";
 })(jQuery);
 
+//the alerts are there to help figure out why it's not working.
+//alert("1");
 $(function() {
+	//alert("2");
 	$(".select").selectbox({
 	});
+	//alert("3");
 });

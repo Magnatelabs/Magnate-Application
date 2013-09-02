@@ -139,13 +139,20 @@ INSTALLED_APPS = [
     "account",
     "metron",
     "eventlog",
-     "waitinglist",
+    "waitinglist",
 
     # project
     "app_magnate",
 
     #migrations
     "south",
+
+    #created 
+    "startedQuestionnaire",
+    "testFormApp",
+    "companyinfo",
+    "siteErrors",
+#    "phonebook", (some stupid example) 
 ]
 
 # A sample logging configuration. The only tangible logging
@@ -183,7 +190,7 @@ FIXTURE_DIRS = [
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
-ACCOUNT_OPEN_SIGNUP = 
+ACCOUNT_OPEN_SIGNUP = False 
 ACCOUNT_USE_OPENID = False
 ACCOUNT_REQUIRED_EMAIL = False
 ACCOUNT_EMAIL_VERIFICATION = False

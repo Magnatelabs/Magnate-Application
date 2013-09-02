@@ -1,0 +1,14 @@
+{% extends "site_base.html" %}
+{% load bootstrap_tags %}
+
+{% block body %}
+<div id="waitinglist_errors">
+    
+    <form method="POST" action="{% url 'waitinglist_ajax_list_signup' %}" class="form-inline ajax" data-replace="#waitinglist">
+        {% csrf_token %}
+        {{ form|as_bootstrap }}
+        <input id="errorsbtn" type="submit" class="startedbtn" value="Try Again" />
+    </form>
+</div>
+
+{% endblock %}

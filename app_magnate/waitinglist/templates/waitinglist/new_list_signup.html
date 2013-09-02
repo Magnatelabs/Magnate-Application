@@ -1,0 +1,9 @@
+{% load bootstrap_tags %}
+<div id="waitinglist">
+    
+    <form method="POST" action="{% url 'survey' %}" class="form-inline ajax" data-replace="#waitinglist">
+        {% csrf_token %}
+        {{ form|as_bootstrap }}
+        <input type="submit" class="startedbtn" value="Get Started" />
+    </form>
+</div>
