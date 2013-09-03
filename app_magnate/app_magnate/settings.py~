@@ -149,10 +149,9 @@ INSTALLED_APPS = [
 
     #created 
     "startedQuestionnaire",
-    "testFormApp",
     "companyinfo",
     "siteErrors",
-#    "phonebook", (some stupid example) 
+    "dashboard",
 ]
 
 # A sample logging configuration. The only tangible logging
