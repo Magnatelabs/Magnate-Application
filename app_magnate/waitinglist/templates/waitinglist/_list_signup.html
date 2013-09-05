@@ -1,6 +1,7 @@
+<!-- Little form that prompts you to enter your email address -->
+
 {% load bootstrap_tags %}
-<div id="waitinglist">
-    <p>Enter your email address to join our private beta&hellip;</p>
+<div id="email_form">
     
     <form method="POST" action="{% url 'waitinglist_ajax_list_signup' %}" class="form-inline ajax" data-replace="#waitinglist">
         {% csrf_token %}

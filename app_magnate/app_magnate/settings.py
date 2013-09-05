@@ -148,8 +148,9 @@ INSTALLED_APPS = [
     "south",
 
     #created 
-    "startedQuestionnaire",
+#    "startedQuestionnaire", (renamed)
     "companyinfo",
+    "getstartedquestions",
     "siteErrors",
     "dashboard",
 ]

@@ -13,20 +13,29 @@
             <li><a href="#aboutcontact">Contact Us</a></li>
             </ul>
             
-            <form action="#" method="post">
+            <form method="POST" action="{% url 'mediaupdates' %}">
             <fieldset>
             <ul>
             <li><label>Media Updates</label></li>
             
-            <li class="bg-input">
+            {% csrf_token %}
+    	
+			<p><label for="id_name">Name</label>
+				<input id="id_name" type="text" name="name" maxlength="200" /></p>
+				
+			<p><label for="id_signup_email">Email</label>
+				<input id="id_signup_email" type="text" name="signup_email" maxlength="200" value="" /></p>	
+				
+				
+<!--            <li class="bg-input">
             <input name="" type="text" class="input" value="Name" onFocus="if(this.value == 'Name') {this.value = '';}" onBlur="if (this.value == '') {this.value = 'Name';}" />
             </li>
             
             <li class="bg-input right">
             <input name="" type="text" class="input" value="Email" onFocus="if(this.value == 'Email') {this.value = '';}" onBlur="if (this.value == '') {this.value = 'Email';}" />
             </li>
-            </ul>
-            
+-->
+            </ul>            
             <input name="" type="submit" class="startedbtn" value="Subscribe">
             </fieldset>
             </form>

@@ -1,3 +1,5 @@
+# waitinglist.views
+
 import json
 
 from django.core.urlresolvers import reverse
@@ -18,32 +20,40 @@ from .signals import signed_up
 
 @require_POST
 def ajax_list_signup(request):
-    form = WaitingListEntryForm(request.POST)
-    if form.is_valid():
-        entry = form.save()
-        signed_up.send(sender=ajax_list_signup, entry=entry)
-        try:
-            data = {
-                "location": reverse("waitinglist_survey", args=[entry.surveyinstance.code])
-            }
-        except SurveyInstance.DoesNotExist:
-            return redirect("startedsurvey/")
-# (just trying out another form)           return redirect("/testform/testform/formtest.html")
+    '''  This view is called after the user enters his email and clicks Submit. 
+    This view function takes the email form from homepage '''
 
+    form = WaitingListEntryForm(request.POST)
+    if form.is_valid():      # Essentially validate the email address that the user entered
+        entry = form.save()  # Save user's email to the database - he is interested
+        
+        # entry is just an instance of WaitingListEntry that's been saved to db, has our email just entered
+        
+        #notify some other part of the django app that something happened: a new entry!
+        
+        # TODO: not clear what it is doing   
+        # signed_up.send(sender=ajax_list_signup, entry=entry)
+
+# This is something that waitinglist is doing for some purpose... Not sure. We are not using it.
+#
+#        try:
 #            data = {
-#                "html": render_to_string("testFormApp/formtest.html", {  
-#                "html": render_to_string("questionnaire.html", {
-#                "html": render_to_string("waitinglist/_success.html", {
-#                },  context_instance=RequestContext(request))
+#                "location": reverse("waitinglist_survey", args=[entry.surveyinstance.code])
 #            }
-    else:
+#        except SurveyInstance.DoesNotExist:
+ #          print 'debug: redirecting to started_survey...'
+
+        return redirect("/startedsurvey/started_survey/")?email=" + entry.email)
+
+    else:  # if not form.is_valid
         data = {
             "html": render_to_string("waitinglist/_errors.html", {
                 "form": form,
             },  context_instance=RequestContext(request))
         }
+    
     return HttpResponse(data["html"])    
-    return HttpResponse(json.dumps(data), mimetype="application/json")
+    #return HttpResponse(json.dumps(data), mimetype="application/json")
 
 def list_signup(request, post_save_redirect=None):
     if request.method == "POST":

@@ -5,7 +5,14 @@
         
         <aside>
         	<p class="footer_browser">
-				<a href="#" class="first">Home</a> | 
+        	{% if not request.user.is_authenticated %}        	
+				<a href="{% url "home" %}" class="first">Home</a> | 
+			{% endif %}	
+				
+			{% if request.user.is_authenticated %}
+				<a href="{% url "dashboard" %}" class="first">Home</a> | 
+			{% endif %}
+						
 				<a href="{% url "aboutus" %}">About</a> | 
 				<a href="{% url "error404" %}">Blog</a> | 
 				<a href="{% url "aboutus" %}">Our Team</a> |

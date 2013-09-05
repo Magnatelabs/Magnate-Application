@@ -7,4 +7,5 @@ admin.autodiscover()
 
 urlpatterns = patterns("",
   url(r"^dashboard/$", "dashboard.views.dashboard_index", name="dashboard"),
+  url(r"^dashboard/spotlightrequest/$", "dashboard.views.dashboard_spotlight_request", name="spotlight_request"),
 )
