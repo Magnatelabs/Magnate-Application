@@ -651,7 +651,7 @@ p {
 }
 
 .lead {
-  margin-bottom: 20px;
+  margin-bottom: 400px;
   font-size: 21px;
   font-weight: 200;
   line-height: 30px;
@@ -6202,23 +6202,7 @@ font-family: "HelveticaNeueLTStd55Roman", Arial, Helvetica, sans-serif; font-siz
 
 .row h2 { color: #363636; font-weight: normal;}
 
-.row .leftcolumn { width: 44%; float: left; list-style-type: none; -webkit-padding-start: 0px; }
-
-.row .rightcolumn { width: 44%; float: right; list-style-type: none; }
-
-.row li { width: 100%; float: left; padding-bottom: 15px;}
-
-.row .startedq_firstname {width: 48.5%; float: left; }
-
-.row .startedq_lastname {width: 48.5%; float: right;}
-
-.row .startedq_email {width: 80%; float: left;}
-
-.row .startedq_code {width: 59%; float: left; }
-
-.row .startedq_gender { width: 37.3%; float: left; }
-
-.right label {width: 100%; float: left; font-family: "Helvetica Neue", Arial, Helvetica, sans-serif; font-size: 14px; color: #363636; padding-bottom: 5px; margin-bottom: 0; }
+.row p { line-height: 1.2em; font-size: 18px; padding-bottom: 0; text-align: left; }
 
 .row .options { float: left; font-size: 10px; color: #808080; padding: 10px 7px 0 0; }
 
@@ -6246,7 +6230,7 @@ font-family: "HelveticaNeueLTStd55Roman", Arial, Helvetica, sans-serif; font-siz
 
 .grid_footer .footer_socialmedia ul li a img { width:46px; height:46px; float:left; text-indent:-9999px}
 
-id_email {
+super_email {
   background-color: #ffffff;
   border: 1px solid #cccccc;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
@@ -6258,7 +6242,7 @@ id_email {
           transition: border linear 0.2s, box-shadow linear 0.2s;
 }
 
-id_email {
+super_email {
   border-color: rgba(82, 168, 236, 0.8);
   outline: 0;
   outline: thin dotted \9;
@@ -6269,7 +6253,7 @@ id_email {
           box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
 }
 
-#id_email {
+#super_email {
   display: inline-block;
   height: 40px;
   width: 545px;
@@ -6295,7 +6279,62 @@ a.startedbtn[disabled] { color: #FFFFFF; background:#80bc46; background:-moz-lin
 a.startedbtn:active,
 a.startedbtn.active { background:#80bc46; background:-moz-linear-gradient(#8ebc60, #72bb2b); background: -webkit-gradient(linear, left top, left bottom, from(#8ebc60), to(#72bb2b)); background: -o-linear-gradient(#8ebc60, #72bb2b); -pie-background: linear-gradient(#8ebc60, #72bb2b); box-shadow: inset #5a872e 0 2px 3px, #393128 0 1px 3px; }
 
-.row p { line-height: 1.2em; font-size: 18px; padding-bottom: 0; text-align: left; }
+
+
+
+/*/
+Getstarted Questionnaire added styling 09.11.13
+/*/
+.row li { width: 100%; float: left; }
+
+.row .leftcolumn { width: 44%; float: left; list-style-type: none; -webkit-padding-start: 0px; }
+
+.row .leftcolumn form aside { font-size: 12px; color: #c4c4c4; line-height: 7px; }
+
+.row .leftcolumn form p { -webkit-margin-after: 1em; }
+
+#id_first_name {width: 100%; }
+
+#id_last_name {width: 100%; }
+
+#id_waitinglistemail { width: 85%; }
+
+#id_sex { width: 49%; }
+
+#gstart_dob { -webkit-margin-after: 0em; -webkit-margin-before: 0em; }
+
+#id_dob { width: 44%; }
+
+.row .rightcolumn { width: 44%; float: right; list-style-type: none; -webkit-padding-start: 0px; }
+
+.row .rightcolumn ul { list-style-type: none; -webkit-padding-start: 0px; }
+
+#noob_radial { padding-left: 20px; list-style-type: none; padding-right: 20px; }
+
+#amateur_radial { padding-left: 20px; list-style-type: none; padding-right: 20px; }
+
+#expert_radial { padding-left: 20px; list-style-type: none; padding-right: 20px; }
+
+#what_radial { padding-left: 20px; list-style-type: none; padding-right: 20px; padding-bottom: 10px; }
+
+.row .startedq_email {width: 80%; float: left;}
+
+.row .startedq_code {width: 59%; float: left; }
+
+.row .startedq_gender { width: 37.3%; float: left; }
+
+.right label {width: 100%; float: left; font-family: "Helvetica Neue", Arial, Helvetica, sans-serif; font-size: 14px; color: #363636; padding-bottom: 5px; margin-bottom: 0; }
+
+.question_btn { display: inline-block; *display: inline; float:left; width:154px; height:50px; margin-top: 20px; *margin-left: .3em; font-size: 20px; font-family:"helveticaneuelight",Arial, Helvetica, sans-serif; color: #FFFFFF; text-align: center; text-shadow:none; vertical-align: middle; cursor: pointer; background:#80bc46; background:-moz-linear-gradient(#8ebc60, #72bb2b); background: -webkit-gradient(linear, left top, left bottom, from(#8ebc60), to(#72bb2b)); background: -o-linear-gradient(#8ebc60, #72bb2b); -pie-background: linear-gradient(#8ebc60, #72bb2b); border:none; text-decoration:none !important; box-shadow: #393128 0 1px 3px; border-radius:6px; behavior: url(PIE.htc); position:relative; right: 0px; top: 0px;}
+
+a.question_btn:hover,
+a.question_btn:active,
+a.question_btn.active,
+a.question_btn.disabled,
+a.question_btn[disabled] { color: #FFFFFF; background:#80bc46; background:-moz-linear-gradient(#8ebc60, #8ebc60); background: -webkit-gradient(linear, left top, left bottom, from(#8ebc60), to(#8ebc60)); background: -o-linear-gradient(#8ebc60, #8ebc60); -pie-background: linear-gradient(#8ebc60, #8ebc60); }
+
+a.question_btn:active,
+a.question_btn.active { background:#80bc46; background:-moz-linear-gradient(#8ebc60, #72bb2b); background: -webkit-gradient(linear, left top, left bottom, from(#8ebc60), to(#72bb2b)); background: -o-linear-gradient(#8ebc60, #72bb2b); -pie-background: linear-gradient(#8ebc60, #72bb2b); box-shadow: inset #5a872e 0 2px 3px, #393128 0 1px 3px; }
 
 
 
@@ -6329,7 +6368,7 @@ About Us added styling
 	
 .hero-grid .aboutus .sidemenu-inner { width: 23.40%; float: left; padding-top: 83px; }
 
-.hero-grid .aboutus .sidemenu-inner ul { width: 100%; float: left; padding-bottom: 48px; list-style: none; }
+.hero-grid .aboutus .sidemenu-inner ul { width: 100%; float: left; padding-bottom: 48px; list-style: none; -webkit-padding-start: 0px; }
 
 .hero-grid .aboutus .sidemenu-inner ul li { width: 100%; float: left; font-size: 16px; padding-bottom: 1px; }
 
@@ -6349,7 +6388,140 @@ About Us added styling
 
 .ourstory-info article.nodivider {border-top: none; padding-top: 48px; }
 
-.ourstory-info article figure { width: 100%; float: left; line-height: .5em; padding-bottom: 18px; }
+.ourstory-info article.nodiviver h2 { font-size: 36px; font-family: "helveticaneuelight", Arial, Helvetica, sans-serif; }
+
+.ourstory-info article figure { width: 100%; float: left; line-height: .5em; padding-bottom: 18px; -webkit-margin-start: 0px; -webkit-margin-end: 0px; }
+
+.ourstory-info article figure img { height: auto; max-width: 100%; vertical-align: middle; border: 0; }
+
+.ourstory-info article p { font-size: 16px; color: #4c4c4c; padding-bottom: 18px; }
+
+.ourstory-info article { border-top: 1px solid #d2d0d0; }
+
+.ourstory-info article h2 { font-size: 36px; font-family: "helveticaneuelight", Arial, Helvetica, sans-serif; }
+
+.ourstory-info .team-list { width: 58.75%; float: left; }
+
+.ourstory-info .team-list h2 { padding-bottom: 13px; }
+
+.ourstory-info .team-list ul { width: 105%; float: left; margin-right: -5%; position: relative; -webkit-padding-start: 0px; }
+
+.ourstory-info .team-list ul li { width: 27.7%; float: left; box-shadow: #999 0 1px 3px; behavior: url(PIE.htc); position: relative; line-height: .5em; margin: 0 5.6% 15px 0; list-style: none; }
+
+.ourstory-info article aside { width: 37.85%; float: right; padding: 20px 0 0 3.4%; }
+
+.ourstory-info .map { width: 98.4%; float: left; background: #e5e5e5; line-height: .5em; padding: .8%; margin: -7px 0 5px 0; }
+
+.ourstory-info .contactus { width: 100%; float: left; padding: 22px 0 0 0; }
+
+.ourstory-info .contactus ul { width: 100%; float: left; padding: 11px 0 0 0; }
+
+.ourstory-info .contactus ul li { width: 100%; float: left; font-size: 16px; padding-bottom: 7px; list-style: none; }
+
+@media (max-width: 979px) {
+  .hero-grid {
+    max-width: 525px;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-grid, .thumbnails {
+    margin-left: 0;
+  }
+}
+
+.form-actions #login-action {} /*for login fix (maybe?)
+
+
+/*
+Dashboard Styling 
+*/
+
+.hero-dash { width: 940px; margin-top: -10px;
+}
+
+.dash-section1 { width: 99.8%; float: left; background: #f8f8f8; border: 1px solid #c5c6c5; border-top: 7px solid #72bb2a; box-shadow: inset #ebebeb 0 -3px 4px; position: relative; behaviior: url(PIE.htc); margin-bottom: 30px; line-height: 18px;
+}
+
+
+.whatnext {width: 70.25%; float: left; background: #ffffff; border-right: 1px solid #e7e8e8; box-shadow: inset #d9d9d9 2px 0 5px, inset #d9d9d9 0 -1px 2px; position: relative; behaviior: url(PIE.htc); padding: 42px 0 0 0; line-height: none;
+}
+
+.whatnext aside { width: 94.25%; float: left; padding: 0 0 0 5.75%; line-height: none;
+}
+
+.whatnext aside h2 { font-size: 20px; font-family: "helveticaneuemedium",Arial, Helvetica, sans-serif; padding-bottom: 34px; line-height: 0px;
+}
+
+.whatnext aside figure { width: 40px; float: left; line-height: .5em; margin: 0 17px 0 0;
+}
+
+.whatnext aside .info { width: 67%; float: left; padding: 7px 0 22px 0; }
+
+.whatnext aside .info h3 { color: #4c4c4c; padding: 0 0 18px 0; -webkit-margin-before: 0em; -webkit-margin-after: 0em; font-size: 18px; font-family: "helveticaneuebold",Arial, Helvetica, sans-serif;line-height: inherit;
+}
+
+.whatnext aside .info p { font-size: 14px; color: #4c4c4c; word-spacing: -1px; padding: 0 0 12px 0;
+}
+
+.whatnext aside .info p span { float: left; background: url(static/img/img_icon04.png) no-repeat 0 0; font-size: 12px; padding: 0 0 0 22px; margin-left: 16%;
+}
+
+.whatnext article { width: 99.8%; float: left; background: #d9d4da; border: 1px solid #e6e7e7; padding: 14px 0 30px 0; position: relative;
+}
+
+#arrow { width: 16px; height: 11px; float: left; text-indent: -9999px; position: absolute; top: -1px; left: 8%; 
+}
+
+.whatnext article .project { width: 73.1%; float: left; padding: 0 12.1% 0 14.8%;
+}
+
+.whatnext article ul { width: 100%; float: left;
+}
+
+.whatnext article ul li { width: 100%; float: left; padding-bottom: 15px;
+}
+
+.whatnext .features { width: 100%; float: left; padding: 93px 0 132px 0;
+}
+
+.whatnext .features .icon { width: 100%; float: left; line-height: .5em; text-align: center; padding-bottom: 7px;
+}
+
+.whatnext .features p { font-size: 14px; color: #4c4c4c; line-height: 14px; text-align: center;
+}
+
+.whatcoming { width: 29.58%; float: left;
+}
+
+.whatcoming article { width: 100%; float: left; background: #eaf6de;
+}
+
+.whatcoming aside { width: 87.2%; float: left; padding: 27px 6.4% 25px 6.4%;
+}
+
+.whatcoming .icon { float: left; line-height: .5em;
+}
+
+.whatcoming .info { width: 190px; float: right;
+}
+
+.whatcoming h4 { font-family: "helveticaneuebold",Arial, Helvetica, sans-serif; color: #4c4c4c; padding-bottom: 16px;
+}
+
+.whatcoming .bg-skyblue { background: #f0f5f7; box-shadow: inset #e2e0e0 0 -2px 4px; behavior: url(PIE.htc);
+}
+
+.whatcoming .bg-none { background: none;
+}
+
+.whatcoming .endicon { width: 100%; float: left; border-bottom: 1px solid #edecec; text-align: center;
+}
+
+.whatcoming .endicon img { background: #f8f8f8; margin-bottom: -12px; position: relative; padding: 0 3px;
+}
+*/
+
 
 /* Not in use, but will be soon
 .hero-unit p#signupselect { color: #363636; font-size: 14px; text-align: center; text-decoration:none !important; }
@@ -6390,3 +6562,4 @@ About Us added styling
     margin-left: 0;
   }
 }
+

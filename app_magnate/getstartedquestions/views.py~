@@ -36,6 +36,8 @@ def survey_index(request):
             entry.dob = s[-4:] + '-' + s[:2] + '-' + s[3:5]
             entry.save()
             return redirect('/') # Redirect after POST
+        else:
+            print 'DEBUG: form is not valid!!!', form.errors
     else:
         form = QuestionList() # An unbound form
 

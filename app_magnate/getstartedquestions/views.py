@@ -13,8 +13,8 @@ from getstartedquestions.models import QuestionList
 
 
 def survey_index(request):
-    import pdb #(test for checking each process)
-    pdb.set_trace()
+#    import pdb #(test for checking each process)
+#    pdb.set_trace()
     if request.method == 'POST': # If the form has been submitted...
         form = QuestionListForm(request.POST) # A form bound to the POST data
         if form.is_valid(): # All validation rules pass

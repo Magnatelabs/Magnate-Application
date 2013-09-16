@@ -27,6 +27,7 @@ class WaitingListEntryForm(forms.ModelForm):
         super(WaitingListEntryForm, self).__init__(*args, **kwargs)
         self.fields["email"].widget.attrs["placeholder"] = "your@email.com"
         self.fields["email"].label = ""
+        self.fields['email'].widget.attrs['id'] = 'super_email'
 
 
 class CohortCreate(forms.ModelForm):

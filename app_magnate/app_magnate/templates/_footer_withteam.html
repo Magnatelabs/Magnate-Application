@@ -1,0 +1,44 @@
+{% load i18n %}
+{% load staticfiles %}
+
+	<div class="grid_footer">
+        
+        <aside>
+        	<p class="footer_browser">
+        	{% if not request.user.is_authenticated %}        	
+				<a href="{% url "home" %}" class="first">Home</a> | 
+			{% endif %}	
+				
+			{% if request.user.is_authenticated %}
+				<a href="{% url "dashboard" %}" class="first">Home</a> | 
+			{% endif %}
+						
+				<a href="{% url "aboutus" %}">About</a> | 
+				<a href="{% url "error404" %}">Blog</a> | 
+				<a href="{% url "aboutus_team" %}">Our Team</a> |
+				<a href="{% url "aboutus_contact" %}">ContactUs/Support</a> | 
+				<a href="{% url "error404" %}">Terms</a> | 
+				<a href="{% url "error404" %}">FAQ</a>
+			</p>
+        
+        <p class="footer_mobile">
+        	<a href="#" class="first">Home</a> | 
+			<a href="#">About</a> | 
+			<a href="#">Blog</a> | 
+			<a href="#">Our Team</a>
+			<a href="#">ContactUs/Support</a> | 
+			<a href="#">Terms</a> | 
+			<a href="#">FAQ</a>
+		</p>
+        
+        <p><span>&copy; 2013 MagnateLabs Inc. All Rights Reserved</span></p>
+        </aside>
+        
+        <div class="footer_socialmedia">
+        	<ul>
+				<li><a href="#"><img src="{% static "img/twitter01.png" %}" alt="PHOTO" /></a></li>
+				<li><a href="#"><img src="{% static "img/facebook01.png" %}" alt="PHOTO" /></a></li>
+				<li><a href="#"><img src="{% static "img/pinterest01.png" %}" alt="PHOTO" /></a></li>
+			</ul>
+        </div>
+	</div>	

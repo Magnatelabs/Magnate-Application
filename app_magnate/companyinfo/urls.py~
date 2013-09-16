@@ -7,5 +7,5 @@ admin.autodiscover()
 
 urlpatterns = patterns("",
   url(r"^about_us/$", "companyinfo.views.aboutus_index", name="aboutus"),
-  url(r"^about_us/$", "companyinfo.views.newsletter_signup", name="mediaupdates"),
+  url(r"^newslettersignup/$", "companyinfo.views.newsletter_signup", name="mediaupdates"),
 )

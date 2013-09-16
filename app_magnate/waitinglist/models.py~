@@ -22,7 +22,7 @@ SURVEY_SECRET = getattr(settings, "WAITINGLIST_SURVEY_SECRET", settings.SECRET_K
 
 class WaitingListEntry(models.Model):
     
-    email = models.EmailField(_("email address"), unique=True)
+    wait_email = models.EmailField(_("email address"), unique=True)
     created = models.DateTimeField(_("created"), default=timezone.now, editable=False)
     
     class Meta:
@@ -95,6 +95,9 @@ class SurveyQuestion(models.Model):
     required = models.BooleanField()
     
     class Meta:
+        unique_together = [
+            ("survey", "question")
+        ]
         ordering = ["ordinal"]
     
     @property
