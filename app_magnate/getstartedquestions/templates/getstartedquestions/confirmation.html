@@ -1,0 +1,23 @@
+{% extends "site_base.html" %}
+{% load staticfiles %}
+
+{% load url from future %}
+{% load i18n %}
+
+
+{% block body %}
+<div class="row">
+	<div class="span12">
+		<div id="confirm_row">
+			<h1>Alpha Signup Complete!</h1>
+			<p>We're sending out invites as fast as we can, so keep an eye out for our emails. The invitation will let you know how to signup for your account, and when it's available.</p>
+			<aside>Want to stay up to date with the latest Magnate news?
+				<p>Check us out on...</p>
+				<li><img src="{% static "img/twitter02.gif" %}" alt="PHOTO" /><a href="http://twitter.com/magnatelabs" class="twitter">@magnatelabs</a></li>
+            <li><img src="{% static "img/facebook02.gif" %}" alt="PHOTO" /><a href="http://www.facebook.com/pages/Magnate-Labs/197894490391670" class="facebook">facebook.com/magnate</a></li>				
+			</aside>
+			<a href="{% url "home" %}" class="indexbtn">Return Home</a>
+		</div>
+	</div>
+</div>
+{% endblock %}

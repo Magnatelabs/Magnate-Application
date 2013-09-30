@@ -13,11 +13,11 @@ and merges them into master.
 """
 
 def deploy():
-    with lcd('/path/to/my/prod/area/'):
-        local('git pull /my/path/to/dev/area/')
+    with lcd('~/Documents/new/Smelly/'):
+        local('git pull ~/Dropbox/Magnate/Application/')
 #        local('python manage.py migrate myapp') *South is not installed yet
 #        local('python manage.py test myapp') *I do not have tests setup properly
-        local('/my/command/to/restart/webserver')
+#        local('/my/command/to/restart/webserver')
 
 """
 This will pull changes from the development master branch, 

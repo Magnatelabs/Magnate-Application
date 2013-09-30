@@ -1,0 +1,27 @@
+{% extends "site_base.html" %}
+{% load staticfiles %}
+
+{% load url from future %}
+{% load i18n %}
+
+
+{% block body %}
+<div class="row">
+	<div class="span12">
+		<div id="dash_confirm_row">
+			<h1>Spotlight Request Received!</h1>
+			<p>Your team of crowdfunding specialists is now on the case. Give us a chance to review your request details, and when we start work you'll get an update on when to expect the completed analysis.</p>
+			<aside>
+				<h2>Commonly asked questions:</h2>
+				<h4>How long does it take to receive my Project Spotlight?</h4>
+				<p>Currently all Project Spotlights takes anywhere from 1-2 weeks. As we continue to grow we expect this duration to shorten--it's one of our top priorities. In return for your patience, we promise not leaving any stone unturned while analyzing your specific project or company. 
+				<h4>How will I receive my Project Spotlight?</h4>
+				<p>At the moment all completed Project Spotlights are emailed directly to each user; however, our goal is for this change. In the near future expect your dashboard to expand, and include a specific section where you can view past and current spotlights, and even communicate directly with your CrowdGuide to improve how we serve you.</p>
+				<h4>Can I always expect to have unlimited access to this feature?</h4>
+				<p>We're still working on how to exactly scale out such a powerful tool as the Project Spotlight. As soon as we have more information on this we will make sure to let all users know. That being said, we plan on finding ways to say "thank you" to our initial users, so you can definitely expect some awesome benefits ;).</p>			
+			</aside>
+			<a href="{% url "dashboard" %}" class="indexbtn" id="dash_confirm_btn">Return to Dashboard</a>
+		</div>
+	</div>
+</div>
+{% endblock %}
