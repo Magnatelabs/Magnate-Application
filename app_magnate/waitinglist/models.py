@@ -88,7 +88,7 @@ class SurveyQuestion(models.Model):
     ]
     
     survey = models.ForeignKey(Survey, related_name="questions")
-    question = models.TextField()
+    question = models.TextField(blank=True)
     kind = models.IntegerField(choices=FIELD_TYPE_CHOICES)
     help_text = models.TextField(blank=True)
     ordinal = models.IntegerField(blank=True)
@@ -96,7 +96,8 @@ class SurveyQuestion(models.Model):
     
     class Meta:
         unique_together = [
-            ("survey", "question")
+            ("survey")
+#            ("survey", "question")
         ]
         ordering = ["ordinal"]
     
@@ -145,7 +146,7 @@ class SurveyQuestionChoice(models.Model):
 class SurveyAnswer(models.Model):
     
     instance = models.ForeignKey(SurveyInstance, related_name="answers")
-    question = models.ForeignKey(SurveyQuestion, related_name="answers")
+    question = models.TextField()
     value = models.TextField(blank=True)
     value_boolean = models.NullBooleanField(blank=True)
     created = models.DateTimeField(_("created"), default=timezone.now, editable=False)

@@ -20,10 +20,13 @@ class QuestionListForm(forms.Form):
     waitinglistemail = forms.EmailField()
     sex = forms.CharField(max_length=200)
     dob = forms.DateField(input_formats=['%m/%d/%Y',], required=False, widget=forms.DateInput(format = '%m/%d/%Y') )
-    funding_knowledge = forms.CharField(max_length=200, widget=forms.RadioSelect(renderer=HorizontalRadioRenderer, choices=(('yes','YES'),('no','NO'))))
-#    funding_knowledge = forms.CharField(max_length=200)
+
+#    funding_knowledge = forms.CharField(max_length=200, widget=forms.RadioSelect(renderer=HorizontalRadioRenderer, choices=(('yes','YES'),('no','NO'))))
+# Above is an attempt to horizontally place radials (didn't work)
+
+    funding_knowledge = forms.CharField(max_length=200) 
     income = forms.IntegerField()
-#    income = forms.CharField(max_length=200) need to make this a charfield during real dev
+#    income = forms.CharField(max_length=200) !Need to make this a charfield during production!!
     funding_preference = forms.CharField(max_length=200)
     industry_preference = forms.CharField(max_length=200)
     site_rec = forms.CharField(max_length=200)

@@ -17,8 +17,8 @@ MANAGERS = ADMINS
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        "NAME": "magnateappdb",
 #        "NAME": "app_magnatedb",
+        "NAME": "new_magnatedb", 
         "USER": "root",
         "PASSWORD": "",
         "HOST": "",

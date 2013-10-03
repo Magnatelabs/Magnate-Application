@@ -25,8 +25,8 @@ class QuestionListForm(forms.Form):
 # Above is an attempt to horizontally place radials (didn't work)
 
     funding_knowledge = forms.CharField(max_length=200) 
-    income = forms.IntegerField()
-#    income = forms.CharField(max_length=200) !Need to make this a charfield during production!!
+#    income = forms.IntegerField()
+    income = forms.CharField(max_length=200)
     funding_preference = forms.CharField(max_length=200)
     industry_preference = forms.CharField(max_length=200)
     site_rec = forms.CharField(max_length=200)

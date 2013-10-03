@@ -11,8 +11,8 @@ class QuestionList (models.Model):
     sex =  models.CharField(max_length=200)
     dob = models.DateField()
     funding_knowledge = models.CharField(max_length=200)
-#    income = models.CharField(max_length=200) need to make this charfield during production
-    income = models.PositiveIntegerField(editable=False, default=0)
+    income = models.CharField(max_length=200)
+#    income = models.PositiveIntegerField(editable=False, default=0)
     funding_preference = models.CharField(max_length=200)
     industry_preference = models.CharField(max_length=200)
     site_rec = models.CharField(max_length=200)
