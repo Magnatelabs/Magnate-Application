@@ -4,8 +4,8 @@ from django.core.urlresolvers import reverse
 from django.views import generic
 from django.utils import timezone
 
-def 404_index(request):
+def index_404(request):
     return render(request, 'siteErrors/404.html')
 
-def 500_index(request):
-    return render(request, 'siteErrors/404.html')
+def index_500(request):
+    return render(request, 'siteErrors/500.html')

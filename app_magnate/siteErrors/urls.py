@@ -8,4 +8,5 @@ admin.autodiscover()
 urlpatterns = patterns("",
   url(r"^404/$", "siteErrors.views.index_404", name="error404"),
   url(r"^500/$", "siteErrors.views.index_500", name="error500"),
+  url(r"^not_available/$", "siteErrors.views.coming_soon", name="comingsoon"),
 )

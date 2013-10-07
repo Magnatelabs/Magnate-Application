@@ -9,3 +9,6 @@ def index_404(request):
 
 def index_500(request):
     return render(request, 'siteErrors/500.html')
+
+def coming_soon(request):
+    return render(request, 'siteErrors/comingsoon.html')
