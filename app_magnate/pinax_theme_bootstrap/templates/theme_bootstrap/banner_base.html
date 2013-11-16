@@ -1,0 +1,61 @@
+{% extends "site_base.html" %}
+{% load staticfiles %}
+{% load waitinglist_tags %}
+
+{% load i18n %}
+
+{% block body %}
+
+  <div class="indexbanner">
+ 		<figure>
+ 		<img src="{% static "img/homepage_image1.jpg" %}" alt="PHOTO" />
+ 		</figure>
+ 		<div class="magnate-title"><h1>Magnate.</h1></div>
+		<aside>
+		
+		<div class="bossdivider"></div>
+        <h1>Crowdfund Like A Boss.</h1>
+        <p>We’ll do all the hard work for you.</p>
+        <a href="#codesignup" class="indexbtn">Get Started</a>
+        </aside>
+ </div>
+
+
+ <div class="hero-unit">
+    {% block banner %}
+    <! Above django tag refers to "homepage" template in /mysite/mysite/templates>
+        <h1>Hello, world!</h1>
+        <p>Vestibulum id ligula porta felis euismod semper. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+        <p><a class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+    {% endblock %}
+ </div>
+ 
+ {% if not request.user.is_authenticated %}
+  <div class="row">
+    	<h2>Sign Up</h2>
+    	<p>Like testing out new applications? Reserve a spot today, and let your feedback leave a mark on Magnate as we continue building.</p>	
+		<p>Enter your email address to join our private beta&hellip;</p>
+	    {% waitinglist_entry_form as form %}
+        <! Remember that the above assignment tag works in tandem with templatetags (so load your template tags!)>
+        
+        {% include "waitinglist/_list_signup.html" %}	        
+	    <div id="codesignup">
+	    {% url "account_signup" as signup_url %}
+	    <p id="what"><a href="{{ signup_url }}">Already have a code? Log in</a></p>
+	    </div>
+  </div>	
+ {% endif %}
+ 
+	<script src="http://127.0.0.1:6060/site_media/static/js/jquery-1.9.0.min.js"></script>
+	<script src="http://127.0.0.1:6060/site_media/static/js/selectjquery.js"></script>	
+   <!--test-->
+
+    
+   {% endblock %}
+   
+   <script src="http://127.0.0.1:6060/site_media/static/js/jquery-1.9.0.min.js"></script>
+   <script src="http://127.0.0.1:6060/site_media/static/js/selectjquery.js"></script>	
+   
+            <script src="{% static "js/selectjquery.js" %}"></script>
+			<script src="{% static "js/select_functions.js" %}"></script>
+			<script src="{% static "js/jquery-1.9.0.min.js" %}"></script>
