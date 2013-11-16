@@ -15,9 +15,9 @@ def aboutus_index(request):
 
 def newsletter_signup(request):
     print "before pdb"
-    import pdb #(test for checking each process)
-    pdb.set_trace()
-    print "after pdb"
+#    import pdb #(test for checking each process)
+#    pdb.set_trace()
+#    print "after pdb"
     if request.method == 'POST': # If the form has been submitted...
         form = MediaUpdatesForm(request.POST) # A form bound to the POST data
         if form.is_valid(): # All validation rules pass
