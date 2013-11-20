@@ -1,0 +1,189 @@
+{% extends "site_base.html" %}
+{% load staticfiles %}
+
+{% block body %}
+
+    <div class="dash_grid">
+    <div class="inner_dashcontent">
+        <div class="section1 section3">
+	  <div class="bgprofile-info">
+        <div class="profile-info">
+        <article>
+        <figure><a href="#"><img src="{% static "img/photo32.jpg" %}" alt="PHOTO"></a> <span class="caption"><a href="#">Change profile photo?</a></span></figure>
+        
+        <aside>
+        <h3><a href="#">Susiewow42</a></h3>
+        
+        <div class="info">
+        <figure><a href="#"><img src="{% static "img/photo33.jpg" %}" alt="PHOTO"></a></figure>        
+        <h3><a href="#">Meme Magnate:</a></h3>
+        <p>Your donation’s funded mainly comics and internet startups!</p>
+        </div>
+        
+        <div class="badges">
+        <h3>Badges (3) <span><a href="#">See All</a></span></h3>
+        <ul>
+        <li><img src="{% static "img/img_icon13.png" %}" alt="BADGE"></li>
+        <li><img src="{% static "img/img_icon14.png" %}" alt="BADGE"></li>
+        <li><img src="{% static "img/img_icon15.png" %}" alt="BADGE"></li>
+        </ul>
+        </div>
+        
+        </aside>
+        </article>
+        </div>
+        
+        <div class="donate-box">
+        <aside>
+        <div class="dollar"><span>35</span></div>
+        <p>This is how much your donation is currently worth</p>
+        
+        <p><a href="{% url 'donations_home' %}">Add more to the fund</a></p>
+        </aside>
+        </div>        
+        </div>
+        
+        <div class="article-info">
+        <div class="newest">
+        <a href="#">Newest</a>
+        </div>
+        
+        <div class="dash_row">
+        <div class="icon"><img src="{% static "img/img_icon16.png" %}" alt="ICON"></div>
+        
+        <article>
+        <h4>You have a new investment!</h4>
+        <figure><img src="{% static "img/photo27.jpg" %}" alt="PHOTO"></figure>
+        
+        <aside>
+        <p>Peer 2 Peer University <br /> Educational Technology <br /> New York City, NY</p>
+        <p class="more"><a href="#">Read more...</a></p>
+        </aside>
+        
+        <div class="award-icon">
+        <p>Award(s)</p>
+        <div class="icon"><img src="{% static "img/img_icon14.png" %}" alt="ICON"></div>
+        </div>
+        </article>
+        </div>
+        
+        <div class="dash_row">
+        <div class="icon"><img src="{% static "img/img_icon17.png" %}" alt="ICON"></div>
+        
+        <article>
+        <h4><span>Dresden Codak</span> has an update for you</h4>
+        <p>New digital book, The Hob Collection, is now available for download! It includes 2009/2010 sketchbook content & new hi-res concept art (plus satirical essays). Get a copy <a href="#">here</a>!</p>
+        
+        <figure><img src="{% static "img/photo28.jpg" %}" alt="PHOTO"></figure>
+        
+        <aside>
+        <p>The Tomorrow Girl <br /> Entertainment (Comic) <br /> Durham, NC</p>
+        <p class="more"><a href="#">Read more...</a></p>
+        </aside>
+        </article>
+        </div>
+        
+        <div class="dash_row">
+        <div class="icon"><img src="{% static "img/img_icon18.png" %}" alt="ICON"></div>
+        
+        <article>
+        <h4><span>Magnate Techsters</span> recommends this article</h4>
+        <figure><img src="{% static "img/photo29.jpg" %}" alt="PHOTO"></figure>
+        
+        <aside class="info">
+        <h4>Great EduTech Incubators in New York</h4> 
+        <p><span>Carl Hollaway</span>  ·  Online education is hot these days. A perfect storm of record-level student debt, stagnating job growth, and soaring tuition prices...</p>
+        <p class="more"><a href="#">Read more...</a></p>
+        </aside>
+        </article>
+        </div>
+        
+        <div class="dash_row">
+        <div class="icon"><img src="{% static "img/img_icon16.png" %}" alt="ICON"></div>
+        
+        <article>
+        <h4>You have a new investment!</h4>
+        <figure><img src="{% static "img/photo30.jpg" %}" alt="PHOTO"></figure>
+        
+        <aside>
+        <p>The Tomorrow Girl <br /> Entertainment (Comic) <br /> Durham, NC</p>
+        <p class="more"><a href="#">Read more...</a></p>
+        </aside>
+        
+        <div class="award-icon">
+        <p>Award(s)</p>
+        <div class="icon"><img src="{% static "img/img_icon13.png" %}" alt="ICON"></div>
+        </div>
+        </article>
+        </div>
+        
+        <div class="dash_row">
+        <div class="icon"><img src="{% static "img/img_icon19.png" %}" alt="ICON"></div>
+        
+        <article>
+        <h4>Magnate Animatators recommends this project</h4>
+        <figure><img src="{% static "img/photo31.jpg" %}" alt="PHOTO"></figure>
+        
+        <aside class="info">
+        <h4><span>TOME</span></h4>
+        <p>An annual anthology in an oversized format showcasing world-class artists as they explore a single theme using the comic book, painting, and music mediums.</p>
+        <a href="#" class="btn-gray"><span>Mark this project</span></a>
+        </aside>
+        </article>
+        </div>
+        
+        <p class="more2"><a href="#">More</a></p>
+        </div>   
+        
+        <div class="whatcoming donate-right">
+        
+        <div class="bgcash-bonus">
+        <div class="cash-bonus">
+        <aside>
+        <h4>Get a cash bonus of...</h4>
+        <div class="dollar"><span>5.50</span></div>
+        
+        <p>If you leave your donation  in the fund for another <a href="#">2 months!</a></p>
+        
+        <div class="bg-btn"><a href="#" class="btn">Reedem now</a></div>
+        </aside>
+        </div>
+        </div>
+        
+        <article class="bg-pink">
+        <aside>
+        <h4>Spread the wealth</h4>
+        <div class="icon"><a href="#"><img src="{% static "img/img_icon20.png" %}" alt="ICON"></a></div>
+        <div class="info">
+        <p><a href="#">Share Magnate</a> via your favorite social networks, and get cash bonuses for doing so!</p>
+        </div>
+        </aside>
+        </article>
+        
+        <article class="bg-none">
+        <aside>
+        <h4>Want to know more?</h4>
+        <div class="icon"><a href="#"><img src="{% static "img/img_icon08.png" %}" alt="ICON"></a></div>
+        <div class="info">
+        <p>Stop by our <a href="#">FAQs</a> page to read how Magnate works and why it is what it is.</p>
+        </div>
+        </aside>
+        </article> 
+              
+        <article class="bg-skyblue">
+        <aside>
+        <h4>Really, stay in touch</h4>
+        <div class="icon"><a href="#"><img src="{% static "img/img_icon07.png" %}" alt="ICON"></a></div>
+        <div class="info">
+        <p>Check us out on <a href="#">Facebook</a>, and tell us what’s on your mind.</p>
+        </div>
+        </aside>
+        <div class="endicon"><img src="{% static "img/img_icon09.png" %}" alt="ICON"></div>
+        </article> 
+        </div>
+        </div>
+    </div>
+    </div> <!-- grid 16 -->  
+
+
+{% endblock %}
