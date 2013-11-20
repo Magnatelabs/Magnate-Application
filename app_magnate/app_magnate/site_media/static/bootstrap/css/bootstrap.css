@@ -3973,12 +3973,13 @@ input[type="submit"].btn.btn-mini {
   padding-right: 15px;
   padding-left: 15px;
   margin-bottom: 0;
+  -webkit-padding-start: 0px;
 }
 
 .nav-list > li > a,
 .nav-list .nav-header {
   margin-right: -15px;
-  margin-left: -15px;
+  margin-left: -50px;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 
@@ -6157,7 +6158,7 @@ a.badge:focus {
 Homepage added styles (for banner_base and subsequent pages) 08.17.13 
 /*/
 .indexbanner { top: -25px; position: relative; padding-bottom: 11px;}
-.indexbanner aside { width:100%; float:left; position:absolute; top:90px; left:10.9%; margin: 0; padding: 0;   border: 0; font-size: 100%; font: inherit; vertical-align: baseline;}
+.indexbanner aside { width:100%; float:left; position:absolute; top:137px; left:7.4%; margin: 0; padding: 0;   border: 0; font-size: 100%; font: inherit; vertical-align: baseline;}
 .indexbanner aside h1 { font-family:"helveticaneuemedium", Arial, Helvetica, sans-serif; font-size:44px; font-weight: normal; color:#FFFFFF; padding-bottom:0px;}
 .indexbanner aside h1 a { color:#FFFFFF;}
 .indexbanner aside p { font-size:24px; color:#FFFFFF; padding-bottom:18px;}
@@ -6177,7 +6178,7 @@ a.indexbtn.active { background:#80bc46; background:-moz-linear-gradient(#8ebc60,
 
 .bossdivider{ width:120px; height:6px; float:left; background:#ff0000; border-radius:2px; position:relative; left:345px; top: 29px; bottom: 0px; right: 0px; z-index: 1}
 
-.magnate-title { width:19%; float:left; position:absolute; top:51px; left:455px; margin: 0; padding: 0;   border: 0; font-size: 100%; font: inherit; vertical-align: baseline;}
+.magnate-title { width:19%; float:left; position:absolute; top:98px; left:424px; margin: 0; padding: 0;   border: 0; font-size: 100%; font: inherit; vertical-align: baseline;}
 
 .magnate-title h1 { font-family:"helveticaneuemedium", Arial, Helvetica, sans-serif; font-size:44px; font-weight: normal; color:#FFFFFF; padding-bottom:0px;}
 
@@ -6368,7 +6369,7 @@ About Us added styling
 	
 .hero-grid .aboutus .sidemenu-inner { width: 23.40%; float: left; padding-top: 83px; }
 
-.hero-grid .aboutus .sidemenu-inner ul { width: 100%; float: left; padding-bottom: 48px; list-style: none; -webkit-padding-start: 0px; }
+.hero-grid .aboutus .sidemenu-inner ul { width: 100%; float: left; padding-bottom: 20px; list-style: none; -webkit-padding-start: 0px; }
 
 .hero-grid .aboutus .sidemenu-inner ul li { width: 100%; float: left; font-size: 16px; padding-bottom: 1px; }
 
@@ -6418,6 +6419,16 @@ About Us added styling
 
 .ourstory-info .contactus ul li { width: 100%; float: left; font-size: 16px; padding-bottom: 7px; list-style: none; }
 
+.contactus ul li img { padding-right: 5px; margin-top: -4px; }
+
+.sidemenu-inner form fieldset ul li label { cursor: default; font-size: 16px; }
+
+#id_name { margin-bottom: 0px; }
+
+#id_signup_email { margin-bottom: 0px; }
+
+#map_address { font-size: 12px; }
+
 @media (max-width: 979px) {
   .hero-grid {
     max-width: 525px;
@@ -6464,19 +6475,28 @@ Dashboard Styling
 .whatnext aside .info p { font-size: 14px; color: #4c4c4c; word-spacing: -1px; padding: 0 0 12px 0;
 }
 
-.whatnext aside .info p span { float: left; background: url(static/img/img_icon04.png) no-repeat 0 0; font-size: 12px; padding: 0 0 0 22px; margin-left: 16%;
+.whatnext aside .info img { margin-left: 15%; padding-left: 5px;
+}
+
+.whatnext aside .info span { font-size: 12px; padding-left: 5px;
 }
 
 .whatnext article { width: 99.8%; float: left; background: #d9d4da; border: 1px solid #e6e7e7; padding: 14px 0 30px 0; position: relative;
 }
 
-#arrow { width: 16px; height: 11px; float: left; text-indent: -9999px; position: absolute; top: -1px; left: 8%; 
+.arrow img { width: 16px; height: 11px; float: left; text-indent: -9999px; position: absolute; top: -1px; left: 8%; 
 }
 
 .whatnext article .project { width: 73.1%; float: left; padding: 0 12.1% 0 14.8%;
 }
 
 .whatnext article ul { width: 100%; float: left;
+}
+
+.whatnext article .leftcolumn { width: 44%; float: left; list-style-type: none; -webkit-padding-start: 0px; 	
+}
+
+.whatnext article .rightcolumn { width: 44%; float: right; list-style-type: none; -webkit-padding-start: 0px; 
 }
 
 .whatnext article ul li { width: 100%; float: left; padding-bottom: 15px;
@@ -6521,6 +6541,72 @@ Dashboard Styling
 .whatcoming .endicon img { background: #f8f8f8; margin-bottom: -12px; position: relative; padding: 0 3px;
 }
 */
+
+
+/*
+getstarted question confirmation page styling 
+*/
+
+#confirm_row aside { font-weight: 200; }
+
+#confirm_row aside p { font-weight: 600; padding-top: 20px; }
+
+#confirm_row aside li { list-style: none; padding-bottom: 5px; }
+
+#confirm_row a { margin-top: 20px; }
+
+
+/*
+dashboard question confirmation page styling 
+*/
+
+#dash_confirm_row aside { font-weight: 200; }
+
+#dash_confirm_row aside p { font-size: 14px; }
+
+#dash_confirm_row aside h2 { padding-top: 30px; }
+
+#dash_confirm_row a { margin-top: 30px; }
+
+#dash_confirm_btn { font-size: 15px; }
+
+
+/*
+account settings page styling 
+*/
+
+#account_span { margin-left: -35px; max-width: 770px; padding-top: 30px; }
+/* added change to .nav-list (line 3972)
+
+
+/* New Dashboard (v4) styling --do not remove, not old dashboard css
+----------------------------------------------------------------------------------------------------*/
+
+
+.dash_grid { width: 940px; display: inline; float: left; margin-left: 10px; margin-right: 10px;	
+}
+
+.inner_dashcontent { width: 100%; float: left; padding: 40px 0 170px 0;
+}
+
+.section1 {width:99.8%; float:left; background:#f8f8f8; border:1px solid #c5c6c5; border-top:7px solid #72bb2a; box-shadow:inset #ebebeb 0 -3px 4px; position:relative; behaviior:url(PIE.htc); margin-bottom:30px;
+}
+
+.bgprofile-info { width:100%; float:left; background:#a6c987; border-bottom:22px solid #313131
+}
+
+.profile-info{ width:76.76%; float:left; background:#ffffff url(../img/gradient01.gif) repeat-x top left; padding:28px 0 12px 0;
+}
+
+
+
+
+
+
+
+
+
+
 
 
 /* Not in use, but will be soon
