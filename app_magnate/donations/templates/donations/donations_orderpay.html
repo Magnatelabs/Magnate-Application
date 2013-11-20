@@ -1,0 +1,107 @@
+{% extends "site_base.html" %}
+{% load staticfiles %}
+{% load render_integration from billing_tags %}
+
+{% block body %} 
+
+<div class="grid_16">
+    <div class="contentinner">
+    	<div class="bgsection2">
+        
+        <div class="heading-inner">
+        <h1>Check your order and pay</h1>
+        </div>
+        
+        <div class="section2">
+        <div class="grid_9 alpha omega">
+        <div class="order-left">
+        <form action="#" method="post">
+        <article>
+        <aside>
+        <label>Payment method</label>
+        <select name="Gender" class="select">
+        <option value="Mastercard">Mastercard</option>
+        <option value="Mastercard">Mastercard</option>
+        </select>
+        
+        <div class="card-detail">
+        <h2 class="light">Card details</h2>
+        <ul>
+        <li>
+        
+        {% render_integration adp %}
+<!--        
+        <label>Card number</label>
+        <input name="" type="text" class="input" value="" />
+        </li>
+        
+        <li>
+        <label>Name on card</label>
+        <input name="" type="text" class="input" value="" />
+        </li>
+
+        
+        <li>
+        <label>Expiry date</label>
+        <div class="month">
+        <select name="Gender" class="select">
+        <option value="Month">Month</option>
+        <option value="Month">Month</option>
+        </select>
+        </div>
+        
+        <div class="year">
+        <select name="Gender" class="select">
+        <option value="Year">Year</option>
+        <option value="Year">Year</option>
+        </select>
+        </div>
+        </li>
+        
+        <li>
+        <label>Card security code</label>
+        <input name="" type="text" class="input code2" value="" />
+        </li>
+        </ul>
+        </div>
+        </aside>
+-->
+        <div class="accept">
+        <input type="checkbox" name="01" class="styled" /><span class="text">Yes, I have read and I accept the <a href="#">Magnate Terms of Use</a> and the <a href="#">Magnate Privacy Policy</a>.</span>
+        </div>
+        
+        <p>Your billing information will be saved for future donations.</p>
+        
+        <a href="{% url 'donations_confirmation' %}" class="btn">Continue</a>
+        <a href="#" class="btn-gray">Cancel</a>
+        </article>
+        </form>
+        </div>
+        </div>
+        
+        <div class="grid_3 alpha omega right">
+        <div class="order-right">
+        <article>
+        <h3>Your order <span><a href="#">Change order</a></span></h3>
+        <ul>
+        <li class="nodivider">
+        <div class="column1">MagnateFund donation</div>
+        <div class="column2">$20.00</div>
+        </li>
+        <li class="total">
+        <div class="column1">Total</div>
+        <div class="column2">$20.00</div>
+        </li>        
+        </ul>
+        </article>
+        </div>
+        </div>
+        </div>
+        </div>
+        
+        
+    </div><!-- contentinner -->
+    </div><!-- grid_16 -->
+    
+    
+{% endblock %}

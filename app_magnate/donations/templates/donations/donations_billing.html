@@ -1,0 +1,91 @@
+{% extends "site_base.html" %}
+{% load staticfiles %}
+
+
+{% block body %} 
+
+<div class="grid_16">
+    <div class="contentinner">
+    	<div class="bgsection2">
+        
+        <div class="heading-inner">
+        <h1>Enter billing address</h1>
+        </div>
+        
+        <div class="section2">
+        <div class="grid_9 alpha omega">
+        <div class="order-left">
+       
+        <form action="#" method="post">
+        <article>
+        <aside>
+        <ul>
+        <li>
+        <label>First name</label>
+        <input name="" type="text" class="input" value="Ramerial Johnson" />
+        </li>
+        
+        <li>
+        <label>Last name</label>
+        <input name="" type="text" class="input" value="" />
+        </li>
+        
+        <li>
+        <label>Address</label>
+        <input name="" type="text" class="input" value="3213 Plantation st." />
+        </li>
+
+        <li>
+        <label>City</label>
+        <input name="" type="text" class="input" value="Apt. #300" />
+        </li>
+        
+        <li>
+        <label>Zip Code</label>
+        <input name="" type="text" class="input code2" value="11604" />
+        </li>
+        
+        <li>
+        <label>Country</label>
+        <select name="Gender" class="select">
+        <option value="United States of America">United States of America</option>
+        <option value="UK">UK</option>
+        </select>
+        </li>        
+        </ul>
+        </aside>
+
+        <p>Your billing information will be saved for future donations.</p>
+        
+        <a href="{% url 'donations_pay' %}" class="btn">Continue</a>
+        <a href="#" class="btn-gray">Cancel</a>
+        </article>
+        </form>
+
+        </div>
+        </div>
+        
+        <div class="grid_3 alpha omega right">
+        <div class="order-right">
+        <article>
+        <h3>Your order <span><a href="#">Change order</a></span></h3>
+        <ul>
+        <li class="nodivider">
+        <div class="column1">MagnateFund donation</div>
+        <div class="column2">$20.00</div>
+        </li>
+        <li class="total">
+        <div class="column1">Total</div>
+        <div class="column2">$20.00</div>
+        </li>        
+        </ul>
+        </article>
+        </div>
+        </div>
+        </div>
+        </div>
+    </div><!-- contentinner -->
+    </div><!-- grid_16 -->
+    
+    
+{% endblock %}

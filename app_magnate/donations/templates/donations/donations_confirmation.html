@@ -1,0 +1,42 @@
+{% extends "site_base.html" %}
+{% load staticfiles %}
+
+{% block body %} 
+
+<div class="grid_16">
+    <div class="contentinner">
+    	<div class="bgsection2">
+
+        <div class="heading-inner">
+        <h1>Thank You</h1>
+        </div>
+        
+        <div class="section2">
+        <div class="confirm-info">
+        <h2 class="light">You are now ready to participate in the MagnateFund!</h2>
+        <p class="bold">Crowdfund. Be awesome and make dough for supporting stuff.</p>
+        
+        <article>
+        <h3><img src="img/img_icon10.png" alt="ICON">Support the best</h3>
+        <p>Lorem ipsum dolor sit amet, consect etur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </article>
+        
+        <article>
+        <h3><img src="img/img_icon11.png" alt="ICON">Unlock bonuses</h3>
+        <p>Lorem ipsum dolor sit amet, consect etur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </article>
+        
+        <article class="article1">
+        <h3><img src="img/img_icon12.png" alt="ICON">Unlock bonuses</h3>
+        <p>Lorem ipsum dolor sit amet, consect etur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </article>
+        
+        <a href="{% url 'dashboard' %}" input name="" type="submit" class="btn">Return Home</a>
+        </div>        
+        </div>
+        </div>
+    </div><!-- contentinner -->
+    </div><!-- grid_16 -->
+    
+    
+ {% endblock %}

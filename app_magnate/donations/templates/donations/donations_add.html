@@ -1,0 +1,67 @@
+{% extends "site_base.html" %}
+{% load staticfiles %}
+
+{% block body %} 
+ 
+ <div class="grid_16">
+    <div class="contentinner">
+    	<div class="bgsection2">
+        
+        <div class="heading-inner">
+        <h1>Choose your donation</h1>
+        </div>
+        
+        <div class="section2">
+        <div class="grid_9 alpha omega">
+        <div class="order-left">
+        <article>
+        <aside class="amount-info">
+        <p>Discover how far your money can go when you trust us, and just throw that shit away.</p>
+        
+        <div class="amount-box">
+        <ul>
+        <li><a href="#" class="active">$10.00</a></li>
+        <li><a href="#">$20.00</a></li>
+        <li><a href="#">$30.00</a></li>
+        <li><a href="#">$40.00</a></li>
+        <li><a href="#">$50.00</a></li>
+        <li><a href="#">Other</a></li>
+        </ul>
+        <input name="" type="text" value="20.00" class="input code2" />
+        </div>
+        </aside>
+
+        <a href="{% url 'donations_billing' %}" class="btn">Continue</a>
+        <a href="#" class="btn-gray">Cancel</a>
+        </article>
+        </div>
+        </div>
+        
+        <div class="grid_3 alpha omega right">
+        <div class="order-right">
+        <article>
+        <h3>Your order <span><a href="#">Change order</a></span></h3>
+        <ul>
+        <li class="nodivider">
+        <div class="column1">MagnateFund donation</div>
+        <div class="column2">$20.00</div>
+        </li>
+        <li class="total">
+        <div class="column1">Total</div>
+        <div class="column2">$20.00</div>
+        </li>        
+        </ul>
+        <select name="Gender" class="select">
+        <option value="USD - American Dollars">USD - American Dollars</option>
+        </select>
+        <a href="#" class="btn-gray">Cancel</a>
+        </article>
+        </div>
+        </div>
+        </div>
+        </div>
+    </div><!-- contentinner -->
+    </div><!-- grid_16 -->
+    
+    
+{% endblock %}
