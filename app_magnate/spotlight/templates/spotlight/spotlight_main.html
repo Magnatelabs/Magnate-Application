@@ -1,0 +1,121 @@
+{% extends "site_base.html" %}
+{% load staticfiles %}
+
+{% block body %}
+
+<div class="hero-dash">
+        <div class="dash-section1">
+        <div class="whatnext">
+        
+        <aside>
+        <h2>Welcome to Magnate! What’s next?</h2>
+        
+        <figure><img src=" {% static "img/icon_project.png" %}" alt="ICON" /></figure>
+        <div class="info">
+        <h3>Project Spotlight</h3>
+        <p>Request an investigative article on the company of your choosing. Our crowd guides will ask the experts, make the calls, and do the research to make sure you get an independent review on you next donation! </p>
+        
+       
+        <img src="{% static "img/img_icon04.png" %}" alt="ICON"><span>Only one project spotlight at a time (we’re still growing ya’ll!)</span>
+        </div>
+        </aside>
+        
+        <article>
+        <div class="arrow"><img src="{% static "img/arrow_down01.gif" %}" alt="ICON"></div>
+        <div class="project">
+        <form action="{% url 'spotlight_request' %}" method="post">
+    	{% csrf_token %}
+    	
+        <ul class="leftcolumn">        
+        <p><label for="id_company">Company/Project Name</label>
+				<input id="id_company" type="text" name="company" maxlength="200" /></p>
+
+		<p><label for="id_platform">Funding Platform</label>
+				<input id="id_platform" type="text" name="platform" maxlength="200" /></p>  			
+       
+       <label for="id_industry">Industry</label>
+				<select name="industry" id="id_industry">
+				<option value="Entertainment">Film/TV/Music</option>
+				<option value="Social Causes">Social Causes</option>
+				<option value="Technology">Technology</option>
+				<option value="Games">Games</option>
+				</select>
+        </ul>
+        
+        <ul class="rightcolumn">        
+		<p><label for="id_deadline">Funding Deadline (mm/dd/yyyy)</aside></label>
+				<input type="text" name="deadline" id="id_deadline" /></p>
+		
+		<p><label for="id_reason">Reason for Donating</label>
+				<select name="reason" id="id_reason">
+				<option value="Rewards">Amazingly dope rewards</option>
+				<option value="Return">Return on investment</option>
+				<option value="Donation">Just to help out</option>
+				<option value="Idea">Awesome idea</option>
+				</select></p>
+        
+        <p><label for="id_amount">Amount</label>
+				<select name="amount" id="id_amount">
+				<option value="10 or less">Less than $10</option>
+				<option value="10-49">$10 - $49</option>
+				<option value="50-99">$50 - $99</option>
+				<option value="100-500">$100 - $500</option>
+				<option value=">500 or more">More than $500</option>
+				</select><p>
+				       
+        <input name="" type="submit" value="Submit" class="indexbtn">
+        
+        </ul>
+        </form>
+        </div>
+        </article>
+        
+        <div class="features">
+        <div class="icon"><img src="{% static "img/img_icon05.png" %}" alt="ICON"></div>
+        <p>That’s all for now. <br /> Check in again soon for updates and new features!</p>
+        </div>
+        </div>   
+        
+        <div class="whatcoming">
+        <article>
+        <aside>
+        <h4>What’s Coming at Magnate?</h4>
+        <div class="icon"><img src="{% static "img/img_icon06.png" %}" alt="ICON"></div>
+        <div class="info">
+        <p>Direct messaging; so you can reach out to your Crowd Guide and visa versa!</p>
+        </div>
+        </aside>
+        </article>
+        
+        <article id="bg-skyblue">
+        <aside>
+        <h4>Stay in Touch</h4>
+        <div class="icon"><img src="{% static "img/img_icon07.png" %}" alt="ICON"></div>
+        <div class="info">
+        <p>Check us out on <a href="http://www.facebook.com/pages/Magnate-Labs/197894490391670">Facebook</a>, and tell us what’s on your mind.</p>
+        </div>
+        </aside>
+        </article> 
+              
+        <article id="bg-none">
+        <aside>
+        <h4>Want to Know More?</h4>
+        <div class="icon"><img src="{% static "img/img_icon08.png" %}" alt="ICON"></div>
+        <div class="info">
+        <p>Stop by our <a href="{% url "aboutus" %}">About Us</a> page to read how, and why Magnate is what it is!</p>
+        </div>
+        </aside>
+        </article> 
+        
+        <div class="endicon"><img src="{% static "img/img_icon09.png" %}" alt="ICON"></div>
+        </div>
+             
+        </div>
+    </div> <!-- grid 16 -->  
+
+
+
+
+
+
+{% endblock %}
