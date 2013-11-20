@@ -6580,6 +6580,157 @@ account settings page styling
 
 
 
+
+
+/* New Dashboard (v4) styling --do not remove, not old dashboard css
+----------------------------------------------------------------------------------------------------*/
+
+
+.dash_grid { width: 940px; display: inline; float: left; margin-left: 10px; margin-right: 10px;	}
+.inner_dashcontent { width: 100%; float: left; padding: 40px 0 170px 0; }
+.section1 {width:99.8%; float:left; background:#f8f8f8; border:1px solid #c5c6c5; border-top:7px solid #72bb2a; box-shadow:inset #ebebeb 0 -3px 4px; position:relative; behaviior:url(PIE.htc); margin-bottom:30px;}
+.section3 { border-top: 1px solid #c7c7c7; }
+.bgprofile-info { width:100%; float:left; background:#a6c987; border-bottom:22px solid #313131; }
+.profile-info{ width:76.76%; float:left; background:#ffffff url(/site_media/static/img/gradient01.gif) repeat-x top left; padding:28px 0 12px 0;}
+.profile-info h3{ font-family:"helveticaneuemedium",Arial, Helvetica, sans-serif; font-size:24px; color:#4d4c4b; padding-bottom:6px}
+.profile-info h3{ color:#4d4c4b; line-height: 0px; }
+.profile-info figure{ width:146px; float:left; -webkit-margin-before: 0em; -webkit-margin-after: 0em; -webkit-margin-start: 0px; -webkit-margin-end: 0px;}
+.profile-info figure img{ border:1px solid #b2b2b2}
+.profile-info .caption{ width:100%; float:left; font-size:12px; text-align:center; padding-top:8px}
+.profile-info .caption a{ color:#000000; text-decoration:underline}
+.profile-info .caption a:hover{ text-decoration:none}
+.profile-info aside{ width:72.2%; float:right; padding-right:3%}
+.profile-info .info{ width:77%; height:55px; float:left; background:url(/site_media/static/img/gradient02.png) no-repeat right; border-radius:4px 0 0 4px; behavior: url(PIE.htc); position:relative; padding:9px 0 0 0; margin-bottom:18px}
+.profile-info .info h3{ font-size:14px; color:#000000; padding-bottom:2px; -webkit-margin-before: 0em; -webkit-margin-after: 0em; line-height: 1;}
+.profile-info .info h3 a{ color:#000000;}
+.profile-info .info p{ font-size:12px; color:#000000; line-height:14px; padding:0 5% 0 0}
+.profile-info .info figure{ width:auto; float:left; padding:0 5px 0 8px}
+.profile-info .badges{ width:100%; float:left}
+.profile-info .badges h3{ font-size:13px; color:#000000; padding-bottom:10px; -webkit-margin-before: 0em; -webkit-margin-after: 0em;}
+.profile-info .badges h3 span{ float:right; font-size:11px}
+.profile-info .badges h3 a{ color:#b3b3b3}
+.profile-info .badges ul{ width:100%; float:left; list-style-type: none; -webkit-margin-before: 0em; -webkit-margin-after: 0em; -webkit-padding-start: 0px;}
+.profile-info .badges ul li{ float:left; padding-right:18px}
+.profile-info article{ width:94.2%; float:left; padding:0 0 0 5.8%}
+
+.donate-box{ width:23.24%; float:right; background:#a6c987; }
+.donate-box p{ font-size:14px; color:#FFFFFF; text-align:center; padding-bottom:13px; line-height: 1em; }
+.donate-box p a{ font-size:12px; color:#5a8e22; text-decoration:underline}
+.donate-box p a:hover{ text-decoration:none}
+.donate-box .dollar{ width:100%; float:left; text-align:center; font-size:90px; color:#ffffff; padding:0 0 12px 0; line-height: 90px;}
+.donate-box .dollar span{ background:url(/site_media/static/img/img_dollar02.png) no-repeat 0 22px; padding-left:21px; line-height: 0px;}
+.donate-box aside{ width:78%; float:left; padding:16px 11% 0 11%; }
+
+.article-info{ width:70.25%; float:left; background:#ffffff; border-right:1px solid #e7e8e8; box-shadow:inset #f0f0f0 0 -3px 4px; behavior: url(PIE.htc); position:relative; padding-bottom:20px; }
+.article-info h4{ font-family:"helveticaneuebold",Arial, Helvetica, sans-serif; font-size:13px; color:#817d8e; padding-bottom:4px; -webkit-margin-before: 0em; -webkit-margin-after: 0em; line-height: 1em; }
+.article-info h4 span{ color:#2398c9}
+.article-info p{ font-size:14px; color:#817d8e; padding-bottom:5px}
+.article-info p span{ color:#000000}
+.article-info p a{ color:#2398c9}
+.article-info .more{ font-size:11px}
+.article-info .more2{ float:left; font-size:10px; padding:10px 0 0 2%}
+.article-info .more2 a{ color:#817d8e}
+.article-info .newest{ font-family:"helveticaneuebold",Arial, Helvetica, sans-serif; font-size:12px; position:absolute; right:10px; top:5px}
+.article-info .newest a{ background:url(/site_media/static/img/arrow_down02.png) no-repeat right center; color:#5454fd; padding-right:10px}
+.article-info .dash_row{ width:100%; float:left; min-height:80px; border-bottom:1px solid #cccaca; padding:19px 0 30px 0;}
+.article-info .icon{ float:left; line-height:.5em; padding-right:10px}
+.article-info article{ width:85.99%; float:left}
+.article-info article figure{ float:left; line-height:.5em; padding:18px 15px 0 0; -webkit-margin-start: 0px; -webkit-margin-end: 0px; -webkit-margin-before: 0em; -webkit-margin-after: 0em;}
+.article-info article aside{ width:37.16%; float:left; padding-top:18px}
+.article-info article aside h4{ font-size:14px}
+.article-info article .award-icon{ width:53px; float:left; line-height:.5em}
+.article-info article .award-icon .icon{ width:43px; padding:0}
+.article-info article .info{ width:64%; float:left}
+.article-info article .btn-gray{ width:163px; height:32px; border:1px solid #cbcbcb; font-family:"Helvetica Neue", Arial, Helvetica, sans-serif; background:#dedede; background:-moz-linear-gradient(#e8e8e8, #dedede); background: -webkit-gradient(linear, left top, left bottom, from(#e8e8e8), to(#dedede)) ;background: -o-linear-gradient(#e8e8e8, #dedede); -pie-background: linear-gradient(#e8e8e8, #dedede); font-size:14px; color:#313131; line-height:32px; margin-top:11px}
+.article-info article .btn-gray span{ float:left; background:url(/site_media/static/img/img-icon21.png) no-repeat left center; padding:0 0 0 40px; margin-left:1px}
+.article-info article .btn-gray:hover{ background:#dddddd}
+
+.bgcash-bonus{ width:200px; margin:0 auto}
+.cash-bonus{ width:100%; float:left; background:#eaf6de; border:1px solid #e9e9e9; min-height:150px; margin:30px 0}
+.cash-bonus h4{ text-align:center; padding-bottom:0; margin-bottom:-3px; position:relative}
+.cash-bonus p{ font-size:12px; text-align:center; padding-bottom:19px}
+.cash-bonus p span{ color:#2398c9}
+.cash-bonus .dollar{ width:100%; float:left; text-align:center; font-size:60px; color:#ff5113}
+.cash-bonus .dollar span{ background:url(/site_media/static/img/img_dollar03.png) no-repeat 0 14px; padding-left:15px}
+.cash-bonus .bg-btn{ width:140px; margin:0 auto}
+.cash-bonus .btn{ width:140px; height:43px; font-family:"Helvetica Neue", Arial, Helvetica, sans-serif; line-height:43px; font-size:16px}
+.cash-bonus aside{ width:94%; padding:22px 3% 22px 3%}
+
+.donate-right article{ border-bottom:1px solid #e1e0e0}
+.donate-right .bg-pink{ background:#faede7}
+.donate-right .bg-skyblue{ box-shadow:none}
+
+
+
+/* New Donation (v4) styling --do not remove, not old dashboard css
+----------------------------------------------------------------------------------------------------*/
+
+.bgsection2{ width:99.8%; float:left; background:#f8f8f8; border:1px solid #b9baba; box-shadow:inset #ebebeb 0 -3px 4px; border-radius:3px; position:relative; behaviior:url(PIE.htc); margin-bottom:30px}
+
+.heading-inner{ width:100%; float:left; min-height:92px; background:#d9e4cd}
+.heading-inner h1{ font-family:"helveticaneuelight", Arial, Helvetica, sans-serif; font-size:36px; color:#4d4c4b; line-height:92px; padding:0 0 0 6.2%}
+
+.section2{ width:87.4%; float:left; padding:0 6.3% 70px 6.3%}
+
+.order-left{ width:100%; float:left; background:#ffffff}
+.order-left h2{ font-size:24px; padding-bottom:20px}
+.order-left p{ font-size:14px; color:#4d4c4b; padding-bottom:18px}
+.order-left ul{ width:100%; float:left}
+.order-left ul li{ width:100%; float:left; padding-bottom:16px}
+.order-left label{ font-size:16px; padding-bottom:7px}
+.order-left .input{ width:91.8%; height:17px; float:left; background:#FFFFFF; box-shadow:none; box-shadow:inset #bebebe 1px 1px 2px; border:1px solid #bebebe; border-radius:3px; behavior: url(PIE.htc); position:relative; font-family:"HelveticaNeueLTStd55Roman", Arial, Helvetica, sans-serif; font-size:14px; color:#9f9f9f; padding:9px 4%}
+.order-left .input:focus{ box-shadow:none; box-shadow:inset #bebebe 1px 1px 2px; border:1px solid #bebebe;}
+
+.order-left .sbHolder{ width:99.8%; font-family:Arial, Helvetica, sans-serif; font-size:14px}
+.order-left .sbOptions ul{ width:100%; padding:0}
+.order-left .sbOptions li{ width:100%; padding:0}
+
+.order-left .month{ width:140px}
+.order-left .year{ width:140px; float:right}
+.order-left .accept{ width:100%; float:left; padding-bottom:33px}
+.order-left .checkbox{ width:23px; height:23px; margin:0 10px 0 0; background:url(../img/checkbox01.png) no-repeat; display:block; clear:left; float:left; cursor:pointer}
+.order-left .text{ width:88%; float:left; font-size:16px; color:#4c4c4c}
+.order-left .text a{ color:#2398c9}
+.order-left .btn { width:140px; height:43px; font-family:"Helvetica Neue", Arial, Helvetica, sans-serif; font-size:16px; line-height:43px; margin-right:40px}
+.order-left .btn-gray { width:138px; height:43px; font-family:"Helvetica Neue", Arial, Helvetica, sans-serif; font-size:16px; line-height:43px; color:#ffffff}
+.order-left aside{ width:62.52%; float:left; padding:0 37.5% 15px 0}
+.order-left .amount-info{ width:97%; padding:0 3% 50px 0}
+.order-left .amount-info h3{ font-family:"helveticaneuemedium", Arial, Helvetica, sans-serif; font-size:20px; color:#4d4c4b; padding-bottom:25px}
+.order-left .amount-info ul{ width:100%; float:left; font-size:30px}
+.order-left .amount-info ul li{ width:100%; float:left; background:url(../img/circle_bullet02.png) no-repeat 19px 21px; padding:0}
+.order-left .amount-info ul li a{ width:87.73%; height:68px; float:left; color:#4a4a49; line-height:68px; text-decoration:none; padding:0 0 0 12.27%}
+.order-left .amount-info ul li a:hover{ background:#72bb2a url(../img/circle_bullet01.png) no-repeat 21px 22px; color:#ffffff}
+.order-left .amount-info ul li a.active{ background:#72bb2a url(../img/circle_bullet01.png) no-repeat 21px 22px; color:#ffffff}
+.order-left .amount-info p{ font-size:20px; line-height:23px; padding-bottom:46px}
+.order-left .amount-info .input{ width:41%; text-align:right; padding:9px 2.5%}
+.order-left .amount-info .code2{ width:27.2%; height:12px; float:right; color:#6d6f71; margin:20px 20px 20px 0}
+.order-left .amount-info .amount-box{ width:99.98%; float:left; border:1px solid #ecf1e6; padding:0}
+.order-left article{ width:92.5%; float:left; padding:37px 0 38px 7.5%}
+
+.order-left .card-detail{ width:100%; float:left; padding:48px 0 0 0}
+
+.order-right{ width:100%; float:right; background:#ffffff}
+.order-right h3{ font-family:"Helvetica Neue", Arial, Helvetica, sans-serif; padding-bottom:4px}
+.order-right h3 a{ color:#2398c9}
+.order-right h3 span{ float:right; font-size:12px}
+.order-right ul{ width:100%; float:left; font-family:"Helvetica Neue", Arial, Helvetica, sans-serif; font-size:14px}
+.order-right ul li{ width:100%; float:left; border-top:1px solid #e2e2e2; color:#4d4c4b; padding:18px 0}
+.order-right ul li.nodivider{ border:none}
+.order-right ul li.total{ font-family:"helveticaneuebold", Arial, Helvetica, sans-serif}
+.order-right .column1{ width:75%; float:left}
+.order-right .column2{ width:25%; float:right; text-align:right}
+.order-right .sbHolder{ width:99.8%; font-size:12px; margin-bottom:20px}
+.order-right .sbOptions li{ width:100%; font-size:12px; padding:4px 0}
+.order-right .btn-gray { width:106px; height:27px; float:right; font-family:"Helvetica Neue", Arial, Helvetica, sans-serif; font-size:14px; line-height:27px; color:#ffffff}
+.order-right article{ width:71.6%; float:left; padding:38px 14.6% 20px 14.6%}
+
+
+
+
+
+
+
+
 /* Not in use, but will be soon
 .hero-unit p#signupselect { color: #363636; font-size: 14px; text-align: center; text-decoration:none !important; }
 
