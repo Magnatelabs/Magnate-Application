@@ -22,5 +22,6 @@ class AuthorizeNetDPMForm(forms.Form):
     x_fp_timestamp = forms.CharField(widget=forms.HiddenInput())
     x_fp_hash = forms.CharField(widget=forms.HiddenInput())
     x_type = forms.CharField(widget=forms.HiddenInput())
-
+    
+    x_relay_url = forms.CharField(widget=forms.HiddenInput(), required=True)
     x_relay_response = forms.CharField(initial="TRUE", widget=forms.HiddenInput())
