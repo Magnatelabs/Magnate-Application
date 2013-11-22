@@ -4,7 +4,6 @@ South==0.8.3
 django-appconf==0.5
 django-forms-bootstrap==2.0.3.post1
 django-jsonfield==0.8.12
-django-merchant==0.1
 django-waitinglist==1.0b10
 eventlog==0.6.2
 metron==1.1
