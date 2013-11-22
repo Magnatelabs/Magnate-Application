@@ -143,6 +143,7 @@ INSTALLED_APPS = [
     "waitinglist",
     "billing",
     "donations",
+    "crispy_forms",
 
     # project
     "app_magnate",
@@ -213,6 +214,7 @@ MERCHANT_TEST_MODE = True         # Toggle for live transactions
 MERCHANT_SETTINGS = {
     "authorize_net": {
         "LOGIN_ID" : "3MsPz366cv",
-        "TRANSACTION_KEY" : "5yC67B27N2Se3mpK"
+        "TRANSACTION_KEY" : "5yC67B27N2Se3mpK",
+        "MD5_HASH": "djsiojfeoiejfoi",
     }
 }
