@@ -1,8 +1,12 @@
 {% extends "site_base.html" %}
 {% load staticfiles %}
 {% load render_integration from billing_tags %}
+{% load crispy_forms_tags %}
 
-{% block body %} 
+{% block body %}
+
+
+
 
 <div class="grid_16">
     <div class="contentinner">
@@ -15,7 +19,7 @@
         <div class="section2">
         <div class="grid_9 alpha omega">
         <div class="order-left">
-        <form action="#" method="post">
+        <form action="#" method="post"></form>
         <article>
         <aside>
         <label>Payment method</label>
@@ -29,8 +33,25 @@
         <ul>
         <li>
         
+<!-- Other forms
+	<form class="form-horizontal well" method="post" action="{{ integration.service_url }}">
+    <fieldset>
+        <legend>Using Payment Backend: {{ title }}</legend>
+        {{ integration.generate_form|crispy }}
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="reset" class="btn">Cancel</button>
+        </div>
+    </fieldset>
+</form>  
+    -->    
+
         {% render_integration adp %}
-<!--        
+        
+        
+        
+        
+<!-- Original Forms        
         <label>Card number</label>
         <input name="" type="text" class="input" value="" />
         </li>
@@ -65,7 +86,7 @@
         </ul>
         </div>
         </aside>
--->
+        
         <div class="accept">
         <input type="checkbox" name="01" class="styled" /><span class="text">Yes, I have read and I accept the <a href="#">Magnate Terms of Use</a> and the <a href="#">Magnate Privacy Policy</a>.</span>
         </div>
@@ -103,5 +124,5 @@
     </div><!-- contentinner -->
     </div><!-- grid_16 -->
     
-    
+
 {% endblock %}
