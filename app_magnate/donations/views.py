@@ -117,7 +117,8 @@ def donation_orderpay(request):
           'x_fp_timestamp': datetime.datetime.utcnow().strftime('%s'),
           'x_recurring_bill': 'F',
           'x_relay_url': request.build_absolute_uri(reverse("authorize_net_notify_handler")),
-         }
+          'x_cust_id': request.user,
+        }
     int_obj.add_fields(fields)
     return render_to_response("donations/donations_orderpay.html",
                              {"adp": int_obj},
