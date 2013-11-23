@@ -6641,7 +6641,7 @@ account settings page styling
 .article-info article .award-icon{ width:53px; float:left; line-height:.5em}
 .article-info article .award-icon .icon{ width:43px; padding:0}
 .article-info article .info{ width:64%; float:left}
-.article-info article .btn-gray{ width:163px; height:32px; border:1px solid #cbcbcb; font-family:"Helvetica Neue", Arial, Helvetica, sans-serif; background:#dedede; background:-moz-linear-gradient(#e8e8e8, #dedede); background: -webkit-gradient(linear, left top, left bottom, from(#e8e8e8), to(#dedede)) ;background: -o-linear-gradient(#e8e8e8, #dedede); -pie-background: linear-gradient(#e8e8e8, #dedede); font-size:14px; color:#313131; line-height:32px; margin-top:11px}
+.article-info article .btn-gray{ width:163px; height:32px; border:1px solid #cbcbcb; font-family:"Helvetica Neue", Arial, Helvetica, sans-serif; background:#dedede; background:-moz-linear-gradient(#e8e8e8, #dedede); background: -webkit-gradient(linear, left top, left bottom, from(#e8e8e8), to(#dedede)) ; font-size:14px; color:#313131; line-height:32px; margin-top:11px}
 .article-info article .btn-gray span{ float:left; background:url(/site_media/static/img/img-icon21.png) no-repeat left center; padding:0 0 0 40px; margin-left:1px}
 .article-info article .btn-gray:hover{ background:#dddddd}
 
