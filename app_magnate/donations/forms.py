@@ -1,6 +1,7 @@
 from django import forms
 from donations.models import BillingInfo
 from django.utils.safestring import mark_safe
+import datetime
 
 
 # django knows to look for each input field, 
@@ -20,3 +21,6 @@ class BillingInfoForm(forms.Form):
     def __init__(self, *args, **kwargs):
         super(BillingInfoForm, self).__init__(*args, **kwargs)
         self.fields['first_name'].widget.attrs['id'] = 'super_first'
+
+
+
