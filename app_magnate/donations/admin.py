@@ -1,3 +1,5 @@
 from django.contrib import admin
+from donations.models import Donation, FailedDonation
 
-# Register your models here.
+admin.site.register(Donation)
+admin.site.register(FailedDonation)
