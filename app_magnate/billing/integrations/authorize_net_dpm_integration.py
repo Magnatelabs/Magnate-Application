@@ -72,8 +72,7 @@ class AuthorizeNetDpmIntegration(Integration):
         result = request.POST["x_response_reason_text"]
         if request.POST['x_response_code'] == '1':
             transaction_was_successful.send(sender=self,
-                                            type="sale",
-                                            response=result)
+                                             request=request)
             redirect_url = "%s?%s" % (request.build_absolute_uri(reverse("authorize_net_success_handler")),
                                      urllib.urlencode({"response": result,
                                                        "transaction_id": request.POST["x_trans_id"]}))
@@ -82,8 +81,7 @@ class AuthorizeNetDpmIntegration(Integration):
         redirect_url = "%s?%s" % (request.build_absolute_uri(reverse("authorize_net_failure_handler")),
                                  urllib.urlencode({"response": result}))
         transaction_was_unsuccessful.send(sender=self,
-                                          type="sale",
-                                          response=result)
+                                          request=request)
         return render_to_response("billing/authorize_net_relay_snippet.html",
                                   {"redirect_url": redirect_url})
 
