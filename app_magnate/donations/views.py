@@ -8,6 +8,7 @@ from django.contrib.auth.models import User
 from django.template import RequestContext
 import datetime
 
+
 from billing import get_integration
 
 #imports to recognize django messages
@@ -18,16 +19,19 @@ from django.utils.translation import ugettext_lazy as _
 from django.views.generic.edit import FormView
 
 #imports to recognize forms 
-from donations.forms import BillingInfoForm
-from donations.models import BillingInfo
+from .forms import BillingInfoForm
+from .models import BillingInfo
+from .utils import total_donation_amount
 
 
 
 def donation_index(request):
 #    if not request.user.is_authenticated():
 #        return redirect('/donations/user/?next=%s' % request.path)
+    tda=total_donation_amount(request.user)
 
-    return render(request, 'donations/donations_home.html')
+
+    return render(request, 'donations/donations_home.html', {'total_donation_amount': tda})
 
 def donation_tiers(request):
 #    if not request.user.is_authenticated():
