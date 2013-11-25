@@ -103,7 +103,7 @@ class DonationTestCase(TestCase):
         self.assertAlmostEqual(donation.amount, self.TEST_AMOUNT, places=2)
         self.assertEqual(donation.transaction_id, self.TEST_TRANS_ID)
         self.assertEqual(unicode(donation.user), self.TEST_EMAIL)
-        import pdb; pdb.set_trace()
+       # import pdb; pdb.set_trace()
 
 
     def test_failed_donation(self):
