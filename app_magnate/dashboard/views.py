@@ -17,6 +17,7 @@ from dashboard.forms import SpotlightRequestForm
 #import to recognize class based view
 from django.views.generic.edit import FormView
 
+from donations.util import total_donation_amount
 
 
 
@@ -24,7 +25,8 @@ def dashboard_index(request):
     if not request.user.is_authenticated():
         return redirect('/account/login/?next=%s' % request.path)
 
-    return render(request, 'dashboard/dashboard_main.html')
+    tda = total_donation_amount(request.user)
+    return render(request, 'dashboard/dashboard_main.html', {'total_donation_amount': tda})
 
 
 
