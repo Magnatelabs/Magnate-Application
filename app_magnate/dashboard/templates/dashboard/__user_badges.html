@@ -1,0 +1,13 @@
+{% load staticfiles %}
+
+        <div class="badges">
+        <h3>Badges ({{user_badges | length }}) <span><a href="#">See All</a></span></h3>
+
+	<ul>
+	{% for badge in user_badges %}
+	  <li>{{ badge.as_html | safe }}</li>
+	{% endfor %}
+	</ul>
+
+        </div>
+        
