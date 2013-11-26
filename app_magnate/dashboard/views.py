@@ -29,10 +29,11 @@ def dashboard_index(request):
 
     feed=all_donations_by_user(request.user)
     tda = total_donation_amount(request.user)
+    user_has_donation = (tda > 0)
 
     user_badges = all_badges_for_user(request.user)
  
-    return render(request, 'dashboard/dashboard_main.html', {'feed': feed, 'total_donation_amount': tda, 'user_badges': user_badges})
+    return render(request, 'dashboard/dashboard_main.html', {'user_has_donation': user_has_donation, 'feed': feed, 'total_donation_amount': tda, 'user_badges': user_badges})
 
 
 
