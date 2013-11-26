@@ -7,6 +7,7 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 import datetime
 
+
 #imports to recognize django messages
 from django.contrib import messages
 from django.utils.translation import ugettext_lazy as _
@@ -17,7 +18,8 @@ from dashboard.forms import SpotlightRequestForm
 #import to recognize class based view
 from django.views.generic.edit import FormView
 
-from donations.utils import total_donation_amount, all_donations_by_user
+from donations.utils import total_donation_amount, all_donations_by_user, all_badges_for_user
+
 
 
 
@@ -27,7 +29,10 @@ def dashboard_index(request):
 
     feed=all_donations_by_user(request.user)
     tda = total_donation_amount(request.user)
-    return render(request, 'dashboard/dashboard_main.html', {'feed': feed, 'total_donation_amount': tda})
+
+    user_badges = all_badges_for_user(request.user)
+ 
+    return render(request, 'dashboard/dashboard_main.html', {'feed': feed, 'total_donation_amount': tda, 'user_badges': user_badges})
 
 
 
