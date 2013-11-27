@@ -29,9 +29,9 @@ def donation_index(request):
 #    if not request.user.is_authenticated():
 #        return redirect('/donations/user/?next=%s' % request.path)
     tda=total_donation_amount(request.user)
+    user_has_donation = (tda > 0)
 
-
-    return render(request, 'donations/donations_home.html', {'total_donation_amount': tda})
+    return render(request, 'donations/donations_home.html', {'user_has_donation': user_has_donation, 'total_donation_amount': tda})
 
 def donation_tiers(request):
 #    if not request.user.is_authenticated():
