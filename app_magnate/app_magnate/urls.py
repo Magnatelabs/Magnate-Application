@@ -19,6 +19,7 @@ urlpatterns = patterns("",
     url(r"^errors/", include("siteErrors.urls")),
     url(r"^dash/", include("dashboard.urls")),
     url(r"^donations/", include("donations.urls")),
+    url(r"^status/", include("status_awards.urls")),
 )
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

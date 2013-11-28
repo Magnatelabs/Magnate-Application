@@ -1,0 +1,63 @@
+{% extends "site_base.html" %}
+{% load staticfiles %}
+
+{% block body %}
+        
+    <div class="grid_16">
+    	<div class="contentinner">
+    		<div class="bgsection2">
+        
+    		<div class="heading_container">
+				<div class="inner_blue">
+					<h1>Status Award Detail</h1>
+				</div>
+					<div class="additional_right-overlay">
+						<div class="order_right-overlay">
+							<div class="roinner_one">
+								<article>
+									<ul>
+									<li><a href="{% url 'status_home' %}" class="active">Status Awards</a></li>
+									<li><a href="{% url 'status_home' %}">Investment Awards</a></li>
+									<li><a href="{% url 'status_home' %}">Action Awards</a></li>
+									<li><a href="{% url 'status_home' %}">Passion Awards</a></li>
+									</ul>
+								</article>
+							</div>	
+							<div class="roinner_two">
+								<article>
+									<ul>	
+									<li><a href="{% url 'status_home' %}">All Awards</a></li>
+									</ul>
+								</article>
+							</div>
+						</div>
+					</div>
+    		</div>
+        
+        	<div class="status_section1">
+        		<div class="award_detail-info">
+					<article>
+						<figure><img src="{% static "img/status_award_xtrbigicon1.png" %}" alt="PHOTO"></figure>
+						<aside>
+							<h3>Comicbewker</h3>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, 
+							sed do eiusmod tempor incididunt ut labore et dolore 
+							magna aliqua. Ut enim ad minim veniam, quis nostrud 
+							exercitation ullamco laboris nisi ut aliquip ex ea commo.</p>
+        				</aside>
+						<span class="award_link">
+						<figure><img src="{% static "img/smalluser_icon.png" %}"alt="PHOTO"></figure>
+						<aside><h4>You unlocked the Comicbewker badge!</h4>
+						<p><a href="#">November 12, 2013</a> via a<a href="#"> Tomorrow Girl</a> investment</p></aside> 
+						</span>
+					</article>
+				</div>
+			</div> <!--status_section1-->		
+
+			
+        </div>
+    </div><!-- contentinner -->
+	</div><!-- grid_16 -->
+        
+        
+{% endblock %}

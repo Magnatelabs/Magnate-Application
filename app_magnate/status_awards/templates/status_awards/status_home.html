@@ -1,0 +1,173 @@
+{% extends "site_base.html" %}
+{% load staticfiles %}
+
+{% block body %}
+        
+    <div class="grid_16">
+    	<div class="contentinner">
+    		<div class="bgsection2">
+        
+    		<div class="heading_container">
+				<div class="inner_blue">
+					<h1>Susiewow's Magnate Status</h1>
+				</div>
+					<div class="additional_right-overlay">
+						<div class="order_right-overlay">
+							<div class="roinner_one">
+								<article>
+									<ul>
+									<li><a href="#" class="active">Status Awards</a></li>
+									<li><a href="#">Investment Awards</a></li>
+									<li><a href="#">Action Awards</a></li>
+									<li><a href="#">Passion Awards</a></li>
+									</ul>
+								</article>
+							</div>	
+							<div class="roinner_two">
+								<article>
+									<ul>	
+									<li><a href="#">All Awards</a></li>
+									</ul>
+								</article>
+							</div>
+						</div>
+					</div>
+    		</div>
+        
+        	<div class="status_section1">
+        		<div class="status-info">
+					<article>
+						<figure><img src="{% static "img/status_icon.png" %}" alt="PHOTO"></figure>
+						<aside>
+							<h3>Meme Magnate (Novice)</h3>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, 
+							sed do eiusmod tempor incididunt ut labore et dolore 
+							magna aliqua. Ut enim ad minim veniam, quis nostrud 
+							exercitation ullamco laboris nisi ut aliquip ex ea commo.</p>
+        				</aside>
+					</article>
+				</div>
+			</div> <!--status_section1-->
+			
+			        
+        	<div class="status_section2">
+        		<div class="status_awards">
+        			<div class="awards_info">
+        				<!-- <h4>Meme Magnate awards</h4> -->
+						<div class="large_awards">
+							<ul>
+							<li>
+							<figure><a href="{% url 'status_award_detail' %}"><img src="{% static "img/status_award_bigicon2.png" %}" alt="LAWARD"></a>
+							<span class="award_caption"><h4><a href="{% url 'status_award_detail' %}">Donor Power</a></h4><p>September 22, 2013</p></span></figure>
+							</li>
+        				
+							<li>
+							<figure><a href="{% url 'status_award_detail' %}"><img src="{% static "img/status_award_bigicon1.png" %}" alt="LAWARD"></a>
+							<span class="award_caption"><h4><a href="{% url 'status_award_detail' %}">Comicbewker</a></h4><p>November 12, 2013</p></span></figure>
+							</li>
+        				
+							<li>
+							<figure><a href="{% url 'status_award_detail' %}"><img src="{% static "img/status_award_bigicon3.png" %}" alt="LAWARD"></a>
+							<span class="award_caption"><h4><a href="{% url 'status_award_detail' %}">Edu-Tech Noob</a></h4><p>November 19, 2013</p></span></figure>
+							</li>
+        			
+							<li>
+							<figure><a href="{% url 'status_award_detail' %}"><img src="{% static "img/status_award_bigicon4.png" %}" alt="LAWARD"></a>
+							<span class="award_caption"><h4><a href="{% url 'status_award_detail' %}">nlocked</a></h4><p>Passion Award</p></span></figure>
+							</li>
+					
+							<li>
+							<figure><a href="{% url 'status_award_detail' %}"><img src="{% static "img/status_award_bigicon4.png" %}" alt="LAWARD"></a>
+       						<span class="award_caption"><h4><a href="{% url 'status_award_detail' %}">Unlocked</a></h4><p>Investment Award</p></span></figure>
+							</li>
+        				
+							<li>
+							<figure><a href="{% url 'status_award_detail' %}"><img src="{% static "img/status_award_bigicon4.png" %}" alt="LAWARD"></a>
+							<span class="award_caption"><h4><a href="{% url 'status_award_detail' %}">Unlocked</a></h4><p>Passion Award</p></span></figure>
+							</li>
+        				
+							<li>
+							<figure><a href="{% url 'status_award_detail' %}"><img src="{% static "img/status_award_bigicon4.png" %}" alt="LAWARD"></a>
+							<span class="award_caption"><h4><a href="{% url 'status_award_detail' %}">Unlocked</a></h4><p>Passion Award</p></span></figure>
+							</li>
+							</ul>
+						</div>
+					</div>
+					
+					<div class="karma_tip">
+						<article>
+							<figure><img src="{% static "img/status_tippointer.png" %}" alt="PHOTO"></figure>
+							<aside>
+							<h3>Extra Tip:</h3>
+							<p>Collect all of your status awards for a better chance to win karma!</p>
+							</aside>
+						</article>
+					</div>
+        		</div>
+        	</div><!--status_section2-->
+			
+			
+			<div class="status_section3">
+				<div class="allawards_container">
+					<div class="allawards_info">
+        				<h4>All Awards</h4>
+						<div class="medium_awards">
+							<ul>
+							<li>
+							<figure><a href="{% url 'status_award_detail' %}"><img src="{% static "img/status_award_smallicon1.png" %}" alt="MAWARD"></a>
+							<span class="award_caption"><h4><a href="{% url 'status_award_detail' %}">Donor Power</a></h4><p>September 22, 2013</p></span></figure>
+							</li>
+        				
+							<li>
+							<figure><a href="{% url 'status_award_detail' %}"><img src="{% static "img/status_award_smallicon2.png" %}" alt="MAWARD"></a>
+							<span class="award_caption"><h4><a href="{% url 'status_award_detail' %}">Comicbewker</a></h4><p>November 12, 2013</p></span></figure>
+							</li>
+        				
+							<li>
+							<figure><a href="{% url 'status_award_detail' %}"><img src="{% static "img/status_award_smallicon3.png" %}" alt="MAWARD"></a>
+							<span class="award_caption"><h4><a href="{% url 'status_award_detail' %}">Edu-Tech Noob</a></h4><p>November 19, 2013</p></span></figure>
+							</li>
+        			
+							<li>
+							<figure><a href="{% url 'status_award_detail' %}"><img src="{% static "img/status_award_smallicon4.png" %}" alt="MAWARD"></a>
+							<span class="award_caption"><h4><a href="{% url 'status_award_detail' %}">Health Noob</a></h4><p>Passion Award</p></span></figure>
+							</li>
+					
+							<li>
+							<figure><a href="{% url 'status_award_detail' %}"><img src="{% static "img/status_award_smallicon5.png" %}" alt="MAWARD"></a>
+       						<span class="award_caption"><h4><a href="{% url 'status_award_detail' %}">Fire Power</a></h4><p>Investment Award</p></span></figure>
+							</li>
+        				
+							<li>
+							<figure><a href="{% url 'status_award_detail' %}"><img src="{% static "img/status_award_smallicon6.png" %}" alt="MAWARD"></a>
+							<span class="award_caption"><h4><a href="{% url 'status_award_detail' %}">Campout Fan</a></h4><p>Passion Award</p></span></figure>
+							</li>
+        				
+							<li>
+							<figure><a href="{% url 'status_award_detail' %}"><img src="{% static "img/status_award_smallicon7.png" %}" alt="MAWARD"></a>
+							<span class="award_caption"><h4><a href="{% url 'status_award_detail' %}">Keen Watcher</a></h4><p>Passion Award</p></span></figure>
+							</li>
+							
+							<li>
+							<figure><a href="{% url 'status_award_detail' %}"><img src="{% static "img/status_award_smallicon8.png" %}" alt="MAWARD"></a>
+							<span class="award_caption"><h4><a href="{% url 'status_award_detail' %}">Travel Noob</a></h4><p>Passion Award</p></span></figure>
+							</li>
+							</ul>
+						</div>
+					</div>
+
+			
+			
+			
+			
+				</div>
+			</div><!--status_section3-->
+			
+			
+			
+        </div>
+    </div><!-- contentinner -->
+	</div><!-- grid_16 -->
+        
+        
+{% endblock %}

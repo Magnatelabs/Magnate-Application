@@ -143,6 +143,7 @@ INSTALLED_APPS = [
     "waitinglist",
     "billing",
     "donations",
+    "status_awards",
 
     # project
     "app_magnate",
