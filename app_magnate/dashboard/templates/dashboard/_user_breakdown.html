@@ -9,8 +9,8 @@
           <h3><a href="#">{{ request.user }}</a></h3>
         
         <div class="info">
-        <figure><a href="#"><img src="{% static "img/photo33.jpg" %}" alt="PHOTO"></a></figure>        
-        <h3><a href="#">Meme Magnate:</a></h3>
+        <figure><a href="{% url 'status_home' %}"><img src="{% static "img/photo33.jpg" %}" alt="PHOTO"></a></figure>        
+        <h3><a href="{% url 'status_home' %}">Meme Magnate:</a></h3>
         <p>Your donation’s funded mainly comics and internet startups!</p>
         </div>
 
