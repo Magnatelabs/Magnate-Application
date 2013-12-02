@@ -23,6 +23,7 @@ from donations.utils import total_donation_amount, all_donations_by_user, all_ba
 
 
 
+import zinnia
 from zinnia.views.archives import EntryIndex
 
 def dashboard_index(request):
@@ -41,6 +42,27 @@ def dashboard_index(request):
 #    return render(request, 'dashboard/dashboard_main.html', {'user_has_donation': user_has_donation, 'feed': feed, 'total_donation_amount': tda, 'user_badges': user_badges})
 
 
+
+class DashboardView(zinnia.views.archives.EntryIndex):
+
+    # Overloading get_context_data so we can pass extra variables to the template.
+    # See https://docs.djangoproject.com/en/dev/topics/class-based-views/generic-display/
+    def get_context_data(self, **kwargs):
+
+        # Get current context
+        context = super(DashboardView, self).get_context_data(**kwargs)
+
+        # Add more variables to the context so we can render the dashboard view.
+        # Add any specific information for the user who is currently logged in.
+        assert self.request.user.is_authenticated(), "No user is logged in. Why are we trying to render a page? The user should have been redirected to a login page. In fact, all views in %s should be decorated with @login_required." % (self.__class__.__name__)
+        username = self.request.user               
+
+        amount = total_donation_amount(username)
+        context['user_has_donation'] = (amount > 0)
+        context['total_donation_amount'] = str(amount)
+        context['feed'] = all_donations_by_user(username)
+        context['user_badges'] = all_badges_for_user(username)
+        return context
 
 
 class dashboard_spotlight_request(FormView):
