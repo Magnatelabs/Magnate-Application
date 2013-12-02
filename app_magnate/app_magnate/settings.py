@@ -103,6 +103,8 @@ TEMPLATE_CONTEXT_PROCESSORS = [
     "django.contrib.messages.context_processors.messages",
     "account.context_processors.account",
     "pinax_theme_bootstrap.context_processors.theme",
+    "zinnia.context_processors.version",
+#    "zinnia.context_processors.media",
 ]
 
 
@@ -131,7 +133,8 @@ INSTALLED_APPS = [
     "django.contrib.sites",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    
+    "django.contrib.comments",    # for Zinnia
+
     # theme
     "pinax_theme_bootstrap",
     "django_forms_bootstrap",
@@ -142,14 +145,12 @@ INSTALLED_APPS = [
     "eventlog",
     "waitinglist",
     "billing",
-    "donations",
-    "status_awards",
 
     # project
     "app_magnate",
 
     #migrations
-    "south",
+ #   "south",
 
     #created 
 #    "startedQuestionnaire", (renamed)
@@ -157,6 +158,14 @@ INSTALLED_APPS = [
     "getstartedquestions",
     "siteErrors",
     "dashboard",
+    "donations",
+    "status_awards",
+    'tagging',          # for Zinnia
+    'django_xmlrpc',    # for Zinnia
+    'mptt',             # for Zinnia
+    "zinnia", 
+ # Zinnia MUST BE included AFTER dashboard, as dashboard overrides a Zinnia template, base.html.
+    "glue_zinnia",
 ]
 
 # A sample logging configuration. The only tangible logging
@@ -218,3 +227,5 @@ MERCHANT_SETTINGS = {
         "MD5_HASH": "djsiojfeoiejfoi",
     }
 }
+
+ZINNIA_ENTRY_BASE_MODEL='glue_zinnia.models.EntryCheck'
