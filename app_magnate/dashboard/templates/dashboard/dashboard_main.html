@@ -17,6 +17,10 @@
         
         <article>
 		{% include "dashboard/_feed.html" %}
+		<!-- Zinnia content -->
+		{% block content %}
+		{% endblock %}
+
         <h4>You have a new investment!</h4>
         <figure><img src="{% static "img/photo27.jpg" %}" alt="PHOTO"></figure>
         
