@@ -23,6 +23,8 @@ from donations.utils import total_donation_amount, all_donations_by_user, all_ba
 
 
 
+from zinnia.views.archives import EntryIndex
+
 def dashboard_index(request):
     if not request.user.is_authenticated():
         return redirect('/account/login/?next=%s' % request.path)
@@ -33,7 +35,11 @@ def dashboard_index(request):
 
     user_badges = all_badges_for_user(request.user)
  
-    return render(request, 'dashboard/dashboard_main.html', {'user_has_donation': user_has_donation, 'feed': feed, 'total_donation_amount': tda, 'user_badges': user_badges})
+
+    return EntryIndex.as_view()(request, 'dashboard/dashboard_main.html', {'user_has_donation': True} )
+
+#    return render(request, 'dashboard/dashboard_main.html', {'user_has_donation': user_has_donation, 'feed': feed, 'total_donation_amount': tda, 'user_badges': user_badges})
+
 
 
 
