@@ -97,7 +97,8 @@ class DonationTestCase(TestCase):
         self.assertEqual(DonationTestCase.success_count, 1)
         self.assertEqual(DonationTestCase.unsuccess_count, 0)
 
-        donation = Donation.objects.last()
+        self.assertEqual(len(Donation.objects.all()), 1)
+        donation = Donation.objects.latest('timestamp')
         self.assertIsNotNone(donation, "The payment was processed successfully. A Donation model object should have been saved to the database")
 
         self.assertAlmostEqual(donation.amount, self.TEST_AMOUNT, places=2)
