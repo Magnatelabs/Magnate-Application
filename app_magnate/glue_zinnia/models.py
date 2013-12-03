@@ -1,12 +1,14 @@
 from django.db import models
 from django.contrib.auth import get_user_model
 from django.utils.translation import ugettext_lazy as _
-from zinnia.models.entry import EntryAbstractClass, CoreEntry
+
 from zinnia.managers import PUBLISHED
 
 
 from django.db.models.query import QuerySet
 from django.db.models import Q
+
+from . import edited_zinnia_models_entry
 
 # From  http://stackoverflow.com/questions/2163151/custom-queryset-and-manager-without-breaking-dry
 #
@@ -63,23 +65,36 @@ class AuthorizedUsersEntry(models.Model):
         abstract = True
 
 
-# We are extending Zinnia's EntryAbstractClass.
-# Now we will set e.g. ZINNIA_ENTRY_BASE_MODEL= 'models.EntryCheck' in settings.py
-class EntryCheck(
-        EntryAbstractClass,
-        AuthorizedUsersEntry,):
+#from zinnia.models.entry import EntryAbstractClass
+from edited_zinnia_models_entry import EntryAbstractClass as FixedEntryAbstractClass, CoreEntry as FixedCoreEntry
+
+
+
+class PublicEntry( FixedEntryAbstractClass ):
+    is_private = False
 
     def __unicode__(self):
-        return u'EntryCheck %s' % self.title
-
-    private = AuthorizedEntriesManager()
+        return u'PublicEntry %s' % self.title
 
     # Users can "like" certain entries. By default, they can like
     # only published entries. They cannot "like" private messages meant
     # only for them, such as "You have been awarded a new badge".
     def show_like_button(self):
-        return self.status == PUBLISHED
+        return not self.is_private
 
-    class Meta(CoreEntry.Meta):
+    class Meta(FixedCoreEntry.Meta):
         abstract = True
 
+
+
+# Note that Zinia inherits from PublicEntry and AuthorizedEntry inherits from PUblicEntry. Thus we get two independent models with two sets of tables.
+class AuthorizedEntry(
+        PublicEntry,
+        AuthorizedUsersEntry,):
+
+    is_private=True
+
+    def __unicode__(self):
+        return u'PrivateEntry %s' % self.title  
+
+    private = AuthorizedEntriesManager()
