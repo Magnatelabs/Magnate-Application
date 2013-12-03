@@ -45,6 +45,8 @@ def dashboard_index(request):
 
 
 from zinnia.models.entry import Entry
+from glue_zinnia.models import AuthorizedEntry
+
 
 class DashboardView(zinnia.views.archives.EntryIndex):
 
@@ -56,7 +58,14 @@ class DashboardView(zinnia.views.archives.EntryIndex):
         #
         # TODO: make sure that we are getting Entries in a sorted order!
         # QUESTION: how is it achieved in Zinnia?
-        return Entry.private.authorized_or_published(self.request.user)
+        #
+        # NOTE: using AuthorizedEntry instead of Entry.
+        
+#        import pdb; pdb.set_trace()
+        return AuthorizedEntry.private.authorized_or_published(self.request.user)
+        # #return AuthorizedEntry.private.authorized_or_published(self.request.user)
+
+
 
 
     
