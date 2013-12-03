@@ -10,7 +10,7 @@ from django.db.models import Q
 
 # From  http://stackoverflow.com/questions/2163151/custom-queryset-and-manager-without-breaking-dry
 #
-# Now we can write things like zinnia.models.Entry.private.by_authorized_user(self.request.user)
+# Now we can write things like zinnia.models.Entry.private.authorized_or_published(self.request.user)
 # to get the list of all entries where the current user is included in the list of authorized_users.
 #
 # Beware: zinnia.models.Entry.private.by_authorized_user(None) will return all entries.
