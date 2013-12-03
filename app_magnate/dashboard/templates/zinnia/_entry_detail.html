@@ -1,0 +1,18 @@
+{% extends "zinnia/_entry_detail_base.html" %}
+
+{% load social_tags %}
+
+{% block entry-footer %}
+
+
+
+{% if object.show_like_button %}
+
+    {% like_entry_button object.pk request.user %}
+
+{% endif %}
+
+
+{{ block.super }}
+
+{% endblock %}
