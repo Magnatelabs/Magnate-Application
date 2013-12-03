@@ -23,7 +23,8 @@ def entry_is_liked(entry, user):
     if user_liked:
         return (True, user_liked.total_likes)
     else:
-        return (False, liked.total_likes)
+        return (False, total_entry_likes(entry))
+#        return (False, liked.total_likes)
 
 
 # If the user likes the entry, now it will be unliked, and vice versa.
