@@ -39,7 +39,7 @@ urlpatterns = patterns("",
 # TODO: ideally, include zinnia.urls, but decorate them somehow so that
 # only root (or certain users) would be able to view them. This would
 # be nice for the admin - to see all posts, etc.
-    url(r'^zinnia_shortlink/', include('zinnia.urls.shortlink')),
+#    url(r'^zinnia_shortlink/', include('zinnia.urls.shortlink')),
 
 #    url(r"^contacts/", include("phonebook.urls")),
 #    url(r"^testform/", include("testFormApp.urls")),
