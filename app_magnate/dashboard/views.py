@@ -43,12 +43,26 @@ def dashboard_index(request):
 
 
 
+
+from zinnia.models.entry import Entry
+
 class DashboardView(zinnia.views.archives.EntryIndex):
 
+    def get_queryset(self):
+        assert self.request.user.is_authenticated(), "No user is logged in. Why are we trying to render a page? The user should have been redirected to a login page. In fact, all views in %s should be decorated with @login_required." % (self.__class__.__name__)
+
+        # Completely override parent's get_queryset instead of merging 
+        # parent's queryset with some other entries.
+        #
+        # TODO: make sure that we are getting Entries in a sorted order!
+        # QUESTION: how is it achieved in Zinnia?
+        return Entry.private.authorized_or_published(self.request.user)
+
+
+    
     # Overloading get_context_data so we can pass extra variables to the template.
     # See https://docs.djangoproject.com/en/dev/topics/class-based-views/generic-display/
     def get_context_data(self, **kwargs):
-
         # Get current context
         context = super(DashboardView, self).get_context_data(**kwargs)
 
