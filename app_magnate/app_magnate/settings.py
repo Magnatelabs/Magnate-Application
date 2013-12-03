@@ -231,4 +231,4 @@ MERCHANT_SETTINGS = {
     }
 }
 
-ZINNIA_ENTRY_BASE_MODEL='glue_zinnia.models.EntryCheck'
+ZINNIA_ENTRY_BASE_MODEL='glue_zinnia.models.PublicEntry'
