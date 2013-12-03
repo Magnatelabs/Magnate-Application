@@ -105,6 +105,7 @@ TEMPLATE_CONTEXT_PROCESSORS = [
     "pinax_theme_bootstrap.context_processors.theme",
     "zinnia.context_processors.version",
 #    "zinnia.context_processors.media",
+    "dashboard.contexts.magnate_user_info",
 ]
 
 
