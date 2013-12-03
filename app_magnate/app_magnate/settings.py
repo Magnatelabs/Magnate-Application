@@ -155,6 +155,7 @@ INSTALLED_APPS = [
 
     #created 
 #    "startedQuestionnaire", (renamed)
+    "social",
     "companyinfo",
     "getstartedquestions",
     "siteErrors",
@@ -165,8 +166,9 @@ INSTALLED_APPS = [
     'django_xmlrpc',    # for Zinnia
     'mptt',             # for Zinnia
     "zinnia", 
- # Zinnia MUST BE included AFTER dashboard, as dashboard overrides a Zinnia template, base.html.
+ # Zinnia (an external blogging app) MUST BE included AFTER dashboard, as dashboard overrides a Zinnia template, base.html.
     "glue_zinnia",
+    
 ]
 
 # A sample logging configuration. The only tangible logging
