@@ -74,6 +74,12 @@ class EntryCheck(
 
     private = AuthorizedEntriesManager()
 
+    # Users can "like" certain entries. By default, they can like
+    # only published entries. They cannot "like" private messages meant
+    # only for them, such as "You have been awarded a new badge".
+    def show_like_button(self):
+        return self.status == PUBLISHED
+
     class Meta(CoreEntry.Meta):
         abstract = True
 
