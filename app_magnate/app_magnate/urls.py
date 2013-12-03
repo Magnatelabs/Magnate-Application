@@ -47,6 +47,7 @@ urlpatterns = patterns("",
     url(r"^aboutus/", include("companyinfo.urls")),
     url(r"^errors/", include("siteErrors.urls")),
     url(r"^dash/", include("dashboard.urls")),
+    url(r"^social/", include("social.urls")),
     url(r"^donations/", include("donations.urls")),
     url(r"^status/", include("status_awards.urls")),
 )
