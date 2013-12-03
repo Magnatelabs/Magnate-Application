@@ -13,5 +13,5 @@ urlpatterns = patterns("",
   url(r"^dashboard/$", DashboardView.as_view(), name="dashboard"),
   url(r"^dashboard/spotlightrequest/$", dashboard_spotlight_request.as_view(), name="spotlight_request"),
 url(r"^spotlight_confirm/$", "dashboard.views.dash_confirm_index", name="confirm_dashboard"),
-#  url(r"^dashboard/spotlightrequest/$", "dashboard.views.dashboard_spotlight_request", name="spotlight_request"),
+  #  url(r"^dashboard/spotlightrequest/$", "dashboard.views.dashboard_spotlight_request", name="spotlight_request"),
 )
