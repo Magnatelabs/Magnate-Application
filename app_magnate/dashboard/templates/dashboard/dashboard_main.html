@@ -156,3 +156,46 @@
 
 
 {% endblock %}
+
+
+
+
+
+{% block script_base %}
+
+{{ block.super }}
+
+<script type="text/javascript">
+
+  // User liked a post. 
+  function on_click_like_entry(clicked_id, clicked_dom_id) {
+      $.ajax({
+           type: "POST",
+           url:  "{% url 'ajax_like_entry' %}",
+           data: { 'entry_id': clicked_id,
+                   'csrfmiddlewaretoken': '{{csrf_token}}'},
+           dataType: "text",
+           success: function(response) { 
+               // Like went through!
+               var resp = JSON.parse(response);
+               // response has a section new_html
+               // This is a dictionary of the form { dom_id : new_html }
+               // The new_html has to be inserted into the div (p, etc.) specified by the id
+               $.each(resp.update_html, function(dom_id, new_html) {
+                   $('#'+dom_id).html(new_html);
+               })
+               $('#div-'+clicked_dom_id).html(resp.new_html);               
+//               alert(resp.message);
+//               $('#'+clicked_dom_id).text("cool");
+               //$('#'+clicked_dom_id).attr("disabled", resp.liked);
+//               $('#'+clicked_dom_id).attr("value", "Unlike");
+//               toggleLike(clicked_dom_id, !resp.liked, " ("+resp.total_likes+")");
+           }, error: function(rs, e) {
+              alert(rs.responseText);
+           }
+      });
+  }
+
+</script> 
+
+{% endblock %} 
