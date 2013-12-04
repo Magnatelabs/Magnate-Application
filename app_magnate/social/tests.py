@@ -5,9 +5,9 @@ User=get_user_model()
 from zinnia.models.entry import Entry
 from . import models
 from models import total_entry_likes, entry_is_liked, toggle_like_unlike
+from .models import Like
 
 import random
-random.seed(2746833)
 from random import randrange
 
 class SimpleTest(TestCase):
@@ -71,27 +71,45 @@ class SimpleTest(TestCase):
         self.assertEqual(count, 0)
         self.assertEqual(total_entry_likes(entry), 0)
      
- 
+
+
+
+
+    def setup_random(self):
+        random.seed(834932784)
+        self.users=[]
+        for i in range(20):
+            self.users.append(User.objects.create_user("User %d" % (i), "user-%d@people.biz" % (i), "12345678987654321"))
+        self.entries=[]
+        for i in range(20):
+            self.entries.append(Entry.objects.create(title="Entry %d" % (i)))
+
+    def tearDown(self):
+        Like.objects.all().delete()
+
+    # Start with n_user users and n_entries entries. Then, using pseudorandom generation, 
+    # for n_repetition steps, randomly like/unlike entries. Maintain a two-dimensional array of booleans
+    # and see if everything works as expected.
     def do_many(self, n_users, n_entries, n_repetitions):
-        users=[]
-        for i in range(n_users):
-            users.append(User.objects.create_user("User %d" % (i), "user-%d@people.biz" % (i), "12345678987654321"))
-        entries=[]
-        for i in range(n_entries):
-            entries.append(Entry.objects.create(title="Entry %d" % (i)))
-        likes=[[False for e in entries] for u in users]
+        likes=[[False for e in self.entries] for u in self.users]
 
         for r in range(n_repetitions):
             u_ind=randrange(n_users)
-            user=users[u_ind]
+            user=self.users[u_ind]
             e_ind=randrange(n_entries)
-            entry=entries[e_ind]
-            self.assertEqual(entry_is_liked(entry, user), int(likes[u_ind][e_ind]))
+            entry=self.entries[e_ind]
+            self.assertEqual(entry_is_liked(entry, user), likes[u_ind][e_ind])
             result=toggle_like_unlike(entry, user)
             likes[u_ind][e_ind] = not likes[u_ind][e_ind]
-            self.assertEqual(entry_is_liked(entry, user), int(likes[u_ind][e_ind]))
+            self.assertEqual(entry_is_liked(entry, user), likes[u_ind][e_ind])
             self.assertEqual(result, int(likes[u_ind][e_ind]))
             self.assertEqual(total_entry_likes(entry), len([ui for ui in range(n_users) if likes[ui][e_ind]]))
+        Like.objects.all().delete()
 
-    def test_random(self):
-        self.do_many(1, 1, 100)
+    def test_rand_1(self):
+        self.setup_random()
+        self.do_many(1, 1, 20)
+        self.do_many(1, 2, 10)
+        self.do_many(2, 1, 10)
+        self.do_many(2, 2, 20)
+#        self.do_many(10, 10, 1000)
