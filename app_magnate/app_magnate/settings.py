@@ -26,6 +26,16 @@ DATABASES = {
     }
 }
 
+# Always run tests with sqlite3 so it does not take forever.
+# http://stackoverflow.com/questions/6353124/running-django-tests-with-sqlite
+import sys
+if 'test' in sys.argv or 'test_coverage' in sys.argv: #Covers regular testing and django-coverage
+    DATABASES['default'] = {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'mytestdatabase'
+    }
+
+
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
