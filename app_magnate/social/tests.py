@@ -12,6 +12,10 @@ from random import randrange
 
 class SimpleTest(TestCase):
     def test_basic_addition(self):
+        # Make sure we are testing with sqlite3
+        from django.db import settings
+        self.assertEqual(settings.DATABASES['default']['ENGINE'], 'django.db.backends.sqlite3')
+
         user = User.objects.create_user("Monica Schlicht", "m-schlicht@clearwaters.sky", "2380vh23v")
         entry = Entry.objects.create(title="Who owns Warhol portrait of Fawcett?")
 
@@ -108,8 +112,8 @@ class SimpleTest(TestCase):
 
     def test_rand_1(self):
         self.setup_random()
-        self.do_many(1, 1, 20)
-        self.do_many(1, 2, 10)
-        self.do_many(2, 1, 10)
+        self.do_many(1, 1, 15)
+        self.do_many(1, 2, 7)
+        self.do_many(2, 1, 7)
         self.do_many(2, 2, 20)
-#        self.do_many(10, 10, 1000)
+        self.do_many(10, 10, 75)
