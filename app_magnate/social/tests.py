@@ -6,6 +6,7 @@ from zinnia.models.entry import Entry
 from . import models
 from models import total_entry_likes, entry_is_liked, toggle_like_unlike
 from .models import Like
+from .templatetags import social_tags
 
 import random
 from random import randrange
@@ -117,3 +118,10 @@ class SimpleTest(TestCase):
         self.do_many(2, 1, 7)
         self.do_many(2, 2, 20)
         self.do_many(10, 10, 75)
+
+    def test_templatetags(self):
+        user = User.objects.create_user("Monica Schlicht", "m-schlicht@clearwaters.sky", "2380vh23v")
+        entry = Entry.objects.create(title="Who owns Warhol portrait of Fawcett?")
+        html = social_tags.like_entry_button(entry.pk, user)
+        self.assertTrue(social_tags.get_div_dom_id(entry.pk) in html)
+        self.assertTrue(social_tags.get_button_dom_id(entry.pk) in html)
