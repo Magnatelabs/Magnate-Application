@@ -14,7 +14,7 @@ from .models import toggle_like_unlike, total_entry_likes
 # User clicked the "Like" button after a post.
 def ajax_like_entry(request):
     if not request.is_ajax():
-        return HttpResponseBadRequest
+        return HttpResponseBadRequest()
     if not request.user.is_authenticated():
         return HttpResponse(status=401)
 
@@ -28,4 +28,6 @@ def ajax_like_entry(request):
         vars['liked'] = (count > 0)
         vars['total_likes'] = total_entry_likes(entry)
         vars['update_html']={social_tags.get_div_dom_id(entry_id) : social_tags.like_entry_button(int(entry_id), user)}
-    return HttpResponse(simplejson.dumps(vars), mimetype='application/javascript')
+        return HttpResponse(simplejson.dumps(vars), mimetype='application/javascript')
+    else:
+        return HttpResponseBadRequest()
