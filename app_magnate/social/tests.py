@@ -178,3 +178,18 @@ class SimpleTest(TestCase):
         # We expect resp_data["update_html"] to be like {"div-like-17": "<div id=div-like-17><input type=\"Button\" id=\"like-17\" value=\"Unlike it (1)\" style=\"float: right\" onClick=\"on_click_like_entry(17, this.id)\" /> </div>"}
         self.assertTrue('unlike' in str(resp_data['update_html']).lower())
 
+
+        # Try an AJAX GET request
+        response400=client.get(url, data, HTTP_X_REQUESTED_WITH='XMLHttpRequest')
+        self.assertEqual(response400.status_code, 400)
+
+
+        # Try a POST request that is not AJAX.. Expected HTTP 400.
+        response400=client.post(url, data)
+        self.assertEqual(response400.status_code, 400)
+
+        # Lastly, try a GET request that is not AJAX. Expected HTTP 400.
+        response400=client.get(url, data)
+        self.assertEqual(response400.status_code, 400)
+
+        
