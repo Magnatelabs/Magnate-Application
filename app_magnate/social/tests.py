@@ -11,8 +11,13 @@ from .templatetags import social_tags
 import random
 from random import randrange
 
+from django.test.client import Client
+from django.core.urlresolvers import reverse
+from django.contrib.auth import get_user_model
+import json
+
 class SimpleTest(TestCase):
-    def test_basic_addition(self):
+    def test_basic(self):
         # Make sure we are testing with sqlite3
         from django.db import settings
         self.assertEqual(settings.DATABASES['default']['ENGINE'], 'django.db.backends.sqlite3')
@@ -125,3 +130,51 @@ class SimpleTest(TestCase):
         html = social_tags.like_entry_button(entry.pk, user)
         self.assertTrue(social_tags.get_div_dom_id(entry.pk) in html)
         self.assertTrue(social_tags.get_button_dom_id(entry.pk) in html)
+
+
+    def test_ajax_like(self):
+        client = Client()
+        url=reverse('ajax_like_entry')
+        # User not authenticated. Expected AJAX response HTTP 401.
+        response401=client.post(url, HTTP_X_REQUESTED_WITH='XMLHttpRequest', )
+        self.assertEqual(response401.status_code, 401)
+
+        #Loggging in...
+        user = User.objects.create_user('temporary', 'temporary@gmail.com', 'temporary')
+        client.login(username='temporary', password='temporary')
+        #Logged in
+
+        # Now we are logged in and the request is ajax, but the data do not include entry_id
+        response404=client.post(url, HTTP_X_REQUESTED_WITH='XMLHttpRequest', )
+        self.assertEqual(response404.status_code, 404)
+
+
+        
+        # Now using nonexistent entry_id = 17
+        data =  {'entry_id' : '17',}
+        response404=client.post(url, data, HTTP_X_REQUESTED_WITH='XMLHttpRequest')  
+        self.assertEqual(response404.status_code, 404)
+
+        
+        # Create lots of users and entries...
+        self.setup_random()
+        # Now #17 exists. Just double-check; will raise DoesNotExist if anything.
+        Entry.objects.get(pk=17)
+
+        #try again
+        response=client.post(url, data, HTTP_X_REQUESTED_WITH='XMLHttpRequest')  
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response._headers['content-type'], ('Content-Type', 'application/javascript'))
+        resp_data = json.loads(response.content)
+
+        # The user just liked an Entry
+        self.assertEqual(resp_data['liked'], True)
+        # Nobody else likes it so far
+        self.assertEqual(resp_data['total_likes'], 1)
+        # resp_data['update_html'] contains html to update the div
+        self.assertTrue('update_html' in resp_data)
+        # the html should send something about unliking, since the user has just liked it
+        # We expect resp_data["update_html"] to be like {"div-like-17": "<div id=div-like-17><input type=\"Button\" id=\"like-17\" value=\"Unlike it (1)\" style=\"float: right\" onClick=\"on_click_like_entry(17, this.id)\" /> </div>"}
+        self.assertTrue('unlike' in str(resp_data['update_html']).lower())
+
