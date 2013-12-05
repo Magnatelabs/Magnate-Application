@@ -46,7 +46,16 @@ def dashboard_index(request):
 
 from zinnia.models.entry import Entry
 
+from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import login_required
+
 class DashboardView(zinnia.views.archives.EntryIndex):
+
+    # Login is required to view the dashboard.
+    # Perhaps we can switch to using login_required middleware later. Then we won't need this.
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(DashboardView, self).dispatch(*args, **kwargs)
 
     def get_queryset(self):
         assert self.request.user.is_authenticated(), "No user is logged in. Why are we trying to render a page? The user should have been redirected to a login page. In fact, all views in %s should be decorated with @login_required." % (self.__class__.__name__)
