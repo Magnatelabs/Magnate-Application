@@ -105,6 +105,10 @@ class SimpleZinniaTest(TestCase):
         self.assertEquals(client.get(private_entry_h.get_absolute_url()).status_code, 404)
 
 
+        # Also, there should be no link to the hidden entry from the detail view of other entries!
+        self.assertNotContains(client.get(entry.get_absolute_url()), private_entry_h.get_absolute_url())
+        self.assertNotContains(client.get(private_entry_g.get_absolute_url()), private_entry_h.get_absolute_url())
+
         # Test the dashboard
         response_dash = client.get(reverse('dashboard'), follow=True)
         self.assertContains(response_dash, 'wonderful permalink decorator 12321', status_code=200)
@@ -121,6 +125,9 @@ class SimpleZinniaTest(TestCase):
         self.assertContains(client.get(entry.get_absolute_url()), 'wonderful permalink decorator 12321', status_code=200)
         self.assertEquals(client.get(private_entry_g.get_absolute_url()).status_code, 404)
         self.assertEquals(client.get(private_entry_h.get_absolute_url()).status_code, 404)
+        # Since we are logged out, the public entry cannot show links to either hidden entry
+        self.assertNotContains(client.get(entry.get_absolute_url()), private_entry_g.get_absolute_url())
+        self.assertNotContains(client.get(entry.get_absolute_url()), private_entry_h.get_absolute_url())
 
 
 
@@ -131,6 +138,9 @@ class SimpleZinniaTest(TestCase):
         self.assertContains(client.get(entry.get_absolute_url()), 'wonderful permalink decorator 12321', status_code=200)
         self.assertEquals(client.get(private_entry_g.get_absolute_url()).status_code, 404)
         self.assertContains(client.get(private_entry_h.get_absolute_url()), 'Hilda spent her vacation in New Zealand', status_code=200)
+        # Also, there should be no link to the hidden entry from the detail view of other entries!
+        self.assertNotContains(client.get(entry.get_absolute_url()), private_entry_g.get_absolute_url())
+        self.assertNotContains(client.get(private_entry_h.get_absolute_url()), private_entry_g.get_absolute_url())
 
 
         # Test the dashboard
