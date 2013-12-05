@@ -23,7 +23,7 @@ class DonationZinniaTestCase(TestCase):
         # Every time a new Donation is saved, a new private message should be sent to the user
         self.assertTrue(issubclass(Donation, PrivatelyPublishedModelMixin))
 
-        d=Donation(amount=3, user=self.user)
+        d=Donation(amount=3.14, user=self.user)
         d.save()
         
         l=Entry.objects.all()
@@ -32,6 +32,9 @@ class DonationZinniaTestCase(TestCase):
         self.assertEqual(entry.status, HIDDEN, "The entry about a new donation should be private, i.e. status==HIDDEN")
         self.assertTrue(self.user in entry.authorized_users.all(), "The user should be authorized to view this entry")
         self.assertEquals(len(entry.authorized_users.all()), 1, "Only this user should be authorized to view this entry; nobody else")
+
+        self.assertTrue('3.14' in entry.content, '3.14 is the domation amount. It should be mentioned somewhere in the message, shouldn''t it?')
+
 
 class DonationTestCase(TestCase):
     
