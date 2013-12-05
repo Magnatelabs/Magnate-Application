@@ -21,7 +21,7 @@ urlpatterns = patterns("",
 # with login_required, see http://stackoverflow.com/questions/2307926/is-it-possible-to-decorate-include-in-django-urls-with-login-required
 # I guess, it may even be possible to make zinnia.urls available
 # only for certain users. For now we want them closed.
-    url(r'^blog/', include('zinnia.urls')),
+    url(r'^blog/', include('glue_zinnia.urls')),
 #    url(r'^blg/', EntryIndex.as_view()),
 
 # NOT SURE about this one... Needed for Zinnia...    
@@ -39,7 +39,7 @@ urlpatterns = patterns("",
 # TODO: ideally, include zinnia.urls, but decorate them somehow so that
 # only root (or certain users) would be able to view them. This would
 # be nice for the admin - to see all posts, etc.
-    url(r'^zinnia_shortlink/', include('zinnia.urls.shortlink')),
+#    url(r'^zinnia_shortlink/', include('zinnia.urls.shortlink')),
 
 #    url(r"^contacts/", include("phonebook.urls")),
 #    url(r"^testform/", include("testFormApp.urls")),
