@@ -13,6 +13,18 @@ class PrivatelyPublishedModelMixin(models.Model):
     # Private entry (blog post) noifying the user about a  donation, badge, etc.
     entry = models.OneToOneField(Entry,) # related_name='object_reason_for_post')
 
+    # Override this method to auto-generate meaningful titles for automated posts
+    def create_entry_title(self):
+        return 'You have a new %s' % (str(self.__class__).split("'")[1])
+
+    # Override this method to auto-generate meaningful content
+    def create_entry_content(self):
+        return 'You have a new %s' % (str(self.__class__).split("'")[1])
+        
+    # Override this to specify a meaningul slug. It does not have to be unique, as this mixin will append to the slug the id (primary key) of the entry.
+    def create_entry_slug(self):
+        return str(self.__class__).split("'")[1]
+
     # QUESTION. Do we want sql transactions?
     # or is it OK to save an object(badge, donation) if saving a related blog post fails? 
     # In this case, do we want later to retry posting the same thing?
@@ -22,8 +34,9 @@ class PrivatelyPublishedModelMixin(models.Model):
         if self.pk is None: # or if there is no entry? What is a good check?
             # take action on first save
             # NB! Try to make sure that the slug is unique so we can have separate links to separate messages
-            entry=Entry(title='Welcome to thee real world!', status=HIDDEN, slug='Hello, world!',) 
+            entry=Entry(title=self.create_entry_title(), content=self.create_entry_content(), status=HIDDEN,) 
             entry.save()
+            entry.slug=self.create_entry_slug() + '-' + str(entry.pk)
             entry.sites.add(Site.objects.get(pk=settings.SITE_ID))
             entry.authorized_users.add(self.user)
             entry.save()
