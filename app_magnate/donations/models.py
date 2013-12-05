@@ -5,8 +5,11 @@ from django.contrib.auth.models import User
 
 from billing.signals import transaction_was_successful, transaction_was_unsuccessful
 from django.dispatch import receiver
+from dashboard.mixins import PrivatelyPublishedModelMixin
 
 import datetime
+
+
 
 class BillingInfo (models.Model):
     user = models.ForeignKey(User)
@@ -20,7 +23,7 @@ class BillingInfo (models.Model):
     def __unicode__(self):
         return self.first_name
 
-class Donation (models.Model):
+class Donation (PrivatelyPublishedModelMixin, models.Model):
     user = models.ForeignKey(User)
     transaction_id = models.CharField(max_length=64)
     amount = models.DecimalField(max_digits=16, decimal_places=2)
