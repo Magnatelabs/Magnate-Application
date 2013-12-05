@@ -87,3 +87,8 @@ class SimpleZinniaTest(TestCase):
         response_dash = client.get(reverse('dashboard'), follow=True)
         self.assertContains(response_dash, 'wonderful permalink decorator 12321', status_code=200)
 
+
+        client.logout()
+        # LOG OUT.
+        # Still try a direct link to a public entry!
+        self.assertContains(client.get(entry.get_absolute_url()), 'wonderful permalink decorator 12321', status_code=200)
