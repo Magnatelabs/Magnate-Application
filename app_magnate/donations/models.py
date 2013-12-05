@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from billing.signals import transaction_was_successful, transaction_was_unsuccessful
 from django.dispatch import receiver
 from dashboard.mixins import PrivatelyPublishedModelMixin
-
+from decimal import Decimal
 import datetime
 
 
@@ -32,6 +32,22 @@ class Donation (PrivatelyPublishedModelMixin, models.Model):
     def __unicode__(self):
         return '$%.2f by %s on %s' % (self.amount, self.user, self.timestamp)
 
+    # Every donation will be automatically posted as a private message to the user, thanks to PrivatelyPublishedModelMixin. Some customization...
+
+    #override
+    def create_entry_title(self):
+        return 'Thank you for your new donation!'
+
+    #override
+    def create_entry_content(self):
+        return 'Fantastic! You have just donated $%.2f' % (self.amount)
+
+    #override 
+    def create_entry_slug(self):
+        return 'donation'
+
+
+
     @receiver(transaction_was_successful)
     def on_transaction_was_successful(sender, **kwargs):
         print 'transaction successful'
@@ -45,7 +61,7 @@ class Donation (PrivatelyPublishedModelMixin, models.Model):
             return
 
         user = User.objects.get(username=data['x_cust_id'])
-        amount = data['x_amount']
+        amount = Decimal(data['x_amount'])
         transaction_id = data['x_trans_id']
         donation = Donation(user=user, amount=amount, transaction_id=transaction_id)  
         donation.save()
