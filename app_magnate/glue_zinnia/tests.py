@@ -122,3 +122,25 @@ class SimpleZinniaTest(TestCase):
         self.assertEquals(client.get(private_entry_g.get_absolute_url()).status_code, 404)
         self.assertEquals(client.get(private_entry_h.get_absolute_url()).status_code, 404)
 
+
+
+        # Now logging in user_h
+        client.login(username="Hilda von Varden", password="777777777")
+
+        # Test a direct link to the entries. We should see the public entry and the private entry by the other user
+        self.assertContains(client.get(entry.get_absolute_url()), 'wonderful permalink decorator 12321', status_code=200)
+        self.assertEquals(client.get(private_entry_g.get_absolute_url()).status_code, 404)
+        self.assertContains(client.get(private_entry_h.get_absolute_url()), 'Hilda spent her vacation in New Zealand', status_code=200)
+
+
+        # Test the dashboard
+        response_dash = client.get(reverse('dashboard'), follow=True)
+        self.assertContains(response_dash, 'wonderful permalink decorator 12321', status_code=200)
+        self.assertNotContains(response_dash, 'Secret communication of Guido with', status_code=200)
+        self.assertContains(response_dash, 'spent her vacation', status_code=200)
+        # The dashboard should contain links "Continue Reading" to the visible posts
+        self.assertContains(response_dash, entry.get_absolute_url())
+        self.assertNotContains(response_dash, private_entry_g.get_absolute_url())
+        self.assertContains(response_dash, private_entry_h.get_absolute_url())
+        
+        client.logout()
