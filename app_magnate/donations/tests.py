@@ -10,6 +10,29 @@ from django.contrib.auth import get_user_model
 from django.conf import settings
 import hashlib
 
+from zinnia.models.entry import Entry
+from dashboard.mixins import PrivatelyPublishedModelMixin
+from zinnia.managers import HIDDEN
+
+class DonationZinniaTestCase(TestCase):
+    def setUp(self):
+        self.user=get_user_model()(username='green_elephant!!!')
+        self.user.save()
+
+    def test_donation_entry(self):
+        # Every time a new Donation is saved, a new private message should be sent to the user
+        self.assertTrue(issubclass(Donation, PrivatelyPublishedModelMixin))
+
+        d=Donation(amount=3, user=self.user)
+        d.save()
+        
+        l=Entry.objects.all()
+        self.assertTrue(len(l)==1)
+        entry=l[0]
+        self.assertEqual(entry.status, HIDDEN, "The entry about a new donation should be private, i.e. status==HIDDEN")
+        self.assertTrue(self.user in entry.authorized_users.all(), "The user should be authorized to view this entry")
+        self.assertEquals(len(entry.authorized_users.all()), 1, "Only this user should be authorized to view this entry; nobody else")
+
 class DonationTestCase(TestCase):
     
     # The user fills a form with credit card info, etc. and clicks "Pay".
@@ -109,5 +132,5 @@ class DonationTestCase(TestCase):
 
     def test_failed_donation(self):
         """Authorize.net donation did not go through"""
-        print "sucks bro"
+
 
