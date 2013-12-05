@@ -56,11 +56,17 @@ class SimpleZinniaTest(TestCase):
 
 
         entry = Entry(title="Django's wonderful permalink decorator 12321", slug="django", status=PUBLISHED, start_publication=datetime.datetime(2011,8,15,8,15,12,0,pytz.UTC))
+        private_entry = Entry(title="Secret communication of Guido with space travellers", slug="secret-never-see", status=HIDDEN)
+
 
         ### NB!
         ### This will fail with an in-memory sqlite3 database, but works fine with an on-disk sqlite3 database. With in-memory database it fails with 'no such table zinnia_category'. If we omit status-PUBLISHED, it works just fine. This is really weird, because the code in a previous test manually queries the database (as sqlite3) and confirms that various Zinnia tables exist, including 'zinnia_category'. Perhaps, Zinnia has some extra functionality when saving PUBLISHED entries, and it does something that breaks with an in-memory database...
         entry.save()
+        private_entry.save()
 
+        # Adding the current user as authorized. We can only do it after first saving the model.
+        private_entry.authorized_users.add(user)
+        private_entry.save()
 
 
         client.login(username='Guido van Rossum', password='3jh3j')
@@ -72,6 +78,8 @@ class SimpleZinniaTest(TestCase):
         # Thus, we do not expect it to show up when we follow a direct link.
         # Yes, it still shows up in the dashboard; this is probably a Zinnia issue.
         self.assertEqual(client.get(entry.get_absolute_url()).status_code, 404)
+        self.assertEqual(client.get(private_entry.get_absolute_url()).status_code, 404)
+
 
         # django.contrib.sites
         # Adding the current site to the Entry.
@@ -80,15 +88,22 @@ class SimpleZinniaTest(TestCase):
         self.site =  Site.objects.get(pk=settings.SITE_ID)
         entry.sites.add(self.site)
         entry.save()
+        private_entry.sites.add(self.site)
+        private_entry.save()
 
-        # Test a direct link to the entry
+        # Test a direct link to the entry. We should see the public entry and the private entry since it is by the same user
         self.assertContains(client.get(entry.get_absolute_url()), 'wonderful permalink decorator 12321', status_code=200)
+        self.assertContains(client.get(private_entry.get_absolute_url()), 'Secret communication of Guido with', status_code=200)
+
         # Test the dashboard
         response_dash = client.get(reverse('dashboard'), follow=True)
         self.assertContains(response_dash, 'wonderful permalink decorator 12321', status_code=200)
+        self.assertContains(response_dash, 'Secret communication of Guido with', status_code=200)
 
 
         client.logout()
         # LOG OUT.
-        # Still try a direct link to a public entry!
+        # Still try a direct link to a public entry! But the private one should return 404.
         self.assertContains(client.get(entry.get_absolute_url()), 'wonderful permalink decorator 12321', status_code=200)
+        self.assertEquals(client.get(private_entry.get_absolute_url()).status_code, 404)
+
