@@ -11,6 +11,7 @@ from django.core.urlresolvers import reverse
 from django.contrib.auth import get_user_model
 User=get_user_model()
 from django.core.urlresolvers import reverse
+from django.contrib.sites.models import Site
 
 from django.db import settings, models, connection
 
@@ -51,16 +52,38 @@ class SimpleZinniaTest(TestCase):
         user = User.objects.create_user("Guido van Rossum", "email@ppyytthhoonn.org", "3jh3j")
 
         # must specify slug. Otherwise get_aboslute_url is broken and will get NoReverseMatch.
+
+
+
         entry = Entry(title="Django's wonderful permalink decorator 12321", slug="django", status=PUBLISHED, start_publication=datetime.datetime(2011,8,15,8,15,12,0,pytz.UTC))
 
         ### NB!
         ### This will fail with an in-memory sqlite3 database, but works fine with an on-disk sqlite3 database. With in-memory database it fails with 'no such table zinnia_category'. If we omit status-PUBLISHED, it works just fine. This is really weird, because the code in a previous test manually queries the database (as sqlite3) and confirms that various Zinnia tables exist, including 'zinnia_category'. Perhaps, Zinnia has some extra functionality when saving PUBLISHED entries, and it does something that breaks with an in-memory database...
         entry.save()
 
+
+
         client.login(username='Guido van Rossum', password='3jh3j')
 
         
-        # Follow redirects. Why do we need? Perhaps because of the login_required decorator.
-        response = client.get(reverse('dashboard'), follow=True)
-        self.assertContains(response, 'wonderful permalink decorator 12321', status_code=200)
-#        import pdb; pdb.set_trace()
+
+
+        # Now, we did not set the site for a new entry (see django.contrib.sites).
+        # Thus, we do not expect it to show up when we follow a direct link.
+        # Yes, it still shows up in the dashboard; this is probably a Zinnia issue.
+        self.assertEqual(client.get(entry.get_absolute_url()).status_code, 404)
+
+        # django.contrib.sites
+        # Adding the current site to the Entry.
+        # Otherwise it will not be displayed in the detailed view.
+        # For some weird reason it is still displayed in the dashboard (that is, zinnia archive of entries). Created an issue for Zinnia on github...
+        self.site =  Site.objects.get(pk=settings.SITE_ID)
+        entry.sites.add(self.site)
+        entry.save()
+
+        # Test a direct link to the entry
+        self.assertContains(client.get(entry.get_absolute_url()), 'wonderful permalink decorator 12321', status_code=200)
+        # Test the dashboard
+        response_dash = client.get(reverse('dashboard'), follow=True)
+        self.assertContains(response_dash, 'wonderful permalink decorator 12321', status_code=200)
+
