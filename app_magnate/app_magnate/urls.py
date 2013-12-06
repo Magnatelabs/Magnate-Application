@@ -15,6 +15,7 @@ urlpatterns = patterns("",
     url(r"^admin/", include(admin.site.urls)),
     url(r"^account/", include("account.urls")),
     url(r"^waitinglist/", include("waitinglist.urls")),
+    url(r"^ratings/", include("agon_ratings.urls")),
 
 # We don't want to include all Zinnia.urls, as we do not want to expose
 # everything to the users. It may be possible to e.g. decorate the include

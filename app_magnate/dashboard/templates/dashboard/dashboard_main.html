@@ -142,6 +142,11 @@
         <article class="bg-skyblue">
         <aside>
         <h4>Really, stay in touch</h4>
+
+	<!-- A widget with stars will be shown in this div so users can rate this website -->
+        <div id="user_rating" class="category-fun"></div>
+        
+
         <div class="icon"><a href="#"><img src="{% static "img/img_icon07.png" %}" alt="ICON"></a></div>
         <div class="info">
         <p>Check us out on <a href="#">Facebook</a>, and tell us what’s on your mind.</p>
@@ -164,6 +169,15 @@
 {% block script_base %}
 
 {{ block.super }}
+
+{% load agon_ratings_tags %}
+
+{% comment %}
+{ % auser_rating request.user site "fun" as the_user_rating % }
+{% endcomment %}
+
+{% user_rating_js request.user site "fun" %}
+
 
 <script type="text/javascript">
 

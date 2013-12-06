@@ -158,7 +158,7 @@ INSTALLED_APPS = [
     "eventlog",
     "waitinglist",
     "billing",
-    "agon_ratings",
+    
 
     # project
     "app_magnate",
@@ -178,6 +178,8 @@ INSTALLED_APPS = [
     'tagging',          # for Zinnia
     'django_xmlrpc',    # for Zinnia
     'mptt',             # for Zinnia
+    
+    "agon_ratings",  # agon_ratings has to be after dashboard so we can overload things
     "zinnia", 
  # Zinnia (an external blogging app) MUST BE included AFTER dashboard, as dashboard overrides a Zinnia template, base.html.
     "glue_zinnia",
