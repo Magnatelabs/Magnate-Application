@@ -7,6 +7,7 @@ from zinnia.managers import PUBLISHED
 
 from django.db.models.query import QuerySet
 from django.db.models import Q
+from django.db import settings
 
 # From  http://stackoverflow.com/questions/2163151/custom-queryset-and-manager-without-breaking-dry
 #
@@ -79,6 +80,10 @@ class EntryCheck(
     # only for them, such as "You have been awarded a new badge".
     def show_like_button(self):
         return self.status == PUBLISHED
+
+    # Word limit for private and public entries, respectively
+    def blurb_word_limit(self):
+        return [settings.MAGNATE_PRIVATE_ENTRY_BLURB_WORD_LIMIT, settings.MAGNATE_PUBLIC_ENTRY_BLURB_WORD_LIMIT][self.status==PUBLISHED]
 
     class Meta(CoreEntry.Meta):
         abstract = True
