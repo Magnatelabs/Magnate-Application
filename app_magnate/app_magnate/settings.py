@@ -158,6 +158,7 @@ INSTALLED_APPS = [
     "eventlog",
     "waitinglist",
     "billing",
+    "agon_ratings",
 
     # project
     "app_magnate",
@@ -244,3 +245,7 @@ MERCHANT_SETTINGS = {
 }
 
 ZINNIA_ENTRY_BASE_MODEL='glue_zinnia.models.EntryCheck'
+
+#This is for the ratings
+#AGON_NUM_OF_RATINGS = 5
+AGON_RATINGS_CATEGORY_CHOICES = {"sites.Site": {"fun": "none at all"} }
