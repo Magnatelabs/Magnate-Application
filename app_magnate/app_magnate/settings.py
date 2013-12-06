@@ -26,18 +26,6 @@ DATABASES = {
     }
 }
 
-# Always run tests with sqlite3 so it does not take forever.
-# http://stackoverflow.com/questions/6353124/running-django-tests-with-sqlite
-import sys
-
-if 'test' in sys.argv or 'test_coverage' in sys.argv: #Covers regular testing and django-coverage
-    DATABASES['default'] = {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'TEST_NAME': os.path.join(os.path.dirname(__file__), 'test.db'),
-#        'NAME': 'mytestdatabase',
-    }
-
-
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
@@ -158,6 +146,7 @@ INSTALLED_APPS = [
     "eventlog",
     "waitinglist",
     "billing",
+    "agon_ratings",
 
     # project
     "app_magnate",
@@ -244,3 +233,7 @@ MERCHANT_SETTINGS = {
 }
 
 ZINNIA_ENTRY_BASE_MODEL='glue_zinnia.models.EntryCheck'
+
+#This is for the ratings
+#AGON_NUM_OF_RATINGS = 5
+AGON_RATINGS_CATEGORY_CHOICES = {"sites.Site": {"fun": "none at all"} }

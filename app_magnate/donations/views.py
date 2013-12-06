@@ -24,14 +24,27 @@ from .models import BillingInfo
 from .utils import total_donation_amount
 
 
+## Attempt at ratings feature ##
+#from getstartedquestions.models import QuestionList
+
+from donations.utils import total_donation_amount, all_donations_by_user, all_badges_for_user
+
 
 def donation_index(request):
 #    if not request.user.is_authenticated():
 #        return redirect('/donations/user/?next=%s' % request.path)
+
+##   Attempt at ratings feature ##
+#    questionslist = QuestionList.objects.all()
+
     tda=total_donation_amount(request.user)
     user_has_donation = (tda > 0)
+    feed=all_donations_by_user(request.user)[1]
+    
 
-    return render(request, 'donations/donations_home.html', {'user_has_donation': user_has_donation, 'total_donation_amount': tda})
+##   Attempt at ratings feature ## return render(request, 'donations/donations_home.html', {'user_has_donation': user_has_donation, 'total_donation_amount': tda, 'questionslist': questionslist})
+
+    return render(request, 'donations/donations_home.html', {'user_has_donation': user_has_donation, 'total_donation_amount': tda, 'feed': feed})
 
 def donation_tiers(request):
 #    if not request.user.is_authenticated():

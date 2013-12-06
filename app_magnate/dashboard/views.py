@@ -20,8 +20,9 @@ from django.views.generic.edit import FormView
 
 from donations.utils import total_donation_amount, all_donations_by_user, all_badges_for_user
 
-
-
+from django.db import settings
+from django.contrib.sites.models import Site
+site = Site.objects.get(pk=settings.SITE_ID)
 
 import zinnia
 from zinnia.views.archives import EntryIndex
@@ -37,25 +38,16 @@ def dashboard_index(request):
     user_badges = all_badges_for_user(request.user)
  
 
-    return EntryIndex.as_view()(request, 'dashboard/dashboard_main.html', {'user_has_donation': True} )
+#    return EntryIndex.as_view()(request, 'dashboard/dashboard_main.html', {'user_has_donation': True} )
 
-#    return render(request, 'dashboard/dashboard_main.html', {'user_has_donation': user_has_donation, 'feed': feed, 'total_donation_amount': tda, 'user_badges': user_badges})
+    return render(request, 'dashboard/dashboard_main.html', {'user_has_donation': user_has_donation, 'feed': feed, 'total_donation_amount': tda, 'user_badges': user_badges, 'site': site, 'cool': 'cooler'}) 
 
 
 
 
 from zinnia.models.entry import Entry
 
-from django.utils.decorators import method_decorator
-from django.contrib.auth.decorators import login_required
-
 class DashboardView(zinnia.views.archives.EntryIndex):
-
-    # Login is required to view the dashboard.
-    # Perhaps we can switch to using login_required middleware later. Then we won't need this.
-    @method_decorator(login_required)
-    def dispatch(self, *args, **kwargs):
-        return super(DashboardView, self).dispatch(*args, **kwargs)
 
     def get_queryset(self):
         assert self.request.user.is_authenticated(), "No user is logged in. Why are we trying to render a page? The user should have been redirected to a login page. In fact, all views in %s should be decorated with @login_required." % (self.__class__.__name__)

@@ -1,4 +1,5 @@
 {% load staticfiles %}
+{% load agon_ratings_tags %}
 
 <div class="donation-info">
         <h1>Your Donation</h1>
@@ -6,7 +7,11 @@
         
         <div class="amount-box">
         <div class="amount-info">
+
+{% user_rating request.user feed as the_user_rating %}
+<div id="user_rating"></div>
         
+          
 	<article>
         <div class="current-amount">
         <h4>Current amount</h4>
@@ -24,3 +29,5 @@
         </div>
 
 </div> <!--donation-info-->
+
+{% user_rating_js request.user feed %}

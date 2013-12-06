@@ -1,9 +1,23 @@
 {% load staticfiles %}
+{% load agon_ratings_tags %}
+
 
 <div class="donation-info">
         <h1>Your Donation</h1>
         <p>Being a Magnate is all about your donation, and this is your control center. Everything you need to make sure Magnate is growing your donation at the rate you want.</p>
         
+        {% user_rating request.user feed as the_user_rating %}
+<div id="user_rating">chicken</div>
+        
+        {{ request.user }}
+        
+        {{ feed }}
+        
+        {{ the_user_rating }}
+		
+		
+		
+		        
         <div class="amount-box">
         <div class="amount-info">
         <article>
@@ -47,3 +61,5 @@
         </div>
 
  </div><!--donation info-->
+
+{% user_rating_js request.user feed %}

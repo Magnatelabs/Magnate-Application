@@ -142,6 +142,10 @@
         <article class="bg-skyblue">
         <aside>
         <h4>Really, stay in touch</h4>
+        <div id="user_rating" class="category-fun">chicken</div>
+        
+        {{ site }}
+        {{ cool }}
         <div class="icon"><a href="#"><img src="{% static "img/img_icon07.png" %}" alt="ICON"></a></div>
         <div class="info">
         <p>Check us out on <a href="#">Facebook</a>, and tell us what’s on your mind.</p>
@@ -164,6 +168,10 @@
 {% block script_base %}
 
 {{ block.super }}
+
+{% load agon_ratings_tags %}
+{% user_rating request.user site "fun" as the_user_rating %}
+{% user_rating_js request.user site "fun" %}
 
 <script type="text/javascript">
 

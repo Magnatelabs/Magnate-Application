@@ -11,6 +11,19 @@ from  donations.views import DonationBilling
 #from django.contrib import admin
 #admin.autodiscover()
 
+#Attempt at ratings crap
+#from django.conf.urls.defaults import *
+#from django.views.generic import list_detail
+
+#donation_info = {
+#    'queryset': DonationBilling.objects.all(),
+#    'template_object_name': 
+#}
+
+#urlpatterns = patterns('',
+#    (r'^publishers/$', list_detail.object_list, donation_info)
+#)
+
 urlpatterns = patterns("",
   url(r"^donations/home$", "donations.views.donation_index", name="donations_home"),
   url(r"^donations/add$", "donations.views.donation_add", name="donations_add"),
