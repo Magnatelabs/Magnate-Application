@@ -63,7 +63,7 @@ class DonationTestCase(TestCase):
     def setUp(self):
         merchant_settings = getattr(settings, "MERCHANT_SETTINGS")
         if not merchant_settings or not merchant_settings.get("authorize_net"):
-            Raise("The '%s' integration is not correctly configured." % self.display_name)
+            raise("The '%s' integration is not correctly configured." % self.display_name)
         self.authorize_net_settings = merchant_settings["authorize_net"]
         self.set_constants()
         
@@ -86,22 +86,25 @@ class DonationTestCase(TestCase):
 
     @receiver(transaction_was_successful)
     def on_transaction_was_successful(sender, **kwargs):
-        assert isinstance(sender, billing.integrations.authorize_net_dpm_integration.AuthorizeNetDpmIntegration)
-        assert 'request' in kwargs
-        assert kwargs['request'].META['REQUEST_METHOD']=='POST'
+        assert isinstance(sender, billing.integrations.authorize_net_dpm_integration.AuthorizeNetDpmIntegration) or isinstance(sender, billing.gateways.authorize_net_gateway.AuthorizeNetGateway)
+        if isinstance(sender, billing.integrations.authorize_net_dpm_integration.AuthorizeNetDpmIntegration):
+            assert 'request' in kwargs
+            assert kwargs['request'].META['REQUEST_METHOD']=='POST'
         
 
-        DonationTestCase.success_count += 1
-        print 'success'
+            DonationTestCase.success_count += 1
+        
 
     @receiver(transaction_was_unsuccessful)
-    def on_transaction_was_onsuccessful(sender, **kwargs):
-        assert isinstance(sender, billing.integrations.authorize_net_dpm_integration.AuthorizeNetDpmIntegration)
-        assert 'request' in kwargs
-        assert kwargs['request'].META['REQUEST_METHOD']=='POST'
+    def on_transaction_was_unsuccessful(sender, **kwargs):
+        assert isinstance(sender, billing.integrations.authorize_net_dpm_integration.AuthorizeNetDpmIntegration) or isinstance(sender, billing.gateways.authorize_net_gateway.AuthorizeNetGateway)
+        if  isinstance(sender, billing.integrations.authorize_net_dpm_integration.AuthorizeNetDpmIntegration):
 
-        DonationTestCase.unsuccess_count += 1
-        print 'failed'
+            assert 'request' in kwargs
+            assert kwargs['request'].META['REQUEST_METHOD']=='POST'
+
+            DonationTestCase.unsuccess_count += 1
+        
 
     def test_successful_donation(self):
         """Authorize.net donation went through"""
