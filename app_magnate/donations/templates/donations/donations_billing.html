@@ -55,11 +55,18 @@
         </ul>
         </aside>
 
-        <p>Your billing information will be saved for future donations.</p>
+        <p>Hello! Your billing information will be saved for future donations.</p>
         
 	</form>
 	<form method="POST" action="{% url 'donations_pay' %}">
           {% csrf_token %}
+
+	<label>City</label>
+	<input name="x_city" type="text" class="input code2" value="" />
+
+	 <label>Country</label>
+         <input name="x_country" type="text" class="input code2" value="" /> 
+
 	  <input type="hidden" name="donation_amount" value="{{amount}}" />
 	  <input type="submit" value="Continue" class="btn" />
         </form>
