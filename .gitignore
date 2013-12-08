@@ -1,6 +1,7 @@
 /airvirt_magnatenv/
 /virt_magnatenv/
 /beer/
+/app_magnate/app_magnate/site_media/media/uploads/
 *~
 *.pyc
 
