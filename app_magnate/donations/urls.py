@@ -14,7 +14,7 @@ from  donations.views import DonationBilling
 urlpatterns = patterns("",
   url(r"^donations/home$", "donations.views.donation_index", name="donations_home"),
   url(r"^donations/add$", "donations.views.donation_add", name="donations_add"),
-  url(r"^donations/billing$", DonationBilling.as_view(), name="donations_billing"),
+  url(r"^donations/billing$", "donations.views.enter_billing_info", name="donations_billing"),
   url(r"^donations/confirmation$", "donations.views.donation_confirmation", name="donations_confirmation"),
   url(r"^donations/finalize_order$", "donations.views.donation_orderpay", name="donations_pay"),
   url(r"^fundstart/tierselection$", "donations.views.donation_tiers", name="donations_tiers"),

@@ -57,10 +57,15 @@
 
         <p>Your billing information will be saved for future donations.</p>
         
-        <a href="{% url 'donations_pay' %}" class="btn">Continue</a>
+	</form>
+	<form method="POST" action="{% url 'donations_pay' %}">
+          {% csrf_token %}
+	  <input type="hidden" name="donation_amount" value="{{amount}}" />
+	  <input type="submit" value="Continue" class="btn" />
+        </form>
         <a href="#" class="btn-gray">Cancel</a>
         </article>
-        </form>
+        
 
         </div>
         </div>
@@ -72,11 +77,11 @@
         <ul>
         <li class="nodivider">
         <div class="column1">MagnateFund donation</div>
-        <div class="column2">$20.00</div>
+        <div class="column2">${{amount}}</div>
         </li>
         <li class="total">
         <div class="column1">Total</div>
-        <div class="column2">$20.00</div>
+        <div class="column2">${{amount}}</div>
         </li>        
         </ul>
         </article>
