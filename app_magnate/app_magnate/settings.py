@@ -185,7 +185,7 @@ INSTALLED_APPS = [
 ]
 
 TEST_RUNNER = 'django_test_exclude.runners.ExcludeTestSuiteRunner'
-TEST_EXCLUDE=[ "django.contrib", "zinnia" ]
+TEST_EXCLUDE=[ "django.contrib", "zinnia", "account", "waitinglist" ]
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
