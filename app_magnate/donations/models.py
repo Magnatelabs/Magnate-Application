@@ -50,22 +50,23 @@ class Donation (PrivatelyPublishedModelMixin, models.Model):
 
     @receiver(transaction_was_successful)
     def on_transaction_was_successful(sender, **kwargs):
-        print 'transaction successful'
-        data = kwargs['request'].POST
+        if ('request' in kwargs) and (kwargs['request'].method=='POST'):
+            data = kwargs['request'].POST
 
-        try:
-            user=User.objects.get(username=data['x_cust_id'])
-        except User.DoesNotExist, e:
-            # LOG FATAL ERROR
-            print 'FATAL ERROR while saving a donation: User %s does not exist' % data['x_cust_id']
-            return
+            try:
+                user=User.objects.get(username=data['x_cust_id'])
+            except User.DoesNotExist, e:
+                # LOG FATAL ERROR
+                print 'FATAL ERROR while saving a donation: User %s does not exist' % data['x_cust_id']
+                return
 
-        user = User.objects.get(username=data['x_cust_id'])
-        amount = Decimal(data['x_amount'])
-        transaction_id = data['x_trans_id']
-        donation = Donation(user=user, amount=amount, transaction_id=transaction_id)  
-        donation.save()
-        #import pdb; pdb.set_trace()
+            user = User.objects.get(username=data['x_cust_id'])
+            amount = Decimal(data['x_amount'])
+            transaction_id = data['x_trans_id']
+            donation = Donation(user=user, amount=amount, transaction_id=transaction_id)  
+            donation.save()
+            #import pdb; pdb.set_trace()
+        
 
 
 class FailedDonation (models.Model):
@@ -78,5 +79,5 @@ class FailedDonation (models.Model):
 
     @receiver(transaction_was_unsuccessful)
     def on_transaction_was_unsuccessful(sender, **kwargs):
-        print 'transaction failed'
+        pass
         #import pdb; pdb.set_trace()
