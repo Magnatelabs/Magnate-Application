@@ -2,6 +2,13 @@
 
 {% load social_tags %}
 
+{% block entry-header %}
+<!-- Icon of the entry -->
+<img src="{{ object.icon_url }}" height="10%" width="10%" style="float: left" />
+{{ block.super }}
+{% endblock %}
+
+
 {% block entry-footer %}
 
 
@@ -18,3 +25,21 @@
 {% endif %}
 
 {% endblock %}
+
+ {% block entry-image %}
+    {% if object.image %}
+    <div class="entry-image">
+      <p>
+        {% if continue_reading %}
+        <a href="{{ object.get_absolute_url }}" title="{{ object.title }}" rel="bookmark">
+          <img src="{{ object.image.url }}" alt="{{ object.title }}" class="left" wisdth="5%" height="5%" />
+        </a>
+        {% else %}
+        <a href="{{ object.get_absolute_url }}" title="{{ object.title }}" rel="bookmark">
+          <img src="{{ object.image.url }}" alt="{{ object.title }}" class="left" width="500px" height="500px" />
+        </a>
+        {% endif %}
+      </p>
+    </div>
+    {% endif %}
+    {% endblock %}
