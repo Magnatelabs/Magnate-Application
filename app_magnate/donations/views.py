@@ -118,6 +118,10 @@ def donation_orderpay(request):
 #    if not request.user.is_authenticated():
 #        return redirect('/donations/user/?next=%s' % request.path)
 
+
+    # Here save the address info of the user to the database!
+    # Something like BillingProfile.object.create(user=request.user, city=request.POST['x_city'], ...
+
     donation_amount = request.POST['donation_amount']
     int_obj = get_integration("authorize_net_dpm")
     fields = {'x_amount': donation_amount,
@@ -126,6 +130,9 @@ def donation_orderpay(request):
           'x_recurring_bill': 'F',
           'x_relay_url': request.build_absolute_uri(reverse("authorize_net_notify_handler")),
           'x_cust_id': request.user,
+
+          'x_city': request.POST['x_city'],
+          'x_country': request.POST['x_country'],
         }
     int_obj.add_fields(fields)
     return render_to_response("donations/donations_orderpay.html",
