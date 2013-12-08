@@ -31,7 +31,12 @@
         </div>
         </aside>
 
-        <a href="{% url 'donations_billing' %}" class="btn">Continue</a>
+        <form method="POST" action="{% url 'donations_billing' %}">
+	  {% csrf_token %}
+          Amount to donate: 
+	  <input type="text" name="amount" class="input code2" />
+	  <input type="submit" class="btn" value="Continue" />
+        </form>
         <a href="#" class="btn-gray">Cancel</a>
         </article>
         </div>

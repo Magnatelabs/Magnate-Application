@@ -7,7 +7,7 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 from django.template import RequestContext
 import datetime
-
+import time
 
 from billing import get_integration
 
@@ -44,6 +44,9 @@ def donation_add(request):
 #        return redirect('/donations/user/?next=%s' % request.path)
 
     return render(request, 'donations/donations_add.html')
+
+def enter_billing_info(request):
+    return render(request, 'donations/donations_billing.html', {'amount': request.POST['amount']})
 
 class DonationBilling(FormView):
 #    if not request.user.is_authenticated():
@@ -115,10 +118,11 @@ def donation_orderpay(request):
 #    if not request.user.is_authenticated():
 #        return redirect('/donations/user/?next=%s' % request.path)
 
+    donation_amount = request.POST['donation_amount']
     int_obj = get_integration("authorize_net_dpm")
-    fields = {'x_amount': 1,
-          'x_fp_sequence': datetime.datetime.now().strftime('%Y%m%d%H%M%S'),
-          'x_fp_timestamp': datetime.datetime.utcnow().strftime('%s'),
+    fields = {'x_amount': donation_amount,
+          'x_fp_sequence': datetime.datetime.now().strftime('%Y%m%d%H%M%S'), # any identifier for the transaction
+          'x_fp_timestamp': str(int(time.time())), # the timestamp when x_fp_sequence was generated
           'x_recurring_bill': 'F',
           'x_relay_url': request.build_absolute_uri(reverse("authorize_net_notify_handler")),
           'x_cust_id': request.user,

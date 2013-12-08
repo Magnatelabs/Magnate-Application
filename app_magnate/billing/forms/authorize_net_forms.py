@@ -15,7 +15,7 @@ class AuthorizeNetDPMForm(forms.Form):
     x_zip = forms.CharField(max_length=20, label="Zip")
     x_country = forms.CharField(max_length=60, label="Country")
 
-    x_amount = forms.CharField(label="Amount (in USD)")
+    x_amount = forms.CharField(label="Amount (in USD)", widget=forms.TextInput(attrs={'readonly':'readonly'}))
 
     x_login = forms.CharField(widget=forms.HiddenInput(), required=False)
     x_fp_sequence = forms.CharField(widget=forms.HiddenInput(), required=False)

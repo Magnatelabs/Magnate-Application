@@ -6281,51 +6281,28 @@ a.startedbtn:active,
 a.startedbtn.active { background:#80bc46; background:-moz-linear-gradient(#8ebc60, #72bb2b); background: -webkit-gradient(linear, left top, left bottom, from(#8ebc60), to(#72bb2b)); background: -o-linear-gradient(#8ebc60, #72bb2b); -pie-background: linear-gradient(#8ebc60, #72bb2b); box-shadow: inset #5a872e 0 2px 3px, #393128 0 1px 3px; }
 
 
-
-
-/*/
-Getstarted Questionnaire added styling 09.11.13
-/*/
+/* Getstarted Questionnaire added styling 09.11.13
+----------------------------------------------------------------------------------------------------*/
 .row li { width: 100%; float: left; }
-
 .row .leftcolumn { width: 44%; float: left; list-style-type: none; -webkit-padding-start: 0px; }
-
 .row .leftcolumn form aside { font-size: 12px; color: #c4c4c4; line-height: 7px; }
-
 .row .leftcolumn form p { -webkit-margin-after: 1em; }
-
 #id_first_name {width: 100%; }
-
 #id_last_name {width: 100%; }
-
 #id_waitinglistemail { width: 85%; }
-
 #id_sex { width: 49%; }
-
 #gstart_dob { -webkit-margin-after: 0em; -webkit-margin-before: 0em; }
-
 #id_dob { width: 44%; }
-
 .row .rightcolumn { width: 44%; float: right; list-style-type: none; -webkit-padding-start: 0px; }
-
 .row .rightcolumn ul { list-style-type: none; -webkit-padding-start: 0px; }
-
 #noob_radial { padding-left: 20px; list-style-type: none; padding-right: 20px; }
-
 #amateur_radial { padding-left: 20px; list-style-type: none; padding-right: 20px; }
-
 #expert_radial { padding-left: 20px; list-style-type: none; padding-right: 20px; }
-
 #what_radial { padding-left: 20px; list-style-type: none; padding-right: 20px; padding-bottom: 10px; }
-
 .row .startedq_email {width: 80%; float: left;}
-
 .row .startedq_code {width: 59%; float: left; }
-
 .row .startedq_gender { width: 37.3%; float: left; }
-
 .right label {width: 100%; float: left; font-family: "Helvetica Neue", Arial, Helvetica, sans-serif; font-size: 14px; color: #363636; padding-bottom: 5px; margin-bottom: 0; }
-
 .question_btn { display: inline-block; *display: inline; float:left; width:154px; height:50px; margin-top: 20px; *margin-left: .3em; font-size: 20px; font-family:"helveticaneuelight",Arial, Helvetica, sans-serif; color: #FFFFFF; text-align: center; text-shadow:none; vertical-align: middle; cursor: pointer; background:#80bc46; background:-moz-linear-gradient(#8ebc60, #72bb2b); background: -webkit-gradient(linear, left top, left bottom, from(#8ebc60), to(#72bb2b)); background: -o-linear-gradient(#8ebc60, #72bb2b); -pie-background: linear-gradient(#8ebc60, #72bb2b); border:none; text-decoration:none !important; box-shadow: #393128 0 1px 3px; border-radius:6px; behavior: url(PIE.htc); position:relative; right: 0px; top: 0px;}
 
 a.question_btn:hover,
@@ -6338,19 +6315,12 @@ a.question_btn:active,
 a.question_btn.active { background:#80bc46; background:-moz-linear-gradient(#8ebc60, #72bb2b); background: -webkit-gradient(linear, left top, left bottom, from(#8ebc60), to(#72bb2b)); background: -o-linear-gradient(#8ebc60, #72bb2b); -pie-background: linear-gradient(#8ebc60, #72bb2b); box-shadow: inset #5a872e 0 2px 3px, #393128 0 1px 3px; }
 
 
-
-/*/
-Waitinglist added styles
-/*/
-#errorsbtn {
-	float: right; right: 5px; top: -72px;
-}
+/* Waitinglist added styles
+----------------------------------------------------------------------------------------------------*/
+#errorsbtn { float: right; right: 5px; top: -72px;}
 #waitinglist_errors { padding-top: 100px; padding-bottom: 300px; }
-
 .row #codesignup { position: relative; top: 50px; left: -154px; font-size: 2px; font-family: "Helvetica Neue", Arial, Helvetica, sans-serif; color: #363636; text-align: center; }
-
 .row #codesignup #what { font-size: 14px; }
-
 #closedcode { padding-bottom: 300px; }
 
 
@@ -6361,72 +6331,39 @@ About Us added styling
 #aboutus { background-color: rgba(255,255,255,0); width: 100%; box-shadow: 0px 0px 0px black; margin: 15px 0px 0px 0px; }
 
 #aboutus .sidemenu-inner { width: 23.40%; float: left; padding-top: 83px; }
-/*/
-
+----------------------------------------------------------------------------------------------------*/
 .hero-grid { width: 940px; display: inline; float: left; margin-left: 10px; margin-right: 10px; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 14px; line-height: 20px; color: #333333; }
-
 .hero-grid .aboutus { width: 100%; float: left; padding: 40px 0 200px 0; }
-	
 .hero-grid .aboutus .sidemenu-inner { width: 23.40%; float: left; padding-top: 83px; }
-
 .hero-grid .aboutus .sidemenu-inner ul { width: 100%; float: left; padding-bottom: 20px; list-style: none; -webkit-padding-start: 0px; }
-
 .hero-grid .aboutus .sidemenu-inner ul li { width: 100%; float: left; font-size: 16px; padding-bottom: 1px; }
-
 .hero-grid .aboutus .sidemenu-inner form { width: 100%; float: left; padding-bottom: 30px; }
-
 .hero-grid .aboutus .sidemenu-inner form ul { padding-bottom: 12px; }
-
 .hero-grid .aboutus .sidemenu-inner form ul li { padding-bottom: 5px; }
-
 .hero-gridright { width: 700px; float: right; display: inline; }
-
 .hero-gridright .bgourstory-info { width: 99.72%; float: left; background: #FFFFFF; border: 1px solid #bcbcbd; border-radius: 3px; behavior: url(PIE.htc); position: relative; }
-
 .hero-gridright .bgourstory-info .ourstory-info { width: 83%; float: left; padding: 0 8.5% 0 8.5%; }
-
 .ourstory-info article { width: 100%; float: left; padding: 98px 0 77px 0; }
-
 .ourstory-info article.nodivider {border-top: none; padding-top: 48px; }
-
 .ourstory-info article.nodiviver h2 { font-size: 36px; font-family: "helveticaneuelight", Arial, Helvetica, sans-serif; }
-
 .ourstory-info article figure { width: 100%; float: left; line-height: .5em; padding-bottom: 18px; -webkit-margin-start: 0px; -webkit-margin-end: 0px; }
-
 .ourstory-info article figure img { height: auto; max-width: 100%; vertical-align: middle; border: 0; }
-
 .ourstory-info article p { font-size: 16px; color: #4c4c4c; padding-bottom: 18px; }
-
 .ourstory-info article { border-top: 1px solid #d2d0d0; }
-
 .ourstory-info article h2 { font-size: 36px; font-family: "helveticaneuelight", Arial, Helvetica, sans-serif; }
-
 .ourstory-info .team-list { width: 58.75%; float: left; }
-
 .ourstory-info .team-list h2 { padding-bottom: 13px; }
-
 .ourstory-info .team-list ul { width: 105%; float: left; margin-right: -5%; position: relative; -webkit-padding-start: 0px; }
-
 .ourstory-info .team-list ul li { width: 27.7%; float: left; box-shadow: #999 0 1px 3px; behavior: url(PIE.htc); position: relative; line-height: .5em; margin: 0 5.6% 15px 0; list-style: none; }
-
 .ourstory-info article aside { width: 37.85%; float: right; padding: 20px 0 0 3.4%; }
-
 .ourstory-info .map { width: 98.4%; float: left; background: #e5e5e5; line-height: .5em; padding: .8%; margin: -7px 0 5px 0; }
-
 .ourstory-info .contactus { width: 100%; float: left; padding: 22px 0 0 0; }
-
 .ourstory-info .contactus ul { width: 100%; float: left; padding: 11px 0 0 0; }
-
 .ourstory-info .contactus ul li { width: 100%; float: left; font-size: 16px; padding-bottom: 7px; list-style: none; }
-
 .contactus ul li img { padding-right: 5px; margin-top: -4px; }
-
 .sidemenu-inner form fieldset ul li label { cursor: default; font-size: 16px; }
-
 #id_name { margin-bottom: 0px; }
-
 #id_signup_email { margin-bottom: 0px; }
-
 #map_address { font-size: 12px; }
 
 @media (max-width: 979px) {
@@ -6444,148 +6381,66 @@ About Us added styling
 .form-actions #login-action {} /*for login fix (maybe?)
 
 
-/*
-Dashboard Styling 
-*/
-
-.hero-dash { width: 940px; margin-top: -10px;
-}
-
-.dash-section1 { width: 99.8%; float: left; background: #f8f8f8; border: 1px solid #c5c6c5; border-top: 7px solid #72bb2a; box-shadow: inset #ebebeb 0 -3px 4px; position: relative; behaviior: url(PIE.htc); margin-bottom: 30px; line-height: 18px;
-}
-
-
-.whatnext {width: 70.25%; float: left; background: #ffffff; border-right: 1px solid #e7e8e8; box-shadow: inset #d9d9d9 2px 0 5px, inset #d9d9d9 0 -1px 2px; position: relative; behaviior: url(PIE.htc); padding: 42px 0 0 0; line-height: none;
-}
-
-.whatnext aside { width: 94.25%; float: left; padding: 0 0 0 5.75%; line-height: none;
-}
-
-.whatnext aside h2 { font-size: 20px; font-family: "helveticaneuemedium",Arial, Helvetica, sans-serif; padding-bottom: 34px; line-height: 0px;
-}
-
-.whatnext aside figure { width: 40px; float: left; line-height: .5em; margin: 0 17px 0 0;
-}
-
+/* Dashboard styling
+----------------------------------------------------------------------------------------------------*/
+.hero-dash { width: 940px; margin-top: -10px;}
+.dash-section1 { width: 99.8%; float: left; background: #f8f8f8; border: 1px solid #c5c6c5; border-top: 7px solid #72bb2a; box-shadow: inset #ebebeb 0 -3px 4px; position: relative; behaviior: url(PIE.htc); margin-bottom: 30px; line-height: 18px; }
+.whatnext {width: 70.25%; float: left; background: #ffffff; border-right: 1px solid #e7e8e8; box-shadow: inset #d9d9d9 2px 0 5px, inset #d9d9d9 0 -1px 2px; position: relative; behaviior: url(PIE.htc); padding: 42px 0 0 0; line-height: none; }
+.whatnext aside { width: 94.25%; float: left; padding: 0 0 0 5.75%; line-height: none;}
+.whatnext aside h2 { font-size: 20px; font-family: "helveticaneuemedium",Arial, Helvetica, sans-serif; padding-bottom: 34px; line-height: 0px; }
+.whatnext aside figure { width: 40px; float: left; line-height: .5em; margin: 0 17px 0 0;}
 .whatnext aside .info { width: 67%; float: left; padding: 7px 0 22px 0; }
-
-.whatnext aside .info h3 { color: #4c4c4c; padding: 0 0 18px 0; -webkit-margin-before: 0em; -webkit-margin-after: 0em; font-size: 18px; font-family: "helveticaneuebold",Arial, Helvetica, sans-serif;line-height: inherit;
-}
-
-.whatnext aside .info p { font-size: 14px; color: #4c4c4c; word-spacing: -1px; padding: 0 0 12px 0;
-}
-
-.whatnext aside .info img { margin-left: 15%; padding-left: 5px;
-}
-
-.whatnext aside .info span { font-size: 12px; padding-left: 5px;
-}
-
-.whatnext article { width: 99.8%; float: left; background: #d9d4da; border: 1px solid #e6e7e7; padding: 14px 0 30px 0; position: relative;
-}
-
-.arrow img { width: 16px; height: 11px; float: left; text-indent: -9999px; position: absolute; top: -1px; left: 8%; 
-}
-
-.whatnext article .project { width: 73.1%; float: left; padding: 0 12.1% 0 14.8%;
-}
-
-.whatnext article ul { width: 100%; float: left;
-}
-
-.whatnext article .leftcolumn { width: 44%; float: left; list-style-type: none; -webkit-padding-start: 0px; 	
-}
-
-.whatnext article .rightcolumn { width: 44%; float: right; list-style-type: none; -webkit-padding-start: 0px; 
-}
-
-.whatnext article ul li { width: 100%; float: left; padding-bottom: 15px;
-}
-
-.whatnext .features { width: 100%; float: left; padding: 93px 0 132px 0;
-}
-
-.whatnext .features .icon { width: 100%; float: left; line-height: .5em; text-align: center; padding-bottom: 7px;
-}
-
-.whatnext .features p { font-size: 14px; color: #4c4c4c; line-height: 14px; text-align: center;
-}
-
-.whatcoming { width: 29.58%; float: left;
-}
-
-.whatcoming article { width: 100%; float: left; background: #eaf6de;
-}
-
-.whatcoming aside { width: 87.2%; float: left; padding: 27px 6.4% 25px 6.4%;
-}
-
-.whatcoming .icon { float: left; line-height: .5em;
-}
-
-.whatcoming .info { width: 190px; float: right;
-}
-
-.whatcoming h4 { font-family: "helveticaneuebold",Arial, Helvetica, sans-serif; color: #4c4c4c; padding-bottom: 16px;
-}
-
-.whatcoming .bg-skyblue { background: #f0f5f7; box-shadow: inset #e2e0e0 0 -2px 4px; behavior: url(PIE.htc);
-}
-
-.whatcoming .bg-none { background: none;
-}
-
-.whatcoming .endicon { width: 100%; float: left; border-bottom: 1px solid #edecec; text-align: center;
-}
-
-.whatcoming .endicon img { background: #f8f8f8; margin-bottom: -12px; position: relative; padding: 0 3px;
-}
-*/
+.whatnext aside .info h3 { color: #4c4c4c; padding: 0 0 18px 0; -webkit-margin-before: 0em; -webkit-margin-after: 0em; font-size: 18px; font-family: "helveticaneuebold",Arial, Helvetica, sans-serif;line-height: inherit; }
+.whatnext aside .info p { font-size: 14px; color: #4c4c4c; word-spacing: -1px; padding: 0 0 12px 0; }
+.whatnext aside .info img { margin-left: 15%; padding-left: 5px; }
+.whatnext aside .info span { font-size: 12px; padding-left: 5px; }
+.whatnext article { width: 99.8%; float: left; background: #d9d4da; border: 1px solid #e6e7e7; padding: 14px 0 30px 0; position: relative; }
+.arrow img { width: 16px; height: 11px; float: left; text-indent: -9999px; position: absolute; top: -1px; left: 8%; }
+.whatnext article .project { width: 73.1%; float: left; padding: 0 12.1% 0 14.8%; }
+.whatnext article ul { width: 100%; float: left; }
+.whatnext article .leftcolumn { width: 44%; float: left; list-style-type: none; -webkit-padding-start: 0px; }
+.whatnext article .rightcolumn { width: 44%; float: right; list-style-type: none; -webkit-padding-start: 0px; }
+.whatnext article ul li { width: 100%; float: left; padding-bottom: 15px; }
+.whatnext .features { width: 100%; float: left; padding: 93px 0 132px 0; }
+.whatnext .features .icon { width: 100%; float: left; line-height: .5em; text-align: center; padding-bottom: 7px; }
+.whatnext .features p { font-size: 14px; color: #4c4c4c; line-height: 14px; text-align: center; }
+.whatcoming { width: 29.58%; float: left; }
+.whatcoming article { width: 100%; float: left; background: #eaf6de; }
+.whatcoming aside { width: 87.2%; float: left; padding: 27px 6.4% 25px 6.4%; }
+.whatcoming .icon { float: left; line-height: .5em; }
+.whatcoming .info { width: 190px; float: right; }
+.whatcoming h4 { font-family: "helveticaneuebold",Arial, Helvetica, sans-serif; color: #4c4c4c; padding-bottom: 16px; }
+.whatcoming .bg-skyblue { background: #f0f5f7; box-shadow: inset #e2e0e0 0 -2px 4px; behavior: url(PIE.htc); }
+.whatcoming .bg-none { background: none; }
+.whatcoming .endicon { width: 100%; float: left; border-bottom: 1px solid #edecec; text-align: center; }
+.whatcoming .endicon img { background: #f8f8f8; margin-bottom: -12px; position: relative; padding: 0 3px; }
 
 
-/*
-getstarted question confirmation page styling 
-*/
-
+/* Getstarted question confirmation page styling 
+----------------------------------------------------------------------------------------------------*/
 #confirm_row aside { font-weight: 200; }
-
 #confirm_row aside p { font-weight: 600; padding-top: 20px; }
-
 #confirm_row aside li { list-style: none; padding-bottom: 5px; }
-
 #confirm_row a { margin-top: 20px; }
 
 
-/*
-dashboard question confirmation page styling 
-*/
-
+/* Dashboard question confirmation page styling 
+----------------------------------------------------------------------------------------------------*/
 #dash_confirm_row aside { font-weight: 200; }
-
 #dash_confirm_row aside p { font-size: 14px; }
-
 #dash_confirm_row aside h2 { padding-top: 30px; }
-
 #dash_confirm_row a { margin-top: 30px; }
-
 #dash_confirm_btn { font-size: 15px; }
 
 
-/*
-account settings page styling 
-*/
-
+/* Account settings page styling 
+----------------------------------------------------------------------------------------------------*/
 #account_span { margin-left: -35px; max-width: 770px; padding-top: 30px; }
 /* added change to .nav-list (line 3972)
 
 
-
-
-
 /* New Dashboard (v4) styling --do not remove, not old dashboard css
 ----------------------------------------------------------------------------------------------------*/
-
-
 .dash_grid { width: 940px; display: inline; float: left; margin-left: 10px; margin-right: 10px;	}
 .inner_dashcontent { width: 100%; float: left; padding: 40px 0 170px 0; }
 .section1 {width:99.8%; float:left; background:#f8f8f8; border:1px solid #c5c6c5; border-top:7px solid #72bb2a; box-shadow:inset #ebebeb 0 -3px 4px; position:relative; behaviior:url(PIE.htc); margin-bottom:30px;}
@@ -6664,14 +6519,10 @@ account settings page styling
 
 /* New Donation (v4) styling --do not remove, not old dashboard css
 ----------------------------------------------------------------------------------------------------*/
-
 .bgsection2{ width:99.8%; float:left; background:#f8f8f8; border:1px solid #b9baba; box-shadow:inset #ebebeb 0 -3px 4px; border-radius:3px; position:relative; behaviior:url(PIE.htc); margin-bottom:30px}
-
 .heading-inner{ width:100%; float:left; min-height:92px; background:#d9e4cd}
 .heading-inner h1{ font-family:"helveticaneuelight", Arial, Helvetica, sans-serif; font-size:36px; color:#4d4c4b; line-height:92px; padding:0 0 0 6.2%}
-
 .section2{ width:87.4%; float:left; padding:0 6.3% 70px 6.3%}
-
 .order-left{ width:100%; float:left; background:#ffffff}
 .order-left h2{ font-size:24px; padding-bottom:20px}
 .order-left p{ font-size:14px; color:#4d4c4b; padding-bottom:18px}
@@ -6680,11 +6531,9 @@ account settings page styling
 .order-left label{ font-size:16px; padding-bottom:7px}
 .order-left .input{ width:91.8%; height:17px; float:left; background:#FFFFFF; box-shadow:none; box-shadow:inset #bebebe 1px 1px 2px; border:1px solid #bebebe; border-radius:3px; behavior: url(PIE.htc); position:relative; font-family:"HelveticaNeueLTStd55Roman", Arial, Helvetica, sans-serif; font-size:14px; color:#9f9f9f; padding:9px 4%}
 .order-left .input:focus{ box-shadow:none; box-shadow:inset #bebebe 1px 1px 2px; border:1px solid #bebebe;}
-
 .order-left .sbHolder{ width:99.8%; font-family:Arial, Helvetica, sans-serif; font-size:14px}
 .order-left .sbOptions ul{ width:100%; padding:0}
 .order-left .sbOptions li{ width:100%; padding:0}
-
 .order-left .month{ width:140px}
 .order-left .year{ width:140px; float:right}
 .order-left .accept{ width:100%; float:left; padding-bottom:33px}
@@ -6706,9 +6555,7 @@ account settings page styling
 .order-left .amount-info .code2{ width:27.2%; height:12px; float:right; color:#6d6f71; margin:20px 20px 20px 0}
 .order-left .amount-info .amount-box{ width:99.98%; float:left; border:1px solid #ecf1e6; padding:0}
 .order-left article{ width:92.5%; float:left; padding:37px 0 38px 7.5%}
-
 .order-left .card-detail{ width:100%; float:left; padding:48px 0 0 0}
-
 .order-right{ width:100%; float:right; background:#ffffff}
 .order-right h3{ font-family:"Helvetica Neue", Arial, Helvetica, sans-serif; padding-bottom:4px}
 .order-right h3 a{ color:#2398c9}
@@ -6725,12 +6572,11 @@ account settings page styling
 .order-right article{ width:71.6%; float:left; padding:38px 14.6% 20px 14.6%}
 
 
-
-/* status_home stylez */
+/* Status home stylez
+----------------------------------------------------------------------------------------------------*/
 .heading_conainer { width:100%; float:left; min-height:92px;}
 .heading_container .inner_blue { width:78.57%; float:left; min-height:92px; background:#d2e3e7}
 .heading_container .inner_blue h1{ font-family:"helveticaneuelight", Arial, Helvetica, sans-serif; font-size:36px; color:#4d4c4b; line-height:92px; padding:0 0 0 6.2%}
-
 .additional_right-overlay { width: 200px; float: right; margin-right: 0; margin-left: 0; display: inline; border-left: 1px solid #c7c8c8; border-bottom: 1px solid #c7c8c8;}
 .order_right-overlay { width:100%; float:right; background:#ffffff}
 .order_right-overlay .roinner_one  { width:100%; float:right;}
@@ -6743,14 +6589,12 @@ account settings page styling
 .order_right-overlay .roinner_two article ul{ width:100%; float:left; font-family:"Helvetica Neue", Arial, Helvetica, sans-serif; font-size:14px; list-style-type: none;}
 .order_right-overlay .roinner_two article ul li { width:100%; float:left; color:#4d4c4b; padding:18px 0}
 .order_right-overlay .roinner_two article ul li a { color: #4d4c4b;	text-decoration: none;}
-
 .status_section1{ width:78.57%; float:left; padding:0px 0% 40px 0%}
 .status-info{ width:100%; float:left; padding:40px 0% 12px 0%;}
 .status-info article{ width:90%; float:left; padding:0px 0% 26px 7.8%}
 .status-info figure{ width:219px; float:left; -webkit-margin-start: 0px; -webkit-margin-end: 0px;}
 .status-info figure img{ border:1px solid #b2b2b2}
 .status-info aside{ width:60.2%; float:right; padding-right:3%; padding-bottom: 10px; padding-top: 10px;}
-
 .status_section2 { width:100%; float:left; min-height:92px;}
 .status_awards { width: 100%; float: left; padding: 0px 0% 12px 0%; }
 .awards_info { 	width: 77%; float: left; padding: 0px 0% 26px 0%; margin: 0px 0px 0px 115px; background: #ffffff; border: 1px solid #bdbebf;}
@@ -6761,14 +6605,12 @@ account settings page styling
 .award_caption h4 { width: 100%; float: left; font-size: 16px; text-align: center; padding-top: 8px; padding-bottom: 2px; }
 .award_caption h4 a { color: #1a9bd4; }
 .award_caption p { width: 100%; float: left; font-size: 14px; text-align: center; }
-
 .karma_tip { width: 77%; float: left; padding: 0px 0% 26px 0%; margin: 0px 0px 0px 115px;}
 .karma_tip article {width: 90%; float: left; padding: 0px 0% 26px 7.8%;}
 .karma_tip article figure {width: 132px; float: left; margin: -2px 0px 0px 302px;}
 .karma_tip article aside {width: 33.2%; float: right; padding-bottom: 10px; padding-top: 48px;}
 .karma_tip article h3 { font-size: 18px; line-height: 0px; }
 .karma_tip article aside p { font-size: 14px; }
-
 .status_section3 { width:100%; float:left; min-height:92px; }
 .allawards_container { width: 80%; float: left; margin: 0px 0px 0px 100px; border-top: 2px solid #818484; }
 .allawards_info { width: 100%; float: left; padding: 20px 0% 140px 0%; }
@@ -6782,17 +6624,27 @@ account settings page styling
 .award_caption p { width: 100%; float: left; font-size: 14px; text-align: center; }
 
 
-/* status_award_detail stylez */
+/* Status award detail styling
+----------------------------------------------------------------------------------------------------*/
 .award_detail-info{ width:100%; float:left; padding:0px 0% 12px 0%;}
 .award_detail-info article{ width:90%; float:left; padding:5px 0% 26px 5.8%}
 .award_detail-info figure{ width:254px; float:left; -webkit-margin-start: 0px; -webkit-margin-end: 0px;}
 .award_detail-info aside{ width:53.2%; float:right; padding-right:3%; padding-bottom: 10px; padding-top: 40px;}
-
 .award_link {width: 53.2%; float: right; padding-right: 3%; padding-bottom: 10px; padding-top: 40px;}
 .award_link figure { width:32px; }
 .award_link aside { width: 90%; padding: 20px 0% 0px 0%; font-size: 11px; }
 .award_link aside h4 { font-size: 11px; -webkit-margin-before: 0em; -webkit-margin-after: 0em; line-height: 10px; }
 .award_link aside p a { color: #1a9bd4; }
+
+
+/* Dashboard Zinnia Feed Styles added 12.07.13 by jw
+----------------------------------------------------------------------------------------------------*/
+.hentry { border-bottom: 1px solid #cccaca; width: 116.4%; margin: 0px -75px 0px;}
+.entry-title { font-family: "helveticaneuebold",Arial, Helvetica, sans-serif; font-size: 13px; color: #817d8e; padding-bottom: 4px; -webkit-margin-before: 0em; -webkit-margin-after: 0em; line-height: 1em;}
+.entry-image { width: 28%; }
+#smelly { margin: 0px 0px 0px 0px; }
+#comeon { width: 100%; }
+
 
 /* Not in use, but will be soon
 .hero-unit p#signupselect { color: #363636; font-size: 14px; text-align: center; text-decoration:none !important; }

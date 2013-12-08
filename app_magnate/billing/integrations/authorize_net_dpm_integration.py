@@ -68,6 +68,7 @@ class AuthorizeNetDpmIntegration(Integration):
     def authorizenet_notify_handler(self, request):
         response_from_authorize_net = self.verify_response(request)
         if not response_from_authorize_net:
+            print "LOG WARN: Returning HttpResponseForbidden, the response was not from Authorize.Net. MD5 checksum mismatch. Make sure MD5_HASH in Django settings matches the MD5 key set on the Authorize.Net server"
             return HttpResponseForbidden() # FIXED BUG; was return HttpResponseForbidden
         result = request.POST["x_response_reason_text"]
         if request.POST['x_response_code'] == '1':
@@ -78,6 +79,8 @@ class AuthorizeNetDpmIntegration(Integration):
                                                        "transaction_id": request.POST["x_trans_id"]}))
             return render_to_response("billing/authorize_net_relay_snippet.html",
                                       {"redirect_url": redirect_url})
+        print "WARN: Authorize.Net transaction rejected. x_response_code=%s, x_response_reason_code=%s" % (request.POST['x_response_code'], request.POST['x_response_reason_code'])
+         # Check http://www.authorize.net/support/merchant/Transaction_Response/Response_Reason_Codes_and_Response_Reason_Text.htm for codes
         redirect_url = "%s?%s" % (request.build_absolute_uri(reverse("authorize_net_failure_handler")),
                                  urllib.urlencode({"response": result}))
         transaction_was_unsuccessful.send(sender=self,

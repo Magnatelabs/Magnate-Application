@@ -53,7 +53,7 @@ class DashboardView(zinnia.views.archives.EntryIndex):
 
     # Login is required to view the dashboard.
     # Perhaps we can switch to using login_required middleware later. Then we won't need this.
-    @method_decorator(login_required)
+    @method_decorator(login_required(login_url='/account/login/'))
     def dispatch(self, *args, **kwargs):
         return super(DashboardView, self).dispatch(*args, **kwargs)
 
