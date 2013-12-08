@@ -85,6 +85,13 @@ class EntryCheck(
     def blurb_word_limit(self):
         return [settings.MAGNATE_PRIVATE_ENTRY_BLURB_WORD_LIMIT, settings.MAGNATE_PUBLIC_ENTRY_BLURB_WORD_LIMIT][self.status==PUBLISHED]
 
+    def icon_url(self):
+        # take the part of the slug until the first dash to determine the type of the post
+        # e.g. 'article-about-obama' --> 'article', 'donation-by-joe-bloggs-2384734879' --> 'donation'
+        kind = self.slug[:self.slug.find('-')]
+        return settings.MAGNATE_ICON_BY_ENTRY_TYPE.get(kind, settings.MAGNATE_ICON_BY_ENTRY_TYPE['default'])
+
+
     class Meta(CoreEntry.Meta):
         abstract = True
 
