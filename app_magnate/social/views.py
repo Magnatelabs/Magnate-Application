@@ -8,6 +8,7 @@ from django.http import HttpResponseBadRequest
 from django.utils import simplejson
 
 from .models import toggle_like_unlike, total_entry_likes
+import status_awards
 
 #TODO! FIXME! Think about thread safety if multiple users like the same post at the same time!
 
@@ -25,6 +26,9 @@ def ajax_like_entry(request):
         entry=get_object_or_404(Entry, pk=entry_id)
 
         count = toggle_like_unlike(entry, user)
+        status_awards.award_badges("user_liked_entry", user)
+
+
         vars['liked'] = (count > 0)
         vars['total_likes'] = total_entry_likes(entry)
         vars['update_html']={social_tags.get_div_dom_id(entry_id) : social_tags.like_entry_button(int(entry_id), user)}
