@@ -43,6 +43,8 @@ class SimpleTest(TestCase):
             self.assertEqual(total_likes_by_user(user), 0)
 
 
+
+
         ### One user likes it, then the other, then the forer unlikes, then the latter unlikes
 
         u2 = User.objects.create_user("Schwarzenegger", "a-r@california.org", "32!!!@FJ#IOJV#E")
@@ -54,6 +56,7 @@ class SimpleTest(TestCase):
         self.assertEqual(total_entry_likes(entry), 1) # but we see the like of u2
         count = entry_is_liked(entry, u2) # Yes, u2 likes it
         self.assertEqual(count, 1)
+
 
 
         # Now user also likes the entry
@@ -180,6 +183,15 @@ class SimpleTest(TestCase):
         # the html should send something about unliking, since the user has just liked it
         # We expect resp_data["update_html"] to be like {"div-like-17": "<div id=div-like-17><input type=\"Button\" id=\"like-17\" value=\"Unlike it (1)\" style=\"float: right\" onClick=\"on_click_like_entry(17, this.id)\" /> </div>"}
         self.assertTrue('unlike' in str(resp_data['update_html']).lower())
+
+
+
+        # TODO: this is temporary check
+        # Of course, the list of badges may change
+        # But for now we know that there should be 1 badge awarded
+        self.assertEquals(user.badges_earned.count(), 1)
+
+
 
 
         # Try an AJAX GET request
