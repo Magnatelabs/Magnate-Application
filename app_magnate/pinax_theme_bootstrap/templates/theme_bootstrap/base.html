@@ -48,7 +48,7 @@
                                 
                                 {% if request.user.is_authenticated %}
                                 </a>
-                                {% block site_brand_loggedin %}<a class="brand" href="{% url "home" %}" title="MAGNATE"><img src="{% static "img/logo.png" %}" alt="MAGNATE" /></a>{% endblock %}
+                                {% block site_brand_loggedin %}<a class="brand" href="{% url "dashboard" %}" title="MAGNATE"><img src="{% static "img/logo.png" %}" alt="MAGNATE" /></a>{% endblock %}
                                 {% endif %}
                                 <div class="nav-collapse">
                                 
