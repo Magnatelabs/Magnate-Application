@@ -32,7 +32,9 @@ DATABASES = {
 # http://stackoverflow.com/questions/6353124/running-django-tests-with-sqlite
 import sys
 
+TESTING=False
 if 'test' in sys.argv or 'test_coverage' in sys.argv: #Covers regular testing and django-coverage
+    TESTING=True
     DATABASES['default'] = {
         'ENGINE': 'django.db.backends.sqlite3',
         'TEST_NAME': os.path.join(os.path.dirname(__file__), 'test.db'),
