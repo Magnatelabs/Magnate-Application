@@ -1,6 +1,9 @@
-# importing will register the badges
-import magnate_badges
-
+from django.conf import settings
+if not settings.TESTING:
+    # importing will register the badges
+    import magnate_badges
+else:
+    import test_badges
 
 
 # @event --- string describing what happened, e.g. "points_awarded" or "user_liked_something".
