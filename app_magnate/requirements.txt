@@ -3,7 +3,7 @@ Django==1.5
 MySQL-python==1.2.4
 Pillow==2.2.1
 South==0.8.3
-brabeion==0.1
+-e git+https://github.com/Commentor/brabeion.git@82940b8fe2e5c12a6363cec625a9831aaf0c5cdb#egg=brabeion-improved
 django-appconf==0.5
 django-blog-zinnia==0.12.3
 django-forms-bootstrap==2.0.3.post1
