@@ -4,7 +4,7 @@ from django.contrib.auth import get_user_model
 User=get_user_model()
 from zinnia.models.entry import Entry
 from . import models
-from models import total_entry_likes, entry_is_liked, toggle_like_unlike
+from models import total_entry_likes, entry_is_liked, toggle_like_unlike, total_likes_by_user
 from .models import Like
 from .templatetags import social_tags
 
@@ -13,7 +13,6 @@ from random import randrange
 
 from django.test.client import Client
 from django.core.urlresolvers import reverse
-from django.contrib.auth import get_user_model
 import json
 
 class SimpleTest(TestCase):
@@ -27,6 +26,7 @@ class SimpleTest(TestCase):
 
         self.assertEqual(entry_is_liked(entry, user), 0)
         self.assertEqual(total_entry_likes(entry), 0)
+        self.assertEqual(total_likes_by_user(user), 0)
 
         # Like and Unlike the entry several times in a row
         for i in range(5):
@@ -34,11 +34,13 @@ class SimpleTest(TestCase):
             # Now the user likes the entry
             self.assertEqual(count, 1)
             self.assertEqual(total_entry_likes(entry), 1)
+            self.assertEqual(total_likes_by_user(user), 1)
 
             count = toggle_like_unlike(entry, user)
             # Now the user unliked the entry, back to where we were
             self.assertEqual(count, 0)
             self.assertEqual(total_entry_likes(entry), 0)
+            self.assertEqual(total_likes_by_user(user), 0)
 
 
         ### One user likes it, then the other, then the forer unlikes, then the latter unlikes
@@ -114,6 +116,7 @@ class SimpleTest(TestCase):
             self.assertEqual(entry_is_liked(entry, user), likes[u_ind][e_ind])
             self.assertEqual(result, int(likes[u_ind][e_ind]))
             self.assertEqual(total_entry_likes(entry), len([ui for ui in range(n_users) if likes[ui][e_ind]]))
+            self.assertEqual(total_likes_by_user(user), len([ei for ei in range(n_entries) if likes[u_ind][ei]]))
         Like.objects.all().delete()
 
     def test_rand_1(self):
