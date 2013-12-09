@@ -251,6 +251,8 @@ MERCHANT_SETTINGS = {
 
 ZINNIA_ENTRY_BASE_MODEL='glue_zinnia.models.EntryCheck'
 
+ELDARION_BASE_BADGE_AWARD_MODEL='status_awards.models.MagnateBadgeAward'
+
 #This is for the ratings
 #AGON_NUM_OF_RATINGS = 5
 AGON_RATINGS_CATEGORY_CHOICES = {"sites.Site": {"fun": "none at all"} }
