@@ -14,6 +14,8 @@ ADMINS = [
 
 MANAGERS = ADMINS
 
+AUTH_USER_MODEL = 'auth.User'
+
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
