@@ -160,7 +160,7 @@ INSTALLED_APPS = [
     "eventlog",
     "waitinglist",
     "billing",
-    
+    "brabeion",
 
     # project
     "app_magnate",
