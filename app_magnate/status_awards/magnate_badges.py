@@ -1,13 +1,13 @@
-from brabeion.base import Badge, BadgeAwarded
+from brabeion.base import Badge, BadgeAwarded, BadgeDetail
 from social.models import total_likes_by_user
 from brabeion import badges
 
 class LikesBadge(Badge):
     slug="likes"
     levels = [
-        "Bronze",
-        "Silver",
-        "Gold",
+        BadgeDetail("Bronze-Liker", "Likes a little"),
+        BadgeDetail("Silver-Liker", "Likes more"),
+        BadgeDetail("Gold-Liker", "Likes a lot"),
     ]
 
     events = [
