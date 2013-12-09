@@ -30,7 +30,7 @@ class PrivatelyPublishedModelMixin(models.Model):
     # In this case, do we want later to retry posting the same thing?
     #
     # Though I am not sure we can even have transactions here, because to add a site (django.contrib.sites) to an Entry we have to initially save it first
-    def save(self):
+    def save(self, *args, **kwargs):
         if self.pk is None: # or if there is no entry? What is a good check?
             # take action on first save
             # NB! Try to make sure that the slug is unique so we can have separate links to separate messages
@@ -46,7 +46,7 @@ class PrivatelyPublishedModelMixin(models.Model):
             if self.entry is None:
                 pass # QUESTION. Should we still post? Better late than never? Though, with transactions, we'd never get here.
             
-        super(PrivatelyPublishedModelMixin, self).save()
+        super(PrivatelyPublishedModelMixin, self).save(*args, **kwargs)
 
     class Meta:
         abstract = True
