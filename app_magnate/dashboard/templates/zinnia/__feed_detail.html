@@ -1,0 +1,23 @@
+{% extends "zinnia/_entry_detail_base.html" %}
+{% load social_tags %}
+
+
+ {% block entry-image %}
+    {% if object.image %}
+    <div class="entry-image">
+      <p>
+        <a href="{{ object.get_absolute_url }}" title="{{ object.title }}" rel="bookmark">
+          <img src="{{ object.image.url }}" alt="{{ object.title }}" class="left" width="100%" height="100%" />
+        </a>
+      </p>
+    </div>
+    {% endif %}
+{% endblock %}
+
+
+{% block entry-footer %}
+{% if object.show_like_button %}
+    {% like_entry_button object.pk request.user %}
+{{ block.super }}
+{% endif %}
+{% endblock %}

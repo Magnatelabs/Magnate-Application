@@ -6641,7 +6641,7 @@ About Us added styling
 ----------------------------------------------------------------------------------------------------*/
 .hentry { border-bottom: 1px solid #cccaca; width: 116.4%; margin: 0px -75px 0px;}
 .entry-title { font-family: "helveticaneuebold",Arial, Helvetica, sans-serif; font-size: 13px; color: #817d8e; padding-bottom: 4px; -webkit-margin-before: 0em; -webkit-margin-after: 0em; line-height: 1em;}
-.entry-image { width: 28%; }
+.entry-image { float: left; padding-left: 80px; }
 #smelly { margin: 0px 0px 0px 0px; }
 #comeon { width: 100%; }
 

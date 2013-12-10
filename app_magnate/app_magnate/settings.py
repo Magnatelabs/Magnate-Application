@@ -251,8 +251,8 @@ ZINNIA_ENTRY_BASE_MODEL='glue_zinnia.models.EntryCheck'
 AGON_RATINGS_CATEGORY_CHOICES = {"sites.Site": {"fun": "none at all"} }
 
 
-MAGNATE_PUBLIC_ENTRY_BLURB_WORD_LIMIT = 50
+MAGNATE_PUBLIC_ENTRY_BLURB_WORD_LIMIT = 21
 
-MAGNATE_PRIVATE_ENTRY_BLURB_WORD_LIMIT =17
+MAGNATE_PRIVATE_ENTRY_BLURB_WORD_LIMIT =20
 
-MAGNATE_ICON_BY_ENTRY_TYPE = {'default': "/site_media/static/img/hit_street_grey.png", 'update':"/site_media/static/img/Better_Over_Time_grey.png", 'article': ""}
+MAGNATE_ICON_BY_ENTRY_TYPE = {'default': STATIC_URL + "/img/img_icon17.png", 'update':"/site_media/static/img/img_icon17.png", 'article': STATIC_URL + "/img/img_icon18.png"}
