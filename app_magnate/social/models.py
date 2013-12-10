@@ -1,10 +1,10 @@
-from django.db import models
-from django.contrib.auth import get_user_model
+from django.db import models, settings
 from zinnia.models.entry import Entry
+
 
 # Every instance will represent one Like of one entry by one user
 class Like(models.Model):
-    user=models.ForeignKey(get_user_model(), related_name='likes')
+    user=models.ForeignKey(settings.AUTH_USER_MODEL, related_name='likes')
     entry=models.ForeignKey(Entry)
     date=models.DateTimeField(auto_now_add=True)
     count=models.IntegerField(default=0) # This is typically 0/1
@@ -15,7 +15,8 @@ def total_entry_likes(entry):
     #    return Like.objects.filter(entry=entry).count()
     return sum([l.count for l in Like.objects.filter(entry=entry)])
 
-
+def total_likes_by_user(user):
+    return sum([l.count for l in Like.objects.filter(user=user)])
     
 
 def entry_liked_count(entry, user):

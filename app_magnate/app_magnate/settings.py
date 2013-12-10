@@ -14,6 +14,8 @@ ADMINS = [
 
 MANAGERS = ADMINS
 
+AUTH_USER_MODEL = 'auth.User'
+
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
@@ -30,7 +32,9 @@ DATABASES = {
 # http://stackoverflow.com/questions/6353124/running-django-tests-with-sqlite
 import sys
 
+TESTING=False
 if 'test' in sys.argv or 'test_coverage' in sys.argv: #Covers regular testing and django-coverage
+    TESTING=True
     DATABASES['default'] = {
         'ENGINE': 'django.db.backends.sqlite3',
         'TEST_NAME': os.path.join(os.path.dirname(__file__), 'test.db'),
@@ -158,7 +162,7 @@ INSTALLED_APPS = [
     "eventlog",
     "waitinglist",
     "billing",
-    
+    "brabeion",
 
     # project
     "app_magnate",
@@ -185,7 +189,7 @@ INSTALLED_APPS = [
 ]
 
 TEST_RUNNER = 'django_test_exclude.runners.ExcludeTestSuiteRunner'
-TEST_EXCLUDE=[ "django.contrib", "zinnia", "account", "waitinglist" ]
+TEST_EXCLUDE=[ "django.contrib", "zinnia", "account", "waitinglist", "brabeion" ]
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
@@ -248,6 +252,8 @@ MERCHANT_SETTINGS = {
 }
 
 ZINNIA_ENTRY_BASE_MODEL='glue_zinnia.models.EntryCheck'
+
+ELDARION_BASE_BADGE_AWARD_MODEL='status_awards.models.MagnateBadgeAward'
 
 #This is for the ratings
 #AGON_NUM_OF_RATINGS = 5

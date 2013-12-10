@@ -1,5 +1,4 @@
 from django.db import models
-from django.contrib.auth import get_user_model
 from django.utils.translation import ugettext_lazy as _
 from zinnia.models.entry import EntryAbstractClass, CoreEntry
 from zinnia.managers import PUBLISHED
@@ -55,7 +54,7 @@ class AuthorizedUsersEntry(models.Model):
     everyone can view this entry.
     """
     authorized_users = models.ManyToManyField(
-        get_user_model(),
+        settings.AUTH_USER_MODEL,
         related_name='authorized_entries',
         blank=True, null=False,
         verbose_name=_('authorized users'))
