@@ -1,6 +1,6 @@
 {% load staticfiles %}
 {% load brabeion_tags %}
-
+{% load status_awards_tags %}
 
       <div class="info">
         <figure><a href="{% url 'status_home' %}"><img src="{% static "img/photo33.jpg" %}" alt="PHOTO"></a></figure>        
@@ -17,11 +17,9 @@
 
 	<ul>
 	{% for badge in badges %}
-	  <li>{{ badge.icon_as_html | safe }}</li>
+	  <li><a href="{% url 'status_award_detail' %}?award={{ badge.pk }}">{% render_badge badge 0 %}</a></li>
 	{% endfor %}
 	</ul>
-
-
 
         </div>
         
