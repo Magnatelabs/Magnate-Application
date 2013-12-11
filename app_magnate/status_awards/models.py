@@ -12,7 +12,8 @@ class MagnateBadgeAward(PrivatelyPublishedModelMixin, BadgeAwardAbstractClass):
         return 'award'
 
     def as_html(self):
-        return "<a href=\"%s\"><img src=\"%s\" alt=\"%s\" ></a>" % (reverse('status_award_detail')+'?award=%d' % (self.pk), settings.STATIC_URL + "img/img_icon13.png", self.name)
+        image_url = "%sstatus_awards/badge_%s_%d.png" % (settings.STATIC_URL, self.slug, self.level)
+        return "<a href=\"%s\"><img src=\"%s\" alt=\"%s\" ></a>" % (reverse('status_award_detail')+'?award=%d' % (self.pk), image_url, self.name)
 
     class Meta:
         abstract = True
