@@ -13,11 +13,18 @@ import hashlib
 from zinnia.models.entry import Entry
 from dashboard.mixins import PrivatelyPublishedModelMixin
 from zinnia.managers import HIDDEN
+import status_awards
 
 class DonationZinniaTestCase(TestCase):
     def setUp(self):
         self.user=get_user_model()(username='green_elephant!!!')
         self.user.save()
+
+    def is_private_entry(self, entry, user):
+        self.assertEqual(entry.status, HIDDEN, "The entry should be private, i.e. status==HIDDEN")
+        self.assertTrue(self.user in entry.authorized_users.all(), "The user should be authorized to view this entry")
+        self.assertEquals(len(entry.authorized_users.all()), 1, "Only this user should be authorized to view this entry; nobody else") 
+        return True
 
     def test_donation_entry(self):
         # Every time a new Donation is saved, a new private message should be sent to the user
@@ -27,13 +34,33 @@ class DonationZinniaTestCase(TestCase):
         d.save()
         
         l=Entry.objects.all()
-        self.assertTrue(len(l)==1)
-        entry=l[0]
-        self.assertEqual(entry.status, HIDDEN, "The entry about a new donation should be private, i.e. status==HIDDEN")
-        self.assertTrue(self.user in entry.authorized_users.all(), "The user should be authorized to view this entry")
-        self.assertEquals(len(entry.authorized_users.all()), 1, "Only this user should be authorized to view this entry; nobody else")
-
+        self.assertEquals(len(l), 1)
+        self.assertEquals(l[0], d.entry)
+        entry = d.entry
+        
+        self.assertTrue(self.is_private_entry(entry, self.user))
         self.assertTrue('3.14' in entry.content, '3.14 is the domation amount. It should be mentioned somewhere in the message, shouldn''t it?')
+
+    def test_donation_badge(self):
+        d=Donation(amount=123.4567, user=self.user)
+        d.save()
+        # For now we have to explicitly call award_badges ---
+        # and it is called in certain places in the code.
+        # In the future, if the badges will be given via an overload of save()
+        # on some models and/or after receiving a signal, then the tests should be adjusted.
+        self.assertEquals(self.user.badges_earned.count(), 0)
+        status_awards.award_badges("user_donation", self.user)
+        self.assertEquals(self.user.badges_earned.count(), 1)
+        badge_award = self.user.badges_earned.all()[0]
+        self.assertEquals(badge_award.slug, 'donated-something')
+
+        l = Entry.objects.all()
+        self.assertEquals(len(l), 2, "There should be two entries: about the donation and about the badge")
+        self.assertTrue( ((l[0]==badge_award.entry) and (l[1]==d.entry)) or ((l[1]==badge_award.entry) and (l[0]==d.entry)) )
+        for e in l:
+            self.assertTrue(self.is_private_entry(e, self.user))
+        self.assertTrue('This badge is given for any donation' in badge_award.entry.content)
+        self.assertTrue('123.46' in d.entry.content, "The donation amount was #123.4567, so 123.46 (due to rounding) should be mentioned somewhere in the entry")
 
 
 class DonationTestCase(TestCase):
