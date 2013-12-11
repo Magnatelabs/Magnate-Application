@@ -1,5 +1,6 @@
 {% extends "site_base.html" %}
 {% load staticfiles %}
+{% load status_awards_tags %}
 
 {% block body %}
         
@@ -37,7 +38,7 @@
         	<div class="status_section1">
         		<div class="award_detail-info">
 					<article>
-					        <figure>{{ badge.as_html | safe }}</figure>
+					        <figure>{% render_badge badge 10 %}</figure>
 <!--						<figure><img src="{% static "img/status_award_xtrbigicon1.png" %}" alt="PHOTO"></figure>-->
 						<aside>
 							<h3>{{ badge.name }}</h3>
