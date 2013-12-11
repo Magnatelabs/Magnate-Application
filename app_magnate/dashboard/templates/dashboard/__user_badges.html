@@ -1,6 +1,18 @@
 {% load staticfiles %}
+{% load brabeion_tags %}
+
+
+      <div class="info">
+        <figure><a href="{% url 'status_home' %}"><img src="{% static "img/photo33.jpg" %}" alt="PHOTO"></a></figure>        
+        <h3><a href="{% url 'status_home' %}">Beginner Magnate:</a></h3>
+	<p>Receive badges to improve your status.</p>
+        <!--<p>Your donation’s funded mainly comics and internet startups!</p>-->       
+      </div>
+
+{% badges_for_user request.user as badges %}
 
         <div class="badges">
+
         <h3>Badges ({{user_badges | length }}) <span><a href="{% url 'status_home' %}">See All</a></span></h3>
 
 	<ul>
@@ -8,6 +20,14 @@
 	  <li>{{ badge.as_html | safe }}</li>
 	{% endfor %}
 	</ul>
+
+	<ul>
+	{% for badge in badges %}
+	  <li>{{ badge.as_html | safe }}</li>
+	{% endfor %}
+	</ul>
+
+
 
         </div>
         
