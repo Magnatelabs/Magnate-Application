@@ -13,13 +13,7 @@
 
         <div class="badges">
 
-        <h3>Badges ({{user_badges | length }}) <span><a href="{% url 'status_home' %}">See All</a></span></h3>
-
-	<ul>
-	{% for badge in user_badges %}
-	  <li>{{ badge.as_html | safe }}</li>
-	{% endfor %}
-	</ul>
+        <h3>Badges ({{badges | length }}) <span><a href="{% url 'status_home' %}">See All</a></span></h3>
 
 	<ul>
 	{% for badge in badges %}
