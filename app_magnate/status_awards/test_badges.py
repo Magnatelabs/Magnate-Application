@@ -1,5 +1,6 @@
 from brabeion.base import Badge, BadgeAwarded, BadgeDetail
 from social.models import total_likes_by_user
+from donations.utils import total_donation_amount, all_donations_by_user
 from brabeion import badges
 
 class TestLikesBadge_0(Badge):
@@ -33,5 +34,23 @@ class TestLikesBadge_0(Badge):
             return BadgeAwarded(1)
 
 
+
+class DonatedSomethingTestBadge(Badge):
+    slug="donated-something"
+    levels = [
+        BadgeDetail("Nice person!", "This badge is given for any donation"),
+    ]
+    events = [
+        "user_donation",
+    ]
+    multiple = False
+
+    def award(self, **state):
+        user = state["user"]
+        assert (len(all_donations_by_user(user))==0) == (total_donation_amount(user)==0), "Total donation amount is zero if and only if there are no donations"
+        if total_donation_amount(user) > 0:
+            print "giving badge"
+            return BadgeAwarded(1)
     
 badges.register(TestLikesBadge_0)
+badges.register(DonatedSomethingTestBadge)
