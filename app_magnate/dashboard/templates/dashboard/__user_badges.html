@@ -1,11 +1,24 @@
 {% load staticfiles %}
+{% load brabeion_tags %}
+{% load status_awards_tags %}
+
+      <div class="info">
+        <figure><a href="{% url 'status_home' %}"><img src="{% static "img/photo33.jpg" %}" alt="PHOTO"></a></figure>        
+        <h3><a href="{% url 'status_home' %}">Beginner Magnate:</a></h3>
+	<p>Receive badges to improve your status.</p>
+        <!--<p>Your donation’s funded mainly comics and internet startups!</p>-->       
+      </div>
+      {% if request.user.is_authenticated %}
+          {% badges_for_user request.user as badges %}
+      {% endif %}
 
         <div class="badges">
-        <h3>Badges ({{user_badges | length }}) <span><a href="{% url 'status_home' %}">See All</a></span></h3>
+
+        <h3>Badges ({{badges | length }}) <span><a href="{% url 'status_home' %}">See All</a></span></h3>
 
 	<ul>
-	{% for badge in user_badges %}
-	  <li>{{ badge.as_html | safe }}</li>
+	{% for badge in badges %}
+	  <li><a href="{% url 'status_award_detail' %}?award={{ badge.pk }}">{% render_badge badge 0 %}</a></li>
 	{% endfor %}
 	</ul>
 

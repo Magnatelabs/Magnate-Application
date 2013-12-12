@@ -8,7 +8,7 @@ from django.dispatch import receiver
 from dashboard.mixins import PrivatelyPublishedModelMixin
 from decimal import Decimal
 import datetime
-
+import status_awards
 
 
 class BillingInfo (models.Model):
@@ -65,6 +65,7 @@ class Donation (PrivatelyPublishedModelMixin, models.Model):
             transaction_id = data['x_trans_id']
             donation = Donation(user=user, amount=amount, transaction_id=transaction_id)  
             donation.save()
+            status_awards.award_badges("user_donation", user)
             #import pdb; pdb.set_trace()
         
 

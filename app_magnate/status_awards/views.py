@@ -18,5 +18,13 @@ def status_index(request):
 def award_detail(request):
 #    if not request.user.is_authenticated():
 #        return redirect('/donations/user/?next=%s' % request.path)
+#    import pdb; pdb.set_trace()
+    try:
+        award_pk = int(request.GET['award'])
+        badge = request.user.badges_earned.get(pk=award_pk)
+    except:
+        return status_index(request)
+#    import pdb; pdb.set_trace()
+#    request.user.badges_earned.get(r
 
-    return render(request, 'status_awards/status_award_detail.html')
+    return render(request, 'status_awards/status_award_detail.html', {'badge': badge})

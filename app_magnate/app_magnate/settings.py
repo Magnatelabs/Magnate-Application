@@ -176,9 +176,9 @@ INSTALLED_APPS = [
     "companyinfo",
     "getstartedquestions",
     "siteErrors",
+    "status_awards",
     "dashboard",
     "donations",
-    "status_awards",
     'tagging',          # for Zinnia
     'django_xmlrpc',    # for Zinnia
     'mptt',             # for Zinnia

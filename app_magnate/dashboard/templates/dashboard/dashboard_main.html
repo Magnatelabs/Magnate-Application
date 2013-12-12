@@ -198,4 +198,9 @@
 
 </script> 
 
+{% comment %}
+Short polling. Poll the server every once in a while to see if there is a new article, new badge, new private message, etc., so we can display those even if the user does not refresh a page. 
+{% endcomment %}
+<script type="text/javascript" src="{% static "js/receive_updates.js" %}"></script>
+
 {% endblock %} 

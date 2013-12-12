@@ -4,9 +4,10 @@ from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.views import generic
 from django.utils import timezone
-from django.contrib.auth.models import User
+from django.views.decorators.http import require_http_methods
 import datetime
-
+from django.utils import simplejson
+from django.http import HttpResponse
 
 #imports to recognize django messages
 from django.contrib import messages
@@ -20,11 +21,13 @@ from django.views.generic.edit import FormView
 
 from donations.utils import total_donation_amount, all_donations_by_user, all_badges_for_user
 
-
-
-
 import zinnia
 from zinnia.views.archives import EntryIndex
+
+# for /updates/
+from zinnia.models.entry import Entry
+import time
+from django.template import loader, Context
 
 def dashboard_index(request):
     if not request.user.is_authenticated():
@@ -128,3 +131,38 @@ class dashboard_spotlight_request(FormView):
 
 def dash_confirm_index(request):
     return render(request, 'dashboard/dashboard_confirm.html')
+
+def user_badges(request):
+    return render(request, 'dashboard/__user_badges.html')
+
+@login_required
+@require_http_methods(["GET"])
+def receive_updates_api(request):
+    try:
+        strictlyafter=int(request.GET["strictlyafter"])
+    except ValueError:
+        strictlyafter=0
+
+    last_ts=strictlyafter
+    vars={"last_ts": 0, "entries": [], "badges": []}
+    from zinnia.models.entry import Entry
+    l = vars["entries"]
+    # TODO FIXME: query by time. Do not ask for all entries
+    for e in Entry.private.authorized_or_published(request.user).all():
+        ts=int(time.mktime(e.creation_date.timetuple())*1000)
+        if ts > strictlyafter:
+            l.append({"slug": e.slug, "ts": ts})
+            last_ts = max(last_ts, ts)
+
+    l=vars["badges"]
+    for badge in request.user.badges_earned.all():
+        # TODO FIXME are badges' tiemstamps timezone aware???
+        ts=int(time.mktime(badge.awarded_at.timetuple())*1000)
+        if ts > strictlyafter:
+            l.append({"name": badge.name, "slug": badge.slug, "level": badge.level, "ts": ts})
+            last_ts = max(last_ts, ts)
+
+    vars["last_ts"]=last_ts
+
+
+    return HttpResponse(simplejson.dumps(vars), mimetype='application/javascript')

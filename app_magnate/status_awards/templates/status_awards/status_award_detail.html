@@ -1,5 +1,6 @@
 {% extends "site_base.html" %}
 {% load staticfiles %}
+{% load status_awards_tags %}
 
 {% block body %}
         
@@ -37,18 +38,16 @@
         	<div class="status_section1">
         		<div class="award_detail-info">
 					<article>
-						<figure><img src="{% static "img/status_award_xtrbigicon1.png" %}" alt="PHOTO"></figure>
+					        <figure>{% render_badge badge 10 %}</figure>
+<!--						<figure><img src="{% static "img/status_award_xtrbigicon1.png" %}" alt="PHOTO"></figure>-->
 						<aside>
-							<h3>Comicbewker</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, 
-							sed do eiusmod tempor incididunt ut labore et dolore 
-							magna aliqua. Ut enim ad minim veniam, quis nostrud 
-							exercitation ullamco laboris nisi ut aliquip ex ea commo.</p>
+							<h3>{{ badge.name }}</h3>
+							<p>{{ badge.description }}</p>
         				</aside>
 						<span class="award_link">
 						<figure><img src="{% static "img/smalluser_icon.png" %}"alt="PHOTO"></figure>
-						<aside><h4>You unlocked the Comicbewker badge!</h4>
-						<p><a href="#">November 12, 2013</a> via a<a href="#"> Tomorrow Girl</a> investment</p></aside> 
+						<aside><h4>You unlocked the {{ badge.name }} badge!</h4>
+						<p><a href="{{ badge.entry.get_absolute_url }}">{{ badge.awarded_at }}</a>.</p></aside> 
 						</span>
 					</article>
 				</div>
