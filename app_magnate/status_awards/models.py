@@ -7,7 +7,7 @@ class MagnateBadgeAward(PrivatelyPublishedModelMixin, BadgeAwardAbstractClass):
         return "Fantastic! You have just been awarded a Badge %s! ... <p> %s" % (self.name, self.description)
 
     def create_entry_slug(self):
-        return 'award'
+        return 'badge'
 
     class Meta:
         abstract = True
