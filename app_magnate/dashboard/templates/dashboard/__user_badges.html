@@ -8,8 +8,9 @@
 	<p>Receive badges to improve your status.</p>
         <!--<p>Your donation’s funded mainly comics and internet startups!</p>-->       
       </div>
-
-{% badges_for_user request.user as badges %}
+      {% if request.user.is_authenticated %}
+          {% badges_for_user request.user as badges %}
+      {% endif %}
 
         <div class="badges">
 
