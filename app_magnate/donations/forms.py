@@ -10,14 +10,15 @@ import datetime
 
 
 class BillingInfoForm(forms.Form):
-
+#    user = forms.IntegerField()
     first_name = forms.CharField(max_length=200)
     last_name = forms.CharField(max_length=200)
     address = forms.CharField(max_length=200)
     city = forms.CharField(max_length=200)
     zipcode = forms.CharField(max_length=20)
     country = forms.CharField(max_length=200)
-
+    amount = forms.CharField(max_length=200)
+    
     def __init__(self, *args, **kwargs):
         super(BillingInfoForm, self).__init__(*args, **kwargs)
         self.fields['first_name'].widget.attrs['id'] = 'super_first'

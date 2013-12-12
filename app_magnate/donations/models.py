@@ -12,13 +12,14 @@ import datetime
 
 
 class BillingInfo (models.Model):
-    user = models.ForeignKey(User)
+#    user = models.ForeignKey(User)
     first_name = models.CharField(max_length=200)
     last_name = models.CharField(max_length=200)
     address = models.CharField(max_length=200)
     city =  models.CharField(max_length=200)
     zipcode = models.CharField(max_length=200)
     country = models.CharField(max_length=200)
+    amount =  models.PositiveIntegerField(editable=False, default=0)
 
     def __unicode__(self):
         return self.first_name

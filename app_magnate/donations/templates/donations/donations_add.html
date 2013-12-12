@@ -2,7 +2,138 @@
 {% load staticfiles %}
 
 {% block body %} 
- 
+
+{% block style_base %}
+<link href="{% static "bootstrap/css/bootstrap.css" %}" rel="stylesheet">
+<link href="{% static "bootstrap/css/bootstrap-responsive.css" %}" rel="stylesheet">
+<link href="{% static "pinax/css/theme.css" %}" rel="stylesheet">
+{% block extra_style %}{% endblock %}
+
+<script>
+var checkboxHeight = "60";
+var radioHeight = "60";
+var selectWidth = "190";
+
+
+/* No need to change anything after this */
+
+
+document.write('<style type="text/css">input.styled { display: none; } select.styled { position: relative; width: ' + selectWidth + 'px; opacity: 0; filter: alpha(opacity=0); z-index: 5; } .disabled { opacity: 0.5; filter: alpha(opacity=50); }</style>');
+
+var Custom = {
+	init: function() {
+		var inputs = document.getElementsByTagName("input"), span = Array(), textnode, option, active;
+		for(a = 0; a < inputs.length; a++) {
+			if((inputs[a].type == "checkbox" || inputs[a].type == "radio") && inputs[a].className.indexOf("styled") > -1) {
+				span[a] = document.createElement("span");
+				span[a].className = inputs[a].type;
+
+				if(inputs[a].checked == true) {
+					if(inputs[a].type == "checkbox") {
+						position = "0 -" + (checkboxHeight*2) + "px";
+						span[a].style.backgroundPosition = position;
+					} else {
+						position = "0 -" + (radioHeight*2) + "px";
+						span[a].style.backgroundPosition = position;
+					}
+				}
+				inputs[a].parentNode.insertBefore(span[a], inputs[a]);
+				inputs[a].onchange = Custom.clear;
+				if(!inputs[a].getAttribute("disabled")) {
+					span[a].onmousedown = Custom.pushed;
+					span[a].onmouseup = Custom.check;
+				} else {
+					span[a].className = span[a].className += " disabled";
+				}
+			}
+		}
+		inputs = document.getElementsByTagName("select");
+		for(a = 0; a < inputs.length; a++) {
+			if(inputs[a].className.indexOf("styled") > -1) {
+				option = inputs[a].getElementsByTagName("option");
+				active = option[0].childNodes[0].nodeValue;
+				textnode = document.createTextNode(active);
+				for(b = 0; b < option.length; b++) {
+					if(option[b].selected == true) {
+						textnode = document.createTextNode(option[b].childNodes[0].nodeValue);
+					}
+				}
+				span[a] = document.createElement("span");
+				span[a].className = "select";
+				span[a].id = "select" + inputs[a].name;
+				span[a].appendChild(textnode);
+				inputs[a].parentNode.insertBefore(span[a], inputs[a]);
+				if(!inputs[a].getAttribute("disabled")) {
+					inputs[a].onchange = Custom.choose;
+				} else {
+					inputs[a].previousSibling.className = inputs[a].previousSibling.className += " disabled";
+				}
+			}
+		}
+		document.onmouseup = Custom.clear;
+	},
+	pushed: function() {
+		element = this.nextSibling;
+		if(element.checked == true && element.type == "checkbox") {
+			this.style.backgroundPosition = "0 -" + checkboxHeight*3 + "px";
+		} else if(element.checked == true && element.type == "radio") {
+			this.style.backgroundPosition = "0 -" + radioHeight*3 + "px";
+		} else if(element.checked != true && element.type == "checkbox") {
+			this.style.backgroundPosition = "0 -" + checkboxHeight + "px";
+		} else {
+			this.style.backgroundPosition = "0 -" + radioHeight + "px";
+		}
+	},
+	check: function() {
+		element = this.nextSibling;
+		if(element.checked == true && element.type == "checkbox") {
+			this.style.backgroundPosition = "0 0";
+			element.checked = false;
+		} else {
+			if(element.type == "checkbox") {
+				this.style.backgroundPosition = "0 -" + checkboxHeight*2 + "px";
+			} else {
+				this.style.backgroundPosition = "0 -" + radioHeight*2 + "px";
+				group = this.nextSibling.name;
+				inputs = document.getElementsByTagName("input");
+				for(a = 0; a < inputs.length; a++) {
+					if(inputs[a].name == group && inputs[a] != this.nextSibling) {
+						inputs[a].previousSibling.style.backgroundPosition = "0 0";
+					}
+				}
+			}
+			element.checked = true;
+		}
+	},
+	clear: function() {
+		inputs = document.getElementsByTagName("input");
+		for(var b = 0; b < inputs.length; b++) {
+			if(inputs[b].type == "checkbox" && inputs[b].checked == true && inputs[b].className.indexOf("styled") > -1) {
+				inputs[b].previousSibling.style.backgroundPosition = "0 -" + checkboxHeight*2 + "px";
+			} else if(inputs[b].type == "checkbox" && inputs[b].className.indexOf("styled") > -1) {
+				inputs[b].previousSibling.style.backgroundPosition = "0 0";
+			} else if(inputs[b].type == "radio" && inputs[b].checked == true && inputs[b].className.indexOf("styled") > -1) {
+				inputs[b].previousSibling.style.backgroundPosition = "0 -" + radioHeight*2 + "px";
+			} else if(inputs[b].type == "radio" && inputs[b].className.indexOf("styled") > -1) {
+				inputs[b].previousSibling.style.backgroundPosition = "0 0";
+			}
+		}
+	},
+	choose: function() {
+		option = this.getElementsByTagName("option");
+		for(d = 0; d < option.length; d++) {
+			if(option[d].selected == true) {
+				document.getElementById("select" + this.name).childNodes[0].nodeValue = option[d].childNodes[0].nodeValue;
+			}
+		}
+	}
+}
+window.onload = Custom.init;
+</script>
+
+{% endblock %}
+
+
  <div class="grid_16">
     <div class="contentinner">
     	<div class="bgsection2">
@@ -12,48 +143,44 @@
         </div>
         
         <div class="section2">
-        <div class="grid_9 alpha omega">
+        <div class="left_section2">
         <div class="order-left">
         <article>
         <aside class="amount-info">
         <p>Discover how far your money can go when you trust us, and just throw that shit away.</p>
         
         <div class="amount-box">
-        <ul>
-        <li><a href="#" class="active">$10.00</a></li>
-        <li><a href="#">$20.00</a></li>
-        <li><a href="#">$30.00</a></li>
-        <li><a href="#">$40.00</a></li>
-        <li><a href="#">$50.00</a></li>
-        <li><a href="#">Other</a></li>
+        <ul><form method="POST" action="{% url 'donations_billing' %}">
+			{% csrf_token %}
+        <li><input type="checkbox" class="styled" name="amount" value="10.00" />$10.00</li>
+        <li><input type="checkbox" class="styled" name="amount" value="20.00" />$20.00</li>
+        <li><input type="checkbox" class="styled" name="amount" value="30.00" />$30.00</li>
+        <li><input type="checkbox" class="styled" name="amount" value="40.00" />$40.00</li>
+        <li><input type="checkbox" class="styled" name="amount" value="50.00" />$50.00</li>
+        <li><input type="checkbox" class="styled" name="amount" value="" />Other</a></li>
         </ul>
-        <input name="" type="text" value="20.00" class="input code2" />
+        <input type="text" name="" value="0.00" class="input code2" />
         </div>
         </aside>
-
-        <form method="POST" action="{% url 'donations_billing' %}">
-	  {% csrf_token %}
-          Amount to donate: 
-	  <input type="text" name="amount" class="input code2" />
-	  <input type="submit" class="btn" value="Continue" />
+		<input type="submit" class="btn" value="Continue" />
         </form>
-        <a href="#" class="btn-gray">Cancel</a>
+        <a href="{% url "donations_home" %}" class="btn">Cancel</a>
         </article>
         </div>
         </div>
-        
-        <div class="grid_3 alpha omega right">
+       
+        <div class="right_section2">
         <div class="order-right">
         <article>
-        <h3>Your order <span><a href="#">Change order</a></span></h3>
+        <h3>Your order <span><a href="{% url "donations_add" %}" >Change order</a></span></h3>
         <ul>
         <li class="nodivider">
         <div class="column1">MagnateFund donation</div>
-        <div class="column2">$20.00</div>
+        <div class="column2">$0.00</div>
         </li>
         <li class="total">
         <div class="column1">Total</div>
-        <div class="column2">$20.00</div>
+        <div class="column2">$0.00</div>
         </li>        
         </ul>
         <select name="Gender" class="select">
@@ -67,6 +194,6 @@
         </div>
     </div><!-- contentinner -->
     </div><!-- grid_16 -->
-    
-    
+
+
 {% endblock %}

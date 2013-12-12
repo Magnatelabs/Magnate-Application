@@ -21,6 +21,7 @@ DATABASES = {
         "ENGINE": "django.db.backends.mysql",
 #        "NAME": "app_magnatedb",
         "NAME": "new_magnatedb", 
+#        "NAME": "what_magnatedb",
         "USER": "root",
         "PASSWORD": "",
         "HOST": "",
@@ -163,6 +164,7 @@ INSTALLED_APPS = [
     "waitinglist",
     "billing",
     "brabeion",
+    "avatar",
 
     # project
     "app_magnate",

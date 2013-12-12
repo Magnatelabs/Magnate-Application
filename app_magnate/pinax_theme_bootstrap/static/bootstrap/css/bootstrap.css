@@ -6526,7 +6526,7 @@ About Us added styling
 .order-left{ width:100%; float:left; background:#ffffff}
 .order-left h2{ font-size:24px; padding-bottom:20px}
 .order-left p{ font-size:14px; color:#4d4c4b; padding-bottom:18px}
-.order-left ul{ width:100%; float:left}
+.order-left ul{ width:100%; float:left; -webkit-padding-start: 0px; list-style-type: none; -webkit-margin-before: 0em; -webkit-margin-after: 0em; }
 .order-left ul li{ width:100%; float:left; padding-bottom:16px}
 .order-left label{ font-size:16px; padding-bottom:7px}
 .order-left .input{ width:91.8%; height:17px; float:left; background:#FFFFFF; box-shadow:none; box-shadow:inset #bebebe 1px 1px 2px; border:1px solid #bebebe; border-radius:3px; behavior: url(PIE.htc); position:relative; font-family:"HelveticaNeueLTStd55Roman", Arial, Helvetica, sans-serif; font-size:14px; color:#9f9f9f; padding:9px 4%}
@@ -6537,7 +6537,7 @@ About Us added styling
 .order-left .month{ width:140px}
 .order-left .year{ width:140px; float:right}
 .order-left .accept{ width:100%; float:left; padding-bottom:33px}
-.order-left .checkbox{ width:23px; height:23px; margin:0 10px 0 0; background:url(../img/checkbox01.png) no-repeat; display:block; clear:left; float:left; cursor:pointer}
+/*.order-left .checkbox{ width:23px; height:23px; margin:0 10px 0 0; background:url(../img/checkbox01.png) no-repeat; display:block; clear:left; float:left; cursor:pointer} */
 .order-left .text{ width:88%; float:left; font-size:16px; color:#4c4c4c}
 .order-left .text a{ color:#2398c9}
 .order-left .btn { width:140px; height:43px; font-family:"Helvetica Neue", Arial, Helvetica, sans-serif; font-size:16px; line-height:43px; margin-right:40px}
@@ -6545,22 +6545,23 @@ About Us added styling
 .order-left aside{ width:62.52%; float:left; padding:0 37.5% 15px 0}
 .order-left .amount-info{ width:97%; padding:0 3% 50px 0}
 .order-left .amount-info h3{ font-family:"helveticaneuemedium", Arial, Helvetica, sans-serif; font-size:20px; color:#4d4c4b; padding-bottom:25px}
-.order-left .amount-info ul{ width:100%; float:left; font-size:30px}
-.order-left .amount-info ul li{ width:100%; float:left; background:url(../img/circle_bullet02.png) no-repeat 19px 21px; padding:0}
+.order-left .amount-info ul{ width:100%; float:left; font-size:30px; -webkit-padding-start: 0px; list-style-type: none; -webkit-margin-before: 0em; -webkit-margin-after: 0em;}
+.order-left .amount-info ul li{ width:100%; float:left; no-repeat 19px 21px; }
+.order-left .amount-info ul li p{ width:87.73%; float:left; no-repeat 19px 21px; font-size: 30px; }
 .order-left .amount-info ul li a{ width:87.73%; height:68px; float:left; color:#4a4a49; line-height:68px; text-decoration:none; padding:0 0 0 12.27%}
-.order-left .amount-info ul li a:hover{ background:#72bb2a url(../img/circle_bullet01.png) no-repeat 21px 22px; color:#ffffff}
-.order-left .amount-info ul li a.active{ background:#72bb2a url(../img/circle_bullet01.png) no-repeat 21px 22px; color:#ffffff}
+.order-left .amount-info ul li:hover{ background:#72bb2a no-repeat 21px 22px; color:#ffffff}
+.order-left .amount-info ul li:active{ background:#72bb2a no-repeat 21px 22px; color:#ffffff}
 .order-left .amount-info p{ font-size:20px; line-height:23px; padding-bottom:46px}
 .order-left .amount-info .input{ width:41%; text-align:right; padding:9px 2.5%}
 .order-left .amount-info .code2{ width:27.2%; height:12px; float:right; color:#6d6f71; margin:20px 20px 20px 0}
 .order-left .amount-info .amount-box{ width:99.98%; float:left; border:1px solid #ecf1e6; padding:0}
-.order-left article{ width:92.5%; float:left; padding:37px 0 38px 7.5%}
+.order-left article{ width:92.5%; float:left; padding:37px 0 38px 4.7%}
 .order-left .card-detail{ width:100%; float:left; padding:48px 0 0 0}
 .order-right{ width:100%; float:right; background:#ffffff}
-.order-right h3{ font-family:"Helvetica Neue", Arial, Helvetica, sans-serif; padding-bottom:4px}
+.order-right h3{ font-family:"Helvetica Neue", Arial, Helvetica, sans-serif; padding-bottom:4px; font-size: 18px; font-weight: normal; -webkit-margin-before: 0em; -webkit-margin-after: 0em;}
 .order-right h3 a{ color:#2398c9}
 .order-right h3 span{ float:right; font-size:12px}
-.order-right ul{ width:100%; float:left; font-family:"Helvetica Neue", Arial, Helvetica, sans-serif; font-size:14px}
+.order-right ul{ width:100%; float:left; font-family:"Helvetica Neue", Arial, Helvetica, sans-serif; font-size:14px; -webkit-padding-start: 0px; list-style-type: none; -webkit-margin-before: 0em; -webkit-margin-after: 0em;}
 .order-right ul li{ width:100%; float:left; border-top:1px solid #e2e2e2; color:#4d4c4b; padding:18px 0}
 .order-right ul li.nodivider{ border:none}
 .order-right ul li.total{ font-family:"helveticaneuebold", Arial, Helvetica, sans-serif}
@@ -6569,7 +6570,15 @@ About Us added styling
 .order-right .sbHolder{ width:99.8%; font-size:12px; margin-bottom:20px}
 .order-right .sbOptions li{ width:100%; font-size:12px; padding:4px 0}
 .order-right .btn-gray { width:106px; height:27px; float:right; font-family:"Helvetica Neue", Arial, Helvetica, sans-serif; font-size:14px; line-height:27px; color:#ffffff}
+
+/* Added for donation add 12.11.13*/
 .order-right article{ width:71.6%; float:left; padding:38px 14.6% 20px 14.6%}
+.left_section2 {width: 520px; }
+.order-left .checkbox { width: 75px; height: 60px; padding: 0 5px 0 0; background:url(/site_media/static/img/radio_magnate3.png) no-repeat; display: block; clear: left; float: left; }
+.right_section2 {width: 280px; float: right; display: inline; }
+
+
+
 
 
 /* Status home stylez
@@ -6644,6 +6653,17 @@ About Us added styling
 .entry-image { width: 28%; }
 #smelly { margin: 0px 0px 0px 0px; }
 #comeon { width: 100%; }
+
+
+.checkbox, .radio {
+	width: 75px;
+	height: 60px;
+	padding: 0 5px 0 0;
+	background:url(/site_media/static/img/radio_magnate2.png) no-repeat;
+	display: block;
+	clear: left;
+	float: left;
+}
 
 
 /* Not in use, but will be soon

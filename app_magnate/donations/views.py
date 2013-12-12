@@ -54,9 +54,9 @@ class DonationBilling(FormView):
 
     template_name = 'donations/donations_billing.html'
     form_class = BillingInfoForm
-    success_url='/thanks/'
+#    success_url='/thanks/'
     redirect_field_name = "next"
-    dumb_messages = {
+    messages = {
         "survey_added": {
             "level": messages.SUCCESS,
             "text": _(u"Your information was successfully submitted.")
@@ -67,9 +67,9 @@ class DonationBilling(FormView):
         }
     }
 
-    def is_valid(self, form):
-        print 'IS_VALID'
-        return True
+#    def is_valid(self, form):
+#        print 'IS_VALID'
+#        return True
 
     def get(self, request, *args, **kwargs):
         print 'GET!!!'
@@ -78,26 +78,36 @@ class DonationBilling(FormView):
 
     def post(self, request, *args, **kwargs):
         print 'POST!!!'
+#        import pdb #(test for checking each process)
+#        pdb.set_trace()
         form = self.form_class(request.POST)
         if form.is_valid():
             # Process the data in form.cleaned_data
             entry = BillingInfo()
+#            entry.user = form.data['user']
             entry.first_name = form.data['first_name']
             entry.last_name = form.data['last_name']
             entry.address = form.data['address']
             entry.city = form.data['city']
             entry.zip = form.data['zipcode']
             entry.country = form.data['country']
+            entry.amount = float(form.data['amount'])
             entry.save()
-            dumb_messages.add_message(
+#            user_id = request.user.id
+#            form.instance.user = request.user
+#            userid = entry.save(commit=False)
+#            userid.user = request.user
+#            userid.save()
+
+            messages.add_message(
                 self.request,
                 self.messages["survey_added"]["level"],
                 self.messages["survey_added"]["text"]
             )
     
-            return redirect('donations_pay') # Redirect after POST
+            return redirect('donations_orderpay', {'amount': request.POST['amount']}) # Redirect after POST
         else:
-            dumb_messages.add_message(
+            messages.add_message(
                 self.request,
                 self.messages["input_error"]["level"],
                 self.messages["input_error"]["text"]
