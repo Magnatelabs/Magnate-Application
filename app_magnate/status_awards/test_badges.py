@@ -2,6 +2,7 @@ from brabeion.base import Badge, BadgeAwarded, BadgeDetail
 from social.models import total_likes_by_user
 from donations.utils import total_donation_amount, all_donations_by_user
 from brabeion import badges
+from .base import MetaBadge
 
 class TestLikesBadge_0(Badge):
     slug="horse"
@@ -51,6 +52,19 @@ class DonatedSomethingTestBadge(Badge):
         if total_donation_amount(user) > 0:
             print "giving badge"
             return BadgeAwarded(1)
+
+
+
+class Spiderman(MetaBadge):
+    slug="spiderman-turn-off-the-dark"
+    levels = [
+        BadgeDetail("Spiderman", "Turn off the dark."),
+    ]
+    requirements = [
+        { 'horse' : 8, 'donated-something' : 0 }
+    ]
+
     
 badges.register(TestLikesBadge_0)
 badges.register(DonatedSomethingTestBadge)
+badges.register(Spiderman)
