@@ -2,7 +2,7 @@ from brabeion.base import Badge, BadgeAwarded, BadgeDetail
 from social.models import total_likes_by_user
 from donations.utils import all_donations_by_user
 from brabeion import badges
-
+from .base import MetaBadge
 
 class LikesBadge(Badge):
     slug="likes"
@@ -56,5 +56,15 @@ class DonorBadge(Badge):
         elif (count > 0) and (amount > 0):
             return BadgeAwarded(1)
 
+class MemeMagnate(MetaBadge):
+    slug="meme_magnate"
+    levels = [
+        BadgeDetail("Meme Magnate", "Slowly learning to be a magnate..."),
+    ]
+    requirements = [
+        { 'likes' : 0, 'donor' : 0 }
+    ]
+
 badges.register(LikesBadge)
 badges.register(DonorBadge)
+badges.register(MemeMagnate)
