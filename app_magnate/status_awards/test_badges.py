@@ -61,10 +61,55 @@ class Spiderman(MetaBadge):
         BadgeDetail("Spiderman", "Turn off the dark."),
     ]
     requirements = [
-        { 'horse' : 8, 'donated-something' : 0 }
+        { 'horse' : 5, 'donated-something' : 0 }
+    ]
+    events = ['badge_awarded_'+s for s in set(s for s_l in requirements for s in s_l.keys())]
+
+
+    assert len(events)==2
+    assert 'badge_awarded_horse' in events
+    assert 'badge_awarded_donated-something' in events
+
+
+
+class SuperSpiderman(MetaBadge):
+    slug='super-spiderman'
+    levels = [
+        BadgeDetail("Simple", "Today"),
+        BadgeDetail("Super", "Tomorrow"),
+    ]
+    requirements = [
+        { 'spiderman-turn-off-the-dark' : 0 },
+        { 'horse' : 8 }
     ]
 
-    
+    events = ['badge_awarded_'+s for s in set(s for s_l in requirements for s in s_l.keys())]
+
+    assert len(events)==2
+    assert 'badge_awarded_horse' in events
+    assert 'badge_awarded_spiderman-turn-off-the-dark' in events
+
+
+assert badges._registry=={}
+
 badges.register(TestLikesBadge_0)
+
+assert(len(badges._registry) == 1)
+assert isinstance(badges._registry[TestLikesBadge_0.slug], TestLikesBadge_0)
+
 badges.register(DonatedSomethingTestBadge)
+
+assert(len(badges._registry) == 2)
+assert isinstance(badges._registry[TestLikesBadge_0.slug], TestLikesBadge_0)
+assert isinstance(badges._registry[DonatedSomethingTestBadge.slug], DonatedSomethingTestBadge)
+
+# Purposely first registering SuperSpiderman, to make it trickier
+# SuperSpiderman should be awarded whenever Spiderman is awarded
+badges.register(SuperSpiderman)
 badges.register(Spiderman)
+
+assert(len(badges._registry) == 4)
+assert isinstance(badges._registry[TestLikesBadge_0.slug], TestLikesBadge_0)
+assert isinstance(badges._registry[DonatedSomethingTestBadge.slug], DonatedSomethingTestBadge)
+assert isinstance(badges._registry[SuperSpiderman.slug], SuperSpiderman)
+assert isinstance(badges._registry[Spiderman.slug], Spiderman)
