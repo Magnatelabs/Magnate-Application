@@ -64,6 +64,7 @@ class MemeMagnate(MetaBadge):
     requirements = [
         { 'likes' : 0, 'donor' : 0 }
     ]
+    events = ['badge_awarded_'+s for s in set(s for s_l in requirements for s in s_l.keys())]
 
 badges.register(LikesBadge)
 badges.register(DonorBadge)
