@@ -3,7 +3,13 @@ from django.contrib.auth import get_user_model
 User=get_user_model()
 from brabeion.models import BadgeAward
 
+from zinnia.models.entry import Entry
 
+from random import randrange, random, seed
+from social.models import toggle_like_unlike, total_likes_by_user, Like
+from donations.models import Donation
+import math
+from . import award_badges
 
 # Create your tests here.
 class BadgeAwardTestCase(TestCase):
@@ -71,3 +77,95 @@ class BadgeAwardTestCase(TestCase):
                 if b.is_metabadge():
                     self.assertTrue(b.slug in ['spiderman-turn-off-the-dark', 'super-spiderman'])
                     self.assertEquals(b.level, 0)
+
+
+
+    def setup(self, nu): # not setUp; calling it manually
+        seed(32847)
+
+        self.nu=nu
+        self.users=[]
+        for i in range(self.nu):
+            user=User(username='user'+str(i), password=str(i))
+            user.save()
+            self.users.append(user)
+
+        self.ne=10
+        self.entries=[]
+        for i in range(self.ne):
+            entry=Entry.objects.create(title='Entry' + str(i), content=str(i) + '___ content ---')
+            self.entries.append(entry)
+        
+        self.total_donation = [0.0] * self.nu
+        self.max_total_likes = [0] * self.nu
+
+    def teardown(self): # not tearDown(); calling it manually
+        Like.objects.all().delete()
+        User.objects.all().delete()
+        BadgeAward.objects.all().delete()
+        Donation.objects.all().delete()
+
+    def do_many(self, n_users, n_repetitions):
+        self.setup(n_users)
+        for r in range(n_repetitions):
+            u_ind=randrange(self.nu)
+            user=self.users[u_ind]
+            if randrange(2)==0: # like/unlike something
+                e_ind=randrange(self.ne)
+                entry=self.entries[e_ind]
+                toggle_like_unlike(entry, user)
+                # We still need to call award_badges
+                # But only for regular badges, not for metabadges
+                # If you decide to award badges on signal, try making award_badges do nothing and run the tests
+                award_badges("user_liked_entry", user)
+            else: # donate something
+                amount = 0.1*math.exp(random()*10) # make it fluctuate a lot
+                Donation.objects.create(user=user, amount=amount)
+                self.total_donation[u_ind] += amount
+                # We still need to call award_badges
+                # But only for regular badges, not for metabadges
+                # If you decide to award badges on signal, try making award_badges do nothing and run the tests
+                award_badges("user_donation", user)
+
+            for i in range(self.nu):
+                user=self.users[i]
+                tl = total_likes_by_user(user)
+                # max total likes this user had during this test, given that it is possible to unlike entries
+                self.max_total_likes[i] = max(self.max_total_likes[i], tl)
+                # What matters is how many likes the user had at some moment, as this would determine whether the user should have received a badge or not. The user is free to unlike entries after receiving a badge; he will still keep the badge.
+                mtl = self.max_total_likes[i]
+                td = self.total_donation[i]
+                expected=[]
+                if (mtl >= 1):
+                    expected.append(('horse', 0))
+                if (mtl >= 2):
+                    expected.append(('horse', 1))
+                if (mtl >= 5):
+                    expected.append(('horse', 2))
+                if (mtl >= 7):
+                    expected.append(('horse', 4))
+                if (td > 0):
+                    expected.append(('donated-something', 0))
+                if (('horse', 5) in expected) and (('donated-something', 0) in expected):
+                    expected.append(('spiderman-turn-off-the-dark', 0))
+                    expected.append(('super-spiderman', 0))
+                if ('horse', 8) in expected:
+                    expected.append(('super-spiderman', 1))
+                # the first check is redundant
+                self.assertEquals(len(expected), len(user.badges_earned.all()))
+                self.assertEquals(set(expected), set((b.slug, b.level) for b in user.badges_earned.all()))
+
+            # the first check is again redundant
+            # total number of badges = sum of total number of badges earned by each user
+            self.assertEquals(sum([len(user.badges_earned.all()) for user in self.users]), len(BadgeAward.objects.all()))
+            # now compare the set of all badges to the union of the sets of badges awarded to each user
+            self.assertEquals(set([b for user in self.users for b in user.badges_earned.all()]), set(BadgeAward.objects.all()))
+        self.teardown()
+
+
+    def test_several(self):
+        self.do_many(3, 10)
+        self.do_many(2, 100)
+
+    def test_again(self):
+        self.do_many(2, 20)
