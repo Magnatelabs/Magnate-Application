@@ -81,7 +81,7 @@ class BadgeAwardTestCase(TestCase):
 
 
     def setup(self, nu): # not setUp; calling it manually
-        seed(32847)
+        seed(32847+nu)
 
         self.nu=nu
         self.users=[]
@@ -165,7 +165,7 @@ class BadgeAwardTestCase(TestCase):
 
     def test_several(self):
         self.do_many(3, 10)
-        self.do_many(2, 100)
+        self.do_many(2, 50)
+        self.do_many(1, 30)
+        self.do_many(5, 50) 
 
-    def test_again(self):
-        self.do_many(2, 20)
