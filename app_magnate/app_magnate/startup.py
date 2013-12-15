@@ -54,8 +54,9 @@ def startup_validation():
     for entry_type in settings.MAGNATE_ICON_BY_ENTRY_TYPE:
         assert isinstance(entry_type, str)
         local_url = settings.MAGNATE_ICON_BY_ENTRY_TYPE[entry_type]
-        assert local_url.startswith(settings.STATIC_URL), "Malformed url '%s' for entry type '%s'. settings.MAGNATE_ICON_BY_ENTRY_TYPE=%s" % (local_url, entry_type, str(settings.MAGNATE_ICON_BY_ENTRY_TYPE))
-        assert finders.find(local_url[len(settings.STATIC_URL):]) is not None, "Cannot find necessary static file %s" % local_url
+        assert finders.find(local_url) is not None, "Cannot find necessary static file '%s'" % (local_url)
+    assert finders.find(settings.MAGNATE_NO_STATUS_PIC_URL), "Cannot find necessary static file '%s'" % (settings.MAGNATE_NO_STATUS_PIC_URL)
+
 def run():
     autoload(["receivers"])
     startup_validation()
