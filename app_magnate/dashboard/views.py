@@ -19,7 +19,7 @@ from dashboard.forms import SpotlightRequestForm
 #import to recognize class based view
 from django.views.generic.edit import FormView
 
-from donations.utils import total_donation_amount, all_donations_by_user, all_badges_for_user
+from donations.utils import total_donation_amount, all_donations_by_user
 
 import zinnia
 from zinnia.views.archives import EntryIndex
