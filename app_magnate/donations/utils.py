@@ -9,9 +9,3 @@ def total_donation_amount(username):
 def all_donations_by_user(username):
     return Donation.objects.filter(user__username=username)
 
-def all_badges_for_user(username):
-    l=  [{'as_html': "<img src=\"%s\" alt=\"%s\" />" % (settings.STATIC_URL + 'img/img_icon13.png', 'BADGE')}, {'as_html': "<img src=\"%s\" alt=\"%s\" />" % (settings.STATIC_URL + 'img/img_icon14.png', 'BADGE')}, {'as_html': "<img src=\"%s\" alt=\"%s\" />" % (settings.STATIC_URL + 'img/img_icon15.png', 'BADGE')}]
-    if total_donation_amount(username)>1.0:
-        return l+l+l
-    else:
-        return []
