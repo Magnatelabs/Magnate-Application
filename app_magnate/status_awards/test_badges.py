@@ -27,6 +27,8 @@ class TestLikesBadge_0(Badge):
     def award(self, **state):
         user = state["user"]
         likes = total_likes_by_user(user)
+        if likes >= 7:
+            return BadgeAwarded(5) # skip a level to make it more interesting
         if likes >= 5:
             return BadgeAwarded(3)
         elif likes >= 2:
@@ -50,7 +52,6 @@ class DonatedSomethingTestBadge(Badge):
         user = state["user"]
         assert (len(all_donations_by_user(user))==0) == (total_donation_amount(user)==0), "Total donation amount is zero if and only if there are no donations"
         if total_donation_amount(user) > 0:
-            print "giving badge"
             return BadgeAwarded(1)
 
 
