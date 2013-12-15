@@ -3,9 +3,15 @@
 {% load status_awards_tags %}
 
       <div class="info">
-        <figure><a href="{% url 'status_home' %}"><img src="{% static "img/photo33.jpg" %}" alt="PHOTO"></a></figure>        
-        <h3><a href="{% url 'status_home' %}">Beginner Magnate:</a></h3>
-	<p>Receive badges to improve your status.</p>
+        <figure><a href="{% url 'status_award_detail' %}?award={{ status_badge.pk }}">{% render_badge status_badge "status_icon"  %}</a></figure>
+	{% if has_status_badge %}
+        <h3><a href="{% url 'status_home' %}">{{ status_badge.name }}:</a></h3>
+	{% else %}
+	<h3><a href="{% url 'status_home' %}">No status yet.</h3> <a href="#">Click here to read our tutorial about badges, statuses, and karma.</a>
+	{% endif %}
+	<p>{{ status_badge.description }}.</p>
+
+
         <!--<p>Your donation’s funded mainly comics and internet startups!</p>-->       
       </div>
       {% if request.user.is_authenticated %}
@@ -14,11 +20,13 @@
 
         <div class="badges">
 
-        <h3>Badges ({{badges | length }}) <span><a href="{% url 'status_home' %}">See All</a></span></h3>
+        <h3>Badges ({{badges | no_metabadges | length }}) <span><a href="{% url 'status_home' %}">See All</a></span></h3>
 
 	<ul>
 	{% for badge in badges %}
-	  <li><a href="{% url 'status_award_detail' %}?award={{ badge.pk }}">{% render_badge badge 0 %}</a></li>
+          {% if not badge.is_metabadge %}
+	  <li><a href="{% url 'status_award_detail' %}?award={{ badge.pk }}">{% render_badge badge "small" %}</a></li>
+	  {% endif %}
 	{% endfor %}
 	</ul>
 
