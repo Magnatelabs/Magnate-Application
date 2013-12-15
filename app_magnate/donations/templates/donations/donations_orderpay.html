@@ -4,9 +4,6 @@
 
 {% block body %}
 
-
-
-
 <div class="grid_16">
     <div class="contentinner">
     	<div class="bgsection2">
@@ -16,57 +13,21 @@
         </div>
         
         <div class="section2">
-        <div class="grid_9 alpha omega">
+        <div class="left_section2">
         <div class="order-left">
-        <form action="#" method="post"></form>
         <article>
         <aside>
         <label>Payment method</label>
-        <select name="Gender" class="select">
+        <select name="Card-type" class="select">
         <option value="Mastercard">Mastercard</option>
-        <option value="Mastercard">Mastercard</option>
+        <option value="Visa">Visa</option>
+        <option value="American Express">American Express</option>
         </select>
         
         <div class="card-detail">
         <h2 class="light">Card details</h2>
-        <ul>
-        <li>
-        
+        <ul id="adp_forms">
         {% render_integration adp %}
-        
-        
-<!-- Original Forms        
-        <label>Card number</label>
-        <input name="" type="text" class="input" value="" />
-        </li>
-        
-        <li>
-        <label>Name on card</label>
-        <input name="" type="text" class="input" value="" />
-        </li>
-
-        
-        <li>
-        <label>Expiry date</label>
-        <div class="month">
-        <select name="Gender" class="select">
-        <option value="Month">Month</option>
-        <option value="Month">Month</option>
-        </select>
-        </div>
-        
-        <div class="year">
-        <select name="Gender" class="select">
-        <option value="Year">Year</option>
-        <option value="Year">Year</option>
-        </select>
-        </div>
-        </li>
-        
-        <li>
-        <label>Card security code</label>
-        <input name="" type="text" class="input code2" value="" />
-        </li>
         </ul>
         </div>
         </aside>
@@ -74,17 +35,15 @@
         <div class="accept">
         <input type="checkbox" name="01" class="styled" /><span class="text">Yes, I have read and I accept the <a href="#">Magnate Terms of Use</a> and the <a href="#">Magnate Privacy Policy</a>.</span>
         </div>
-        
-        <p>Your billing information will be saved for future donations.</p>
-        
-        <a href="{% url 'donations_confirmation' %}" class="btn">Continue</a>
-        <a href="#" class="btn-gray">Cancel</a>
+                
+        <a href="" class="startedbtn pay_startedbtn">Continue</a>
+        <a href="{% url "donations_home" %}" class="btn-gray">Cancel</a>
         </article>
-        </form>
+        </form> <!--end of adp form -->
         </div>
         </div>
         
-        <div class="grid_3 alpha omega right">
+        <div class="right_section2">
         <div class="order-right">
         <article>
         <h3>Your order <span><a href="#">Change order</a></span></h3>

@@ -19,7 +19,7 @@
         <form method="POST" action="{% url 'donations_finalize' %}">
         {% csrf_token %}
         <article>
-        <aside>
+        <aside class="billing_forms">
         <ul>
         <li>
         <p><label for="id_first_name">First Name</label>
@@ -64,11 +64,11 @@
         </aside>
 
         <p>Your billing information will be saved for future donations.</p>
-        <input type="submit" value="Continue" class="btn" />
+        <input type="submit" value="Continue" class="startedbtn" />
 		</form>
 		
 
-        <a href="#" class="btn-gray">Cancel</a>
+        <a href="{% url "donations_home" %}" class="btn-gray">Cancel</a>
         </article>
         
 

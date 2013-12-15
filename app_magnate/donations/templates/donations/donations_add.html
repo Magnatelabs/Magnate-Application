@@ -152,19 +152,19 @@ window.onload = Custom.init;
         <div class="amount-box">
         <ul><form method="POST" action="{% url 'donations_billing' %}">
 			{% csrf_token %}
-        <li><input type="checkbox" class="styled" name="amount" value="10.00" />$10.00</li>
-        <li><input type="checkbox" class="styled" name="amount" value="20.00" />$20.00</li>
-        <li><input type="checkbox" class="styled" name="amount" value="30.00" />$30.00</li>
-        <li><input type="checkbox" class="styled" name="amount" value="40.00" />$40.00</li>
-        <li><input type="checkbox" class="styled" name="amount" value="50.00" />$50.00</li>
-        <li><input type="checkbox" class="styled" name="amount" value="" />Other</a></li>
+        <li><input type="checkbox" class="styled" name="amount" value="10.00" /><h1>$10.00</h1></li>
+        <li><input type="checkbox" class="styled" name="amount" value="20.00" /><h1>$20.00</h1></li>
+        <li><input type="checkbox" class="styled" name="amount" value="30.00" /><h1>$30.00</h1></li>
+        <li><input type="checkbox" class="styled" name="amount" value="40.00" /><h1>$40.00</h1></li>
+        <li><input type="checkbox" class="styled" name="amount" value="50.00" /><h1>$50.00</h1></li>
+        <li><input type="checkbox" class="styled" name="amount" value="" /><h1>Other</h1></li>
         </ul>
         <input type="text" name="" value="0.00" class="input code2" />
         </div>
         </aside>
-		<input type="submit" class="btn" value="Continue" />
+		<input type="submit" class="startedbtn" value="Continue" />
         </form>
-        <a href="{% url "donations_home" %}" class="btn">Cancel</a>
+        <a href="{% url "donations_home" %}" class="btn-gray">Cancel</a>
         </article>
         </div>
         </div>
