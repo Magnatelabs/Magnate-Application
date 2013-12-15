@@ -79,6 +79,9 @@ class BadgeAwardTestCase(TestCase):
                     self.assertEquals(b.level, 0)
 
 
+    def setUp(self):
+        for i in range(10):
+            User.objects.create(username='user'+str(i), password=str(i))   
 
     def setup(self, nu): # not setUp; calling it manually
         seed(32847+nu)
@@ -86,8 +89,7 @@ class BadgeAwardTestCase(TestCase):
         self.nu=nu
         self.users=[]
         for i in range(self.nu):
-            user=User(username='user'+str(i), password=str(i))
-            user.save()
+            user=User.objects.get(username=('user'+str(i)))
             self.users.append(user)
 
         self.ne=10
@@ -101,7 +103,6 @@ class BadgeAwardTestCase(TestCase):
 
     def teardown(self): # not tearDown(); calling it manually
         Like.objects.all().delete()
-        User.objects.all().delete()
         BadgeAward.objects.all().delete()
         Donation.objects.all().delete()
 
