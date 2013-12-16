@@ -1,0 +1,48 @@
+{% load staticfiles %}
+
+<script src="{% static "fyneworks_star_rating/jquery.rating.pack.js" %}" type="text/javascript" language="javascript"></script>
+<script src="{% static "fyneworks_star_rating/jquery.MetaData.js" %}" type="text/javascript" language="javascript"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js" type="text/javascript"></script>
+
+
+
+<script type="text/javascript" language="javascript">
+$(function(){ 
+   $('#star-rating-form').submit(function() {
+       $('input', this).each(function() {
+           if (this.checked) {
+
+               $.ajax({
+                   type: "POST",
+                   url: "{% url 'ajax_star_rating' %}",
+                   data: { 'value': this.value,
+                           'csrfmiddlewaretoken': '{{csrf_token}}' },
+                   dataType: "text",
+                   success: function( response ) {
+//                       alert("Thank you for your feedback!");
+                       $('#star-rating-form').html("Thank you for your feedback!")
+                   }
+               });
+               
+           }
+       });
+       return false;
+   });
+});
+</script>
+
+<aside>
+
+<form id="star-rating-form">
+    Please, rate this website!
+    <div class="Clear">
+        <input class="star" type="radio" name="star-rating-it" value="1" title="Worst"/>
+	<input class="star" type="radio" name="star-rating-it" value="2" title="Bad"/>
+	<input class="star" type="radio" name="star-rating-it" value="3" title="OK"/>
+	<input class="star" type="radio" name="star-rating-it" value="4" title="Good"/>
+	<input class="star" type="radio" name="star-rating-it" value="5" title="Best"/>
+    </div>
+    <input type="submit" value="Submit scores!"/>
+</form>
+
+</aside>
