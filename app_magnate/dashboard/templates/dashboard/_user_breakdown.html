@@ -10,8 +10,14 @@
         
   
 	<div id="user_badges">
-            {% include "dashboard/__user_badges.html" %}
+{% comment %}            {% include "dashboard/__user_badges.html" %} 
+{% endcomment %}
 	</div>
+	<script type="text/javascript">
+	    // Load badges dynamically even the first time so as to prevent caching
+//	    var nocache = new Date().getTime();
+	    $("#user_badges").load("/dash/user_badges/");
+	</script>
 
         </aside>
         </article>
