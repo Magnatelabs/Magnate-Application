@@ -1,4 +1,7 @@
 <form method="post" action="{{ integration.service_url }}">
   {{ integration.generate_form.as_p }}
-  <p><input type="submit" value="Pay" /></p>
+  <div class="accept">
+  <input type="checkbox" name="01" class="styled" onclick="on_click_accept_checkbox();" /><span class="text">Yes, I have read and I accept the <a href="#">Magnate Terms of Use</a> and the <a href="#">Magnate Privacy Policy</a>.</span>
+        </div>
+  <p><input id="adp_submitbtn" type="submit" value="Pay" disabled="true" /></p>
 </form>
