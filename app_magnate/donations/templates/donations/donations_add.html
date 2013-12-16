@@ -139,7 +139,11 @@ window.onload = Custom.init;
     	<div class="bgsection2">
         
         <div class="heading-inner">
+        {% if request.GET.response %}
+		<h1>Whoops! There was an issue...</h1>
+		{% else %}        
         <h1>Choose your donation</h1>
+        {% endif %}
         </div>
         
         <div class="section2">
@@ -147,7 +151,11 @@ window.onload = Custom.init;
         <div class="order-left">
         <article>
         <aside class="amount-info">
+        {% if request.GET.response %}
+        <p>We're sorry, your transaction could not be processed because {{ request.GET.response }}. Please enter your information one more time, and try again.</p>
+        {% else %}        
         <p>Discover how far your money can go when you trust us, and just throw that shit away.</p>
+		{% endif %}
         
         <div class="amount-box">
         <ul><form method="POST" action="{% url 'donations_billing' %}">
