@@ -6603,7 +6603,7 @@ About Us added styling
 /* Added for donation add 12.11.13*/
 .order-right article{ width:71.6%; float:left; padding:38px 14.6% 20px 14.6%}
 .left_section2 {width: 520px; }
-.order-left .checkbox { width: 75px; height: 60px; padding: 0 5px 0 0; background:url(/site_media/static/img/radio_magnate3.png) no-repeat; display: block; clear: left; float: left; }
+.order-left .radio { width: 75px; height: 60px; padding: 0 5px 0 0; background:url(/site_media/static/img/radio_magnate3.png) no-repeat; display: block; clear: left; float: left; }
 .right_section2 {width: 280px; float: right; display: inline; }
 
 
