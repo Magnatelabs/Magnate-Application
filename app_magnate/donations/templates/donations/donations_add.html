@@ -85,7 +85,13 @@ var Custom = {
 		}
 	},
 	check: function() {
+		
 		element = this.nextSibling;
+		
+		
+		set_amount(element.value);
+		
+		
 		if(element.checked == true && element.type == "checkbox") {
 			this.style.backgroundPosition = "0 0";
 			element.checked = false;
@@ -129,7 +135,25 @@ var Custom = {
 	}
 }
 window.onload = Custom.init;
+
+function set_amount(value) {
+	if (value != "") {
+		document.getElementById("id_donation_amount").value = value;	
+	}
+}
+
+function validate_amount(evt) {
+    var theEvent = evt || window.event;
+    var key = theEvent.keyCode || theEvent.which;
+    key = String.fromCharCode( key );
+    var regex= /[0-9]|\./
+    if( !regex.test(key) ) {
+        theEvent.returnValue = false;
+        if(theEvent.preventDefault) theEvent.preventDefault();
+    }
+}
 </script>
+
 
 {% endblock %}
 
@@ -160,14 +184,17 @@ window.onload = Custom.init;
         <div class="amount-box">
         <ul><form method="POST" action="{% url 'donations_billing' %}">
 			{% csrf_token %}
-        <li><input type="checkbox" class="styled" name="amount" value="10.00" /><h1>$10.00</h1></li>
-        <li><input type="checkbox" class="styled" name="amount" value="20.00" /><h1>$20.00</h1></li>
-        <li><input type="checkbox" class="styled" name="amount" value="30.00" /><h1>$30.00</h1></li>
-        <li><input type="checkbox" class="styled" name="amount" value="40.00" /><h1>$40.00</h1></li>
-        <li><input type="checkbox" class="styled" name="amount" value="50.00" /><h1>$50.00</h1></li>
-        <li><input type="checkbox" class="styled" name="amount" value="" /><h1>Other</h1></li>
+		
+		<input type="hidden" id="id_donation_amountd" name="amount1" value="0.00" />
+			
+        <li><input type="radio" class="styled" name="amt" value="10.00" /><h1>$10.00</h1></li>
+        <li><input type="radio" class="styled" name="amt" value="20.00" /><h1>$20.00</h1></li>
+        <li><input type="radio" class="styled" name="amt" value="30.00" /><h1>$30.00</h1></li>
+        <li><input type="radio" class="styled" name="amt" value="40.00" /><h1>$40.00</h1></li>
+        <li><input type="radio" class="styled" name="amt" value="50.00" /><h1>$50.00</h1></li>
+        <li><input id="id_input_other" type="radio" class="styled" name="amt" value="" /><h1>Other</h1></li>
         </ul>
-        <input type="text" name="" value="0.00" class="input code2" />
+        <input type="text" id="id_donation_amount" name="amount" value="0.00" class="input code2" onchange="document.getElementById('id_input_other').click();" onkeypress="validate_amount(event);" />
         </div>
         </aside>
 		<input type="submit" class="startedbtn" value="Continue" />
