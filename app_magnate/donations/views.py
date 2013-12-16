@@ -32,7 +32,7 @@ def donation_index(request):
     tda=total_donation_amount(request.user)
     user_has_donation = (tda > 0)
 
-    return render(request, 'donations/donations_home.html', {'user_has_donation': user_has_donation, 'total_donation_amount': tda})
+    return render(request, 'donations/donations_home.html', {'user_has_donation': user_has_donation, 'total_donation_amount': tda, })
 
 def donation_add(request):
 #    if not request.user.is_authenticated():
@@ -146,5 +146,6 @@ def donation_orderpay(request, entry):
         }
     int_obj.add_fields(fields)
     return render_to_response("donations/donations_orderpay.html",
-                             {"adp": int_obj},
+                             {"adp": int_obj,
+                              "amount": donation_amount},
                              context_instance=RequestContext(request))
