@@ -68,7 +68,7 @@
 							    {% if not badge.is_metabadge %}
 							        <li>
 										<figure><a href="{% url 'status_award_detail' %}?award={{ badge.pk }}">{% render_badge badge "medium" %}</a>
-										<span class="award_caption"><h4><a href="{% url 'status_award_detail' %}?award={{ badge.pk }}">{{ badge.name }}</a></h4><p>{{ badge.awarded_at }}</p></span>
+										<span class="award_caption"><h4><a href="{% url 'status_award_detail' %}?award={{ badge.pk }}">{{ badge.name }}</a></h4><p>{{ badge.awarded_at | date:"F d, Y" }}</p></span>
 										    
 										</figure>
 							        </li>
