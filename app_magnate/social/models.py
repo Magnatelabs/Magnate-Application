@@ -2,6 +2,15 @@ from django.db import models, settings
 from zinnia.models.entry import Entry
 
 
+# For now just rating the website. Later can add a generic foreign key to rate various things...
+class StarRating(models.Model):
+   user=models.ForeignKey(settings.AUTH_USER_MODEL, related_name='ratings')
+   date=models.DateTimeField(auto_now_add=True)
+   rating=models.IntegerField()
+
+   def total_ratings_by_user(user):
+      return StarRating.objects.filter(user=user).count()
+
 # Every instance will represent one Like of one entry by one user
 class Like(models.Model):
     user=models.ForeignKey(settings.AUTH_USER_MODEL, related_name='likes')
