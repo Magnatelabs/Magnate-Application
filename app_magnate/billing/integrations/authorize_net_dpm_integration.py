@@ -81,7 +81,7 @@ class AuthorizeNetDpmIntegration(Integration):
                                       {"redirect_url": redirect_url})
         print "WARN: Authorize.Net transaction rejected. x_response_code=%s, x_response_reason_code=%s" % (request.POST['x_response_code'], request.POST['x_response_reason_code'])
          # Check http://www.authorize.net/support/merchant/Transaction_Response/Response_Reason_Codes_and_Response_Reason_Text.htm for codes
-        redirect_url = "%s?%s" % (request.build_absolute_uri(reverse("authorize_net_failure_handler")),
+        redirect_url = "%s?%s" % (request.build_absolute_uri(reverse("donations_add")),
                                  urllib.urlencode({"response": result}))
         transaction_was_unsuccessful.send(sender=self,
                                           request=request)
