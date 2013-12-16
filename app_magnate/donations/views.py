@@ -109,7 +109,9 @@ class DonationBilling(FormView):
                 self.request,
                 self.messages["input_error"]["level"],
                 self.messages["input_error"]["text"]
-            )
+            ) 
+            # monkey patch: passing the amount back to itself
+            return render(request, self.template_name, {'form': form, 'amount': form.data['amount']})
             print 'DEBUG: form is not valid!!!', form.errors
 
 #def confirmation_index(request):
