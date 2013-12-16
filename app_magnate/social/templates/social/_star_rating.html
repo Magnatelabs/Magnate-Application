@@ -20,7 +20,7 @@ $(function(){
                    dataType: "text",
                    success: function( response ) {
 //                       alert("Thank you for your feedback!");
-                       $('#star-rating-form').html("Thank you for your feedback!")
+                       $('#star-rating-message').html("Thank you for your feedback!")
                    }
                });
                
@@ -44,5 +44,6 @@ $(function(){
     </div>
     <input type="submit" value="Submit scores!"/>
 </form>
+<p id="star-rating-message"></p>
 
 </aside>
