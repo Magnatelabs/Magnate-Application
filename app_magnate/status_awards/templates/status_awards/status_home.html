@@ -1,5 +1,7 @@
 {% extends "site_base.html" %}
 {% load staticfiles %}
+{% load brabeion_tags %}
+{% load status_awards_tags %}
 
 {% block body %}
         
@@ -9,7 +11,7 @@
         
     		<div class="heading_container">
 				<div class="inner_blue">
-					<h1>Susiewow's Magnate Status</h1>
+					<h1>{{ request.user }}'s Magnate Status</h1>
 				</div>
 					<div class="additional_right-overlay">
 						<div class="order_right-overlay">
@@ -37,59 +39,50 @@
         	<div class="status_section1">
         		<div class="status-info">
 					<article>
-						<figure><img src="{% static "img/status_icon.png" %}" alt="PHOTO"></figure>
+		
+					
+						<figure><a href="{% url 'status_award_detail' %}?award={{ status_badge.pk }}">{% render_badge status_badge "status_large" %}</a></figure>
 						<aside>
+							{% if has_status_badge %}
 							<h3>Meme Magnate (Novice)</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, 
-							sed do eiusmod tempor incididunt ut labore et dolore 
-							magna aliqua. Ut enim ad minim veniam, quis nostrud 
-							exercitation ullamco laboris nisi ut aliquip ex ea commo.</p>
+							{% else %}
+							<h3>No status yet.</h3> <a href="#">Click here to read our tutorial about badges, statuses, and karma.</a>
+							{% endif %}
+							<p>{{ status_badge.description }}</p>
         				</aside>
 					</article>
 				</div>
 			</div> <!--status_section1-->
 			
 			        
+			{% if request.user.is_authenticated %}
+                {% badges_for_user request.user as badges %}
+            {% endif %}
         	<div class="status_section2">
         		<div class="status_awards">
         			<div class="awards_info">
         				<!-- <h4>Meme Magnate awards</h4> -->
 						<div class="large_awards">
 							<ul>
-							<li>
-							<figure><a href="{% url 'status_award_detail' %}"><img src="{% static "img/status_award_bigicon2.png" %}" alt="LAWARD"></a>
-							<span class="award_caption"><h4><a href="{% url 'status_award_detail' %}">Donor Power</a></h4><p>September 22, 2013</p></span></figure>
-							</li>
-        				
-							<li>
-							<figure><a href="{% url 'status_award_detail' %}"><img src="{% static "img/status_award_bigicon1.png" %}" alt="LAWARD"></a>
-							<span class="award_caption"><h4><a href="{% url 'status_award_detail' %}">Comicbewker</a></h4><p>November 12, 2013</p></span></figure>
-							</li>
-        				
-							<li>
-							<figure><a href="{% url 'status_award_detail' %}"><img src="{% static "img/status_award_bigicon3.png" %}" alt="LAWARD"></a>
-							<span class="award_caption"><h4><a href="{% url 'status_award_detail' %}">Edu-Tech Noob</a></h4><p>November 19, 2013</p></span></figure>
-							</li>
-        			
-							<li>
-							<figure><a href="{% url 'status_award_detail' %}"><img src="{% static "img/status_award_bigicon4.png" %}" alt="LAWARD"></a>
-							<span class="award_caption"><h4><a href="{% url 'status_award_detail' %}">nlocked</a></h4><p>Passion Award</p></span></figure>
-							</li>
-					
-							<li>
-							<figure><a href="{% url 'status_award_detail' %}"><img src="{% static "img/status_award_bigicon4.png" %}" alt="LAWARD"></a>
-       						<span class="award_caption"><h4><a href="{% url 'status_award_detail' %}">Unlocked</a></h4><p>Investment Award</p></span></figure>
-							</li>
-        				
+							{% for badge in badges %}
+							    {% if not badge.is_metabadge %}
+							        <li>
+										<figure><a href="{% url 'status_award_detail' %}?award={{ badge.pk }}">{% render_badge badge "medium" %}</a>
+										<span class="award_caption"><h4><a href="{% url 'status_award_detail' %}?award={{ badge.pk }}">{{ badge.name }}</a></h4><p>{{ badge.awarded_at }}</p></span>
+										    
+										</figure>
+							        </li>
+							    {% endif %}
+							{% endfor %}
+							
 							<li>
 							<figure><a href="{% url 'status_award_detail' %}"><img src="{% static "img/status_award_bigicon4.png" %}" alt="LAWARD"></a>
 							<span class="award_caption"><h4><a href="{% url 'status_award_detail' %}">Unlocked</a></h4><p>Passion Award</p></span></figure>
 							</li>
+							
+							
+							
         				
-							<li>
-							<figure><a href="{% url 'status_award_detail' %}"><img src="{% static "img/status_award_bigicon4.png" %}" alt="LAWARD"></a>
-							<span class="award_caption"><h4><a href="{% url 'status_award_detail' %}">Unlocked</a></h4><p>Passion Award</p></span></figure>
-							</li>
 							</ul>
 						</div>
 					</div>
@@ -115,17 +108,17 @@
 							<ul>
 							<li>
 							<figure><a href="{% url 'status_award_detail' %}"><img src="{% static "img/status_award_smallicon1.png" %}" alt="MAWARD"></a>
-							<span class="award_caption"><h4><a href="{% url 'status_award_detail' %}">Donor Power</a></h4><p>September 22, 2013</p></span></figure>
+							<span class="award_caption"><h4><a href="{% url 'status_award_detail' %}">Donor Power</a></h4><p>Investment Award</p></span></figure>
 							</li>
         				
 							<li>
 							<figure><a href="{% url 'status_award_detail' %}"><img src="{% static "img/status_award_smallicon2.png" %}" alt="MAWARD"></a>
-							<span class="award_caption"><h4><a href="{% url 'status_award_detail' %}">Comicbewker</a></h4><p>November 12, 2013</p></span></figure>
+							<span class="award_caption"><h4><a href="{% url 'status_award_detail' %}">Comicbewker</a></h4><p>Action Award</p></span></figure>
 							</li>
         				
 							<li>
 							<figure><a href="{% url 'status_award_detail' %}"><img src="{% static "img/status_award_smallicon3.png" %}" alt="MAWARD"></a>
-							<span class="award_caption"><h4><a href="{% url 'status_award_detail' %}">Edu-Tech Noob</a></h4><p>November 19, 2013</p></span></figure>
+							<span class="award_caption"><h4><a href="{% url 'status_award_detail' %}">Edu-Tech Noob</a></h4><p>Action Award</p></span></figure>
 							</li>
         			
 							<li>
