@@ -6,15 +6,16 @@ from django.views import generic
 from django.utils import timezone
 from django.contrib.auth.models import User
 from django.template import RequestContext
+from django.contrib.auth.decorators import login_required
 
-
+@login_required(login_url='/account/login')
 def status_index(request):
 #    if not request.user.is_authenticated():
 #        return redirect('/donations/user/?next=%s' % request.path)
 
     return render(request, 'status_awards/status_home.html')
 
-
+@login_required(login_url='/account/login')
 def award_detail(request):
 #    if not request.user.is_authenticated():
 #        return redirect('/donations/user/?next=%s' % request.path)
