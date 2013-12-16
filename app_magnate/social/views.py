@@ -9,7 +9,7 @@ from django.utils import simplejson
 from django.views.decorators.http import require_POST
 from django.contrib.auth.decorators import login_required
 
-from .models import toggle_like_unlike, total_entry_likes
+from .models import toggle_like_unlike, total_entry_likes, StarRating
 import status_awards
 
 #TODO! FIXME! Think about thread safety if multiple users like the same post at the same time!
@@ -50,6 +50,7 @@ def ajax_star_rating(request):
         
 
     # Save rating
+    StarRating.objects.create(user=request.user, rating=value)
     # Award badges
     print "User %s rated %d..." % (request.user, value)
 
