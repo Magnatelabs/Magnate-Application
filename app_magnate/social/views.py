@@ -6,6 +6,8 @@ from zinnia.models.entry import Entry
 from .templatetags import social_tags
 from django.http import HttpResponseBadRequest
 from django.utils import simplejson
+from django.views.decorators.http import require_POST
+from django.contrib.auth.decorators import login_required
 
 from .models import toggle_like_unlike, total_entry_likes
 import status_awards
@@ -35,3 +37,21 @@ def ajax_like_entry(request):
         return HttpResponse(simplejson.dumps(vars), mimetype='application/javascript')
     else:
         return HttpResponseBadRequest()
+
+@require_POST
+@login_required
+def ajax_star_rating(request):
+    if not request.is_ajax():
+        return HttpResponseBadRequest()
+    value = int(request.POST.get('value', None))
+    if value is None:
+        return HttpResponseBadRequest()
+
+        
+
+    # Save rating
+    # Award badges
+    print "User %s rated %d..." % (request.user, value)
+
+    return HttpResponse(simplejson.dumps({}), mimetype='application/javascript')
+    
