@@ -16,6 +16,12 @@
             <link href="{% static "bootstrap/css/bootstrap-responsive.css" %}" rel="stylesheet">
 
             <script src="{% static "js/jquery-1.9.0.min.js" %}"></script>
+	    <script type="text/javascript">
+	      // Prevent caching ajax calls so the dynamic content is always updated
+	      // This way we don't need to add the wasteful /?cache=nocache to every request
+	      // (var nocache = new Date().getTime(), for example)
+                $.ajaxSetup({ cache: false });
+	    </script>
             {% block extra_style %}{% endblock %}
         {% endblock %}
 
