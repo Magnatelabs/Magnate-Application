@@ -1,5 +1,12 @@
 {% extends "site_base.html" %}
 {% load staticfiles %}
+{% load social_tags %}
+
+{% block style_base %}
+    {{ block.super }}
+    <link href="{% static "fyneworks_star_rating/jquery.rating.css"" %}" type="text/css" rel="stylesheet"/>
+
+{% endblock %}
 
 {% block body %}
 
@@ -119,6 +126,10 @@
         </div>
         </div>
         
+
+        {% render_star_rating request.user %}
+
+        
         <article class="bg-pink">
         <aside>
         <h4>Spread the wealth</h4>
@@ -164,6 +175,9 @@
 {% block script_base %}
 
 {{ block.super }}
+
+
+
 
 <script type="text/javascript">
 
