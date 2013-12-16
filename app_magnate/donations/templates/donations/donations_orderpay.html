@@ -4,6 +4,14 @@
 
 {% block body %}
 
+<script>
+function on_click_accept_checkbox() {
+	
+	document.getElementById("adp_submitbtn").disabled = !document.getElementById("adp_submitbtn").disabled;
+}
+</script>
+
+
 <div class="grid_16">
     <div class="contentinner">
     	<div class="bgsection2">
@@ -31,13 +39,15 @@
         </ul>
         </div>
         </aside>
+<!--        <div class="accept">
+        <input type="checkbox" name="01" class="styled" onclick="on_click_accept_checkbox();" /><span class="text">Yes, I have read and I accept the <a href="#">Magnate Terms of Use</a> and the <a href="#">Magnate Privacy Policy</a>.</span>
+        </div> -->
         
-        <div class="accept">
-        <input type="checkbox" name="01" class="styled" /><span class="text">Yes, I have read and I accept the <a href="#">Magnate Terms of Use</a> and the <a href="#">Magnate Privacy Policy</a>.</span>
-        </div>
-                
-        <a href="" class="startedbtn pay_startedbtn">Continue</a>
-        <a href="{% url "donations_home" %}" class="btn-gray">Cancel</a>
+        <p>Your billing information will be saved for future donations.</p>
+        
+        <a href="#" class="btn">Continue</a>
+        <a href="#" class="btn-gray">Cancel</a>
+
         </article>
         </form> <!--end of adp form -->
         </div>
@@ -50,11 +60,11 @@
         <ul>
         <li class="nodivider">
         <div class="column1">MagnateFund donation</div>
-        <div class="column2">$20.00</div>
+        <div class="column2">{{ amount }}</div>
         </li>
         <li class="total">
         <div class="column1">Total</div>
-        <div class="column2">$20.00</div>
+        <div class="column2">{{ amount }}</div>
         </li>        
         </ul>
         </article>
