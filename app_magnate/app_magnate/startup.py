@@ -57,6 +57,10 @@ def startup_validation():
         assert finders.find(local_url) is not None, "Cannot find necessary static file '%s'" % (local_url)
     assert finders.find(settings.MAGNATE_NO_STATUS_PIC_URL), "Cannot find necessary static file '%s'" % (settings.MAGNATE_NO_STATUS_PIC_URL)
 
+    assert settings.MAGNATE_CAN_STAR_RATE_EVERY
+    import datetime
+    assert eval("datetime.timedelta(" + settings.MAGNATE_CAN_STAR_RATE_EVERY + ")")
+
 def run():
     autoload(["receivers"])
     startup_validation()
