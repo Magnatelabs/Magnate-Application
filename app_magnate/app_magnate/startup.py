@@ -59,7 +59,7 @@ def startup_validation():
 
     assert settings.MAGNATE_CAN_STAR_RATE_EVERY
     import datetime
-    assert eval("datetime.timedelta(" + settings.MAGNATE_CAN_STAR_RATE_EVERY + ")")
+    assert isinstance(eval("datetime.timedelta(" + settings.MAGNATE_CAN_STAR_RATE_EVERY + ")"), datetime.timedelta)
 
 def run():
     autoload(["receivers"])
