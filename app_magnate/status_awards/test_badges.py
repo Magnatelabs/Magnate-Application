@@ -1,5 +1,5 @@
 from brabeion.base import Badge, BadgeAwarded, BadgeDetail
-from social.models import total_likes_by_user
+from social.models import total_likes_by_user, total_ratings_by_user
 from donations.utils import total_donation_amount, all_donations_by_user
 from brabeion import badges
 from .base import MetaBadge
@@ -91,6 +91,26 @@ class SuperSpiderman(MetaBadge):
     assert 'badge_awarded_spiderman-turn-off-the-dark' in events
 
 
+class FearlessRaterBadge(Badge):
+    slug='fearless-rater'
+    levels = [
+        BadgeDetail("Rate-One", "Yes"),
+        BadgeDetail("Rate-Two", "Maybe"),
+    ]
+    events = [
+        "user_rated_something"
+    ]
+    multiple = False
+
+    def award(self, **state):
+        user=status["user"]
+        ratings = total_ratings_by_user(user)
+        if ratings >= 2:
+            return BadgeAwarded(2)
+        elif ratings >= 1:
+            return BadgeAwarded(1)
+        
+
 assert badges._registry=={}
 
 badges.register(TestLikesBadge_0)
@@ -104,13 +124,20 @@ assert(len(badges._registry) == 2)
 assert isinstance(badges._registry[TestLikesBadge_0.slug], TestLikesBadge_0)
 assert isinstance(badges._registry[DonatedSomethingTestBadge.slug], DonatedSomethingTestBadge)
 
+badges.register(FearlessRaterBadge)
+assert(len(badges._registry) == 3)
+assert isinstance(badges._registry[TestLikesBadge_0.slug], TestLikesBadge_0)
+assert isinstance(badges._registry[DonatedSomethingTestBadge.slug], DonatedSomethingTestBadge)
+assert isinstance(badges._registry[FearlessRaterBadge.slug], FearlessRaterBadge)
+
 # Purposely first registering SuperSpiderman, to make it trickier
 # SuperSpiderman should be awarded whenever Spiderman is awarded
 badges.register(SuperSpiderman)
 badges.register(Spiderman)
 
-assert(len(badges._registry) == 4)
+assert(len(badges._registry) == 5)
 assert isinstance(badges._registry[TestLikesBadge_0.slug], TestLikesBadge_0)
 assert isinstance(badges._registry[DonatedSomethingTestBadge.slug], DonatedSomethingTestBadge)
+assert isinstance(badges._registry[FearlessRaterBadge.slug], FearlessRaterBadge)
 assert isinstance(badges._registry[SuperSpiderman.slug], SuperSpiderman)
 assert isinstance(badges._registry[Spiderman.slug], Spiderman)
