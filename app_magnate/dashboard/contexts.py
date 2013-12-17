@@ -2,13 +2,16 @@ import donations.utils as du
 from brabeion.models import BadgeAward
 
 
+# Choosing which badge to display as the status badge.
+# Choosing the latest metabadge. Since the precision is only up to a second,
+# this may not work in case of multiple badges awarded at the same time.
+# In this case picking the latest sql id among those with the latest
+# awarded_at. 
 def magnate_status_badge(user):
     if not user.is_authenticated():
         return None
-    # Returning the latest awarded status badge
-    # Theoretically might get it wrong if two were awarded at the same moment
-    # But shouldn't be a problem if we don't go crazy creating multiple levels of badges awarded for other badges awarded for other badges
-    for badge in user.badges_earned.order_by('-awarded_at'):
+
+    for badge in user.badges_earned.order_by('-awarded_at', '-id'):
         if badge.is_metabadge():
             return badge
     return None
