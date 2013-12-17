@@ -103,7 +103,7 @@ class FearlessRaterBadge(Badge):
     multiple = False
 
     def award(self, **state):
-        user=status["user"]
+        user=state["user"]
         ratings = total_ratings_by_user(user)
         if ratings >= 2:
             return BadgeAwarded(2)
