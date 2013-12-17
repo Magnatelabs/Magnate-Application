@@ -195,8 +195,8 @@ class SimpleTest(TestCase):
 
 
         # Try an AJAX GET request
-        response400=client.get(url, data, HTTP_X_REQUESTED_WITH='XMLHttpRequest')
-        self.assertEqual(response400.status_code, 400)
+        response405=client.get(url, data, HTTP_X_REQUESTED_WITH='XMLHttpRequest')
+        self.assertEqual(response405.status_code, 405)
 
 
         # Try a POST request that is not AJAX.. Expected HTTP 400.
@@ -204,7 +204,55 @@ class SimpleTest(TestCase):
         self.assertEqual(response400.status_code, 400)
 
         # Lastly, try a GET request that is not AJAX. Expected HTTP 400.
-        response400=client.get(url, data)
-        self.assertEqual(response400.status_code, 400)
+        response405=client.get(url, data)
+        self.assertEqual(response405.status_code, 405)
 
         
+    def test_ajax_star_rating(self):
+        client = Client()
+        url=reverse('ajax_star_rating')
+        # User not authenticated. Expected AJAX response HTTP 401.
+        response401=client.post(url, HTTP_X_REQUESTED_WITH='XMLHttpRequest', )
+        self.assertEqual(response401.status_code, 401)
+
+        #Loggging in...
+        user = User.objects.create_user('temporary', 'temporary@gmail.com', 'temporary')
+        client.login(username='temporary', password='temporary')
+        #Logged in
+
+        # Now we are logged in and the request is ajax, but the data do not include rating. Bad request...
+        response400=client.post(url, HTTP_X_REQUESTED_WITH='XMLHttpRequest', )
+        self.assertEqual(response400.status_code, 400)
+
+        data = {'value': '5', }
+        
+        #try again
+        response=client.post(url, data, HTTP_X_REQUESTED_WITH='XMLHttpRequest')  
+        
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response._headers['content-type'], ('Content-Type', 'application/javascript'))
+        resp_data = json.loads(response.content)
+
+        # The user has just rated something (the website)
+
+        self.assertTrue('message' in resp_data)
+        self.assertEquals(resp_data['message'], "Thank you for your feedback!")
+
+        # So far the user has rated once
+        self.assertEquals(user.ratings.count(), 1)
+
+
+
+
+        # Try an AJAX GET request
+        response405=client.get(url, data, HTTP_X_REQUESTED_WITH='XMLHttpRequest')
+        self.assertEqual(response405.status_code, 405)
+
+
+        # Try a POST request that is not AJAX.. Expected HTTP 400.
+        response400=client.post(url, data)
+        self.assertEqual(response400.status_code, 400)
+
+        # Lastly, try a GET request that is not AJAX. Expected HTTP 400.
+        response405=client.get(url, data)
+        self.assertEqual(response405.status_code, 405)
