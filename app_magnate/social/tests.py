@@ -5,11 +5,13 @@ User=get_user_model()
 from zinnia.models.entry import Entry
 from . import models
 from models import total_entry_likes, entry_is_liked, toggle_like_unlike, total_likes_by_user
-from .models import Like
+from .models import Like, StarRating
 from .templatetags import social_tags
+import status_awards
 
 import random
 from random import randrange
+import datetime
 
 from django.test.client import Client
 from django.core.urlresolvers import reverse
@@ -190,6 +192,7 @@ class SimpleTest(TestCase):
         # Of course, the list of badges may change
         # But for now we know that there should be 1 badge awarded
         self.assertEquals(user.badges_earned.count(), 1)
+        self.assertIsInstance(user.badges_earned.all()[0]._badge, status_awards.test_badges.TestLikesBadge_0)
 
 
 
@@ -240,7 +243,79 @@ class SimpleTest(TestCase):
 
         # So far the user has rated once
         self.assertEquals(user.ratings.count(), 1)
+        self.assertEqual(StarRating.objects.filter(user=user).count(), 1)
 
+        self.assertEqual(user.badges_earned.count(), 1)
+        self.assertIsInstance(user.badges_earned.all()[0]._badge, status_awards.test_badges.FearlessRaterBadge)
+
+
+        # NOW try voting again!
+        data = {'value': '2', }
+        response=client.post(url, data, HTTP_X_REQUESTED_WITH='XMLHttpRequest')   
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response._headers['content-type'], ('Content-Type', 'application/javascript'))
+        resp_data = json.loads(response.content)
+
+        # The user has just tried to rate the same item again
+
+        self.assertTrue('message' in resp_data)
+        self.assertEquals(resp_data['message'], "You have already voted in the recent past.")
+        # Still one rating
+        self.assertEqual(user.ratings.count(), 1)
+        # Namely, rating 5. The first one.
+        self.assertEqual(user.ratings.all()[0].rating, 5)
+
+        # Still one badge
+        self.assertEqual(user.badges_earned.count(), 1)
+       
+
+
+        # NOW
+        # Say, we can rate again after a day
+        from django.db import settings
+        settings.MAGNATE_CAN_STAR_RATE_EVERY = 'days=1'
+        
+        # Say, the user actually rated this item 23 hours ago
+        r=user.ratings.all()[0]
+        r.date = r.date - datetime.timedelta(hours=23)
+        r.save()
+        
+        # He still shouldn't be able to rate again!
+        response=client.post(url, data, HTTP_X_REQUESTED_WITH='XMLHttpRequest')   
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response._headers['content-type'], ('Content-Type', 'application/javascript'))
+        resp_data = json.loads(response.content)
+        self.assertTrue('message' in resp_data)
+        self.assertEquals(resp_data['message'], "You have already voted in the recent past.")
+        # Still one rating
+        self.assertEqual(user.ratings.count(), 1)
+        # Namely, rating 5. The first one.
+        self.assertEqual(user.ratings.all()[0].rating, 5)
+        # Still one badge
+        self.assertEqual(user.badges_earned.count(), 1)
+
+
+
+        # Now, say, the user actually rated this item 25 hours ago
+        r=user.ratings.all()[0]
+        r.date = r.date - datetime.timedelta(hours=2) # shift back two more hours
+        r.save()
+
+
+        # Now he should be able to rate again! (This is also a nice check for timezones, etc.)
+        data = {'value': '1', }
+        response=client.post(url, data, HTTP_X_REQUESTED_WITH='XMLHttpRequest')   
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response._headers['content-type'], ('Content-Type', 'application/javascript'))
+        resp_data = json.loads(response.content)
+        self.assertTrue('message' in resp_data)
+        self.assertEquals(resp_data['message'], "Thank you for your feedback!")
+        # Now two ratings
+        self.assertEqual(user.ratings.count(), 2)
+        self.assertEqual(sorted([r.rating for r in user.ratings.all()]), [1, 5])
+        # Now two badges (same badge, but earned on two levels)
+        self.assertEqual(user.badges_earned.count(), 2)
+        self.assertEqual(sorted([(b.slug, b.level) for b in user.badges_earned.all()]), [('fearless-rater', 0), ('fearless-rater', 1)])
 
 
 
