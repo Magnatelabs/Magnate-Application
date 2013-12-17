@@ -91,7 +91,20 @@ class MemeMagnate(MetaBadge):
     ]
     events = ['badge_awarded_'+s for s in set(s for s_l in requirements for s in s_l.keys())]
 
+class FavouriteMagnate(MetaBadge):
+    slug='favourite'
+    levels = [
+        BadgeDetail("Favourite Magnate", "Easy to earn this one..."),
+        BadgeDetail("Meme-Favourite Magnate", "Given after you win Meme Magnate and Favourite Magnate"),
+    ]
+    requirements = [
+        { 'rater' : 0, 'donor' : 0 },
+        { 'favourite' : 0, 'meme_magnate' : 0 },
+    ]
+    events = ['badge_awarded_'+s for s in set(s for s_l in requirements for s in s_l.keys())]
+
 badges.register(LikesBadge)
 badges.register(DonorBadge)
 badges.register(RaterBadge)
 badges.register(MemeMagnate)
+badges.register(FavouriteMagnate)
