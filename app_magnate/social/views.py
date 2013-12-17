@@ -48,16 +48,19 @@ def ajax_star_rating(request):
         return HttpResponseBadRequest()
     value = int(value)
 
-    var={}
-    if can_rate(request.user):
+    vars={}
+    user = request.user
+
+    if can_rate(user):
         # Save rating
-        StarRating.objects.create(user=request.user, rating=value)
+        StarRating.objects.create(user=user, rating=value)
         # print "User %s rated %d..." % (request.user, value)
-        var['message'] = "Thank you for your feedback!"
+        vars['message'] = "Thank you for your feedback!"
     else:
-        var['message'] = "You have already voted in the recent past."
+        vars['message'] = "You have already voted in the recent past."
+
     # Award badges
+    status_awards.award_badges("user_rated_something", user)
 
-
-    return HttpResponse(simplejson.dumps(var), mimetype='application/javascript')
+    return HttpResponse(simplejson.dumps(vars), mimetype='application/javascript')
     
