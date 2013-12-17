@@ -1,7 +1,7 @@
 from django.db import models
 from django.shortcuts import get_object_or_404, render, redirect, render_to_response
 from django.http import HttpResponseRedirect
-from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse, reverse_lazy
 from django.views import generic
 from django.utils import timezone
 from django.contrib.auth.models import User
@@ -23,6 +23,7 @@ from .forms import BillingInfoForm
 from .models import BillingInfo
 from .utils import total_donation_amount
 
+from django.views.decorators.http import require_http_methods
 
 
 def donation_index(request):
@@ -31,13 +32,7 @@ def donation_index(request):
     tda=total_donation_amount(request.user)
     user_has_donation = (tda > 0)
 
-    return render(request, 'donations/donations_home.html', {'user_has_donation': user_has_donation, 'total_donation_amount': tda})
-
-def donation_tiers(request):
-#    if not request.user.is_authenticated():
-#        return redirect('/donations/user/?next=%s' % request.path)
-
-    return render(request, 'donations/donations_tiers.html')
+    return render(request, 'donations/donations_home.html', {'user_has_donation': user_has_donation, 'total_donation_amount': tda, })
 
 def donation_add(request):
 #    if not request.user.is_authenticated():
@@ -48,18 +43,19 @@ def donation_add(request):
 def enter_billing_info(request):
     return render(request, 'donations/donations_billing.html', {'amount': request.POST['amount']})
 
+
 class DonationBilling(FormView):
 #    if not request.user.is_authenticated():
 #        return redirect('/donations/user/?next=%s' % request.path)
 
     template_name = 'donations/donations_billing.html'
     form_class = BillingInfoForm
-    success_url='/thanks/'
+#    success_url = reverse_lazy('donations_pay')
     redirect_field_name = "next"
-    dumb_messages = {
+    messages = {
         "survey_added": {
             "level": messages.SUCCESS,
-            "text": _(u"Your information was successfully submitted.")
+            "text": _(u"Your billing information was successfully saved.")
         },
         "input_error": {
             "level": messages.ERROR,
@@ -67,9 +63,9 @@ class DonationBilling(FormView):
         }
     }
 
-    def is_valid(self, form):
-        print 'IS_VALID'
-        return True
+#    def is_valid(self, form):
+#        print 'IS_VALID'
+#        return True
 
     def get(self, request, *args, **kwargs):
         print 'GET!!!'
@@ -78,30 +74,44 @@ class DonationBilling(FormView):
 
     def post(self, request, *args, **kwargs):
         print 'POST!!!'
+#        import pdb #(test for checking each process)
+#        pdb.set_trace()
         form = self.form_class(request.POST)
         if form.is_valid():
             # Process the data in form.cleaned_data
             entry = BillingInfo()
+#            entry.user = form.data['user']
             entry.first_name = form.data['first_name']
             entry.last_name = form.data['last_name']
             entry.address = form.data['address']
             entry.city = form.data['city']
             entry.zip = form.data['zipcode']
             entry.country = form.data['country']
+            entry.amount = float(form.data['amount'])
             entry.save()
-            dumb_messages.add_message(
+#            user_id = request.user.id
+#            form.instance.user = request.user
+#            userid = entry.save(commit=False)
+#            userid.user = request.user
+#            userid.save()
+
+            messages.add_message(
                 self.request,
                 self.messages["survey_added"]["level"],
                 self.messages["survey_added"]["text"]
             )
-    
-            return redirect('donations_pay') # Redirect after POST
+
+            return donation_orderpay(request, entry)
+#            return redirect(request, 'donations/donations_orderpay.html', {'amount': request.POST['amount']}) # Redirect after POST
+#            return render(request, 'donations/donations_orderpay.html')
         else:
-            dumb_messages.add_message(
+            messages.add_message(
                 self.request,
                 self.messages["input_error"]["level"],
                 self.messages["input_error"]["text"]
-            )
+            ) 
+            # monkey patch: passing the amount back to itself
+            return render(request, self.template_name, {'form': form, 'amount': form.data['amount']})
             print 'DEBUG: form is not valid!!!', form.errors
 
 #def confirmation_index(request):
@@ -114,11 +124,14 @@ def donation_confirmation(request):
 
     return render(request, 'donations/donations_confirmation.html')
 
-def donation_orderpay(request):
+
+@require_http_methods(["POST"])
+def donation_orderpay(request, entry):
 #    if not request.user.is_authenticated():
 #        return redirect('/donations/user/?next=%s' % request.path)
 
-    donation_amount = request.POST['donation_amount']
+    donation_amount = request.POST['amount']
+#    donation_amount = request.POST['donation_amount']
     int_obj = get_integration("authorize_net_dpm")
     fields = {'x_amount': donation_amount,
           'x_fp_sequence': datetime.datetime.now().strftime('%Y%m%d%H%M%S'), # any identifier for the transaction
@@ -126,8 +139,15 @@ def donation_orderpay(request):
           'x_recurring_bill': 'F',
           'x_relay_url': request.build_absolute_uri(reverse("authorize_net_notify_handler")),
           'x_cust_id': request.user,
+          'x_first_name': entry.first_name,
+          'x_last_name': entry.last_name,
+          'x_zip': entry.zip,
+          'x_address': entry.address,
+          'x_city': entry.city,
+          'x_country': entry.country,
         }
     int_obj.add_fields(fields)
     return render_to_response("donations/donations_orderpay.html",
-                             {"adp": int_obj},
+                             {"adp": int_obj,
+                              "amount": donation_amount},
                              context_instance=RequestContext(request))

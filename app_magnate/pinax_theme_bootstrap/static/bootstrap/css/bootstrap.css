@@ -6526,7 +6526,7 @@ About Us added styling
 .order-left{ width:100%; float:left; background:#ffffff}
 .order-left h2{ font-size:24px; padding-bottom:20px}
 .order-left p{ font-size:14px; color:#4d4c4b; padding-bottom:18px}
-.order-left ul{ width:100%; float:left}
+.order-left ul{ width:100%; float:left; -webkit-padding-start: 0px; list-style-type: none; -webkit-margin-before: 0em; -webkit-margin-after: 0em; }
 .order-left ul li{ width:100%; float:left; padding-bottom:16px}
 .order-left label{ font-size:16px; padding-bottom:7px}
 .order-left .input{ width:91.8%; height:17px; float:left; background:#FFFFFF; box-shadow:none; box-shadow:inset #bebebe 1px 1px 2px; border:1px solid #bebebe; border-radius:3px; behavior: url(PIE.htc); position:relative; font-family:"HelveticaNeueLTStd55Roman", Arial, Helvetica, sans-serif; font-size:14px; color:#9f9f9f; padding:9px 4%}
@@ -6537,30 +6537,32 @@ About Us added styling
 .order-left .month{ width:140px}
 .order-left .year{ width:140px; float:right}
 .order-left .accept{ width:100%; float:left; padding-bottom:33px}
-.order-left .checkbox{ width:23px; height:23px; margin:0 10px 0 0; background:url(../img/checkbox01.png) no-repeat; display:block; clear:left; float:left; cursor:pointer}
+/*.order-left .checkbox{ width:23px; height:23px; margin:0 10px 0 0; background:url(../img/checkbox01.png) no-repeat; display:block; clear:left; float:left; cursor:pointer} */
 .order-left .text{ width:88%; float:left; font-size:16px; color:#4c4c4c}
 .order-left .text a{ color:#2398c9}
 .order-left .btn { width:140px; height:43px; font-family:"Helvetica Neue", Arial, Helvetica, sans-serif; font-size:16px; line-height:43px; margin-right:40px}
-.order-left .btn-gray { width:138px; height:43px; font-family:"Helvetica Neue", Arial, Helvetica, sans-serif; font-size:16px; line-height:43px; color:#ffffff}
+.order-left .btn-gray { width:154px; height:50px; line-height:50px; color:#ffffff; margin-left: 20px;}
 .order-left aside{ width:62.52%; float:left; padding:0 37.5% 15px 0}
 .order-left .amount-info{ width:97%; padding:0 3% 50px 0}
 .order-left .amount-info h3{ font-family:"helveticaneuemedium", Arial, Helvetica, sans-serif; font-size:20px; color:#4d4c4b; padding-bottom:25px}
-.order-left .amount-info ul{ width:100%; float:left; font-size:30px}
-.order-left .amount-info ul li{ width:100%; float:left; background:url(../img/circle_bullet02.png) no-repeat 19px 21px; padding:0}
+.order-left .amount-info ul{ width:100%; float:left; font-size:30px; -webkit-padding-start: 0px; list-style-type: none; -webkit-margin-before: 0em; -webkit-margin-after: 0em;}
+.order-left .amount-info ul li{ width:100%; float:left; no-repeat 19px 21px; }
+.order-left .amount-info ul li p{ width:87.73%; float:left; no-repeat 19px 21px; font-size: 30px; }
 .order-left .amount-info ul li a{ width:87.73%; height:68px; float:left; color:#4a4a49; line-height:68px; text-decoration:none; padding:0 0 0 12.27%}
-.order-left .amount-info ul li a:hover{ background:#72bb2a url(../img/circle_bullet01.png) no-repeat 21px 22px; color:#ffffff}
-.order-left .amount-info ul li a.active{ background:#72bb2a url(../img/circle_bullet01.png) no-repeat 21px 22px; color:#ffffff}
+.order-left .amount-info ul li:hover{ background:#72bb2a no-repeat 21px 22px; color:#ffffff}
+.order-left .amount-info ul li:active{ background:#72bb2a no-repeat 21px 22px; color:#ffffff}
 .order-left .amount-info p{ font-size:20px; line-height:23px; padding-bottom:46px}
 .order-left .amount-info .input{ width:41%; text-align:right; padding:9px 2.5%}
 .order-left .amount-info .code2{ width:27.2%; height:12px; float:right; color:#6d6f71; margin:20px 20px 20px 0}
 .order-left .amount-info .amount-box{ width:99.98%; float:left; border:1px solid #ecf1e6; padding:0}
-.order-left article{ width:92.5%; float:left; padding:37px 0 38px 7.5%}
-.order-left .card-detail{ width:100%; float:left; padding:48px 0 0 0}
+.order-left .amount-info .amount-box h1{ font-size:32px; font-weight: normal;}
+.order-left article{ width:92.5%; float:left; padding:37px 0 38px 4.7%}
+.order-left .card-detail{ width:100%; float:left; padding:30px 0 0 0}
 .order-right{ width:100%; float:right; background:#ffffff}
-.order-right h3{ font-family:"Helvetica Neue", Arial, Helvetica, sans-serif; padding-bottom:4px}
+.order-right h3{ font-family:"Helvetica Neue", Arial, Helvetica, sans-serif; padding-bottom:4px; font-size: 18px; font-weight: normal; -webkit-margin-before: 0em; -webkit-margin-after: 0em;}
 .order-right h3 a{ color:#2398c9}
 .order-right h3 span{ float:right; font-size:12px}
-.order-right ul{ width:100%; float:left; font-family:"Helvetica Neue", Arial, Helvetica, sans-serif; font-size:14px}
+.order-right ul{ width:100%; float:left; font-family:"Helvetica Neue", Arial, Helvetica, sans-serif; font-size:14px; -webkit-padding-start: 0px; list-style-type: none; -webkit-margin-before: 0em; -webkit-margin-after: 0em;}
 .order-right ul li{ width:100%; float:left; border-top:1px solid #e2e2e2; color:#4d4c4b; padding:18px 0}
 .order-right ul li.nodivider{ border:none}
 .order-right ul li.total{ font-family:"helveticaneuebold", Arial, Helvetica, sans-serif}
@@ -6569,7 +6571,43 @@ About Us added styling
 .order-right .sbHolder{ width:99.8%; font-size:12px; margin-bottom:20px}
 .order-right .sbOptions li{ width:100%; font-size:12px; padding:4px 0}
 .order-right .btn-gray { width:106px; height:27px; float:right; font-family:"Helvetica Neue", Arial, Helvetica, sans-serif; font-size:14px; line-height:27px; color:#ffffff}
+
+
+/* Donation Billing styling --do not remove, not old dashboard css
+----------------------------------------------------------------------------------------------------*/
+.billing_forms ul li {padding-bottom: 0px; } 
+.billing_forms ul li p {padding-bottom: 0px; }
+
+
+/* Donation Pay styling --do not remove, not old dashboard css
+----------------------------------------------------------------------------------------------------*/
+.light { font-family: "helveticaneuelight",Arial, Helvetica, sans-serif; -webkit-margin-before: 0em; -webkit-margin-after: 0em; font-weight: normal; }
+
+#adp_forms p { padding-bottom: 4px; -webkit-margin-before: 0em; -webkit-margin-after: 0em; width: 200px; }
+#adp_forms p label { padding-bottom: 0px; }
+#id_x_card_num { width: 265px; }
+#id_x_first_name { width: 265px; }
+#id_x_last_name { width: 265px; }
+#id_x_zip { width: 265px; }
+#id_x_exp_date { width: 265px; }
+#id_x_card_code { width: 265px;	}
+.pay_startedbtn { line-height: 50px; }
+
+
+
+/* Button styling (new) 12.13.13--do not remove, not old 
+----------------------------------------------------------------------------------------------------*/
+.btn-gray { display: inline-block; padding: 0; float: left; width: 140px; height: 56px; margin-bottom: 0; font-size: 20px; line-height: 56px; font-family: "helveticaneuelight",Arial, Helvetica, sans-serif; color: #020202; text-align: center; text-shadow: none; vertical-align: middle; cursor: pointer; background: #bbbcbc; background: -moz-linear-gradient(#dadada, #a5a6a6); background: -webkit-gradient(linear, left top, left bottom, from(#dadada), to(#a5a6a6)); background: -o-linear-gradient(#dadada, #a5a6a6); -pie-background: linear-gradient(#dadada, #a5a6a6); border: none; text-decoration: none; box-shadow: #777 0 1px 3px; border-radius: 6px; behavior: url(PIE.htc); position: relative; }
+
+
+/* Added for donation add 12.11.13*/
 .order-right article{ width:71.6%; float:left; padding:38px 14.6% 20px 14.6%}
+.left_section2 {width: 520px; }
+.order-left .radio { width: 75px; height: 60px; padding: 0 5px 0 0; background:url(/site_media/static/img/radio_magnate3.png) no-repeat; display: block; clear: left; float: left; }
+.right_section2 {width: 280px; float: right; display: inline; }
+
+
+
 
 
 /* Status home stylez
@@ -6642,8 +6680,36 @@ About Us added styling
 .hentry { border-bottom: 1px solid #cccaca; width: 116.4%; margin: 0px -75px 0px;}
 .entry-title { font-family: "helveticaneuebold",Arial, Helvetica, sans-serif; font-size: 13px; color: #817d8e; padding-bottom: 4px; -webkit-margin-before: 0em; -webkit-margin-after: 0em; line-height: 1em;}
 .entry-image { width: 28%; }
-#smelly { margin: 0px 0px 0px 0px; }
-#comeon { width: 100%; }
+
+
+/* Donation home added 12.13.13 by jw
+----------------------------------------------------------------------------------------------------*/
+.donation-section { width: 91.68%; float: left; background: #FFFFFF; padding: 25px 4.16% 150px 4.16%;}
+.donation-section h1{ font-family:"helveticaneuemedium",Arial, Helvetica, sans-serif; color:#4d4c4b; padding-bottom:9px}
+.donation-section p{ font-size:18px; color:#4d4c4b; padding-bottom:45px}
+.donation-section .amount-box{ width:410px; margin:0 auto}
+.donation-section .amount-box  h4{ font-size:16px; color:#ffffff; padding:0 0 0 12px}
+.donation-section .amount-info{ width:99.8%; float:left; background:#eaf6de; border:1px solid #e3e4e4}
+.donation-section article{ width:92.2%; float:left; background:#a6c987; padding:0 3.9%}
+.donation-section .current-amount{ width:100%; float:left; border-bottom:1px solid #a1b790; padding:30px 0}
+.donation-section .current-amount #dollar{ width:100%; float:left; padding-bottom:10px} 
+.donation-section .current-amount #dollar{ font-size:154px; color:#ffffff; line-height:140px; text-align:center}
+.donation-section .current-amount #dollar span{ background:url(../img/img_dollar.png) no-repeat 0 36px;}
+.donation-section .current-amount aside{ width:29.2%; float:left; padding-right:25px}
+.donation-section .current-amount aside h4{ font-size:14px; padding:0}
+.donation-section .current-amount aside p{ font-size:53px; line-height:53px; color:#ffffff; padding:0 0 16px 10px}
+.donation-section .current-amount aside span{ float:left; font-size:21px; margin-top:-10px; position:relative}
+.donation-section .current-amount .waiting_amount{ width:28.1%; float:left; padding:0}
+.donation-section .current-amount .waiting_amount p{ color:#ff5113}
+
+.donation-section .time-info{ width:100%; float:left; padding:30px 0}
+.donation-section .time-info h4{ font-size:14px; padding:0 0 18px 0}
+.donation-section .time-info h2{ color:#ff5113; text-align:center}
+.donation-section .time-info h2 span{ background:url(../img/img_icon22.png) no-repeat left center; padding:3px 0 3px 36px}
+
+.donation-section .bg-btn{ width:265px; margin:0 auto; }
+.donation-section .startedbtn{ width: 256px; line-height: 50px; margin-top: 10px; }
+.donation-section .btn-gray{ width:100%; height:52px; font-family:"Helvetica Neue", Arial, Helvetica, sans-serif; font-size:20px; color:#fff; line-height:52px; margin:30px 0}
 
 
 /* Not in use, but will be soon

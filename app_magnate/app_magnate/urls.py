@@ -15,7 +15,7 @@ urlpatterns = patterns("",
     url(r"^admin/", include(admin.site.urls)),
     url(r"^account/", include("account.urls")),
     url(r"^waitinglist/", include("waitinglist.urls")),
-
+    (r'^avatar/', include('avatar.urls')),
 # We don't want to include all Zinnia.urls, as we do not want to expose
 # everything to the users. It may be possible to e.g. decorate the include
 # with login_required, see http://stackoverflow.com/questions/2307926/is-it-possible-to-decorate-include-in-django-urls-with-login-required

@@ -1,12 +1,13 @@
 {% load staticfiles %}
+{% load avatar_tags %}
 
   <div class="bgprofile-info">
         <div class="profile-info">
         <article>
-        <figure><a href="#"><img src="{% static "img/photo32.jpg" %}" alt="PHOTO"></a> <span class="caption"><a href="#">Change profile photo?</a></span></figure>
+        <figure><a href="#">{% avatar user %}</a> <span class="caption"><a href="{% url 'avatar_change' %}">Change profile photo?</a></span></figure>
         
         <aside>
-          <h3><a href="#">{{ request.user }}</a></h3>
+          <h3><a href="">{{ request.user }}</a></h3>
         
   
 	<div id="user_badges">
