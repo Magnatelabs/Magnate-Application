@@ -31,7 +31,7 @@ def like_entry_button(entry_id, user): # entry_id is an integer
 # Need context to create csrf token
 @register.simple_tag(takes_context = True)
 def render_star_rating(context, user):
-    if can_rate(user):
+    if user.is_authenticated() and can_rate(user):
         return render_to_string('social/_star_rating.html', {}, context_instance=context)
     else:
         return ''
