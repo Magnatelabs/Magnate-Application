@@ -1,6 +1,7 @@
 from django.db import models, settings
 from zinnia.models.entry import Entry
-
+import datetime
+import pytz
 
 # For now just rating the website. Later can add a generic foreign key to rate various things...
 class StarRating(models.Model):
@@ -8,8 +9,17 @@ class StarRating(models.Model):
    date=models.DateTimeField(auto_now_add=True)
    rating=models.IntegerField()
 
-   def total_ratings_by_user(user):
+def total_ratings_by_user(user):
       return StarRating.objects.filter(user=user).count()
+
+def can_rate(user):
+   rs = StarRating.objects.filter(user=user)
+   if rs.exists():
+      diff = datetime.datetime.now(pytz.utc) - rs.latest('date').date
+      delta = eval("datetime.timedelta(" + settings.MAGNATE_CAN_STAR_RATE_EVERY + ")")
+      return (diff > delta)
+   else:   # The user has never rated anything before
+      return True
 
 # Every instance will represent one Like of one entry by one user
 class Like(models.Model):
