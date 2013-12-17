@@ -19,8 +19,9 @@ $(function(){
                            'csrfmiddlewaretoken': '{{csrf_token}}' },
                    dataType: "text",
                    success: function( response ) {
-//                       alert("Thank you for your feedback!");
-                       $('#star-rating-message').html("Thank you for your feedback!")
+                       var resp = JSON.parse(response);
+                       $('#star-rating-message').html(resp.message);
+                       $('#star-rating-form').hide();
                    }
                });
                
