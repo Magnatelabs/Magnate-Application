@@ -10,7 +10,7 @@ function receive_updates() {
    
 
     $.getJSON("/dash/updates/?strictlyafter=" + last_ts, function(data) {
-	console.log("received json " + data.badges.length + " "  + last_ts);
+	// console.log("received json " + data.badges.length + " "  + last_ts);
 	if (last_ts != 0) { // Do nothing the first time. 
 	    if (data.badges.length > 0) {
 	        for (var i=0; i<data.badges.length; i++) {
