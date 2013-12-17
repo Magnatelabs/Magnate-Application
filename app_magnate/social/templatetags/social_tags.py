@@ -1,7 +1,7 @@
 from django import template
 from django.shortcuts import get_object_or_404
 from django.template.loader import render_to_string
-from ..models import Like, entry_is_liked, total_entry_likes
+from ..models import Like, entry_is_liked, total_entry_likes, can_rate
 from zinnia.models.entry import Entry
 
 register=template.Library()
@@ -31,4 +31,7 @@ def like_entry_button(entry_id, user): # entry_id is an integer
 # Need context to create csrf token
 @register.simple_tag(takes_context = True)
 def render_star_rating(context, user):
-    return render_to_string('social/_star_rating.html', {}, context_instance=context)
+    if can_rate(user):
+        return render_to_string('social/_star_rating.html', {}, context_instance=context)
+    else:
+        return ''
