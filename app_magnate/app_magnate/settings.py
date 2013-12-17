@@ -267,3 +267,7 @@ MAGNATE_PRIVATE_ENTRY_BLURB_WORD_LIMIT =17
 MAGNATE_ICON_BY_ENTRY_TYPE = {'default': "img/hit_street_grey.png", 'update':"img/Better_Over_Time_grey.png"}
 # static
 MAGNATE_NO_STATUS_PIC_URL = 'status_awards/no_status_badge.png'
+
+# How frequently members can give a star rating.
+# using datetime.timedelta format: days=1, seconds=3, hours=2, etc.
+MAGNATE_CAN_STAR_RATE_EVERY = 'days=30'
