@@ -13,6 +13,7 @@ def total_ratings_by_user(user):
       return StarRating.objects.filter(user=user).count()
 
 def can_rate(user):
+   assert user.is_authenticated()
    rs = StarRating.objects.filter(user=user)
    if rs.exists():
       diff = datetime.datetime.now(pytz.utc) - rs.latest('date').date
