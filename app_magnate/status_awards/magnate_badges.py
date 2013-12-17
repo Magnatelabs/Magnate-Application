@@ -1,5 +1,5 @@
 from brabeion.base import Badge, BadgeAwarded, BadgeDetail
-from social.models import total_likes_by_user
+from social.models import total_likes_by_user, total_ratings_by_user
 from donations.utils import all_donations_by_user
 from brabeion import badges
 from .base import MetaBadge
@@ -56,6 +56,31 @@ class DonorBadge(Badge):
         elif (count > 0) and (amount > 0):
             return BadgeAwarded(1)
 
+class RaterBadge(Badge):
+    slug='rater'
+    levels = [
+        BadgeDetail("Bronze Rater", "Rated a little"),
+        BadgeDetail("Silver Rater", "Rated some more"),
+        BadgeDetail("Gold Rater", "Rated a lot"),
+        BadgeDetail("Platinum Rater", "Rated everything"),        
+    ]
+    events = [
+        "user_rated_something"
+    ]
+    multiple = False
+
+    def award(self, **state):
+        user=state["user"]
+        ratings = total_ratings_by_user(user)
+        if ratings >= 10:
+            return BadgeAwarded(4)
+        elif ratings >= 5:
+            return BadgeAwarded(3)
+        elif ratings >= 2:
+            return BadgeAwarded(2)
+        elif ratings >= 1:
+            return BadgeAwarded(1)
+
 class MemeMagnate(MetaBadge):
     slug="meme_magnate"
     levels = [
@@ -68,4 +93,5 @@ class MemeMagnate(MetaBadge):
 
 badges.register(LikesBadge)
 badges.register(DonorBadge)
+badges.register(RaterBadge)
 badges.register(MemeMagnate)
