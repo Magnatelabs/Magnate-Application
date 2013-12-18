@@ -1,7 +1,7 @@
 /airvirt_magnatenv/
 /virt_magnatenv/
 /beer/
-/app_magnate/app_magnate/site_media/media/uploads/
+/app_magnate/app_magnate/site_media/media/
 *~
 *.pyc
 
@@ -14,3 +14,4 @@ app_magnate/billing/tests/#authorize_net_tests.py#
 app_magnate/y.html
 
 .DS_Store
+
