@@ -13,8 +13,6 @@ from django.http import HttpResponse
 from django.contrib import messages
 from django.utils.translation import ugettext_lazy as _
 
-from dashboard.models import SpotlightRequest
-from dashboard.forms import SpotlightRequestForm
 
 #import to recognize class based view
 from django.views.generic.edit import FormView
@@ -69,64 +67,6 @@ class DashboardView(zinnia.views.archives.EntryIndex):
         # TODO: make sure that we are getting Entries in a sorted order!
         # QUESTION: how is it achieved in Zinnia?
         return Entry.private.authorized_or_published(self.request.user)
-
-
-    
-class dashboard_spotlight_request(FormView):
-#    import pdb #(test for checking each process)
-#    pdb.set_trace()
-     
-    template_name = 'dashboard/dashboard_main.html'
-    form_class = SpotlightRequestForm
-    redirect_field_name = "next"
-    messages = {
-        "spotlight_added": {
-            "level": messages.SUCCESS,
-            "text": _(u"The required information was submitted successfully.")
-        },
-        "input_error": {
-            "level": messages.ERROR,
-            "text": _(u"The required information was not entered correctly. Please try again.")
-        }
-    }
-
-    def get(self, request, *args, **kwargs):
-        form = self.form_class(initial=self.initial)
-        return render(request, self.template_name, {'form': form})
-
-    def post(self, request, *args, **kwargs):
-        form = self.form_class(request.POST)
-        if form.is_valid(): # All validation rules pass
-            # Process the data in form.cleaned_data
-            entry = SpotlightRequest()
-            entry.company = form.data['company']
-            entry.platform = form.data['platform']
-            entry.industry = form.data['industry']
-            entry.deadline = form.data['deadline']
-            entry.reason = form.data['reason']
-            entry.amount = form.data['amount']
-            entry.request_created = datetime.datetime.now()
-            s = form.data['deadline']
-            entry.deadline = s[-4:] + '-' + s[:2] + '-' + s[3:5]
-            # Convert date from 05/29/1986 to 1986--05--29   
-            user = request.user
-            # Request and create an instance of current user.
-            entry.user = user
-            entry.save()
-            messages.add_message(
-                self.request,
-                self.messages["spotlight_added"]["level"],
-                self.messages["spotlight_added"]["text"]
-            )
-
-            return redirect('confirm_dashboard') # Redirect after POST
-        else:
-            messages.add_message(
-                self.request,
-                self.messages["input_error"]["level"],
-                self.messages["input_error"]["text"]
-            )
-            print 'DEBUG: form is not valid!!!', form.errors
 
 
 def dash_confirm_index(request):
