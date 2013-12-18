@@ -1,5 +1,5 @@
 from django.contrib import admin
-from donations.models import Donation, FailedDonation
+from donations.models import Donation
 
 admin.site.register(Donation)
-admin.site.register(FailedDonation)
+

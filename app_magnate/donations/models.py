@@ -70,16 +70,3 @@ class Donation (PrivatelyPublishedModelMixin, models.Model):
             #import pdb; pdb.set_trace()
         
 
-
-class FailedDonation (models.Model):
-    user = models.ForeignKey(User)
-    amount = models.DecimalField(max_digits=16, decimal_places=2)
-    timestamp = models.DateTimeField()
-
-    def __unicode__(self):
-        return '$%.2f by %s on %s' % (self.amount, self.user, self.timestamp)
-
-    @receiver(transaction_was_unsuccessful)
-    def on_transaction_was_unsuccessful(sender, **kwargs):
-        pass
-        #import pdb; pdb.set_trace()
