@@ -8,13 +8,32 @@ Be sure to run the tests with `python manage.py test`. They MUST PASS. Exception
     
 I am not sure why some of Zinnia's tests fail. However, it has been working totally fine, and the quality of Zinnia's codebase is exceptional, so I am not too worried about it. `Account` and `waitinglist` fail all over the place. Those apps have been modified by monkey-patching and, it looks like, were not that good in the first place. In the future those apps should be eliminated from the project, or at least the latest versions should be added in `requirements.txt`, without including edited versions in the codebase. For `brabeion` all tests pass if you run them properly. However, then you need to include a different `settings.py`, and it just makes it inconvenient to run it with the other tests. For `django_contrib` --- again, I am not sure what's wrong with them, but I assume that django works just fine, so I don't need to be testing it.
 
+** requirements.txt **
+Some comments:
+We are using Django 1.5. Something was deprected somewhere, so it doesn't work with Django 1.6; you would probably need to update one of the packages. 
+`PIL` is used for displaying the picture on the profile. For some reason, `Pillow` is not enough for that; make sure you are installing `PIL` properly. To install PIL on a Mac, install Macports from http://www.macports.org/install.php, and then `sudo port install libpng`; `sudo port install jpeg`; `pip install PIL`. To install PIL on Ubuntu, read `http://obroll.com/install-python-pil-python-image-library-on-ubuntu-11-10-oneiric/`. Basically, `sudo pip uninstall PIL`,  `sudo apt-get install libjpeg8 libjpeg62-dev libfreetype6 libfreetype6-dev`, `sudo ln -s /usr/lib/x86_64-linux-gnu/libjpeg.so /usr/lib`, `sudo ln -s /usr/lib/x86_64-linux-gnu/libfreetype.so /usr/lib`, `sudo ln -s /usr/lib/x86_64-linux-gnu/libz.so /usr/lib`, `sudo pip install -U PIL`.
+
+
+For `brabeion`, we are using a modified version in the github fork, as you can see. I haven't sent a pull request. 
 
 ** Directories. **
 
 This is an explanation of what each directory in `app_magnate` is for.
 
+
 # account
 This is an external app from pinax. It adds user accounts. It should have been just properly listed in `requirements.txt`. However, for historical reasons, there were local modifications to this package, so it was just included into the codebase as a whole. TODO: fix it. 
+
+# app_magnate
+This is the project dir.
+* Very important file: `app_magnate/static/js/receive_updates.js`. It includes javascript code that regularly polls the server for updates so that every time you are awarded a badge, you will see a messagebox, and then the badges will be updated with ajax. It also receives updates about new articles, but those are not used. The backend view is in `dashboard/views.py`, called `receive_updates_api`. (Note that in `pinax_theme_bootstrap/templates/theme_bootstrap/base.html` we are setting `$.ajaxSetup({ cache: false });`.) The way it works is by timestamp. It polls the server with the timestamp of the last update and receives whatever happened after that, if anything. I am not 100% if I implemented the logic 100% correctly: if the user uses the Back button, I think sometimes the same update can be shown multiple times. I wasn't able to reproduce it properly, though. I experimented with it a bit, but didn't have enough time to figure it out. The problem may have to do with the way I am storing `last_ts` (last timestamp for which the update was received); it is also in this `receive_updates.js`. Not sure what happens to javascript variables when you are using the Back button in the browser.
+
+Now, it is not really necessary to poll the server regularly. You can just take the function `receive_updates` from the same file and call it after the user likes an entry (see `dashboard/templates/dashboard/dashboard_main.html`) or receives a star rating (see `social/templates/social_star_rating.html`; was not sure where best to put all this code...). Then, you can also call it on the donation success page in `app_magnate/templates/billing/authorize_net_success.html` (it should really be in `donations/templates/billing/`). I just thought polling might be useful for some future functionality.
+
+* the hook for things to be executed on startup is in `app_magnate/startup.py`. 
+* there are some legacy functions in `app_magnate/receivers.py` doing something with login/logout that I never even looked at. Not sure if they are used or not. 
+* the star rating jquery plugin is in `app_magnate/static/fyneworks_star_rating`.
+
 
 # billing
 This is another external app called Merchant. It can be also found in PyPI. The released version had a few bugs and glitches, so we just included it and fixed the glitches in the codebase. I know should have just created a fork on github, like we did with brabeion... In fact, I have contributed a patch to the project, which was already merged, and proposed some other changes (passing more information with the signal on successful/unsuccessful transaction), which were already implemented by the maintainers of the project. TODO: take the newest version of this app from github and use it. It may be necessary to overload a couple of classes or functions to get it integrated properly, but the maintainers of the project say that this should be possible in this particular scenario. 
