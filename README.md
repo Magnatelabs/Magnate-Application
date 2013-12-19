@@ -1,5 +1,5 @@
 
-# Testing **
+# Testing 
 
 Be sure to run the tests with `python manage.py test`. They MUST PASS. Exception: if you are not connected to Internet, you get 2 failures in the merchant app in `billing.tests.AuthorizeNETAIMGatewayTestCase`. Also note that several external applications are excluded from testing. Specifically, in `app_magnate/settings.py` you will see
 
@@ -8,7 +8,7 @@ Be sure to run the tests with `python manage.py test`. They MUST PASS. Exception
     
 I am not sure why some of Zinnia's tests fail. However, it has been working totally fine, and the quality of Zinnia's codebase is exceptional, so I am not too worried about it. `Account` and `waitinglist` fail all over the place. Those apps have been modified by monkey-patching and, it looks like, were not that good in the first place. In the future those apps should be eliminated from the project, or at least the latest versions should be added in `requirements.txt`, without including edited versions in the codebase. For `brabeion` all tests pass if you run them properly. However, then you need to include a different `settings.py`, and it just makes it inconvenient to run it with the other tests. For `django_contrib` --- again, I am not sure what's wrong with them, but I assume that django works just fine, so I don't need to be testing it.
 
-# requirements.txt **
+# requirements.txt 
 Some comments:
 We are using Django 1.5. Something was deprected somewhere, so it doesn't work with Django 1.6; you would probably need to update one of the packages. 
 `PIL` is used for displaying the picture on the profile. For some reason, `Pillow` is not enough for that; make sure you are installing `PIL` properly. To install PIL on a Mac, install Macports from http://www.macports.org/install.php, and then `sudo port install libpng`; `sudo port install jpeg`; `pip install PIL`. To install PIL on Ubuntu, read `http://obroll.com/install-python-pil-python-image-library-on-ubuntu-11-10-oneiric/`. Basically, `sudo pip uninstall PIL`,  `sudo apt-get install libjpeg8 libjpeg62-dev libfreetype6 libfreetype6-dev`, `sudo ln -s /usr/lib/x86_64-linux-gnu/libjpeg.so /usr/lib`, `sudo ln -s /usr/lib/x86_64-linux-gnu/libfreetype.so /usr/lib`, `sudo ln -s /usr/lib/x86_64-linux-gnu/libz.so /usr/lib`, `sudo pip install -U PIL`.
