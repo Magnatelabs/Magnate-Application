@@ -1,12 +1,13 @@
 from django.http import HttpResponse
 from django.utils import simplejson
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, render, redirect, render_to_response
 from zinnia.models.entry import Entry
 
 from .templatetags import social_tags
 from django.http import HttpResponseBadRequest
 from django.utils import simplejson
 from django.views.decorators.http import require_POST
+from django.contrib.auth import get_user_model
 
 from .models import toggle_like_unlike, total_entry_likes, StarRating, can_rate
 import status_awards
@@ -64,3 +65,10 @@ def ajax_star_rating(request):
 
     return HttpResponse(simplejson.dumps(vars), mimetype='application/javascript')
     
+def user_pages(request):
+    try:
+        id=request.GET.get('user_id', None)
+        user=get_object_or_404(get_user_model(), pk=id)
+    except ValueError:
+        return HttpResponse(status=404)
+    return render(request, 'social/users.html', {'user': user})
