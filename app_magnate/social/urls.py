@@ -7,5 +7,6 @@ admin.autodiscover()
 
 urlpatterns = patterns("",
 url(r"^social/like/$", "social.views.ajax_like_entry", name='ajax_like_entry'), 
-url(r"^social/rate/$", "social.views.ajax_star_rating", name='ajax_star_rating'),     
+url(r"^social/rate/$", "social.views.ajax_star_rating", name='ajax_star_rating'),
+url(r"^users/$", "social.views.user_pages", name='user_page'),     
 )
