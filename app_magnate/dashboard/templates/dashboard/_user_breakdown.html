@@ -17,7 +17,15 @@
 	<script type="text/javascript">
 	    // Load badges dynamically even the first time so as to prevent caching
 //	    var nocache = new Date().getTime();
-	    $("#user_badges").load("/dash/user_badges/");
+	    $.ajax({
+	        url: "/dash/user_badges",
+	        cache: false,
+	        dataType: "html",
+	        success: function(data) {
+	            $("#user_badges").html(data);
+                }
+            });
+//	    $("#user_badges").load("/dash/user_badges/");
 	</script>
 
         </aside>
