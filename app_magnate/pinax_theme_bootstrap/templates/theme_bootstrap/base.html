@@ -20,7 +20,9 @@
 	      // Prevent caching ajax calls so the dynamic content is always updated
 	      // This way we don't need to add the wasteful /?cache=nocache to every request
 	      // (var nocache = new Date().getTime(), for example)
-                $.ajaxSetup({ cache: false });
+                $(document).ready(function() {
+	          $.ajaxSetup({ cache: false });
+	        });
 	    </script>
             {% block extra_style %}{% endblock %}
         {% endblock %}
