@@ -1,24 +1,33 @@
 {% load staticfiles %}
 {% load avatar_tags %}
 
+{% comment %} 
+request.user - the user who is currently logged in
+user - either the same user, if we are on the dashboard, or whoever's profile we are viewing
+if request.user==user, then we should display controls like "Change profile picture", etc.
+Otherwise it is read-only.
+{% endcomment %}
+
   <div class="bgprofile-info">
         <div class="profile-info">
         <article>
-        <figure><a href="#">{% avatar user %}</a> <span class="caption"><a href="{% url 'avatar_change' %}">Change profile photo?</a></span></figure>
-        
+         <figure>{% avatar user %}
+        {% ifequal user request.user %}
+        <span class="caption"><a href="{% url 'avatar_change' %}">Change profile photo?</a></span>
+        {% endifequal %}
+        </figure>
         <aside>
-          <h3><a href="">{{ request.user }}</a></h3>
+          <h3><a href="">{{ user }}</a></h3>
         
   
 	<div id="user_badges">
-{% comment %}            {% include "dashboard/__user_badges.html" %} 
-{% endcomment %}
 	</div>
+
 	<script type="text/javascript">
 	    // Load badges dynamically even the first time so as to prevent caching
 //	    var nocache = new Date().getTime();
 	    $.ajax({
-	        url: "/dash/user_badges",
+	        url: "/dash/user_badges?user_id={{user.pk}}",
 	        cache: false,
 	        dataType: "html",
 	        success: function(data) {
@@ -32,11 +41,12 @@
         </article>
         </div>
 
-        {% if user_has_donation %}
-		{% include "dashboard/__user_donation_stats.html" %} 
-	{% else %}
-		{% include "dashboard/__user_nodonation_stats.html" %}
-	{% endif %}
-        
+        {% ifequal user request.user %}
+            {% if user_has_donation %}
+		        {% include "dashboard/__user_donation_stats.html" %} 
+	        {% else %}
+		        {% include "dashboard/__user_nodonation_stats.html" %}
+	        {% endif %}
+        {% endifequal %}
         </div>
 
