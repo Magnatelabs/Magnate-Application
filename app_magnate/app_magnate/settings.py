@@ -20,7 +20,7 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
 #        "NAME": "app_magnatedb",
-        "NAME": "new_magnatedb", 
+        "NAME": "new_magnatedbv2", 
 #        "NAME": "what_magnatedb",
         "USER": "root",
         "PASSWORD": "",
@@ -165,6 +165,7 @@ INSTALLED_APPS = [
     "billing",
     "brabeion",
     "avatar",
+    "analytical",
 
     # project
     "app_magnate",
@@ -272,4 +273,10 @@ MAGNATE_NO_STATUS_PIC_URL = 'status_awards/no_status_badge.png'
 
 # How frequently members can give a star rating.
 # using datetime.timedelta format: days=1, seconds=3, hours=2, etc.
-MAGNATE_CAN_STAR_RATE_EVERY = 'days=30'
+MAGNATE_CAN_STAR_RATE_EVERY = 'seconds=5'
+
+
+#django-analytical settings
+CLICKY_SITE_ID = '100664353'
+CRAZY_EGG_ACCOUNT_NUMBER = '00204380'
+GOOGLE_ANALYTICS_PROPERTY_ID = 'UA-46652906-1'
