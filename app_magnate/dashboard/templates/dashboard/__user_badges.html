@@ -3,20 +3,32 @@
 {% load status_awards_tags %}
 
       <div class="info">
-        <figure><a href="{% url 'status_award_detail' %}?award={{ status_badge.pk }}">{% render_badge status_badge "status_icon"  %}</a></figure>
-	{% if has_status_badge %}
-        <h3><a href="{% url 'status_home' %}">{{ status_badge.name }}:</a></h3>
+	{% ifequal user request.user %}
+	    <figure><a href="{% url 'status_award_detail' %}?award={{ status_badge.pk }}">{% render_badge status_badge "status_icon"  %}</a></figure>
+	    {% if has_status_badge %}
+                <h3><a href="{% url 'status_home' %}">{{ status_badge.name }}:</a></h3>
+	    {% else %}
+	        <h3><a href="{% url 'status_home' %}">No status yet.</h3> <a href="#">Click here to read our tutorial about badges, statuses, and karma.</a>
+	    {% endif %}
+            <p>{{ status_badge.description }}.</p>
 	{% else %}
-	<h3><a href="{% url 'status_home' %}">No status yet.</h3> <a href="#">Click here to read our tutorial about badges, statuses, and karma.</a>
-	{% endif %}
-	<p>{{ status_badge.description }}.</p>
+	    <figure>{% render_badge user_status_badge "status_icon"  %}</figure>
+            {% if user_has_status_badge %}
+                <h3>{{ user_status_badge.name }}:</h3>
+            {% else %}
+                <h3>No status yet.</h3>
+            {% endif %}
+	    <p>{{ user_status_badge.description }}.</p>
+	{% endifequal %}
+
+
 
 
         <!--<p>Your donation’s funded mainly comics and internet startups!</p>-->       
       </div>
-      {% if request.user.is_authenticated %}
-          {% badges_for_user request.user as badges %}
-      {% endif %}
+
+      {% badges_for_user user as badges %}
+
 
         <div class="badges">
 
@@ -25,7 +37,11 @@
 	<ul>
 	{% for badge in badges %}
           {% if not badge.is_metabadge %}
-	  <li><a href="{% url 'status_award_detail' %}?award={{ badge.pk }}">{% render_badge badge "small" %}</a></li>
+	    {% ifequal user request.user %}
+	       <li><a href="{% url 'status_award_detail' %}?award={{ badge.pk }}">{% render_badge badge "small" %}</a></li>
+	    {% else %}
+              <li>{% render_badge badge "medium" %}</li>
+	    {% endifequal %}
 	  {% endif %}
 	{% endfor %}
 	</ul>
