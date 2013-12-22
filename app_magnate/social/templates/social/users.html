@@ -1,0 +1,76 @@
+{% extends "site_base.html" %}
+{% load staticfiles %}
+{% load brabeion_tags %}
+{% load social_tags %}
+{% load avatar_tags %}
+{% load status_awards_tags %}
+
+{% block body %} 
+
+
+{% include "dashboard/_user_breakdown.html" %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %}
+<div class="grid_16">
+  <div class="contentinner">
+    <div class="bgsection3">
+
+       
+        <div class="bgaccount-info">
+        <div class="account-info">
+        <article>
+        <figure>{% avatar user %}</figure>
+               
+        <aside>
+        <h3><a href="#">{{ user }}</a></h3>
+        
+        
+        
+        
+        <div class="info">
+        <figure><a href="{% url 'status_award_detail' %}?award={{ status_badge.pk }}">{% render_badge status_badge "status_icon"  %}</a></figure>
+	{% if has_status_badge %}
+        <h3><a href="{% url 'status_home' %}">{{ status_badge.name }}:</a></h3>
+	{% else %}
+	<h3><a href="{% url 'status_home' %}">No status yet.</h3> <a href="#">Click here to read our tutorial about badges, statuses, and karma.</a>
+	{% endif %}
+	<p>{{ status_badge.description }}.</p>
+      </div>
+        
+        </aside>
+        </article>
+        </div>
+        </div>
+	<div class="status_section3">
+	  <div class="account_allawards_container">
+	    <div class="allawards_info">
+              <h4>All Awards</h4>
+	      {% badges_for_user user as badges %}
+	      <div class="medium_awards">
+		<figure>{% render_badge badge "large" %}</figure>
+		</div>
+	    </div>
+	    </div>
+	  </div><!--stat 1us_section3-->
+	
+        </div>
+    </div><!-- contentinner -->
+  </div><!-- grid_16 -->
+{% endcomment %}
+
+{% endblock %} 

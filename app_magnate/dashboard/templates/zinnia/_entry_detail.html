@@ -13,7 +13,7 @@
 
 
 
-{% if object.show_like_button %}
+{% if object.is_public %}
 
     {% like_entry_button object.pk request.user %}
 

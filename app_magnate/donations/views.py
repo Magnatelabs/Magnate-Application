@@ -24,8 +24,9 @@ from .models import BillingInfo
 from .utils import total_donation_amount
 
 from django.views.decorators.http import require_http_methods
+from django.contrib.auth.decorators import login_required
 
-
+@login_required
 def donation_index(request):
 #    if not request.user.is_authenticated():
 #        return redirect('/donations/user/?next=%s' % request.path)
@@ -34,6 +35,7 @@ def donation_index(request):
 
     return render(request, 'donations/donations_home.html', {'user_has_donation': user_has_donation, 'total_donation_amount': tda, })
 
+@login_required
 def donation_add(request):
 #    if not request.user.is_authenticated():
 #        return redirect('/donations/user/?next=%s' % request.path)
@@ -67,11 +69,13 @@ class DonationBilling(FormView):
 #        print 'IS_VALID'
 #        return True
 
+    @login_required
     def get(self, request, *args, **kwargs):
         print 'GET!!!'
         form = self.form_class(initial=self.initial)
         return render(request, self.template_name, {'form': form})
 
+    @login_required
     def post(self, request, *args, **kwargs):
         print 'POST!!!'
 #        import pdb #(test for checking each process)
@@ -117,7 +121,7 @@ class DonationBilling(FormView):
 #def confirmation_index(request):
 #    return render(request, 'donations/donations_pay.html')
 
-
+@login_required
 def donation_confirmation(request):
 #    if not request.user.is_authenticated():
 #        return redirect('/donations/user/?next=%s' % request.path)
@@ -125,6 +129,7 @@ def donation_confirmation(request):
     return render(request, 'donations/donations_confirmation.html')
 
 
+@login_required
 @require_http_methods(["POST"])
 def donation_orderpay(request, entry):
 #    if not request.user.is_authenticated():

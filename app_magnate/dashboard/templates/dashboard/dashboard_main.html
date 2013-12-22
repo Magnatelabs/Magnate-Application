@@ -4,7 +4,7 @@
 
 {% block style_base %}
     {{ block.super }}
-    <link href="{% static "fyneworks_star_rating/jquery.rating.css"" %}" type="text/css" rel="stylesheet"/>
+    <link href="{% static "fyneworks_star_rating/jquery.rating.css" %}" type="text/css" rel="stylesheet"/>
 
 {% endblock %}
 
@@ -17,8 +17,11 @@
     		
     		{% comment %} Header: user avatar, user name, status, badges, total current donation, etc. 
     		(This is NOT the topbar where you can log out. This is the top bar of the dashboard. {% endcomment %} 
-	    	{% include "dashboard/_user_breakdown.html" %}    
 	    	
+		{% if request.user.is_authenticated %}
+		    {% include "dashboard/_user_breakdown.html" %}    
+	    	{% endif %}
+		
 	    	
 			<div class="article-info">
 				<div class="newest">
@@ -37,7 +40,8 @@
         
 				</div>
 			</div>   
-        
+			
+			{% if request.user.is_authenticated %}
 			{% comment %} The vertical stripe on the right with various widgets {% endcomment %}
 			<div class="whatcoming donate-right">
         
@@ -87,6 +91,7 @@
 					<div class="endicon"><img src="{% static "img/img_icon09.png" %}" alt="ICON"></div>
 				</article> 
 			</div> <!-- whatcoming donate-right -->
+			{% endif %}
         </div> <!-- section1 section3 -->
     </div> <!-- innter dashcontent -->
 </div> <!-- dash_grid -->

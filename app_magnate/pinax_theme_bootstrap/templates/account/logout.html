@@ -6,6 +6,42 @@
 {% block head_title %}{% trans "Log out" %}{% endblock %}
 
 {% block body %}
+
+<script type="text/javascript">
+function createCookie(name, value, days) {
+    var expires;
+
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toGMTString();
+    } else {
+        expires = "";
+    }
+    document.cookie = escape(name) + "=" + escape(value) + expires + "; path=/";
+}
+
+function readCookie(name) {
+    var nameEQ = escape(name) + "=";
+    var ca = document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) === 0) return unescape(c.substring(nameEQ.length, c.length));
+    }
+    return null;
+}
+
+function eraseCookie(name) {
+    createCookie(name, "", -1);
+}
+
+
+
+function delete_cookies() {
+  eraseCookie("last_ts");
+}
+</script>
     <div class="row">
         <div class="span12">
             <form method="POST" action="{% url "account_logout" %}" class="form-horizontal">
@@ -14,7 +50,7 @@
                     {% csrf_token %}
                     <p>{% trans "Are you sure you want to log out?" %}</p>
                     <div class="form-actions">
-                        <button type="submit" class="btn btn-primary">{% trans "Log out" %}</button>
+                        <button type="submit" class="btn btn-primary" onclick="delete_cookies();">{% trans "Log out" %}</button>
                     </div>
                 </fieldset>
             </form>

@@ -11,6 +11,7 @@ from django.http import HttpResponse
 
 #imports to recognize django messages
 from django.contrib import messages
+from django.contrib.auth import get_user_model
 from django.utils.translation import ugettext_lazy as _
 
 
@@ -73,7 +74,18 @@ def dash_confirm_index(request):
     return render(request, 'dashboard/dashboard_confirm.html')
 
 def user_badges(request):
-    return render(request, 'dashboard/__user_badges.html')
+    if 'user_id' in request.GET:
+        user = get_object_or_404(get_user_model(), pk=request.GET['user_id'])
+        from .contexts import magnate_status_badge
+        user_status_badge = magnate_status_badge(user)
+        user_has_status_badge = (user_status_badge is not None)
+        vars = {'user': user, 'user_status_badge': user_status_badge, 'user_has_status_badge': user_has_status_badge} 
+    else:
+        user = request.user
+        if not user.is_authenticated():
+            return HttpResponse(status=404)
+        vars = {'user': user}
+    return render(request, 'dashboard/__user_badges.html', vars)
 
 @login_required
 @require_http_methods(["GET"])

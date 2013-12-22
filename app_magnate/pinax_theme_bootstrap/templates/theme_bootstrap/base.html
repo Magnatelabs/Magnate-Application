@@ -1,9 +1,11 @@
 {% load staticfiles %}
 {% load url from future %}
+{% load analytical %}
 
 <!DOCTYPE html>
 <html lang="{{ LANGUAGE_CODE }}">
     <head>
+    {% analytical_head_top %}
         <meta charset="utf-8" />
         <title>{% block head_title_base %}{% if SITE_NAME %}{{ SITE_NAME }} | {% endif %}{% block head_title %}{% endblock %}{% endblock %}</title>
         {% block viewport %}
@@ -20,7 +22,9 @@
 	      // Prevent caching ajax calls so the dynamic content is always updated
 	      // This way we don't need to add the wasteful /?cache=nocache to every request
 	      // (var nocache = new Date().getTime(), for example)
-                $.ajaxSetup({ cache: false });
+                $(document).ready(function() {
+	          $.ajaxSetup({ cache: false });
+	        });
 	    </script>
             {% block extra_style %}{% endblock %}
         {% endblock %}
@@ -35,8 +39,10 @@
         {% block extra_head_base %}
             {% block extra_head %}{% endblock %}
         {% endblock %}
+    {% analytical_head_bottom %}
     </head>
     <body class="{% block body_class %}{% endblock %}" id="{% block body_id %}{% endblock %}">
+    {% analytical_body_top %}
         <div class="{% block wrapper_class %}{% endblock %}">
 			
 			<!begin header>
@@ -117,5 +123,6 @@
         {% block extra_body_base %}
             {% block extra_body %}{% endblock %}
         {% endblock %}
+    {% analytical_body_bottom %}
     </body>
 </html>
