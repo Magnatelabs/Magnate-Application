@@ -6443,7 +6443,7 @@ About Us added styling
 ----------------------------------------------------------------------------------------------------*/
 .dash_grid { width: 940px; display: inline; float: left; margin-left: 10px; margin-right: 10px;	}
 .inner_dashcontent { width: 100%; float: left; padding: 40px 0 170px 0; }
-.section1 {width:99.8%; float:left; background:#f8f8f8; border:1px solid #c5c6c5; border-top:7px solid #72bb2a; box-shadow:inset #ebebeb 0 -3px 4px; position:relative; behaviior:url(PIE.htc); margin-bottom:30px;}
+.section1 {width:99.8%; float:left; background:#f8f8f8; border:1px solid #c5c6c5; border-top:7px solid #72bb2a; box-shadow:inset #ebebeb 0 -3px 4px; position:relative; behaviior:url(PIE.htc); margin-bottom:0px;}
 .section3 { border-top: 1px solid #c7c7c7; }
 .bgprofile-info { width:100%; float:left; background:#a6c987; border-bottom:22px solid #313131; }
 .profile-info{ width:76.76%; float:left; background:#ffffff url(/site_media/static/img/gradient01.gif) repeat-x top left; padding:28px 0 12px 0;}
@@ -6455,8 +6455,7 @@ About Us added styling
 .profile-info .caption a{ color:#000000; text-decoration:underline}
 .profile-info .caption a:hover{ text-decoration:none}
 .profile-info aside{ width:72.2%; float:right; padding-right:3%}
-.profile-info .info{ width:77%; height:55px; float:left; background:url(/site_media/static/img/gradient02.png) no-repeat right; border-radius:4px 0 0 4px; behavior: url(PIE.htc); position:relative; padding:9px 0 0 0; margin-bottom:18px}
-.profile-info .info h3{ font-size:14px; color:#000000; padding-bottom:2px; -webkit-margin-before: 0em; -webkit-margin-after: 0em; line-height: 1;}
+.profile-info .info{ width:77%; height:64px; float:left; background:url(/site_media/static/img/gradient03.png) no-repeat right; border-radius:4px 0 0 4px; behavior: url(PIE.htc); position:relative; padding:9px 0 0 0; margin-bottom:18px}
 .profile-info .info h3 a{ color:#000000;}
 .profile-info .info p{ font-size:12px; color:#000000; line-height:14px; padding:0 5% 0 0}
 .profile-info .info figure{ width:auto; float:left; padding:0 5px 0 8px}
@@ -6467,14 +6466,19 @@ About Us added styling
 .profile-info .badges ul{ width:100%; float:left; list-style-type: none; -webkit-margin-before: 0em; -webkit-margin-after: 0em; -webkit-padding-start: 0px;}
 .profile-info .badges ul li{ float:left; padding-right:18px}
 .profile-info article{ width:94.2%; float:left; padding:0 0 0 5.8%}
+#user_badges .info h3 { font-size:14px; color:#000000; padding-bottom: 2px; -webkit-margin-before: 0em; -webkit-margin-after: 0em; line-height: 1; }
+#user_badges .info h3 a{ font-size: 14px; }
+#user_badges .info a{ font-size: 12px; line-height: 14px; padding: 0 5% 0 0; } 
+#user_badges .info a:hover{ text-decoration:none; color: #363636;}
 
-.donate-box{ width:23.24%; float:right; background:#a6c987; }
-.donate-box p{ font-size:14px; color:#FFFFFF; text-align:center; padding-bottom:13px; line-height: 1em; }
+.donate-box{ width:23.24%; float:right; background:#a6c987; padding: 20px 0 0 0; }
+.donate-box p{ font-size:14px; color:#FFFFFF; text-align:center; padding-bottom:13px; line-height: 1em; margin: 0 0 0px; }
 .donate-box p a{ font-size:12px; color:#5a8e22; text-decoration:underline}
 .donate-box p a:hover{ text-decoration:none}
 .donate-box .dollar{ width:100%; float:left; text-align:center; font-size:90px; color:#ffffff; padding:0 0 12px 0; line-height: 90px;}
 .donate-box .dollar span{ background:url(/site_media/static/img/img_dollar02.png) no-repeat 0 22px; padding-left:21px; line-height: 0px;}
 .donate-box aside{ width:78%; float:left; padding:16px 11% 0 11%; }
+.nodonation .startedbtn { width: 140px; height: 43px; line-height: 43px; font-size: 16px; margin: 15px 0 40px 13px; }
 
 .article-info{ width:70.25%; float:left; background:#ffffff; border-right:1px solid #e7e8e8; box-shadow:inset #f0f0f0 0 -3px 4px; behavior: url(PIE.htc); position:relative; padding-bottom:20px; }
 .article-info h4{ font-family:"helveticaneuebold",Arial, Helvetica, sans-serif; font-size:13px; color:#817d8e; padding-bottom:4px; -webkit-margin-before: 0em; -webkit-margin-after: 0em; line-height: 1em; }
@@ -6630,32 +6634,32 @@ About Us added styling
 .status_section1{ width:78.57%; float:left; padding:0px 0% 40px 0%}
 .status-info{ width:100%; float:left; padding:40px 0% 12px 0%;}
 .status-info article{ width:90%; float:left; padding:0px 0% 26px 7.8%}
-.status-info figure{ width:219px; float:left; -webkit-margin-start: 0px; -webkit-margin-end: 0px;}
+.status-info figure{ width:219px; float:left; -webkit-margin-start: 0px; -webkit-margin-end: 0px; margin: 0px; padding: 0px; }
 .status-info figure img{ border:1px solid #b2b2b2}
-.status-info aside{ width:60.2%; float:right; padding-right:3%; padding-bottom: 10px; padding-top: 10px;}
-.status_section2 { width:100%; float:left; min-height:92px;}
+.status-info aside{ width:60.2%; float:right; padding-right:3%; padding-bottom: 10px; padding-top: 10px; }
+.status_section2 { width:100%; float:left; min-height:92px; }
 .status_awards { width: 100%; float: left; padding: 0px 0% 12px 0%; }
 .awards_info { 	width: 77%; float: left; padding: 0px 0% 26px 0%; margin: 0px 0px 0px 115px; background: #ffffff; border: 1px solid #bdbebf;}
 .awards_info h4 { font-size: 18px; padding-bottom: 10px; }
-.large_awards ul{ width:100%; float:left; list-style-type: none; -webkit-padding-start: 0px;}
+.large_awards ul{ width:100%; float:left; list-style-type: none; -webkit-padding-start: 0px; }
 .large_awards ul li { float: left; padding-right: 10px; padding-top: 20px; padding-left: 30px; }
-.large_awards ul li figure { width: 135px; float: left; -webkit-margin-start: 0px; -webkit-margin-end: 0px;}
+.large_awards ul li figure { width: 135px; float: left; -webkit-margin-start: 0px; -webkit-margin-end: 0px; }
 .award_caption h4 { width: 100%; float: left; font-size: 16px; text-align: center; padding-top: 8px; padding-bottom: 2px; }
 .award_caption h4 a { color: #1a9bd4; }
 .award_caption p { width: 100%; float: left; font-size: 14px; text-align: center; }
-.karma_tip { width: 77%; float: left; padding: 0px 0% 26px 0%; margin: 0px 0px 0px 115px;}
-.karma_tip article {width: 90%; float: left; padding: 0px 0% 26px 7.8%;}
-.karma_tip article figure {width: 132px; float: left; margin: -2px 0px 0px 302px;}
-.karma_tip article aside {width: 33.2%; float: right; padding-bottom: 10px; padding-top: 48px;}
+.karma_tip { width: 77%; float: left; padding: 0px 0% 26px 0%; margin: 0px 0px 0px 115px; }
+.karma_tip article {width: 90%; float: left; padding: 0px 0% 26px 7.8%; }
+.karma_tip article figure {width: 132px; float: left; margin: -2px 0px 0px 302px; }
+.karma_tip article aside {width: 33.2%; float: right; padding-bottom: 10px; padding-top: 48px; }
 .karma_tip article h3 { font-size: 18px; line-height: 0px; }
 .karma_tip article aside p { font-size: 14px; }
 .status_section3 { width:100%; float:left; min-height:92px; }
 .allawards_container { width: 80%; float: left; margin: 0px 0px 0px 100px; border-top: 2px solid #818484; }
 .allawards_info { width: 100%; float: left; padding: 20px 0% 140px 0%; }
 .allawards_info h4 { font-size: 18px; padding-bottom: 10px; }
-.medium_awards ul{ width:100%; float:left; list-style-type: none; -webkit-padding-start: 0px;}
+.medium_awards ul{ width:100%; float:left; list-style-type: none; -webkit-padding-start: 0px; }
 .medium_awards ul li { float: left; padding-right: 10px; padding-top: 20px; }
-.medium_awards ul li figure { width: 135px; float: left; -webkit-margin-start: 0px; -webkit-margin-end: 0px;}
+.medium_awards ul li figure { width: 135px; float: left; -webkit-margin-start: 0px; -webkit-margin-end: 0px; }
 .medium_awards ul li figure img { padding-left: 20px; }
 .award_caption h4 { width: 100%; float: left; font-size: 16px; text-align: center; padding-top: 8px; padding-bottom: 2px; }
 .award_caption h4 a { color: #1a9bd4; }
@@ -6679,7 +6683,7 @@ About Us added styling
 ----------------------------------------------------------------------------------------------------*/
 .hentry { border-bottom: 1px solid #cccaca; width: 116.4%; margin: 0px -75px 0px;}
 .entry-title { font-family: "helveticaneuebold",Arial, Helvetica, sans-serif; font-size: 13px; color: #817d8e; padding-bottom: 4px; -webkit-margin-before: 0em; -webkit-margin-after: 0em; line-height: 1em;}
-.entry-image { width: 28%; }
+.entry-image { float: left; padding-left: 80px; }
 
 
 /* Donation home added 12.13.13 by jw
