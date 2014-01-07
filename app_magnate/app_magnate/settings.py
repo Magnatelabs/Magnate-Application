@@ -20,8 +20,8 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
 #        "NAME": "app_magnatedb",
-        "NAME": "new_magnatedbv2", 
-#        "NAME": "what_magnatedb",
+#        "NAME": "new_magnatedbv2", 
+        "NAME": "what_magnatedb",
         "USER": "root",
         "PASSWORD": "",
         "HOST": "",
@@ -263,11 +263,12 @@ ELDARION_BASE_BADGE_AWARD_MODEL='status_awards.models.MagnateBadgeAward'
 AGON_RATINGS_CATEGORY_CHOICES = {"sites.Site": {"fun": "none at all"} }
 
 
-MAGNATE_PUBLIC_ENTRY_BLURB_WORD_LIMIT = 50
-MAGNATE_PRIVATE_ENTRY_BLURB_WORD_LIMIT =17
+MAGNATE_PUBLIC_ENTRY_BLURB_WORD_LIMIT = 21
+MAGNATE_PRIVATE_ENTRY_BLURB_WORD_LIMIT =20
 
 #static
-MAGNATE_ICON_BY_ENTRY_TYPE = {'default': "img/hit_street_grey.png", 'update':"img/Better_Over_Time_grey.png"}
+MAGNATE_ICON_BY_ENTRY_TYPE = {'default': "img/img_icon16.png", 'update':"img/img_icon17.png", 'article': "img/img_icon18.png"}
+
 # static
 MAGNATE_NO_STATUS_PIC_URL = 'status_awards/no_status_badge.png'
 
