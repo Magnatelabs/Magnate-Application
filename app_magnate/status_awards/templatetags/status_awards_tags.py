@@ -9,10 +9,10 @@ NO_STATUS_PIC_URL = 'status_awards/badge_no_status.png'
 
 @register.simple_tag
 def render_badge(badge, size):
-    sizes = {"small" : "width=\"92px\" height=\"92px\"", 
+    sizes = {"small" : "width=\"53px\" height=\"53px\"", 
             "medium" : "width=\"130px\" height=\"130px\"", 
              "large" : "width=\"256px\" height=\"256px\"",
-       "status_icon" : "width=\"68px\" height=\"46px\"",
+       "status_icon" : "width=\"80px\" height=\"46px\"",
       "status_large" : "width=\"268px\" height=\"184px\"" }
     assert size in sizes, "Cannot render badge at size %d. This size is not supported" % (size)
     if isinstance(badge, BadgeAward):
