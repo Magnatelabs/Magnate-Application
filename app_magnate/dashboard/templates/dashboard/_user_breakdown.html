@@ -11,7 +11,7 @@ Otherwise it is read-only.
   <div class="bgprofile-info">
         <div class="profile-info">
         <article>
-         <figure>{% avatar user %}
+         <figure>{% avatar user 146 %}
         {% ifequal user request.user %}
         <span class="caption"><a href="{% url 'avatar_change' %}">Change profile photo?</a></span>
         {% endifequal %}
