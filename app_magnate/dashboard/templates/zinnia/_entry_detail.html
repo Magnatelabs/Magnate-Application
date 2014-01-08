@@ -1,45 +1,124 @@
 {% extends "zinnia/_entry_detail_base.html" %}
-
 {% load social_tags %}
+{% load staticfiles %}
+{% load i18n %}
+
+
+{% block style_base %}
+    {{ block.super }}
+    {% if continue_reading %} 
+    <link href="{% static "bootstrap/css/bootstrap-responsive.css" %}" rel="stylesheet">    
+    {% else %}
+    <link href="{% static "bootstrap/css/bootstrap-responsive.css" %}" rel="stylesheet">
+{% endif %}
+{% endblock %}   
+
 
 {% block entry-header %}
+{% if continue_reading %} 
 <!-- Icon of the entry -->
-<img src="{{ object.icon_url }}" height="10%" width="10%" style="float: left" />
-{{ block.super }}
-{% endblock %}
-
-
-{% block entry-footer %}
-
-
-
-{% if object.is_public %}
-
-    {% like_entry_button object.pk request.user %}
-
-
-
-
-{{ block.super }}
-
+<img id="feedentry-icon" src="{{ object.icon_url }}" height="10%" width="10%" style="float: left" />
 {% endif %}
-
+{{ block.super }}
 {% endblock %}
 
- {% block entry-image %}
-    {% if object.image %}
-    <div class="entry-image">
-      <p>
-        {% if continue_reading %}
-        <a href="{{ object.get_absolute_url }}" title="{{ object.title }}" rel="bookmark">
-          <img src="{{ object.image.url }}" alt="{{ object.title }}" class="left" wisdth="5%" height="5%" />
-        </a>
-        {% else %}
-        <a href="{{ object.get_absolute_url }}" title="{{ object.title }}" rel="bookmark">
-          <img src="{{ object.image.url }}" alt="{{ object.title }}" class="left" width="500px" height="500px" />
-        </a>
-        {% endif %}
-      </p>
-    </div>
-    {% endif %}
-    {% endblock %}
+
+{% block entry-title %}
+	{% if continue_reading %}
+    	<div class="entry-title">
+		{% if object.is_public %}
+			{% with authors=object.authors.all %}
+				{% if authors|length %}
+				{% for author in authors %}
+				<p><a href="{{ author.get_absolute_url }}" class="fn url{% if not author.get_full_name %} nickname{% endif %}" rel="author"
+					title="{% blocktrans %}Show all {{ author }}'s entries{% endblocktrans %}">{{ author }}</a> {{ object.title }}</p>{% if 					not forloop.last %}, {% endif %}
+				{% endfor %}
+				{% endif %}
+			{% endwith %}
+		{% else %}
+		<a id="entry-title-text" href="{{ object.get_absolute_url }}" title="{{ object.title }}" rel="bookmark">{{ object.title }}</a>
+		{% endif %}
+		</div>	
+	{% else %}
+		{{ block.super }}
+   {% endif %}
+{% endblock %}
+
+
+{% block entry-info %}
+{% if continue_reading %} 
+{% else %}
+{{ block.super }}
+{% endif %}
+{% endblock %}
+
+
+{% block entry-last-update %}
+{% if continue_reading %} 
+{% else %}
+{{ block.super }}
+{% endif %}
+{% endblock %}
+
+
+{% block entry-image %}
+	{% if object.image %}
+      <div class="entry-image">
+        <p>
+<!--      <img src="..." class="entry-image-{{continue_reading}}"   entry-image-0 entry-image-1-->
+         {% if continue_reading %}
+          <a href="{{ object.get_absolute_url }}" title="{{ object.title }}" rel="bookmark">
+			  <img id="feed-entry-image" src="{{ object.image.url }}" alt="{{ object.title }}" class="left" width="180px" height="120px" />
+         </a>
+          {% else %}
+          <a href="{{ object.get_absolute_url }}" title="{{ object.title }}" rel="bookmark">
+			  <img id="blog-entry-image" src=" {{ object.image.url }}" alt="{{ object.title }}" class="left" width="100%" height="100%" />
+          </a>
+          {% endif %}
+        </p>
+      </div>
+	{% endif %}
+{% endblock %}
+
+
+{% block entry-content %}
+	{% if continue_reading %}
+	    <div class="feed-entry-content">
+			{{ object_content }}
+		</div>
+	{% else %}
+	<div class="blog-entry-content">
+			{{ object_content }}
+	</div>		
+	{% endif %}
+{% endblock %}
+
+
+{% block entry-shorturl %}      
+{% endblock %}    
+
+
+{% block entry-tags %}
+	{% if continue_reading %}
+	{% else %}
+		{{ block.super }}	
+	{% endif %}	
+{% endblock %}
+
+
+{% block entry-comments %}
+	{% if continue_reading %}
+	{% else %}
+		{{ block.super }}
+	{% endif %}		
+{% endblock %}
+
+      
+{% block entry-footer %}
+	{% if object.is_public %}
+    	{% like_entry_button object.pk request.user %}
+	{% endif %}
+	{{ block.super }}
+{% endblock %}
+
+<!-- add if continue reading tags to every block you want to be different on the detail page.-->
