@@ -19,13 +19,13 @@ def like_entry_button(entry_id, user): # entry_id is an integer
     entry=get_object_or_404(Entry, pk=entry_id)
     user_likes_entry = entry_is_liked(entry, user)
     total_likes = total_entry_likes(entry) # total number of users who like it
-    button_text=['Like it', 'Unlike it'][user_likes_entry] + (' (%d)' % (total_likes))
+    button_text=['Mark', 'Unmark'][user_likes_entry] + (' (%d)' % (total_likes))
 
     if user.is_authenticated():
         on_click='on_click_like_entry(%d, this.id)' % (entry_id)
     else:
         on_click='alert(\'Please, log in to like or unlike posts\')'
-    return '<div id=%s><input type="Button" id="%s" value="%s" style="float: right" onClick="%s" /> </div>' % (div_dom_id, dom_id, button_text, on_click)
+    return '<div class="likebtn" id=%s><input type="Button" id="%s" value="%s" style="float: right" onClick="%s" /></div>' % (div_dom_id, dom_id, button_text, on_click)
 
 
 # Need context to create csrf token
