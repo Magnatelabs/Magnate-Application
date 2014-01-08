@@ -4,13 +4,15 @@
 
       <div class="info">
 	{% ifequal user request.user %}
-	    <figure><a href="{% url 'status_award_detail' %}?award={{ status_badge.pk }}">{% render_badge status_badge "status_icon"  %}</a></figure>
 	    {% if has_status_badge %}
+	    <figure><a href="{% url 'status_home' %}">{% render_badge status_badge "status_icon" %}</a></figure>
                 <h3><a href="{% url 'status_home' %}">{{ status_badge.name }}:</a></h3>
+                <p>{{ status_badge.description }}.</p>
 	    {% else %}
-	        <h3><a href="{% url 'status_home' %}">No status yet.</h3> <a href="#">Click here to read our tutorial about badges, statuses, and karma.</a>
+	    <figure>{% render_badge status_badge "status_icon"  %}</figure>
+	     	   <h3>Spectator:</h3><p><a href="#">You do not currently have a Magnate Status. Click to learn why status is important, and how to get it!</a></p>
 	    {% endif %}
-            <p>{{ status_badge.description }}.</p>
+
 	{% else %}
 	    <figure>{% render_badge user_status_badge "status_icon"  %}</figure>
             {% if user_has_status_badge %}
