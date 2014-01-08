@@ -2,9 +2,25 @@
 {% load i18n zinnia_tags %}
 {% load avatar_tags %}
 
+{% block entry-widgets %}
+  {% with entry_related=object.related_published %}
+  {% if entry_related %}
+  <div class="entry-related">
+    <h3>Related entries</h3>
+    <ul>
+      {% for entry in entry_related %}
+      <li>
+	<a href="{{ entry.get_absolute_url }}" title="{{ entry.title }}" rel="bookmark">{{ entry.title }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+  {% endwith %}
+{% endblock %}  
+
+
 {% block entry-comments %}
-
-
 {% if object.is_public %}
     <div id="comments">
       <h3>{% trans "Comments" %}</h3>
@@ -48,11 +64,13 @@
       {% endif %}
     </div>
 {% endif %}
-
-
 {% endblock %}
 
+{% block entry-pingbacks %}
+{% endblock %}
 
+{% block entry-trackbacks %}
+{% endblock %}
 
 {% block entry-comments-form %}
     {% if object.is_public %}
