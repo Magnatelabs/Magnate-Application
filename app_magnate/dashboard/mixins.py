@@ -15,11 +15,11 @@ class PrivatelyPublishedModelMixin(models.Model):
 
     # Override this method to auto-generate meaningful titles for automated posts
     def create_entry_title(self):
-        return 'You have a new %s' % (str(self.__class__).split("'")[1])
+        return 'Entry title You have a new %s' % (str(self.__class__).split("'")[1])
 
     # Override this method to auto-generate meaningful content
     def create_entry_content(self):
-        return 'You have a new %s' % (str(self.__class__).split("'")[1])
+        return 'Entry content You have a new %s' % (str(self.__class__).split("'")[1])
         
     # Override this to specify a meaningul slug. It does not have to be unique, as this mixin will append to the slug the id (primary key) of the entry.
     def create_entry_slug(self):
