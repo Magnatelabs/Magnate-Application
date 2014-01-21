@@ -6269,16 +6269,11 @@ super_email {
           border-radius: 4px;
 }
 
-.startedbtn { display: inline-block; *display: inline; padding:0; float:left; width:154px; height:50px; margin-bottom: 0; *margin-left: .3em; font-size: 20px; font-family:"helveticaneuelight",Arial, Helvetica, sans-serif; color: #FFFFFF; text-align: center; text-shadow:none; vertical-align: middle; cursor: pointer; background:#80bc46; background:-moz-linear-gradient(#8ebc60, #72bb2b); background: -webkit-gradient(linear, left top, left bottom, from(#8ebc60), to(#72bb2b)); background: -o-linear-gradient(#8ebc60, #72bb2b); -pie-background: linear-gradient(#8ebc60, #72bb2b); border:none; text-decoration:none !important; box-shadow: #393128 0 1px 3px; border-radius:6px; behavior: url(PIE.htc); position:relative; right: 0px; top: 0px;}
+.startedbtn, #startedbtn { display: inline-block; *display: inline; padding:0; float:left; width:154px; height:50px; margin-bottom: 0; *margin-left: .3em; font-size: 20px; font-family:"helveticaneuelight",Arial, Helvetica, sans-serif; color: #FFFFFF; text-align: center; text-shadow:none; vertical-align: middle; cursor: pointer; background:#80bc46; background:-moz-linear-gradient(#8ebc60, #72bb2b); background: -webkit-gradient(linear, left top, left bottom, from(#8ebc60), to(#72bb2b)); background: -o-linear-gradient(#8ebc60, #72bb2b); -pie-background: linear-gradient(#8ebc60, #72bb2b); border:none; text-decoration:none !important; box-shadow: #393128 0 1px 3px; border-radius:6px; behavior: url(PIE.htc); position:relative; right: 0px; top: 0px;}
 
-a.startedbtn:hover,
-a.startedbtn:active,
-a.startedbtn.active,
-a.startedbtn.disabled,
-a.startedbtn[disabled] { color: #FFFFFF; background:#80bc46; background:-moz-linear-gradient(#8ebc60, #8ebc60); background: -webkit-gradient(linear, left top, left bottom, from(#8ebc60), to(#8ebc60)); background: -o-linear-gradient(#8ebc60, #8ebc60); -pie-background: linear-gradient(#8ebc60, #8ebc60); }
+a.startedbtn:hover, a.startedbtn:active, a.startedbtn.active, a.startedbtn.disabled, a.startedbtn[disabled], #startedbtn:hover, #startedbtn:active, #startedbtn.active, #startedbtn.disabled, #startedbtn[disabled] { color: #FFFFFF; background:#80bc46; background:-moz-linear-gradient(#8ebc60, #8ebc60); background: -webkit-gradient(linear, left top, left bottom, from(#8ebc60), to(#8ebc60)); background: -o-linear-gradient(#8ebc60, #8ebc60); -pie-background: linear-gradient(#8ebc60, #8ebc60); }
 
-a.startedbtn:active,
-a.startedbtn.active { background:#80bc46; background:-moz-linear-gradient(#8ebc60, #72bb2b); background: -webkit-gradient(linear, left top, left bottom, from(#8ebc60), to(#72bb2b)); background: -o-linear-gradient(#8ebc60, #72bb2b); -pie-background: linear-gradient(#8ebc60, #72bb2b); box-shadow: inset #5a872e 0 2px 3px, #393128 0 1px 3px; }
+a.startedbtn:active, a.startedbtn.active, #startedbtn:active, #startedbtn.active  { background:#80bc46; background:-moz-linear-gradient(#8ebc60, #72bb2b); background: -webkit-gradient(linear, left top, left bottom, from(#8ebc60), to(#72bb2b)); background: -o-linear-gradient(#8ebc60, #72bb2b); -pie-background: linear-gradient(#8ebc60, #72bb2b); box-shadow: inset #5a872e 0 2px 3px, #393128 0 1px 3px; }
 
 
 /* Getstarted Questionnaire added styling 09.11.13
@@ -6491,7 +6486,9 @@ About Us added styling
 .article-info .more2 a{ color:#817d8e}
 .article-info .newest{ font-family:"helveticaneuebold",Arial, Helvetica, sans-serif; font-size:12px; position:absolute; right:10px; top:5px}
 .article-info .newest a{ background:url(/site_media/static/img/arrow_down02.png) no-repeat right center; color:#5454fd; padding-right:10px}
-.article-info .dash_row{ width:100%; float:left; min-height:80px; border-bottom:1px solid #cccaca; padding:19px 0 30px 0;}
+.article-info .dash_row{ width:100%; float:left; min-height:80px; padding:19px 0 0px 0px;
+/* trying temp remove for pagination 01.17.14
+border-bottom:1px solid #cccaca; padding:19px 0 30px 0;*/}
 .article-info .icon{ float:left; line-height:.5em; padding-right:10px}
 .article-info article{ width:85.99%; float:left}
 .article-info article figure{ float:left; line-height:.5em; padding:18px 15px 0 0; -webkit-margin-start: 0px; -webkit-margin-end: 0px; -webkit-margin-before: 0em; -webkit-margin-after: 0em;}
@@ -6503,23 +6500,33 @@ About Us added styling
 .article-info article .btn-gray{ width:163px; height:32px; border:1px solid #cbcbcb; font-family:"Helvetica Neue", Arial, Helvetica, sans-serif; background:#dedede; background:-moz-linear-gradient(#e8e8e8, #dedede); background: -webkit-gradient(linear, left top, left bottom, from(#e8e8e8), to(#dedede)) ; font-size:14px; color:#313131; line-height:32px; margin-top:11px}
 .article-info article .btn-gray span{ float:left; background:url(/site_media/static/img/img-icon21.png) no-repeat left center; padding:0 0 0 40px; margin-left:1px}
 .article-info article .btn-gray:hover{ background:#dddddd}
-
+/* Pagination */
+.paginator { list-style: none; margin: 3px 0px 25px -115px; font-size: 14px;
+color: #817d8e;}
+.paginator .next { margin-right: 10px; float: right; display: block; padding-top: 5px;}
+.paginator .previous { margin-left: 10px; float: left; display: block; padding-top: 5px;}
+#previous-paginator {position: absolute; z-index: 1; margin: -16px 0px 0px -49px;}
+#next-paginator {position: absolute; z-index: 1; margin: -16px 0px 0px 512px; }
+/* Star Rating */
 .bgcash-bonus{ width:200px; margin:0 auto}
-.cash-bonus{ width:100%; float:left; background:#eaf6de; border:1px solid #e9e9e9; min-height:150px; margin:30px 0}
+.cash-bonus{ width:100%; float:left; min-height:214px; margin:30px 0}
 .cash-bonus h4{ text-align:center; padding-bottom:0; margin-bottom:-3px; position:relative}
-.cash-bonus p{ font-size:12px; text-align:center; padding-bottom:19px}
+.cash-bonus p{ font-size:12px; text-align:center; padding-bottom: 5px; }
 .cash-bonus p span{ color:#2398c9}
 .cash-bonus .dollar{ width:100%; float:left; text-align:center; font-size:60px; color:#ff5113}
 .cash-bonus .dollar span{ background:url(/site_media/static/img/img_dollar03.png) no-repeat 0 14px; padding-left:15px}
 .cash-bonus .bg-btn{ width:140px; margin:0 auto}
 .cash-bonus .btn{ width:140px; height:43px; font-family:"Helvetica Neue", Arial, Helvetica, sans-serif; line-height:43px; font-size:16px}
-.cash-bonus aside{ width:94%; padding:22px 3% 22px 3%}
-
+.cash-bonus aside{ width:94%; padding:15px 3% 22px 3%}
+.star-rect { height: 48px; background:#eaf6de; border:1px solid #e9e9e9; border-radius: 20px; position: absolute; z-index: 2; width: 200px; }
+.prompt-rect {height: 195px; background: #c9d0c6; position: absolute; margin: 18px 0px 0px 0px; z-index: 1; width: 200px; border-radius: 15px; border: 1px solid #C7C6C6;}
+.prompt-rect h4 { padding-top: 24px; }
+.ratingbtn { width: 140px; height: 40px; font-family: "Helvetica Neue", Arial, Helvetica, sans-serif; line-height: 46px; font-size: 16px; margin-left: 20px; }
+#star-rating-message {position: absolute; z-index: 3; margin: 120px 0px 0px 42px; height: 48px; border-radius: 20px; font-size: 14px; line-height: 44px; }
+/* Notsure */
 .donate-right article{ border-bottom:1px solid #e1e0e0}
 .donate-right .bg-pink{ background:#faede7}
 .donate-right .bg-skyblue{ box-shadow:none}
-
-
 
 /* New Donation (v4) styling --do not remove, not old dashboard css
 ----------------------------------------------------------------------------------------------------*/
@@ -6545,7 +6552,7 @@ About Us added styling
 .order-left .text{ width:88%; float:left; font-size:16px; color:#4c4c4c}
 .order-left .text a{ color:#2398c9}
 .order-left .btn { width:140px; height:43px; font-family:"Helvetica Neue", Arial, Helvetica, sans-serif; font-size:16px; line-height:43px; margin-right:40px}
-.order-left .btn-gray { width:154px; height:50px; line-height:50px; color:#ffffff; margin-left: 20px;}
+.order-left .btn-gray { width:120px; height:50px; line-height:50px; color:#ffffff; margin-left: 20px;}
 .order-left aside{ width:62.52%; float:left; padding:0 37.5% 15px 0}
 .order-left .amount-info{ width:97%; padding:0 3% 50px 0}
 .order-left .amount-info h3{ font-family:"helveticaneuemedium", Arial, Helvetica, sans-serif; font-size:20px; color:#4d4c4b; padding-bottom:25px}
@@ -6575,16 +6582,10 @@ About Us added styling
 .order-right .sbHolder{ width:99.8%; font-size:12px; margin-bottom:20px}
 .order-right .sbOptions li{ width:100%; font-size:12px; padding:4px 0}
 .order-right .btn-gray { width:106px; height:27px; float:right; font-family:"Helvetica Neue", Arial, Helvetica, sans-serif; font-size:14px; line-height:27px; color:#ffffff}
-
-
-/* Donation Billing styling --do not remove, not old dashboard css
-----------------------------------------------------------------------------------------------------*/
+/* Donation Billing forms styling */
 .billing_forms ul li {padding-bottom: 0px; } 
 .billing_forms ul li p {padding-bottom: 0px; }
-
-
-/* Donation Pay styling --do not remove, not old dashboard css
-----------------------------------------------------------------------------------------------------*/
+/* Donation Pay styling */
 .light { font-family: "helveticaneuelight",Arial, Helvetica, sans-serif; -webkit-margin-before: 0em; -webkit-margin-after: 0em; font-weight: normal; }
 
 #adp_forms p { padding-bottom: 4px; -webkit-margin-before: 0em; -webkit-margin-after: 0em; width: 200px; }
@@ -6596,25 +6597,17 @@ About Us added styling
 #id_x_exp_date { width: 265px; }
 #id_x_card_code { width: 265px;	}
 .pay_startedbtn { line-height: 50px; }
-
-
-
-/* Button styling (new) 12.13.13--do not remove, not old 
-----------------------------------------------------------------------------------------------------*/
-.btn-gray { display: inline-block; padding: 0; float: left; width: 140px; height: 56px; margin-bottom: 0; font-size: 20px; line-height: 56px; font-family: "helveticaneuelight",Arial, Helvetica, sans-serif; color: #020202; text-align: center; text-shadow: none; vertical-align: middle; cursor: pointer; background: #bbbcbc; background: -moz-linear-gradient(#dadada, #a5a6a6); background: -webkit-gradient(linear, left top, left bottom, from(#dadada), to(#a5a6a6)); background: -o-linear-gradient(#dadada, #a5a6a6); -pie-background: linear-gradient(#dadada, #a5a6a6); border: none; text-decoration: none; box-shadow: #777 0 1px 3px; border-radius: 6px; behavior: url(PIE.htc); position: relative; }
-
-
-/* Added for donation add 12.11.13*/
+/* Button styling (new) 12.13.13--do not remove, not old */
+.btn-gray { display: inline-block; padding: 0; float: left; width: 140px; height: 56px; margin-bottom: 0; font-size: 20px; line-height: 56px; font-family: "helveticaneuelight",Arial, Helvetica, sans-serif; color: #020202; text-align: center; text-shadow: none; vertical-align: middle; cursor: pointer; background: #bbbcbc; background: -moz-linear-gradient(#dadada, #a5a6a6); background: -webkit-gradient(linear, left top, left bottom, from(#dadada), to(#a5a6a6)); background: -o-linear-gradient(#dadada, #a5a6a6); -pie-background: linear-gradient(#dadada, #a5a6a6); border: none; text-decoration: none; box-shadow: #777 0 1px 3px; border-radius: 6px; behavior: url(PIE.htc); position: relative; }	
+#adp_forms p input {width: 120px; }
+/* Added for donation add 12.11.13 */
 .order-right article{ width:71.6%; float:left; padding:38px 14.6% 20px 14.6%}
 .left_section2 {width: 520px; }
 .order-left .radio { width: 75px; height: 60px; padding: 0 5px 0 0; background:url(/site_media/static/img/radio_magnate3.png) no-repeat; display: block; clear: left; float: left; }
 .right_section2 {width: 280px; float: right; display: inline; }
 
-
-
-
-
-/* Status home stylez
+/*---------------------------------------------------------------------------------------------------
+Status home stylez
 ----------------------------------------------------------------------------------------------------*/
 .heading_conainer { width:100%; float:left; min-height:92px;}
 .heading_container .inner_blue { width:78.57%; float:left; min-height:92px; background:#d2e3e7}
@@ -6714,13 +6707,14 @@ About Us added styling
 .donation-section .current-amount{ width:100%; float:left; border-bottom:1px solid #a1b790; padding:30px 0}
 .donation-section .current-amount #dollar{ width:100%; float:left; padding-bottom:10px} 
 .donation-section .current-amount #dollar{ font-size:154px; color:#ffffff; line-height:140px; text-align:center}
-.donation-section .current-amount #dollar span{ background:url(../img/img_dollar.png) no-repeat 0 36px;}
-.donation-section .current-amount aside{ width:29.2%; float:left; padding-right:25px}
-.donation-section .current-amount aside h4{ font-size:14px; padding:0}
-.donation-section .current-amount aside p{ font-size:53px; line-height:53px; color:#ffffff; padding:0 0 16px 10px}
+.donation-section .current-amount aside{ width:50%; float:left; padding-left:25px}
+.donation-section .current-amount aside h4{ font-size:14px; padding-left:10px; font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;}
+.donation-section .current-amount aside p{ font-size:40px; line-height:53px; color:#ffffff; padding:0 0 16px 0px}
 .donation-section .current-amount aside span{ float:left; font-size:21px; margin-top:-10px; position:relative}
-.donation-section .current-amount .waiting_amount{ width:28.1%; float:left; padding:0}
+.donation-section .current-amount .waiting_amount{ width:40%; float:left; padding:0}
 .donation-section .current-amount .waiting_amount p{ color:#ff5113}
+#dollar #hasdonation { font-size: 118px; }
+
 
 .donation-section .time-info{ width:100%; float:left; padding:30px 0}
 .donation-section .time-info h4{ font-size:14px; padding:0 0 18px 0}
