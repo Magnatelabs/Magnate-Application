@@ -22,20 +22,23 @@ from django.views.generic.edit import FormView
 from .forms import BillingInfoForm
 from .models import BillingInfo
 from .utils import total_donation_amount
+from bonus_awards.utils import total_bonus_amount
 
 from django.views.decorators.http import require_http_methods
 from django.contrib.auth.decorators import login_required
 
-@login_required
+#@login_required
 def donation_index(request):
 #    if not request.user.is_authenticated():
 #        return redirect('/donations/user/?next=%s' % request.path)
     tda=total_donation_amount(request.user)
     user_has_donation = (tda > 0)
+    tba=total_bonus_amount(request.user)
+    gt= tda+tba
 
-    return render(request, 'donations/donations_home.html', {'user_has_donation': user_has_donation, 'total_donation_amount': tda, })
+    return render(request, 'donations/donations_home.html', {'user_has_donation': user_has_donation, 'total_donation_amount': tda, 'total_bonus_amount': tba, 'grand_total': gt })
 
-@login_required
+#@login_required
 def donation_add(request):
 #    if not request.user.is_authenticated():
 #        return redirect('/donations/user/?next=%s' % request.path)
@@ -69,13 +72,15 @@ class DonationBilling(FormView):
 #        print 'IS_VALID'
 #        return True
 
-    @login_required
+#    @login_required
     def get(self, request, *args, **kwargs):
+#        import pdb #(test for checking each process)
+#        pdb.set_trace()
         print 'GET!!!'
         form = self.form_class(initial=self.initial)
         return render(request, self.template_name, {'form': form})
 
-    @login_required
+#    @login_required
     def post(self, request, *args, **kwargs):
         print 'POST!!!'
 #        import pdb #(test for checking each process)
@@ -121,7 +126,7 @@ class DonationBilling(FormView):
 #def confirmation_index(request):
 #    return render(request, 'donations/donations_pay.html')
 
-@login_required
+#@login_required
 def donation_confirmation(request):
 #    if not request.user.is_authenticated():
 #        return redirect('/donations/user/?next=%s' % request.path)
@@ -129,7 +134,7 @@ def donation_confirmation(request):
     return render(request, 'donations/donations_confirmation.html')
 
 
-@login_required
+#@login_required
 @require_http_methods(["POST"])
 def donation_orderpay(request, entry):
 #    if not request.user.is_authenticated():
