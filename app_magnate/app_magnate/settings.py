@@ -188,6 +188,7 @@ INSTALLED_APPS = [
     "zinnia", 
  # Zinnia (an external blogging app) MUST BE included AFTER dashboard, as dashboard overrides a Zinnia template, base.html.
     "glue_zinnia",
+    "bonus_awards",
     
 ]
 
@@ -267,7 +268,7 @@ MAGNATE_PUBLIC_ENTRY_BLURB_WORD_LIMIT = 33
 MAGNATE_PRIVATE_ENTRY_BLURB_WORD_LIMIT =20
 
 #static
-MAGNATE_ICON_BY_ENTRY_TYPE = {'default': "img/img_icon16.png", 'update':"img/img_icon17.png", 'article': "img/img_icon18.png"}
+MAGNATE_ICON_BY_ENTRY_TYPE = {'default': "img/img_icon16.png", 'badge': "img/img_icon16.png", 'update':"img/img_icon17.png", 'article': "img/img_icon18.png", 'donation': "img/img_icon19.png" }
 
 # static
 MAGNATE_NO_STATUS_PIC_URL = 'status_awards/no_status_badge.png'
