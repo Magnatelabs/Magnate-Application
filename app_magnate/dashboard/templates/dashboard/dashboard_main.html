@@ -12,13 +12,15 @@
 
 <div class="dash_grid">
     <div class="inner_dashcontent">
-    	<div class="section1 section3"> 
+    	<div class="section1 section3">
+    		<div class="bgprofileinfo">
+    		
     		{% comment %} ALL DASHBOARD CONTENT GOES HERE {% endcomment %}
     		
     		{% comment %} Header: user avatar, user name, status, badges, total current donation, etc. 
     		(This is NOT the topbar where you can log out. This is the top bar of the dashboard. {% endcomment %} 
 	    	
-		{% if request.user.is_authenticated %}
+			{% if request.user.is_authenticated %}
 		    {% include "dashboard/_user_breakdown.html" %}    
 	    	{% endif %}
 		
@@ -37,29 +39,16 @@
 					<!-- Zinnia content -->
 					{% block content %}
 					{% endblock %}
-        
+					
 				</div>
 			</div>   
+			
+			
 			
 			{% if request.user.is_authenticated %}
 			{% comment %} The vertical stripe on the right with various widgets {% endcomment %}
 			<div class="whatcoming donate-right">
-        
-				<div class="bgcash-bonus">
-					<div class="cash-bonus">
-						<aside>
-							<h4>Get a cash bonus of...</h4>
-							<div class="dollar"><span>5.50</span></div>
-							<p>If you leave your donation  in the fund for another <a href="#">2 months!</a></p>
-							<div class="bg-btn"><a href="#" class="btn">Reedem now</a></div>
-						</aside>
-					</div>
-				</div>
-        
-
 				{% render_star_rating request.user %}
-
-        
 				<article class="bg-pink">
 					<aside>
 						<h4>Spread the wealth</h4>
@@ -92,22 +81,14 @@
 				</article> 
 			</div> <!-- whatcoming donate-right -->
 			{% endif %}
-        </div> <!-- section1 section3 -->
-    </div> <!-- innter dashcontent -->
-</div> <!-- dash_grid -->
+			</div> 
+		</div> 
+    </div> 
 
 
 {% endblock %}
-
-
-
-
-
 {% block script_base %}
-
 {{ block.super }}
-
-
 
 
 <script type="text/javascript">
