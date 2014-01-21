@@ -1,6 +1,6 @@
 {% load staticfiles %}
 
-<div class="donation-info">
+<div class="donation-section">
         <h1>Your Donation</h1>
         <p>Being a Magnate is all about your donation, and this is your control center. Everything you need to make sure Magnate is growing your donation at the rate you want.</p>
         
@@ -9,27 +9,67 @@
         <article>
         <div class="current-amount">
         <h4>Current amount</h4>
-        <div class="dolor">
-        <span>{{ total_donation_amount }}</span>
+        <div id="dollar">
+        <span id="hasdonation">${{ grand_total }}</span>
         </div>
-        
+ 
         <aside>
-        <h4>Original donation</h4>
-        <p><span>$</span>10</p>
-        </aside>
-        
-        <aside>
-        <h4>Additional donation amount</h4>
-        <p><span>$</span>15</p>
+        <h4>Donated amount</h4>
+        <p>${{ total_donation_amount }}</p>
         </aside>
        
         <aside class="waiting_amount">
-        <h4>Karma amount</h4>
-        <p><span>$</span>10</p>
+        <h4>Awarded amount</h4>
+        <p>${{ total_bonus_amount }}</p>
         </aside>
         
         <div class="bg-btn">
-        <a href="{% url 'donations_add' %}" class="btn">Add to your donation</a>
+        <a href="{% url 'donations_add' %}" class="startedbtn">Add to your donation</a>
+        </div>
+        </div>
+        
+        <div class="time-info">
+        <h4>Time until donation fully earned</h4>
+        <h2><span>1 month  37 days</span></h2>
+        </div>
+        </article>
+        
+        </div>
+        </div>
+
+ </div><!--donation info-->
+
+
+
+{% comment %}
+#This is the template code that displays a timer. 
+#For use if you decide to include a timer.
+
+<div class="donation-section">
+        <h1>Your Donation</h1>
+        <p>Being a Magnate is all about your donation, and this is your control center. Everything you need to make sure Magnate is growing your donation at the rate you want.</p>
+        
+        <div class="amount-box">
+        <div class="amount-info">
+        <article>
+        <div class="current-amount">
+        <h4>Current amount</h4>
+        <div id="dollar">
+        <span id="hasdonation">${{ total_donation_amount }}</span>
+        </div>
+        
+        <aside>
+        <h4>Donated amount</h4>
+        <p>$10.00</p>
+        </aside>
+       
+        <aside class="waiting_amount">
+        <h4>Awarded amount</h4>
+        <p>$10.00</p>
+        </aside>
+        
+        <div class="bg-btn">
+        <a href="{% url 'donations_add' %}" class="startedbtn">Add to your donation</a>
         </div>
         </div>
         
@@ -47,3 +87,5 @@
         </div>
 
  </div><!--donation info-->
+
+{% endcomment %}
