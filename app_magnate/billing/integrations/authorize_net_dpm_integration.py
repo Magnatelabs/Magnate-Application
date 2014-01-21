@@ -51,7 +51,8 @@ class AuthorizeNetDpmIntegration(Integration):
     @property
     def service_url(self):
         if self.test_mode:
-            return "https://test.authorize.net/gateway/transact.dll"
+            return "http://localhost:9000"
+#            return "https://test.authorize.net/gateway/transact.dll"
         return "https://secure.authorize.net/gateway/transact.dll"
 
     def verify_response(self, request):
