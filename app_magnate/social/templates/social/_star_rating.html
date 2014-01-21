@@ -21,7 +21,8 @@ $(function(){
                    success: function( response ) {
                        var resp = JSON.parse(response);
                        $('#star-rating-message').html(resp.message);
-                       $('#star-rating-form').hide();
+                       $('.star-rect').hide();
+                       $('.abuja').hide();
                    }
                });
                
@@ -32,9 +33,34 @@ $(function(){
 });
 </script>
 
+<div class="bgcash-bonus">
+	<div class="cash-bonus">
+	<form id="star-rating-form" style="">
+		<div class="star-rect">
+			<div class="Clear" style="margin-left: 12px; margin-top: 2px;">
+				<input class="star" type="radio" name="star-rating-it" value="1" title="Worst"/>
+				<input class="star" type="radio" name="star-rating-it" value="2" title="Bad"/>
+				<input class="star" type="radio" name="star-rating-it" value="3" title="OK"/>
+				<input class="star" type="radio" name="star-rating-it" value="4" title="Good"/>
+				<input class="star" type="radio" name="star-rating-it" value="5" title="Best"/>
+			</div>				
+		</div>
+		<div class="prompt-rect">
+			<div class="abuja">
+				<h4>Tell us what's on your mind...</h4>
+				<aside>
+					<p>How would you rate your overall experience with Magnate?</p>
+					<input class="ratingbtn startedbtn" type="submit" value="Submit" />
+				</aside>
+			</div>
+		</div>
+	</form>
+	</div>
+</div> <!-- bgcash -->
+<p id="star-rating-message"></p>
+<!--
 <aside>
-
-<form id="star-rating-form">
+<form id="star-rating-form" style="">
     Please, rate this website!
     <div class="Clear">
         <input class="star" type="radio" name="star-rating-it" value="1" title="Worst"/>
@@ -48,3 +74,4 @@ $(function(){
 <p id="star-rating-message"></p>
 
 </aside>
+--!>
