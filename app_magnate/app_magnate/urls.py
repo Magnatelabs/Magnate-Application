@@ -50,6 +50,7 @@ urlpatterns = patterns("",
     url(r"^social/", include("social.urls")),
     url(r"^donations/", include("donations.urls")),
     url(r"^status/", include("status_awards.urls")),
+    url(r"^study/", include("study.urls")), 
 )
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
