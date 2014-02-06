@@ -19,3 +19,27 @@ app_magnate/#requirements.txt#
 app_magnate/app_magnate/.settings.py.swp
 
 app_magnate/dashboard/#mixins.py#
+
+glue_zinnia/.#models.py
+
+glue_zinnia/#models.py#
+
+app_magnate/glue_zinnia/.#models.py
+
+app_magnate/glue_zinnia/#models.py#
+
+*.log
+
+app_magnate/logs/mylog.log
+
+app_magnate/logs/mylog.log.1
+
+app_magnate/logs/mylog.log.2
+
+app_magnate/logs/mylog.log.3
+
+app_magnate/logs/mylog.log.4
+
+app_magnate/logs/mylog.log.4
+
+app_magnate/logs/mylog.log.5
