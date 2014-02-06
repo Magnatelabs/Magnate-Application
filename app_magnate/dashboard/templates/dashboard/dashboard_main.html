@@ -49,6 +49,7 @@
 			{% comment %} The vertical stripe on the right with various widgets {% endcomment %}
 			<div class="whatcoming donate-right">
 				{% render_star_rating request.user %}
+				
 				<article class="bg-pink">
 					<aside>
 						<h4>Spread the wealth</h4>
@@ -58,17 +59,9 @@
 						</div>
 					</aside>
 				</article>
-        
-				<article class="bg-none">
-					<aside>
-						<h4>Want to know more?</h4>
-						<div class="icon"><a href="#"><img src="{% static "img/img_icon08.png" %}" alt="ICON"></a></div>
-						<div class="info">
-							<p>Stop by our <a href="#">FAQs</a> page to read how Magnate works and why it is what it is.</p>
-						</div>
-					</aside>
-				</article> 
               
+				{% include "dashboard/_user_sourcing.html" %} 
+
 				<article class="bg-skyblue">
 					<aside>
 						<h4>Really, stay in touch</h4>
