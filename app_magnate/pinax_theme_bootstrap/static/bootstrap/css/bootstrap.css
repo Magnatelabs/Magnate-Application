@@ -6376,8 +6376,10 @@ About Us added styling
 .form-actions #login-action {} /*for login fix (maybe?)
 
 
-/* Dashboard styling
+/*--------------------------------------------------------------------------------------------------- 
+Dashboard styling 
 ----------------------------------------------------------------------------------------------------*/
+/* Old, stuff (some still in use) */
 .hero-dash { width: 940px; margin-top: -10px;}
 .dash-section1 { width: 99.8%; float: left; background: #f8f8f8; border: 1px solid #c5c6c5; border-top: 7px solid #72bb2a; box-shadow: inset #ebebeb 0 -3px 4px; position: relative; behaviior: url(PIE.htc); margin-bottom: 30px; line-height: 18px; }
 .whatnext {width: 70.25%; float: left; background: #ffffff; border-right: 1px solid #e7e8e8; box-shadow: inset #d9d9d9 2px 0 5px, inset #d9d9d9 0 -1px 2px; position: relative; behaviior: url(PIE.htc); padding: 42px 0 0 0; line-height: none; }
@@ -6399,9 +6401,10 @@ About Us added styling
 .whatnext .features { width: 100%; float: left; padding: 93px 0 132px 0; }
 .whatnext .features .icon { width: 100%; float: left; line-height: .5em; text-align: center; padding-bottom: 7px; }
 .whatnext .features p { font-size: 14px; color: #4c4c4c; line-height: 14px; text-align: center; }
-.whatcoming { width: 29.58%; float: left; }
+.whatcoming { width: 29.58%; float: left; background: #f8f8f8; }
 .whatcoming article { width: 100%; float: left; background: #eaf6de; }
 .whatcoming aside { width: 87.2%; float: left; padding: 27px 6.4% 25px 6.4%; }
+.whatcoming aside p a { color: #2398c9; }
 .whatcoming .icon { float: left; line-height: .5em; }
 .whatcoming .info { width: 190px; float: right; }
 .whatcoming h4 { font-family: "helveticaneuebold",Arial, Helvetica, sans-serif; color: #4c4c4c; padding-bottom: 16px; }
@@ -6409,36 +6412,21 @@ About Us added styling
 .whatcoming .bg-none { background: none; }
 .whatcoming .endicon { width: 100%; float: left; border-bottom: 1px solid #edecec; text-align: center; }
 .whatcoming .endicon img { background: #f8f8f8; margin-bottom: -12px; position: relative; padding: 0 3px; }
-
-
-/* Getstarted question confirmation page styling 
-----------------------------------------------------------------------------------------------------*/
+/* Getstarted question confirmation page styling (not in use, see if can delete) */
 #confirm_row aside { font-weight: 200; }
 #confirm_row aside p { font-weight: 600; padding-top: 20px; }
 #confirm_row aside li { list-style: none; padding-bottom: 5px; }
 #confirm_row a { margin-top: 20px; }
-
-
-/* Dashboard question confirmation page styling 
-----------------------------------------------------------------------------------------------------*/
+/* Dashboard question confirmation page styling (in use?)*/
 #dash_confirm_row aside { font-weight: 200; }
 #dash_confirm_row aside p { font-size: 14px; }
 #dash_confirm_row aside h2 { padding-top: 30px; }
 #dash_confirm_row a { margin-top: 30px; }
 #dash_confirm_btn { font-size: 15px; }
-
-
-/* Account settings page styling 
-----------------------------------------------------------------------------------------------------*/
-#account_span { margin-left: -35px; max-width: 770px; padding-top: 30px; }
-/* added change to .nav-list (line 3972)
-
-
-/* New Dashboard (v4) styling --do not remove, not old dashboard css
-----------------------------------------------------------------------------------------------------*/
+/* New Dashboard (v4) styling --do not remove, not old dashboard css */
 .dash_grid { width: 940px; display: inline; float: left; margin-left: 10px; margin-right: 10px;	}
 .inner_dashcontent { width: 100%; float: left; padding: 40px 0 170px 0; }
-.section1 {width:99.8%; float:left; background:#f8f8f8; border:1px solid #c5c6c5; border-top:7px solid #72bb2a; box-shadow:inset #ebebeb 0 -3px 4px; position:relative; behaviior:url(PIE.htc); margin-bottom:0px;}
+.section1 {width:99.8%; float:left; background:#f8f8f8; border:1px solid #c5c6c5; border-top:7px solid #72bb2a; position:relative; behaviior:url(PIE.htc); margin-bottom:0px;}
 .section3 { border-top: 1px solid #c7c7c7; }
 .bgprofile-info { width:100%; float:left; background:#a6c987; border-bottom:22px solid #313131; }
 .profile-info{ width:76.76%; float:left; background:#ffffff url(/site_media/static/img/gradient01.gif) repeat-x top left; padding:28px 0 12px 0;}
@@ -6465,7 +6453,6 @@ About Us added styling
 #user_badges .info h3 a{ font-size: 14px; }
 #user_badges .info a{ font-size: 12px; line-height: 14px; padding: 0 5% 0 0; } 
 #user_badges .info a:hover{ text-decoration:none; color: #363636;}
-
 .donate-box{ width:23.24%; float:right; background:#a6c987; padding: 20px 0 0 0; }
 .donate-box p{ font-size:14px; color:#FFFFFF; text-align:center; padding-bottom:13px; line-height: 1em; margin: 0 0 0px; }
 .donate-box p a{ font-size:12px; color:#5a8e22; text-decoration:underline}
@@ -6474,8 +6461,7 @@ About Us added styling
 .donate-box .dollar span{ background:url(/site_media/static/img/img_dollar02.png) no-repeat 0 22px; padding-left:21px; line-height: 0px;}
 .donate-box aside{ width:78%; float:left; padding:16px 11% 0 11%; }
 .nodonation .startedbtn { width: 140px; height: 43px; line-height: 43px; font-size: 16px; margin: 15px 0 40px 13px; }
-
-.article-info{ width:70.25%; float:left; background:#ffffff; border-right:1px solid #e7e8e8; box-shadow:inset #f0f0f0 0 -3px 4px; behavior: url(PIE.htc); position:relative; padding-bottom:20px; }
+.article-info{ width:70.25%; float:left; background:#ffffff; behavior: url(PIE.htc); position:relative; padding-bottom:20px; border-right: 1px solid #e7e8e8; }
 .article-info h4{ font-family:"helveticaneuebold",Arial, Helvetica, sans-serif; font-size:13px; color:#817d8e; padding-bottom:4px; -webkit-margin-before: 0em; -webkit-margin-after: 0em; line-height: 1em; }
 .article-info h4 span{ color:#2398c9}
 .article-info p{ font-size:14px; color:#817d8e; padding-bottom:5px}
@@ -6523,9 +6509,9 @@ color: #817d8e;}
 .prompt-rect h4 { padding-top: 24px; }
 .ratingbtn { width: 140px; height: 40px; font-family: "Helvetica Neue", Arial, Helvetica, sans-serif; line-height: 46px; font-size: 16px; margin-left: 20px; }
 #star-rating-message {position: absolute; z-index: 3; margin: 120px 0px 0px 42px; height: 48px; border-radius: 20px; font-size: 14px; line-height: 44px; }
-/* Notsure */
-.donate-right article{ border-bottom:1px solid #e1e0e0}
+/* Spread Wealth specific */
 .donate-right .bg-pink{ background:#faede7}
+/* Stay in Touch specific */
 .donate-right .bg-skyblue{ box-shadow:none}
 
 /* New Donation (v4) styling --do not remove, not old dashboard css
@@ -6670,6 +6656,12 @@ Status home stylez
 .award_link aside { width: 90%; padding: 20px 0% 0px 0%; font-size: 11px; }
 .award_link aside h4 { font-size: 11px; -webkit-margin-before: 0em; -webkit-margin-after: 0em; line-height: 10px; }
 .award_link aside p a { color: #1a9bd4; }
+
+/*----------------------------------------------------------------------------------------------------
+Account settings page styling 
+----------------------------------------------------------------------------------------------------*/
+#account_span { margin-left: -35px; max-width: 770px; padding-top: 30px; }
+/* added change to .nav-list (line 3972)
 
 
 /* Dashboard Zinnia Feed Styles added 12.07.13 by jw
