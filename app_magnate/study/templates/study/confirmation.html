@@ -1,0 +1,23 @@
+{% extends "site_base.html" %}
+{% load staticfiles %}
+
+{% load url from future %}
+{% load i18n %}
+
+
+{% block body %}
+<div class="row">
+	<div class="span12">
+		<div id="confirm_row">
+			<h1>Initial Submit Completed</h1>
+			<p>Thanks for getting those hands dirty! We will review your submission, and will let you know if and when Magnate makes an investment!</p>
+			<aside>Stay tuned for more additions to this feature.
+				<p>Some ideas include...</p>
+				<li><img src="{% static "img/twitter02.gif" %}" alt="PHOTO" /><a href="http://twitter.com/magnatelabs" class="twitter">@magnatelabs</a></li>
+            <li><img src="{% static "img/facebook02.gif" %}" alt="PHOTO" /><a href="http://www.facebook.com/pages/Magnate-Labs/197894490391670" class="facebook">facebook.com/magnate</a></li>				
+			</aside>
+			<a href="{% url "dashboard" %}" class="indexbtn">Return Home</a>
+		</div>
+	</div>
+</div>
+{% endblock %}

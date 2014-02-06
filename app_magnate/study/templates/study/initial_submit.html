@@ -1,0 +1,44 @@
+{% extends "site_base.html" %}
+{% load staticfiles %}
+
+{% block body %} 
+
+<div class="donation-section">
+		<!-- List of uploaded documents -->
+		{% if documents %}
+			<ul>
+			{% for document in documents %}
+				<li><a href="{{ document.docfile.url }}">{{ document.docfile.name }}</a></li>
+			{% endfor %}
+			</ul>
+		{% else %}
+			<p>No documents.</p>
+		{% endif %}
+
+		<!-- Upload form. Note enctype attribute! -->
+		<form action="{% url "study_index" %}" method="post" enctype="multipart/form-data">
+			{% csrf_token %}
+			
+			<li>			
+			<p><label for="id_entity">Company Name</label>
+			<input id="id_entity" type="text" name="entity" maxlength="255" /></p>
+				
+			<p><label for="id_description">Description</label>
+			<input id="id_description" type="text" name="description" maxlength="255" /></p>    		
+    		</li>
+    		
+    		<p><label for="id_analysis">Analysis</label>
+			<input id="id_analysis" type="text" name="analysis" maxlength="" /></p> 
+		
+			<p>{{ form.non_field_errors }}</p>
+			<p>{{ form.docfile.label_tag }} {{ form.docfile.help_text }}</p>
+			<p>
+				{{ form.docfile.errors }}
+				{{ form.docfile }}
+			</p>
+    		
+    		<p><input type="submit" value="Submit" /></p>
+		</form>
+</div>		
+
+{% endblock %} 
