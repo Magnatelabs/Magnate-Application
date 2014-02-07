@@ -189,7 +189,7 @@ INSTALLED_APPS = [
  # Zinnia (an external blogging app) MUST BE included AFTER dashboard, as dashboard overrides a Zinnia template, base.html.
     "glue_zinnia",
     "bonus_awards",
-    
+    "study",
 ]
 
 TEST_RUNNER = 'django_test_exclude.runners.ExcludeTestSuiteRunner'
@@ -201,28 +201,72 @@ TEST_EXCLUDE=[ "django.contrib", "zinnia", "account", "waitinglist", "brabeion",
 # See http://docs.djangoproject.com/en/dev/topics/logging for
 # more details on how to customize your logging configuration.
 LOGGING = {
-    "version": 1,
-    "disable_existing_loggers": False,
-    "filters": {
-        "require_debug_false": {
-            "()": "django.utils.log.RequireDebugFalse"
-        }
+    'version': 1,
+    'disable_existing_loggers': True,
+    'formatters': {
+        'standard': {
+            'format': '%(asctime)s [%(levelname)s] %(name)s: %(message)s'
+        },
     },
-    "handlers": {
-        "mail_admins": {
-            "level": "ERROR",
-            "filters": ["require_debug_false"],
-            "class": "django.utils.log.AdminEmailHandler"
-        }
+    'handlers': {
+        'default': {
+            'level': 'DEBUG',
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': 'logs/mylog.log',
+            'maxBytes': 1024*1024*5, #5 MB
+            'backupCount': 5,
+            'formatter': 'standard',
+        },
+        'request_handler': {
+            'level': 'DEBUG',
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': 'logs/django_request.log',
+            'maxBytes': 1024*1024*5, #5 MB
+            'backupCount': 5,
+            'formatter': 'standard',
+        },
     },
-    "loggers": {
-        "django.request": {
-            "handlers": ["mail_admins"],
-            "level": "ERROR",
-            "propagate": True,
+    'loggers': {
+
+        '': {
+            'handlers': ['default'],
+            'level': 'DEBUG',
+            'propagate': True
+        },
+        'django.request': {
+            'handlers': ['request_handler'],
+            'level': 'DEBUG',
+            'propagate': False
         },
     }
 }
+
+
+
+#Default logging below
+#LOGGING = {
+#    "version": 1,
+#    "disable_existing_loggers": False,
+#    "filters": {
+#        "require_debug_false": {
+#            "()": "django.utils.log.RequireDebugFalse"
+#        }
+#    },
+#    "handlers": {
+#        "mail_admins": {
+#            "level": "ERROR",
+#            "filters": ["require_debug_false"],
+#            "class": "django.utils.log.AdminEmailHandler"
+#        }
+#    },
+#    "loggers": {
+#        "django.request": {
+#            "handlers": ["mail_admins"],
+#            "level": "ERROR",
+#            "propagate": True,
+#        },
+#    }
+#}
 
 FIXTURE_DIRS = [
     os.path.join(PROJECT_ROOT, "fixtures"),
@@ -268,7 +312,7 @@ MAGNATE_PUBLIC_ENTRY_BLURB_WORD_LIMIT = 33
 MAGNATE_PRIVATE_ENTRY_BLURB_WORD_LIMIT =20
 
 #static
-MAGNATE_ICON_BY_ENTRY_TYPE = {'default': "img/img_icon16.png", 'badge': "img/img_icon16.png", 'update':"img/img_icon17.png", 'article': "img/img_icon18.png", 'donation': "img/img_icon19.png" }
+MAGNATE_ICON_BY_ENTRY_TYPE = {'default': "img/img_icon16.png", 'badge': "img/img_icon16.png", 'update':"img/img_icon17.png", 'article': "img/img_icon18.png", 'donation': "img/img_icon19.png", }
 
 # static
 MAGNATE_NO_STATUS_PIC_URL = 'status_awards/no_status_badge.png'
