@@ -27,6 +27,7 @@ def ajax_like_entry(request):
     user=request.user
     entry_id=request.POST.get('entry_id', None)
     entry=get_object_or_404(Entry, pk=entry_id)
+    question="How would you rate your overall experience with Magnate?"
 
     count = toggle_like_unlike(entry, user)
     status_awards.award_badges("user_liked_entry", user)
@@ -51,10 +52,11 @@ def ajax_star_rating(request):
 
     vars={}
     user = request.user
+    question="How would you rate your overall experience with Magnate?"
 
     if can_rate(user):
         # Save rating
-        StarRating.objects.create(user=user, rating=value)
+        StarRating.objects.create(user=user, rating=value, question=question,)
         # print "User %s rated %d..." % (request.user, value)
         vars['message'] = "Thank you for your feedback!"
     else:
