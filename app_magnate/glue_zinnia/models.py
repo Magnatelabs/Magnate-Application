@@ -90,6 +90,10 @@ class EntryCheck(
         kind = self.slug[:self.slug.find('-')]
         return settings.STATIC_URL + settings.MAGNATE_ICON_BY_ENTRY_TYPE.get(kind, settings.MAGNATE_ICON_BY_ENTRY_TYPE['default'])
 
+    def private_icon_url(self):
+        # copy of above; this is for private posts
+        kind = self.slug[:self.slug.find('-')]
+        return settings.STATIC_URL + settings.MAGNATE_PRIVATE_ICON_BY_ENTRY_TYPE.get(kind, settings.MAGNATE_PRIVATE_ICON_BY_ENTRY_TYPE['default'])
 
     class Meta(CoreEntry.Meta):
         abstract = True
