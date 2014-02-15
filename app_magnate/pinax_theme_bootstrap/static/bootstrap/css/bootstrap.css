@@ -6401,7 +6401,7 @@ Dashboard styling
 .whatnext .features { width: 100%; float: left; padding: 93px 0 132px 0; }
 .whatnext .features .icon { width: 100%; float: left; line-height: .5em; text-align: center; padding-bottom: 7px; }
 .whatnext .features p { font-size: 14px; color: #4c4c4c; line-height: 14px; text-align: center; }
-.whatcoming { width: 29.58%; float: left; background: #f8f8f8; }
+.whatcoming { width: 29.58%; height: auto; float: left; background: #f8f8f8; position: relative; padding-bottom: 8000px; margin-bottom: -8000px; }
 .whatcoming article { width: 100%; float: left; background: #eaf6de; }
 .whatcoming aside { width: 87.2%; float: left; padding: 27px 6.4% 25px 6.4%; }
 .whatcoming aside p a { color: #2398c9; }
@@ -6426,7 +6426,7 @@ Dashboard styling
 /* New Dashboard (v4) styling --do not remove, not old dashboard css */
 .dash_grid { width: 940px; display: inline; float: left; margin-left: 10px; margin-right: 10px;	}
 .inner_dashcontent { width: 100%; float: left; padding: 40px 0 170px 0; }
-.section1 {width:99.8%; float:left; background:#f8f8f8; border:1px solid #c5c6c5; border-top:7px solid #72bb2a; position:relative; behaviior:url(PIE.htc); margin-bottom:0px;}
+.section1 {width:99.8%; float:left; background:#ffffff; border:1px solid #c5c6c5; border-top:7px solid #72bb2a; position:relative; behaviior:url(PIE.htc); margin-bottom:0px; overflow: hidden;}
 .section3 { border-top: 1px solid #c7c7c7; }
 .bgprofile-info { width:100%; float:left; background:#a6c987; border-bottom:22px solid #313131; }
 .profile-info{ width:76.76%; float:left; background:#ffffff url(/site_media/static/img/gradient01.gif) repeat-x top left; padding:28px 0 12px 0;}
@@ -6461,10 +6461,10 @@ Dashboard styling
 .donate-box .dollar span{ background:url(/site_media/static/img/img_dollar02.png) no-repeat 0 22px; padding-left:21px; line-height: 0px;}
 .donate-box aside{ width:78%; float:left; padding:16px 11% 0 11%; }
 .nodonation .startedbtn { width: 140px; height: 43px; line-height: 43px; font-size: 16px; margin: 15px 0 40px 13px; }
-.article-info{ width:70.25%; float:left; background:#ffffff; behavior: url(PIE.htc); position:relative; padding-bottom:20px; border-right: 1px solid #e7e8e8; }
+.article-info{ width:70.25%; float:left; background:#ffffff; behavior: url(PIE.htc); position:relative; }
 .article-info h4{ font-family:"helveticaneuebold",Arial, Helvetica, sans-serif; font-size:13px; color:#817d8e; padding-bottom:4px; -webkit-margin-before: 0em; -webkit-margin-after: 0em; line-height: 1em; }
 .article-info h4 span{ color:#2398c9}
-.article-info p{ font-size:14px; color:#817d8e; padding-bottom:5px}
+.article-info p{ font-size:14px; color:#817d8e; padding-bottom:5px; width: 95%; }
 .article-info p span{ color:#000000}
 .article-info p a{ color:#2398c9}
 .article-info .more{ font-size:11px}
@@ -6489,7 +6489,7 @@ border-bottom:1px solid #cccaca; padding:19px 0 30px 0;*/}
 /* Pagination */
 .paginator { list-style: none; margin: 3px 0px 25px -115px; font-size: 14px;
 color: #817d8e;}
-.paginator .next { margin-right: 10px; float: right; display: block; padding-top: 5px;}
+.paginator .next { margin-right: 10px; float: right; display: block; padding-top: 10px; padding-bottom: 10px;}
 .paginator .previous { margin-left: 10px; float: left; display: block; padding-top: 5px;}
 #previous-paginator {position: absolute; z-index: 1; margin: -16px 0px 0px -49px;}
 #next-paginator {position: absolute; z-index: 1; margin: -16px 0px 0px 512px; }
@@ -6670,12 +6670,14 @@ Account settings page styling
 .entry-title { font-family: "helveticaneuebold",Arial, Helvetica, sans-serif; font-size: 13px; padding-bottom: 4px; -webkit-margin-before: 0em; -webkit-margin-after: 0em; line-height: 1em;}
 .entry-image { float: left; }
 .entry-footer { padding-bottom: 50px; }
-#feed-entry-image { padding-left: 3px; padding-right: 10px; padding-top: 20px; }
-#feedentry-icon { padding-right: 13px; }
 .entry-title p {color: #000000; }
-.feed-entry-content { padding-top: 20px;}
-.likebtn { margin: -20px 80px 0px 0px; padding-bottom: 30px;}
-.likebtn input[type=button] { width: 127px; height: 32px; border: 1px solid #cbcbcb; font-family: "Helvetica Neue", Arial, Helvetica, sans-serif; background: #dedede url(/site_media/static/img/img-icon21.png) no-repeat; background: -moz-linear-gradient(#e8e8e8, #dedede) url(/site_media/static/img/img-icon21.png) no-repeat; background: -webkit-gradient(linear, left top, left bottom, from(#e8e8e8), to(#dedede)) url(/site_media/static/img/img-icon21.png) no-repeat; background: -o-linear-gradient(#e8e8e8, #dedede) url(/site_media/static/img/img-icon21.png) no-repeat; -pie-background: linear-gradient(#e8e8e8, #dedede) url(/site_media/static/img/img-icon21.png) no-repeat; font-size: 14px; color: #313131; line-height: 29px; margin-top: 11px; border-radius: 6px; padding-left: 27px}
+#feed-entry-image { padding-left: 3px; padding-right: 10px; padding-top: 20px; }
+#feed-entry-icon { padding-right: 13px; }
+#privatefeed-entry-icon {padding-left: 3px; padding-right: 10px; padding-top: 20px;}
+.feedpublic-entry-content { padding-top: 20px;}
+.feedprivate-entry-content { padding-top: 20px;}
+.feedprivate-entry-content p { width: 72%;}
+.likebtn input[type=button] { width: 127px; height: 32px; border: 1px solid #cbcbcb; font-family: "Helvetica Neue", Arial, Helvetica, sans-serif; background: #dedede url(/site_media/static/img/img-icon21.png) no-repeat; background: -moz-linear-gradient(#e8e8e8, #dedede) url(/site_media/static/img/img-icon21.png) no-repeat; background: -webkit-gradient(linear, left top, left bottom, from(#e8e8e8), to(#dedede)) url(/site_media/static/img/img-icon21.png) no-repeat; background: -o-linear-gradient(#e8e8e8, #dedede) url(/site_media/static/img/img-icon21.png) no-repeat; -pie-background: linear-gradient(#e8e8e8, #dedede) url(/site_media/static/img/img-icon21.png) no-repeat; font-size: 14px; color: #313131; line-height: 29px; margin-top: 11px; border-radius: 6px; padding-left: 27px; margin: -10px 80px 0px 0px;}
 
 .likebtn input[type=button]:hover,
 .likebtn input[type=button]:active,
