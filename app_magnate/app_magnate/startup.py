@@ -57,6 +57,15 @@ def startup_validation():
         assert finders.find(local_url) is not None, "Cannot find necessary static file '%s'" % (local_url)
     assert finders.find(settings.MAGNATE_NO_STATUS_PIC_URL), "Cannot find necessary static file '%s'" % (settings.MAGNATE_NO_STATUS_PIC_URL)
 
+    # Attempt at adding another image for entry type. 
+    # This is for private feed posts
+    assert 'default' in settings.MAGNATE_PRIVATE_ICON_BY_ENTRY_TYPE, "The icon for the type 'default' has to be defined"
+
+    for entry_type in settings.MAGNATE_PRIVATE_ICON_BY_ENTRY_TYPE:
+        assert isinstance(entry_type, str)
+        local_url = settings.MAGNATE_PRIVATE_ICON_BY_ENTRY_TYPE[entry_type]
+        assert finders.find(local_url) is not None, "Cannot find necessary static file '%s'" % (local_url)
+
     assert settings.MAGNATE_CAN_STAR_RATE_EVERY
     import datetime
     assert isinstance(eval("datetime.timedelta(" + settings.MAGNATE_CAN_STAR_RATE_EVERY + ")"), datetime.timedelta)
