@@ -8,6 +8,7 @@ class StarRating(models.Model):
    user=models.ForeignKey(settings.AUTH_USER_MODEL, related_name='ratings')
    date=models.DateTimeField(auto_now_add=True)
    rating=models.IntegerField()
+   question=models.CharField(max_length=255)
 
 def total_ratings_by_user(user):
       return StarRating.objects.filter(user=user).count()
