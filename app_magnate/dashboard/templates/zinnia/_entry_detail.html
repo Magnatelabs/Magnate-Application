@@ -17,7 +17,7 @@
 {% block entry-header %}
 {% if continue_reading %} 
 <!-- Icon of the entry -->
-<img id="feedentry-icon" src="{{ object.icon_url }}" height="10%" width="10%" style="float: left" />
+<img id="feed-entry-icon" src="{{ object.icon_url }}" height="10%" width="10%" style="float: left" />
 {% endif %}
 {{ block.super }}
 {% endblock %}
@@ -36,7 +36,7 @@
 				{% endif %}
 			{% endwith %}
 		{% else %}
-		<a id="entry-title-text" href="{{ object.get_absolute_url }}" title="{{ object.title }}" rel="bookmark">{{ object.title }}</a>
+		<p id="entry-title-text" href="{{ object.get_absolute_url }}" title="{{ object.title }}" rel="bookmark">{{ object.title }}</p>
 		{% endif %}
 		</div>	
 	{% else %}
@@ -83,16 +83,44 @@
 
 {% block entry-content %}
 	{% if continue_reading %}
-	    <div class="feed-entry-content">
-			{{ object_content }}
-		</div>
+		{% if object.is_public %}
+		    <div class="feedpublic-entry-content">
+				{{ object_content }}
+			</div>
+		{% else %}
+			<img id="privatefeed-entry-icon" src="{{ object.private_icon_url }}" style="float: left" />
+		    <div class="feedprivate-entry-content">
+				{{ object_content }}
+			</div>		
+		{% endif %}
 	{% else %}
-	<div class="blog-entry-content">
-			{{ object_content }}
-	</div>		
+		{% if object.is_public %}
+			<div class="blogpublic-entry-content">
+				{{ object_content }}
+			</div>
+		{% else %}
+			<div class="blogprivate-entry-content">
+				{{ object_content }}
+			</div>						
+		{% endif %}
 	{% endif %}
 {% endblock %}
 
+
+{% block continue-reading %}
+	{% if continue_reading %}
+		{% if object.is_public %}
+	    	<p class="continue-reading">
+			<a href="{{ object.get_absolute_url }}"
+			title="{% blocktrans with object=object.title %}Continue reading {{ object }}{% endblocktrans %}"
+			rel="bookmark">
+		{% trans "Continue reading" %}
+			</a>
+			</p>
+		{% else %}
+		{% endif %}	
+	{% endif %}
+{% endblock %}
 
 {% block entry-shorturl %}      
 {% endblock %}    
