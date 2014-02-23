@@ -6601,14 +6601,14 @@ Status home stylez
 .additional_right-overlay { width: 200px; float: right; margin-right: 0; margin-left: 0; display: inline; border-left: 1px solid #c7c8c8; border-bottom: 1px solid #c7c8c8;}
 .order_right-overlay { width:100%; float:right; background:#ffffff}
 .order_right-overlay .roinner_one  { width:100%; float:right;}
-.order_right-overlay .roinner_one article {width: 71.6%; float: left; padding: 10px 14.6% 20px 14.6%;}
+.order_right-overlay .roinner_one article {width: 71.6%; float: left; padding: 10px 14.6% 10px 14.6%;}
 .order_right-overlay .roinner_one article ul{ width:100%; float:left; font-family:"Helvetica Neue", Arial, Helvetica, sans-serif; font-size:14px; list-style-type: none;}
 .order_right-overlay .roinner_one article ul li { width:100%; float:left; color:#4d4c4b; padding:7px 0}
 .order_right-overlay .roinner_one article ul li a { color: #4d4c4b;	text-decoration: none;}
 .order_right-overlay .roinner_two  { width:100%; float:right; border-top:1px solid #e2e2e2;}
 .order_right-overlay .roinner_two article {width: 71.6%; float: left; padding: 5px 14.6% 8px 14.6%;}
 .order_right-overlay .roinner_two article ul{ width:100%; float:left; font-family:"Helvetica Neue", Arial, Helvetica, sans-serif; font-size:14px; list-style-type: none;}
-.order_right-overlay .roinner_two article ul li { width:100%; float:left; color:#4d4c4b; padding:18px 0}
+.order_right-overlay .roinner_two article ul li { width:100%; float:left; color:#4d4c4b; }
 .order_right-overlay .roinner_two article ul li a { color: #4d4c4b;	text-decoration: none;}
 .status_section1{ width:78.57%; float:left; padding:0px 0% 40px 0%}
 .status-info{ width:100%; float:left; padding:40px 0% 12px 0%;}
@@ -6656,6 +6656,8 @@ Status home stylez
 .award_link aside { width: 90%; padding: 20px 0% 0px 0%; font-size: 11px; }
 .award_link aside h4 { font-size: 11px; -webkit-margin-before: 0em; -webkit-margin-after: 0em; line-height: 10px; }
 .award_link aside p a { color: #1a9bd4; }
+.roinner_one article ul {-webkit-padding-start: 0px;}
+.roinner_two article ul {-webkit-padding-start: 0px;}
 
 /*----------------------------------------------------------------------------------------------------
 Account settings page styling 
@@ -6669,7 +6671,7 @@ Account settings page styling
 .hentry { border-bottom: 1px solid #cccaca; width: 116.4%; margin: 20px -75px 0px;}
 .entry-title { font-family: "helveticaneuebold",Arial, Helvetica, sans-serif; font-size: 13px; padding-bottom: 4px; -webkit-margin-before: 0em; -webkit-margin-after: 0em; line-height: 1em;}
 .entry-image { float: left; }
-.entry-footer { padding-bottom: 50px; }
+.entry-footer { padding-bottom: 50px;}
 .entry-title p {color: #000000; }
 #feed-entry-image { padding-left: 3px; padding-right: 10px; padding-top: 20px; }
 #feed-entry-icon { padding-right: 13px; }
@@ -6688,6 +6690,20 @@ Account settings page styling
 .likebtn input[type=button].active,
 .likebtn input[type=button]:active { background:#bbbcbc url(/site_media/static/img/img-icon21.png) no-repeat; background:-moz-linear-gradient(#dadada, #a5a6a6) url(/site_media/static/img/img-icon21.png) no-repeat; background: -webkit-gradient(linear, left top, left bottom, from(#dadada), to(#a5a6a6)) url(/site_media/static/img/img-icon21.png) no-repeat; background: -o-linear-gradient(#dadada, #a5a6a6) url(/site_media/static/img/img-icon21.png) no-repeat; -pie-background: linear-gradient(#dadada, #a5a6a6) url(/site_media/static/img/img-icon21.png) no-repeat; outline: 0; -webkit-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05); -moz-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05); box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05); }
 
+/*----------------------------------------------------------------------------------------------------
+Blog style
+----------------------------------------------------------------------------------------------------*/
+#blog-entry-image {padding-left: 16px;}
+.blogpublic-entry-content {padding-left: 16px; padding-bottom: 10px;}
+.blog-entry-footer {padding-top: 60px; padding-left: 16px; }
+.blog-entry-header {padding-left: 16px;}
+.comments {position: relative; margin-left: -60px;}
+.comment-list {-webkit-padding-start: 0px;}
+.comment-list img {float: left; padding-right: 10px; }
+.comments .comment-list p {padding-top: 10px; padding-bottom: 25px; color: #333333;}
+#comment-info {margin: 0 0 0px; padding-bottom: 0px; padding-top: 0px;}
+#comment-published {cursor: none; border-bottom: 0px dotted #999999; color: #817d8e; font-size: 12px;}
+.article-info form fieldset legend {border-bottom: 0px}
 
 /* Donation home added 12.13.13 by jw
 ----------------------------------------------------------------------------------------------------*/
