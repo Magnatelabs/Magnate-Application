@@ -22,16 +22,14 @@
 
 {% block entry-comments %}
 {% if object.is_public %}
-    <div id="comments">
+    <div class="comments">
       <h3>{% trans "Comments" %}</h3>
       {% if object.comment_count %}
       {% with comment_list=object.comments %}
-      <ol id="comment-list">
+      <ol class="comment-list">
 	{% for comment in comment_list %}
-	<li id="comment-{{ comment.pk }}-by-{{ comment.user_name|slugify }}"
-	    class="comment vcard {% cycle box1,box2 %}{% if comment.user %} authenticated-comment{% if comment.user.is_staff %} staff-comment{% endif %}{% if comment.user.is_superuser %} superuser-comment{% endif %}{% endif %}">
-	       {% avatar comment.user %}
-	  <p class="comment-info">
+	       {% avatar comment.user 40 %}
+	  <p id="comment-info">
 	    {% if comment.url %}
 	    <a href="{{ comment.url }}" rel="external nofollow"
 	       class="fn url">{{ comment.name }}</a>
@@ -39,14 +37,17 @@
 	     <a href="{% url "user_page" %}?user_id={{comment.user.pk}}" rel="external nofollow"
 	       class="fn url">{{ comment.name }}</a>
 	    {% endif %}
-	    {% trans "on" %}
-	    <abbr class="comment-published" title="{{ comment.submit_date|date:"c" }}">
+	  </p>
+	    <abbr id="comment-published" title="{{ comment.submit_date|date:"c" }}">
 	      {{ comment.submit_date|date:"SHORT_DATETIME_FORMAT" }}
 	    </abbr>
+	    {% comment %}
+	    <! Not sure why we should use this at all, but saving just in case >
 	    <a href="#comment-{{ comment.pk }}-by-{{ comment.user_name|slugify }}"
 	       id="c{{ comment.pk }}" class="anchor-link"
 	       title="{% trans "Direct link to this comment" %}">#</a>
-	  </p>
+	    {% endcomment %}   
+	  
 	  {{ comment.comment|linebreaks }}
 	</li>
 	{% endfor %}
