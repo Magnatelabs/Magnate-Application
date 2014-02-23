@@ -18,8 +18,12 @@
 {% if continue_reading %} 
 <!-- Icon of the entry -->
 <img id="feed-entry-icon" src="{{ object.icon_url }}" height="10%" width="10%" style="float: left" />
-{% endif %}
 {{ block.super }}
+{% else %}
+<div class="blog-entry-header">
+{{ block.super }}
+</div>
+{% endif %}
 {% endblock %}
 
 
@@ -40,7 +44,6 @@
 		{% endif %}
 		</div>	
 	{% else %}
-		{{ block.super }}
    {% endif %}
 {% endblock %}
 
@@ -137,16 +140,24 @@
 {% block entry-comments %}
 	{% if continue_reading %}
 	{% else %}
+	<div id="blog-entry-comments">
 		{{ block.super }}
+	</div>
 	{% endif %}		
 {% endblock %}
 
       
 {% block entry-footer %}
 	{% if object.is_public %}
-    	{% like_entry_button object.pk request.user %}
+		{% like_entry_button object.pk request.user %}
 	{% endif %}
-	{{ block.super }}
+	{% if continue_reading %}
+		{{ block.super }}
+	{% else %}
+		<div class="blog-entry-footer">
+		{{ block.super }}
+		</div>
+	{% endif %}
 {% endblock %}
 
 <!-- add if continue reading tags to every block you want to be different on the detail page.-->
