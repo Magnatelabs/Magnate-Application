@@ -47,3 +47,5 @@ app_magnate/logs/mylog.log.5
 app_magnate/logs/django_request.log
 
 app_magnate/logs/django_request.log
+
+*.1
