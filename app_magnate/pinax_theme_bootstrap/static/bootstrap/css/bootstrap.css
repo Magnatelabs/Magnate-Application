@@ -53,6 +53,8 @@ section {
   display: block;
 }
 
+figure {-webkit-margin-start: 0px; -webkit-margin-end: 0px;}
+
 audio,
 canvas,
 video {
@@ -6157,7 +6159,7 @@ a.badge:focus {
 /*/ 
 Homepage added styles (for banner_base and subsequent pages) 08.17.13 
 /*/
-.indexbanner { top: -25px; position: relative; padding-bottom: 11px;}
+.indexbanner { top: -25px; position: relative; padding-bottom: 11px; padding-left: 40px;}
 .indexbanner aside { width:100%; float:left; position:absolute; top:137px; left:7.4%; margin: 0; padding: 0;   border: 0; font-size: 100%; font: inherit; vertical-align: baseline;}
 .indexbanner aside h1 { font-family:"helveticaneuemedium", Arial, Helvetica, sans-serif; font-size:44px; font-weight: normal; color:#FFFFFF; padding-bottom:0px;}
 .indexbanner aside h1 a { color:#FFFFFF;}
@@ -6182,7 +6184,7 @@ a.indexbtn.active { background:#80bc46; background:-moz-linear-gradient(#8ebc60,
 
 .magnate-title h1 { font-family:"helveticaneuemedium", Arial, Helvetica, sans-serif; font-size:44px; font-weight: normal; color:#FFFFFF; padding-bottom:0px;}
 
-.hero-unit article { width: 100%; float: left; padding-bottom: 30px;}
+.hero-unit article { width: 100%; padding-bottom: 100px;}
 
 .hero-unit .feature_grid { width: 360px; margin-left: 0; float: left; }
 
@@ -6193,8 +6195,6 @@ a.indexbtn.active { background:#80bc46; background:-moz-linear-gradient(#8ebc60,
 .hero-unit .feature_grid aside h3 { padding-bottom: 4px; font-size: 18px; color: #363636; line-height: 0em; }
 
 .hero-unit .feature_grid aside p { line-height: 1.2em; font-size: 14px; padding-bottom: 0; text-align: left; }
-
-.hero-unit p#hackcheat { color: #ffffff; font-size: 1px; text-align: left; }
 
 .row { padding: 60px; max-width: 740px; margin: 0px 0px 0px 40px; margin-bottom: 170px; font-size: 18px; font-weight: 200; line-height: 30px; color: inherit; background-color: #ffffff; box-shadow: #999 0 0 3px;  -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; }
 
@@ -6513,6 +6513,7 @@ color: #817d8e;}
 .donate-right .bg-pink{ background:#faede7}
 /* Stay in Touch specific */
 .donate-right .bg-skyblue{ box-shadow:none}
+.abuja {width: 99%}
 
 /* New Donation (v4) styling --do not remove, not old dashboard css
 ----------------------------------------------------------------------------------------------------*/
@@ -6690,6 +6691,7 @@ Account settings page styling
 .likebtn input[type=button].active,
 .likebtn input[type=button]:active { background:#bbbcbc url(/site_media/static/img/img-icon21.png) no-repeat; background:-moz-linear-gradient(#dadada, #a5a6a6) url(/site_media/static/img/img-icon21.png) no-repeat; background: -webkit-gradient(linear, left top, left bottom, from(#dadada), to(#a5a6a6)) url(/site_media/static/img/img-icon21.png) no-repeat; background: -o-linear-gradient(#dadada, #a5a6a6) url(/site_media/static/img/img-icon21.png) no-repeat; -pie-background: linear-gradient(#dadada, #a5a6a6) url(/site_media/static/img/img-icon21.png) no-repeat; outline: 0; -webkit-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05); -moz-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05); box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05); }
 
+
 /*----------------------------------------------------------------------------------------------------
 Blog style
 ----------------------------------------------------------------------------------------------------*/
@@ -6735,7 +6737,18 @@ Blog style
 .donation-section .startedbtn{ width: 256px; line-height: 50px; margin-top: 10px; }
 .donation-section .btn-gray{ width:100%; height:52px; font-family:"Helvetica Neue", Arial, Helvetica, sans-serif; font-size:20px; color:#fff; line-height:52px; margin:30px 0}
 
-
+/*----------------------------------------------------------------------------------------------------
+Avatar settings page styling 
+----------------------------------------------------------------------------------------------------*/
+.row article figure {float: left; width: 25%; -webkit-margin-after: 0em; -webkit-margin-before: 0em; padding-right: 20px;}
+.row article figure img {border: 1px solid #b2b2b2;}
+.row article figure .some {font-size: 11px; padding: 0px 0px; margin-left: 0px; padding-bottom: 10px; }
+.row article form ul {list-style-type: none; display: inline; position: relative;}
+.row article form ul ul {list-style-type: none;}
+.row article form ul li ul li {width: 22%; padding-left: 10px; display: inline; padding-right: 10px;}
+.row article form ul li ul li img {border: 1px solid #b2b2b2;}
+.row article form p input {width: 150px; margin-top: 20px;}
+.row form p #id_avatar {line-height: 0px}
 /* Not in use, but will be soon
 .hero-unit p#signupselect { color: #363636; font-size: 14px; text-align: center; text-decoration:none !important; }
 
