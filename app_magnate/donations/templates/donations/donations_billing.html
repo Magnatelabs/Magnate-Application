@@ -20,7 +20,7 @@
         {% csrf_token %}
         <article>
         <aside class="billing_forms">
-        <ul>
+        <ul class="unstyled">
         <li>
         <p><label for="id_first_name">First Name</label>
 		<input id="id_first_name" type="text" name="first_name" maxlength="200" /></p>
@@ -77,7 +77,7 @@
         <div class="order-right">
         <article>
         <h3>Your order <span><a href="{% url "donations_add" %}" >Change order</a></span></h3>
-        <ul>
+        <ul class="unstyled">
         <li class="nodivider">
         <div class="column1">MagnateFund donation</div>
         <div class="column2">${{amount}}</div>

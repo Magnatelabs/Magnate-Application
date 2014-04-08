@@ -182,7 +182,7 @@ function validate_amount(evt) {
 		{% endif %}
         
         <div class="amount-box">
-        <ul><form method="POST" action="{% url 'donations_billing' %}">
+        <ul class="unstyled"><form method="POST" action="{% url 'donations_billing' %}">
 			{% csrf_token %}
 		
 		<input type="hidden" id="id_donation_amountd" name="amount1" value="0.00" />
@@ -208,7 +208,7 @@ function validate_amount(evt) {
         <div class="order-right">
         <article>
         <h3>Your order <span><a href="{% url "donations_add" %}" >Change order</a></span></h3>
-        <ul>
+        <ul class="unstyled">
         <li class="nodivider">
         <div class="column1">MagnateFund donation</div>
         <div class="column2">$0.00</div>
