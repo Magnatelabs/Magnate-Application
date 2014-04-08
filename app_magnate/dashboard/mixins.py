@@ -15,7 +15,8 @@ class PrivatelyPublishedModelMixin(models.Model):
 
     # Override this method to auto-generate meaningful titles for automated posts
     def create_entry_title(self):
-        return 'Entry title You have a new %s' % (str(self.__class__).split("'")[1])
+        return 'You have just won a new badge!'
+#        return 'Entry title You have a new %s' % (str(self.__class__).split("'")[1])
 
     # Override this method to auto-generate meaningful content
     def create_entry_content(self):
