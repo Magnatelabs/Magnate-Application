@@ -6,7 +6,7 @@
 	{% ifequal user request.user %}
 	    {% if has_status_badge %}
 	    <figure><a href="{% url 'status_home' %}">{% render_badge status_badge "status_icon" %}</a></figure>
-                <h3><a href="{% url 'status_home' %}">{{ status_badge.name }}:</a></h3>
+                <h3 class="unstyled"><a href="{% url 'status_home' %}">{{ status_badge.name }}:</a></h3>
                 <p>{{ status_badge.description }}.</p>
 	    {% else %}
 	    <figure>{% render_badge status_badge "status_icon"  %}</figure>
@@ -36,7 +36,7 @@
 
         <h3>Badges ({{badges | no_metabadges | length }}) <span><a href="{% url 'status_home' %}">See All</a></span></h3>
 
-	<ul>
+	<ul class="unstyled">
 	{% for badge in badges %}
           {% if not badge.is_metabadge %}
 	    {% ifequal user request.user %}
