@@ -7,9 +7,13 @@ from .base import MetaBadge
 class LikesBadge(Badge):
     slug="likes"
     levels = [
-        BadgeDetail("Bronze-Liker", "Likes a little"),
-        BadgeDetail("Silver-Liker", "Likes more"),
-        BadgeDetail("Gold-Liker", "Likes a lot"),
+        BadgeDetail("Finger Painting Badge", "Your very first Magnte Mark--this one is going on the fridge"),
+        BadgeDetail("Crayon Badge", "An upgrade from finger paints! Just try your best to keep all Magnate Marks within the lines"),
+        BadgeDetail("Colored Pencil Badge", "Crayons be damned. You express your opinions at a toddler's level"),
+
+#        BadgeDetail("Bronze-Liker", "Likes a little"),
+#        BadgeDetail("Silver-Liker", "Likes more"),
+#        BadgeDetail("Gold-Liker", "Likes a lot"),
     ]
 
     events = [
@@ -32,10 +36,15 @@ class LikesBadge(Badge):
 class DonorBadge(Badge):
     slug="donor"
     levels = [
-        BadgeDetail("New Donor", "Donated a lilttle"),
-        BadgeDetail("Intermediate Donor", "Donated more"),
-        BadgeDetail("Advanced Donor", "Donated a lot "),
-        BadgeDetail("Karmic Donor", "Gave away everything")
+        BadgeDetail("New Donor Badge", "Some skin is now in the game. You are a bona fide member of the Magnate community"),
+        BadgeDetail("Intermediate Donor Badge", "A second donation? Wow, you just upped the game"),
+        BadgeDetail("Organ Donor Badge", "Hand over the card, Magnate is now a serious part of your life"),
+        BadgeDetail("Karmic Donor Badge", "Give away everything")
+
+#        BadgeDetail("New Donor", "Donated a lilttle"),
+#        BadgeDetail("Intermediate Donor", "Donated more"),
+#        BadgeDetail("Advanced Donor", "Donated a lot "),
+#        BadgeDetail("Karmic Donor", "Gave away everything")
     ]
     events = [
         "user_donation",
@@ -59,10 +68,15 @@ class DonorBadge(Badge):
 class RaterBadge(Badge):
     slug='rater'
     levels = [
-        BadgeDetail("Bronze Rater", "Rated a little"),
-        BadgeDetail("Silver Rater", "Rated some more"),
-        BadgeDetail("Gold Rater", "Rated a lot"),
-        BadgeDetail("Platinum Rater", "Rated everything"),        
+        BadgeDetail("Nooby Tester Badge", "Cleaning Magnate bugs through rating"),
+        BadgeDetail("Gold Nooby Tester Badge", "A little spring cleaning only helps Magnate"),
+        BadgeDetail("Alpha Tester Badge", "Rated a lot"),
+        BadgeDetail("Beta Tester Badge", "Rated everything"),
+
+#        BadgeDetail("Bronze Rater", "Rated a little"),
+#        BadgeDetail("Silver Rater", "Rated some more"),
+#        BadgeDetail("Gold Rater", "Rated a lot"),
+#        BadgeDetail("Platinum Rater", "Rated everything"),        
     ]
     events = [
         "user_rated_something"
@@ -94,8 +108,8 @@ class MemeMagnate(MetaBadge):
 class FavouriteMagnate(MetaBadge):
     slug='favourite'
     levels = [
-        BadgeDetail("Favourite Magnate", "Easy to earn this one..."),
-        BadgeDetail("Meme-Favourite Magnate", "Given after you win Meme Magnate and Favourite Magnate"),
+        BadgeDetail("Starter Magnate", "Good job, but it's kind of easy to earn this one..."),
+        BadgeDetail("Favourite Magnate", "Given after you win Meme Magnate and Favourite Magnate"),
     ]
     requirements = [
         { 'rater' : 0, 'donor' : 0 },
