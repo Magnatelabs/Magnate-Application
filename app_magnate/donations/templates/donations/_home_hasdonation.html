@@ -8,9 +8,9 @@
         <div class="amount-info">
         <article>
         <div class="current-amount">
-        <h4>Current amount</h4>
+        <h4>Total Fund Amount</h4>
         <div id="dollar">
-        <span id="hasdonation">${{ grand_total }}</span>
+        <div class="dollar">${{ website_total_donation_amount }}</div>
         </div>
  
         <aside>
@@ -33,6 +33,22 @@
         <h2><span>1 month  37 days</span></h2>
         </div>
         </article>
+        
+        <div id="defaultCountdown"></div>
+
+<script type="text/javascript">
+var newYear = new Date(); 
+
+//python
+//ctx = {..., 'target': datetime(1, 2, 3);}
+
+
+//new Date( {{ target.year }}, {{target.month}}, {{target.day}});
+
+newYear = new Date({{ donation_vesting_date.year }}, {{ donation_vesting_date.month }} - 1, {{ donation_vesting_date.day }}); 
+$('#defaultCountdown').countdown({until: newYear}); 
+// the -1 for the month is because -python counts months at 1 and javascript frmo 0. The -1 allows it to sync better
+</script>
         
         </div>
         </div>
@@ -78,6 +94,7 @@
         <h2><span>1 month  37 days</span></h2>
         </div>
         </article>
+     
         
         <div class="bg-btn">
         <a href="#" class="btn-gray">Exit Magnate Fund</a>
