@@ -10,6 +10,7 @@ from decimal import Decimal
 import datetime
 import status_awards
 
+from statistics.statfunctions import update_statistics
 
 class BillingInfo (models.Model):
 #    user = models.ForeignKey(User)
@@ -67,6 +68,7 @@ class Donation (PrivatelyPublishedModelMixin, models.Model):
             donation = Donation(user=user, amount=amount, transaction_id=transaction_id)  
             donation.save()
             status_awards.award_badges("user_donation", user)
+            update_statistics() # This function is called to upadte the TOTAL_DONATION_AMOUNT
             #import pdb; pdb.set_trace()
         
 
