@@ -124,6 +124,7 @@ TEMPLATE_CONTEXT_PROCESSORS = [
     "zinnia.context_processors.version",
 #    "zinnia.context_processors.media",
     "dashboard.contexts.magnate_user_info",
+    "statistics.contexts.website_stats",
 ]
 
 
@@ -160,12 +161,12 @@ INSTALLED_APPS = [
     
     # external
     "account",
+    "avatar",
     "metron",
     "eventlog",
     "waitinglist",
     "billing",
     "brabeion",
-    "avatar",
     "analytical",
 
     # project
@@ -191,6 +192,7 @@ INSTALLED_APPS = [
     "glue_zinnia",
     "bonus_awards",
     "study",
+    "statistics",
 ]
 
 TEST_RUNNER = 'django_test_exclude.runners.ExcludeTestSuiteRunner'
@@ -316,7 +318,7 @@ MAGNATE_PRIVATE_ENTRY_BLURB_WORD_LIMIT = 20
 MAGNATE_ICON_BY_ENTRY_TYPE = {'default': "img/img_icon16.png", 'badge': "img/img_icon16.png", 'update':"img/img_icon17.png", 'article': "img/img_icon18.png", 'donation': "img/img_icon19.png", }
 
 #static for private posts
-MAGNATE_PRIVATE_ICON_BY_ENTRY_TYPE = {'default': "img/tglogo.jpg", 'badge': "img/tglogo.jpg", 'donation': "img/tglogo.jpg", }
+MAGNATE_PRIVATE_ICON_BY_ENTRY_TYPE = {'default': "img/tglogo.jpg", 'badge': "img/tglogo.jpg", 'donation': "img/tgdollar.jpg", }
 
 # static
 MAGNATE_NO_STATUS_PIC_URL = 'status_awards/no_status_badge.png'
@@ -330,3 +332,5 @@ MAGNATE_CAN_STAR_RATE_EVERY = 'seconds=5'
 CLICKY_SITE_ID = '100664353'
 CRAZY_EGG_ACCOUNT_NUMBER = '00204380'
 GOOGLE_ANALYTICS_PROPERTY_ID = 'UA-46652906-1'
+
+
