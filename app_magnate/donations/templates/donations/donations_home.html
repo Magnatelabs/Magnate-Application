@@ -1,7 +1,15 @@
 {% extends "site_base.html" %}
 {% load staticfiles %}
 
+{% block style_base %}
+{{ block.super }}
+<script src="{% static "js/jquery.plugin.min.js" %}"></script>
+<script src="{% static "js/jquery.countdown.min.js" %}"></script>
+{% endblock %}
+
 {% block body %} 
+
+
 
 <div class="grid_16">
     <div class="contentinner">
