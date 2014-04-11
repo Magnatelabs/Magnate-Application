@@ -8,12 +8,11 @@
 
 
 
-
 // Automatically resizes text to fit the given container.
-// It finds the container with a class specified by @box. 
+// It finds the container with a class specified by @box. Also only works with a div
 // @i is a dummy argument for $('some_class').each.
 //
-// Sample usage: 
+// Sample usage:
 // <div class="box" style="width:700px">This is a sentence</div>
 // <div class="box" style="width:600px">This is a sentence</div>
 // ...
