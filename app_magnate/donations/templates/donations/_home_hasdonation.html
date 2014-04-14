@@ -12,29 +12,25 @@
         <div id="dollar">
         <div class="dollar">${{ website_total_donation_amount }}</div>
         </div>
- 
-        <aside>
-        <h4>Donated amount</h4>
-        <p>${{ total_donation_amount }}</p>
-        </aside>
+
+        <div class="users_donation">
+        <h4>Your Contribution</h4>
+        <div class="dollar fixme">${{ total_donation_amount }}</div>
+        </div>
        
-        <aside class="waiting_amount">
+        <div class="users_dollars">
         <h4>Awarded amount</h4>
-        <p>${{ total_bonus_amount }}</p>
-        </aside>
+        <div class="dollar redtext">${{ total_bonus_amount }}</div>
+        </div>
         
-        <div class="bg-btn">
-        <a href="{% url 'donations_add' %}" class="startedbtn">Add to your donation</a>
+        <div class="bg-btn amount-btn">
+        <a href="{% url 'donations_add' %}" class="startedbtn">Add to the fund</a>
         </div>
         </div>
         
         <div class="time-info">
-        <h4>Time until donation fully earned</h4>
-        <h2><span>1 month  37 days</span></h2>
-        </div>
-        </article>
-        
-        <div id="defaultCountdown"></div>
+        <h4>Time until awards fully earned</h4>                
+        <div id="defaultCountdown"></div></div></article>
 
 <script type="text/javascript">
 var newYear = new Date(); 
