@@ -6675,14 +6675,15 @@ Blog style
 .donation-section .current-amount{ width:100%; float:left; border-bottom:1px solid #a1b790; padding:30px 0}
 .donation-section .current-amount #dollar{ width:100%; float:left; padding-bottom:10px} 
 .donation-section .current-amount #dollar{ font-size:154px; color:#ffffff; line-height:140px; text-align:center}
-.donation-section .current-amount aside{ width:50%; float:left; padding-left:25px}
-.donation-section .current-amount aside h4{ font-size:14px; padding-left:10px; font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;}
+.users_donation { width:43%; float:left; padding-right: 25px; line-height: 0px; padding-left: 15px;}
+.users_donation h4{ font-family: "Helvetica Neue", Arial, Helvetica, sans-serif; padding-bottom: 20px;}
+.fixme {margin-left: 5px; padding-top: 20px;}
 .donation-section .current-amount aside p{ font-size:40px; line-height:53px; color:#ffffff; padding:0 0 16px 0px}
 .donation-section .current-amount aside span{ float:left; font-size:21px; margin-top:-10px; position:relative}
-.donation-section .current-amount .waiting_amount{ width:40%; float:left; padding:0}
-.donation-section .current-amount .waiting_amount p{ color:#ff5113}
+.users_dollars{ width:40%; float:left; padding:0; line-height: 0px;}
+.redtext{ color:#ff5113; margin-left: 5px; padding-top: 20px;}
 #dollar #hasdonation { font-size: 118px; }
-
+.amount-btn {padding-top: 20px;}
 
 .donation-section .time-info{ width:100%; float:left; padding:30px 0}
 .donation-section .time-info h4{ font-size:14px; padding:0 0 18px 0}
@@ -6690,7 +6691,7 @@ Blog style
 .donation-section .time-info h2 span{ background:url(../img/img_icon22.png) no-repeat left center; padding:3px 0 3px 36px}
 
 .donation-section .bg-btn{ width:265px; margin:0 auto; }
-.donation-section .startedbtn{ width: 256px; line-height: 50px; margin-top: 10px; }
+.donation-section .startedbtn{ width: 256px; line-height: 50px; margin-top: 60px; }
 .donation-section .btn-gray{ width:100%; height:52px; font-family:"Helvetica Neue", Arial, Helvetica, sans-serif; font-size:20px; color:#fff; line-height:52px; margin:30px 0}
 
 /*----------------------------------------------------------------------------------------------------
@@ -6710,59 +6711,21 @@ Avatar settings page styling
 Countdown
 ----------------------------------------------------------------------------------------------------*/
 /* jQuery Countdown styles 2.0.0. */
-.is-countdown {
-	border: 1px solid #ccc;
-	background-color: #eee;
-}
-.countdown-rtl {
-	direction: rtl;
-}
-.countdown-holding span {
-	color: #888;
-}
-.countdown-row {
-	clear: both;
-	width: 100%;
-	padding: 0px 2px;
-	text-align: center;
-}
-.countdown-show1 .countdown-section {
-	width: 98%;
-}
-.countdown-show2 .countdown-section {
-	width: 48%;
-}
-.countdown-show3 .countdown-section {
-	width: 32.5%;
-}
-.countdown-show4 .countdown-section {
-	width: 24.5%;
-}
-.countdown-show5 .countdown-section {
-	width: 19.5%;
-}
-.countdown-show6 .countdown-section {
-	width: 16.25%;
-}
-.countdown-show7 .countdown-section {
-	width: 14%;
-}
-.countdown-section {
-	display: block;
-	float: left;
-	font-size: 75%;
-	text-align: center;
-}
-.countdown-amount {
-    font-size: 200%;
-}
-.countdown-period {
-    display: block;
-}
-.countdown-descr {
-	display: block;
-	width: 100%;
-}
+.is-countdown {}
+.countdown-rtl {direction: rtl;}
+.countdown-holding span {color: #888;}
+.countdown-row {clear: both; width: 100%; padding: 0px 2px; text-align: center;}
+.countdown-show1 .countdown-section {width: 98%;}
+.countdown-show2 .countdown-section {width: 48%;}
+.countdown-show3 .countdown-section {width: 32.5%;}
+.countdown-show4 .countdown-section {width: 24.5%;}
+.countdown-show5 .countdown-section {width: 19.5%;}
+.countdown-show6 .countdown-section {width: 16.25%;}
+.countdown-show7 .countdown-section {width: 14%;}
+.countdown-section {display: block; float: left; font-size: 75%; text-align: center;}
+.countdown-amount {font-size: 200%;}
+.countdown-period {display: block;}
+.countdown-descr {display: block; width: 100%;}
 
 
 
