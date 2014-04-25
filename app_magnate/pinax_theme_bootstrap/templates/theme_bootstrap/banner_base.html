@@ -17,13 +17,17 @@
         </aside>
  </div>
 
+{% comment %}
+##Removed until the text is hashed out
 
  <div class="hero-unit">
     {% block banner %}
     <! Above django tag refers to "homepage" template in /mysite/mysite/templates>
     {% endblock %}
  </div>
- 
+
+{% endcomment %}
+
  {% if not request.user.is_authenticated %}
   <div class="row">
     	<h2>Sign Up</h2>
