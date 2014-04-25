@@ -6115,7 +6115,7 @@ Homepage added styles (for banner_base and subsequent pages) 08.17.13
 .indexbanner aside { width:100%; float:left; position:absolute; top:137px; left:7.4%; margin: 0; padding: 0;   border: 0; font-size: 100%; font: inherit; vertical-align: baseline;}
 .indexbanner aside h1 { font-family:"helveticaneuemedium", Arial, Helvetica, sans-serif; font-size:40px; font-weight: normal; color:#FFFFFF; padding-bottom:0px; }
 .indexbanner aside h1 a { color:#FFFFFF;}
-.indexbanner aside p { font-size:24px; color:#FFFFFF; padding-bottom:18px;}
+.indexbanner aside p { font-size:18px; color:#FFFFFF; padding-bottom:18px;}
 .indexbanner aside p a { color:#FFFFFF}
 .indexbanner img {box-shadow: #676767 0 1px 3px;}
 
