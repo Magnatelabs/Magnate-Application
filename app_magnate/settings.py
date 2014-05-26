@@ -207,11 +207,22 @@ LOGGING = {
     'version': 1,
     'disable_existing_loggers': True,
     'formatters': {
+        'heroku-style': {
+            'format': ('%(asctime)s [%(process)d] [%(levelname)s] ' +
+                       'pathname=%(pathname)s lineno=%(lineno)s ' +
+                       'funcname=%(funcName)s %(message)s'),
+            'datefmt': '%Y-%m-%d %H:%M:%S'
+        },
         'standard': {
             'format': '%(asctime)s [%(levelname)s] %(name)s: %(message)s'
         },
     },
     'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'heroku-style'
+        },
         'default': {
             'level': 'DEBUG',
             'class': 'logging.handlers.RotatingFileHandler',
@@ -232,12 +243,12 @@ LOGGING = {
     'loggers': {
 
         '': {
-            'handlers': ['default'],
+            'handlers': ['console'],
             'level': 'DEBUG',
             'propagate': True
         },
         'django.request': {
-            'handlers': ['request_handler'],
+            'handlers': ['console'],
             'level': 'DEBUG',
             'propagate': False
         },
