@@ -309,6 +309,8 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 MERCHANT_TEST_MODE = True         # Toggle for live transactions
+if 'MERCHANT_TEST_MODE' in os.environ:
+    MERCHANT_TEST_MODE = (os.environ['MERCHANT_TEST_MODE'].lower() != 'false')
 MERCHANT_SETTINGS = {
     "authorize_net": {
         "LOGIN_ID" : "986FnPdX4Gz3",
