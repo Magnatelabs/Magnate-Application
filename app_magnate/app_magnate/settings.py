@@ -18,15 +18,15 @@ AUTH_USER_MODEL = 'auth.User'
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.mysql",
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
 #        "NAME": "app_magnatedb",
 #        "NAME": "new_magnatedbv2", 
 #        "NAME": "what_magnatedb",
-        "NAME": "what_magnatedbv3",
-        "USER": "root",
-        "PASSWORD": "",
-        "HOST": "",
-        "PORT": "",
+        "NAME": "mydb",
+        "USER": "user",
+        "PASSWORD": "12345",
+        "HOST": "localhost",
+        "PORT": "5432",
     }
 }
 
