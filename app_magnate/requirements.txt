@@ -15,6 +15,7 @@ django-tagging==0.3.1
 django-test-exclude==0.1.0
 django-waitinglist==1.0b10
 django-xmlrpc==0.1.5
+dj-database-url==0.3.0
 eventlog==0.6.2
 metron==1.1
 mock==1.0.1
