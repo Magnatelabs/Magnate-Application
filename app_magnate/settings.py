@@ -43,7 +43,7 @@ if 'test' in sys.argv or 'test_coverage' in sys.argv: #Covers regular testing an
     TESTING=True
     DATABASES['default'] = {
         'ENGINE': 'django.db.backends.sqlite3',
-        'TEST_NAME': os.path.join(os.path.dirname(__file__), 'test.db'),
+#        'TEST_NAME': os.path.join(os.path.dirname(__file__), 'test.db'),
 #        'NAME': 'mytestdatabase',
     }
 
