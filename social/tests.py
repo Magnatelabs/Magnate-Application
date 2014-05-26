@@ -184,7 +184,10 @@ class SimpleTest(TestCase):
         self.assertTrue('update_html' in resp_data)
         # the html should send something about unliking, since the user has just liked it
         # We expect resp_data["update_html"] to be like {"div-like-17": "<div id=div-like-17><input type=\"Button\" id=\"like-17\" value=\"Unlike it (1)\" style=\"float: right\" onClick=\"on_click_like_entry(17, this.id)\" /> </div>"}
-        self.assertTrue('unlike' in str(resp_data['update_html']).lower())
+
+        # If the text on the buttons is ever changed in social/templatetags,
+        # change it here accordingly to 'unlike', 'unmark', or whatever
+        self.assertTrue('unmark' in str(resp_data['update_html']).lower())
 
 
 
