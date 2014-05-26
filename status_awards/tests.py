@@ -27,9 +27,9 @@ class BadgeAwardTestCase(TestCase):
 
         # A new Entry should have been created for this BadgeAward
         entry = ba.entry
-        self.assertEquals(entry.title, "You have a new brabeion.models.BadgeAward")
+        self.assertEquals(entry.title, "You have just won a new badge!")
         self.assertEqual(entry.slug, "badge-1")
-        self.assertEqual(entry.content, 'Fantastic! You have just been awarded a Badge Salsa! ... <p> The best badge ever')
+        self.assertEqual(entry.content, 'Fantastic! You have just been awarded the Salsa! ... <p> The best badge ever')
 
     def test_metabadge(self):
         user=User(username='she', password='is here')
