@@ -16,8 +16,11 @@ MANAGERS = ADMINS
 
 AUTH_USER_MODEL = 'auth.User'
 
+
+import dj_database_url # heroku, postgresql
 DATABASES = {
-    "default": {
+    "default": dj_database_url.config(),
+    "local": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
 #        "NAME": "app_magnatedb",
 #        "NAME": "new_magnatedbv2", 
@@ -29,6 +32,8 @@ DATABASES = {
         "PORT": "5432",
     }
 }
+if not 'DATABASE_URL' in os.environ: # fall back
+    DATABASES['default'] = DATABASES['local']
 
 # Always run tests with sqlite3 so it does not take forever.
 # http://stackoverflow.com/questions/6353124/running-django-tests-with-sqlite
