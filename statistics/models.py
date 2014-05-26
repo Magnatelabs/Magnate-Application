@@ -14,8 +14,11 @@ class PlatformStatistics (models.Model):
 
 
 def get_stat(stat_name):   # FIXME: make sure works properly when does not exist
-    return PlatformStatistics.objects.get(stat_name=stat_name).value
-
+    try:
+        return PlatformStatistics.objects.get(stat_name=stat_name).value
+    except PlatformStatistics.DoesNotExist:
+        return None
+        
 def set_stat(stat_name, value):
     try:
         s = PlatformStatistics.objects.get(stat_name=stat_name)
