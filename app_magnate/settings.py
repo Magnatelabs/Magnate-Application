@@ -313,9 +313,9 @@ if 'MERCHANT_TEST_MODE' in os.environ:
     MERCHANT_TEST_MODE = (os.environ['MERCHANT_TEST_MODE'].lower() != 'false')
 MERCHANT_SETTINGS = {
     "authorize_net": {
-        "LOGIN_ID" : "986FnPdX4Gz3",
-        "TRANSACTION_KEY" : "898btjU9L9yUr4N3",
-        "MD5_HASH": "djsiojfeoiejfoi",
+        "LOGIN_ID" : os.environ.get('AUTHORIZE_NET_LOGIN_ID', '986FnPdX4Gz3'),
+        "TRANSACTION_KEY" : os.environ.get('AUTHORIZE_NET_TRANSACTION_KEY', '898btjU9L9yUr4N3'),
+        "MD5_HASH": os.environ.get('AUTHORIZE_NET_MD5_HASH', 'djsiojfeoiejfoi'),
     }
 }
 
