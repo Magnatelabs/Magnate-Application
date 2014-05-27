@@ -202,6 +202,15 @@ INSTALLED_APPS = [
 TEST_RUNNER = 'django_test_exclude.runners.ExcludeTestSuiteRunner'
 TEST_EXCLUDE=[ "django.contrib", "zinnia", "account", "waitinglist", "brabeion", "analytical" ]
 
+
+# Disable Django caching for now. Note that django-avatar uses django caching to cache the avatars.
+# Do not keep the local memory cache, as it is unique for each process, thus might be switching back and forth between the old and the new avatars...
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
+    }
+}
+
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
 # the site admins on every HTTP 500 error when DEBUG=False.
