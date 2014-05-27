@@ -62,6 +62,8 @@ class AuthorizeNetDpmIntegration(Integration):
         hash_str = "%s%s%s%s" % (md5_hash, login_id,
                                  data.get("x_trans_id", ""),
                                  data.get("x_amount", ""))
+        if not 'x_MD5_Hash' in data:
+            return False
         return hashlib.md5(hash_str).hexdigest() == data.get("x_MD5_Hash").lower()
 
     @csrf_exempt_m
