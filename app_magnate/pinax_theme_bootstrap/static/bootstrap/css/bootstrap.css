@@ -747,7 +747,7 @@ h6 small {  font-weight: normal;  line-height: 1;  color: #999999;}
 h1,
 h2,
 h3 {  line-height: 40px;}
-h1 {  font-size: 38.5px;}
+h1 {  font-size: 38.5px; font-weight: 200; }
 h2 {font-size: 31.5px;}
 h3 { font-size: 24.5px;}
 h4 {  font-size: 17.5px;}
@@ -6494,7 +6494,7 @@ color: #817d8e;}
 .order-left .btn-gray { width:120px; height:50px; line-height:50px; color:#ffffff; margin-left: 20px;}
 .order-left aside{ width:62.52%; float:left; padding:0 37.5% 15px 0}
 .order-left .amount-info{ width:97%; padding:0 3% 50px 0}
-.order-left .amount-info h3{ font-family:"helveticaneuemedium", Arial, Helvetica, sans-serif; font-size:20px; color:#4d4c4b; padding-bottom:25px}
+.order-left .amount-info h3{ font-family:"Helvetica Neue", Arial, Helvetica, sans-serif; font-size:20px; color:#4d4c4b; padding-bottom:25px}
 .order-left .amount-info ul{ width:100%; float:left; font-size:30px; -webkit-padding-start: 0px; list-style-type: none; -webkit-margin-before: 0em; -webkit-margin-after: 0em;}
 .order-left .amount-info ul li{ width:100%; float:left; no-repeat 19px 21px; }
 .order-left .amount-info ul li p{ width:87.73%; float:left; no-repeat 19px 21px; font-size: 30px; }
@@ -6727,7 +6727,31 @@ Countdown
 .countdown-period {display: block;}
 .countdown-descr {display: block; width: 100%;}
 
-
+/*----------------------------------------------------------------------------------------------------
+Rewards
+----------------------------------------------------------------------------------------------------*/
+.rewards_header {background: #c1bfd0;}
+#reward_up {padding-bottom: 0px; font-weight: normal; }
+.order-left .order-left_header { width: 90%; margin-bottom: 13px; padding-top: 20px; padding-left: 20px; }
+.eventborder {width: 100%; height: 5px; float: left; background: #a6c987; border-radius: 2px; behavior: position: relative;}
+.order-left article { width: 100%; float: left; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; padding: 0 0 0 45px;}
+.order-left article h2 { font-weight: normal; color: #4d4c4b; padding-bottom: 0px; }
+.order-left article aside { width: 90%; float: left; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; padding: 0 0 33px 40px; }
+.order-left article aside h3 { font-size: 18px; line-height: 10px; color: #4d4c4b; }
+.order-left article aside p { margin: 0px; }
+.order-left article aside .btn-more {display: inline-block; padding: 0 10px; float: left; height: 26px; font-size: 12px; line-height: 26px; font-family: "Helvetica Neue",Arial, Helvetica, sans-serif; color: #313131; text-align: center; text-shadow: none; vertical-align: middle; cursor: pointer; background: #e4e4e4; background: -moz-linear-gradient(#e8e8e8, #dedede); background: -webkit-gradient(linear, left top, left bottom, from(#e8e8e8), to(#dedede)); background: -o-linear-gradient(#e8e8e8, #dedede); -pie-background: linear-gradient(#e8e8e8, #dedede); border: 1px solid #9f9f9e; text-decoration: none; border-radius: 4px; behavior: url(PIE.htc); position: relative; }
+.btm_eventborder {width: 100%; height: 2px; float: left; background: #a6c987; border-radius: 2px; behavior: position: relative;}
+.order-bottom {width: 100%; float: left; display: inline;}
+#reward_bottom {padding-bottom: 0px; font-weight: normal; font-size: 16px; margin: 0px; padding-top: 60px; line-height: 30px; }
+.order-bottom article { width: 100%; float: left; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; padding: 0 0 0 45px;}
+.order-bottom article h2 { font-size: 20px; font-weight: normal; color: #4d4c4b; padding-bottom: 0px; }
+.order-bottom article aside { width: 90%; float: left; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; padding: 0 0 33px 0px; }
+.order-bottom article aside .past-img { width: 35%; float: left; padding-right: 10px; }
+.order-bottom article aside .past-text { width: 90%; }
+.order-bottom article aside h3 { font-size: 18px; line-height: 10px; color: #4d4c4b; }
+.order-bottom article aside p { margin: 0px; }
+.rewardfund {width: 240px; }
+.rewardslct article {padding: 32px 14.6% 20px 7.6%;}
 
 
 /* Not in use, but will be soon
