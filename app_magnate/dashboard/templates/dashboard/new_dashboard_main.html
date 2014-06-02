@@ -1,0 +1,122 @@
+{% extends "site_base.html" %}
+{% load staticfiles %}
+{% load social_tags %}
+
+{% block style_base %}
+    {{ block.super }}
+    <link href="{% static "fyneworks_star_rating/jquery.rating.css" %}" type="text/css" rel="stylesheet"/>
+
+{% endblock %}
+
+{% block body %}
+
+<div class="dash_grid">
+    <div class="inner_dashcontent">
+    	<div class="section1 section3">
+    		<div class="bgprofileinfo">
+    		
+    		{% comment %} ALL DASHBOARD CONTENT GOES HERE {% endcomment %}
+    		
+    		{% comment %} Header: user avatar, user name, status, badges, total current donation, etc. 
+    		(This is NOT the topbar where you can log out. This is the top bar of the dashboard. {% endcomment %} 
+	    	
+			{% if request.user.is_authenticated %}
+		    {% include "dashboard/_user_breakdown.html" %}    
+	    	{% endif %}
+		
+	    	
+			<div class="article-info">
+        
+				<div class="dash_row">
+					{% comment %} This icon is totally out of place here, but removing it screws the formatting.
+					TODO: fix it, or at the very least replace the icon with a white image ;-) {% endcomment %}
+					<div class="icon"><img src="{% static "img/img_icon00.png" %}" alt="ICON"></div>
+        
+					<article>
+					<!-- Zinnia content -->
+					{% block content %}
+					{% endblock %}
+					
+				</div>
+			</div>   
+			
+			
+			
+			{% if request.user.is_authenticated %}
+			{% comment %} The vertical stripe on the right with various widgets {% endcomment %}
+			<div class="whatcoming donate-right">
+				{% render_star_rating request.user %}
+				
+				<article class="bg-pink">
+					<aside>
+						<h4>Spread the wealth</h4>
+						<div class="icon"><a href="#"><img src="{% static "img/img_icon20.png" %}" alt="ICON"></a></div>
+						<div class="info">
+							<p><a href="#">Share Magnate</a> via your favorite social networks, and get cash bonuses for doing so!</p>
+						</div>
+					</aside>
+				</article>
+              
+				{% include "dashboard/_user_sourcing.html" %} 
+
+				<article class="bg-skyblue">
+					<aside>
+						<h4>Really, stay in touch</h4>
+						<div class="icon"><a href="#"><img src="{% static "img/img_icon07.png" %}" alt="ICON"></a></div>
+						<div class="info">
+							<p>Check us out on <a href="#">Facebook</a>, and tell us what’s on your mind.</p>
+						</div>
+					</aside>
+					<div class="endicon"><img src="{% static "img/img_icon09.png" %}" alt="ICON"></div>
+				</article> 
+			</div> <!-- whatcoming donate-right -->
+			{% endif %}
+			</div> 
+		</div> 
+    </div> 
+
+
+{% endblock %}
+{% block script_base %}
+{{ block.super }}
+
+
+<script type="text/javascript">
+
+  // User liked a post. 
+  function on_click_like_entry(clicked_id, clicked_dom_id) {
+      $.ajax({
+           type: "POST",
+           url:  "{% url 'ajax_like_entry' %}",
+           data: { 'entry_id': clicked_id,
+                   'csrfmiddlewaretoken': '{{csrf_token}}'},
+           dataType: "text",
+           success: function(response) { 
+               // Like went through!
+               var resp = JSON.parse(response);
+               // response has a section new_html
+               // This is a dictionary of the form { dom_id : new_html }
+               // The new_html has to be inserted into the div (p, etc.) specified by the id
+               $.each(resp.update_html, function(dom_id, new_html) {
+                   $('#'+dom_id).html(new_html);
+               })
+               $('#div-'+clicked_dom_id).html(resp.new_html);               
+//               alert(resp.message);
+//               $('#'+clicked_dom_id).text("cool");
+               //$('#'+clicked_dom_id).attr("disabled", resp.liked);
+//               $('#'+clicked_dom_id).attr("value", "Unlike");
+//               toggleLike(clicked_dom_id, !resp.liked, " ("+resp.total_likes+")");
+           }, error: function(rs, e) {
+              alert(rs.responseText);
+           }
+      });
+  }
+
+</script> 
+
+{% comment %}
+Short polling. Poll the server every once in a while to see if there is a new article, new badge, new private message, etc., so we can display those even if the user does not refresh a page. 
+{% endcomment %}
+<script type="text/javascript" src="{% static "js/receive_updates.js" %}"></script>
+
+{% endblock %} 
