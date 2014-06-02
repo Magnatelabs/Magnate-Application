@@ -118,3 +118,6 @@ def receive_updates_api(request):
 
 
     return HttpResponse(simplejson.dumps(vars), mimetype='application/javascript')
+
+def new_dashboard_index(request):
+    return render(request, 'dashboard/new_dashboard_main.html')
