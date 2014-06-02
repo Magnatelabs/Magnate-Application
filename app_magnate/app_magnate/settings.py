@@ -193,6 +193,7 @@ INSTALLED_APPS = [
     "bonus_awards",
     "study",
     "statistics",
+    "rewards",
 ]
 
 TEST_RUNNER = 'django_test_exclude.runners.ExcludeTestSuiteRunner'
