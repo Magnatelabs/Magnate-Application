@@ -6,108 +6,6 @@
  ========================================================================*/
 	
 	
-    .btn {
-      display: inline-block;
-      *display: inline;
-      padding:0;
-      float:left;
-	  width:154px;
-      height:56px;
-      margin-bottom: 0;
-      *margin-left: .3em;
-      font-size: 20px;
-      line-height: 56px;
-      font-family:"helveticaneuelight",Arial, Helvetica, sans-serif;
-      color: #FFFFFF;
-      text-align: center;
-      text-shadow:none;
-      vertical-align: middle;
-      cursor: pointer;
-      background:#80bc46;
-	  background:-moz-linear-gradient(#8ebc60, #72bb2b); 
-      background: -webkit-gradient(linear, left top, left bottom, from(#8ebc60), to(#72bb2b));
-      background: -o-linear-gradient(#8ebc60, #72bb2b);
-	  -pie-background: linear-gradient(#8ebc60, #72bb2b);
-	  border:none;
-	  text-decoration:none;
-	  box-shadow: #393128 0 1px 3px;
-	  border-radius:6px; 
-	  behavior: url(PIE.htc); 
-	  position:relative
-    }
-    
-    .btn:hover,
-    .btn:active,
-    .btn.active,
-    .btn.disabled,
-    .btn[disabled] {
-      background:#80bc46;
-	  background:-moz-linear-gradient(#8ebc60, #8ebc60); 
-      background: -webkit-gradient(linear, left top, left bottom, from(#8ebc60), to(#8ebc60));
-      background: -o-linear-gradient(#8ebc60, #8ebc60);
-	  -pie-background: linear-gradient(#8ebc60, #8ebc60);
-    }
-    
-    .btn:active,
-    .btn.active {
-      background:#80bc46;
-	  background:-moz-linear-gradient(#8ebc60, #72bb2b); 
-      background: -webkit-gradient(linear, left top, left bottom, from(#8ebc60), to(#72bb2b));
-      background: -o-linear-gradient(#8ebc60, #72bb2b);
-	  -pie-background: linear-gradient(#8ebc60, #72bb2b);
-	  box-shadow: inset #5a872e 0 2px 3px, #393128 0 1px 3px;
-    }
-    
-    .btn:first-child {
-      *margin-left: 0;
-    }
-    
-    .btn:hover {
-      color: #FFFFFF;
-      text-decoration: none;
-      background:#80bc46;
-	  background:-moz-linear-gradient(#8ebc60, #8ebc60); 
-      background: -webkit-gradient(linear, left top, left bottom, from(#8ebc60), to(#8ebc60));
-      background: -o-linear-gradient(#8ebc60, #8ebc60);
-	  -pie-background: linear-gradient(#8ebc60, #8ebc60);
-      /* Buttons in IE7 don't get borders, so darken on hover */
-    
-      -webkit-transition: background-position 0.1s linear;
-         -moz-transition: background-position 0.1s linear;
-          -ms-transition: background-position 0.1s linear;
-           -o-transition: background-position 0.1s linear;
-              transition: background-position 0.1s linear;
-    }
-    
-    .btn:focus {
-      outline:0;
-      outline: 0;
-      outline-offset: 0;
-    }
-    
-    .btn.active,
-    .btn:active {
-      background:#80bc46;
-	  background:-moz-linear-gradient(#8ebc60, #72bb2b); 
-      background: -webkit-gradient(linear, left top, left bottom, from(#8ebc60), to(#72bb2b));
-      background: -o-linear-gradient(#8ebc60, #72bb2b);
-	  -pie-background: linear-gradient(#8ebc60, #72bb2b);
-      outline: 0;
-      box-shadow: inset #5a872e 0 2px 3px, #393128 0 1px 3px;
-    }
-    
-    .btn.disabled,
-    .btn[disabled] {
-      cursor: default;
-      background-color: #e6e6e6;
-      background-image: none;
-      opacity: 0.65;
-      filter: alpha(opacity=65);
-      -webkit-box-shadow: none;
-         -moz-box-shadow: none;
-              box-shadow: none;
-    }
-	
 	.btn-gray {
       display: inline-block;
       *display: inline;
@@ -438,6 +336,106 @@
 		text-indent: 12px;
 	}
 	
+		.btn-more2 {
+      display: inline-block;
+      *display: inline;
+      padding:0 10px;
+	  margin-left:10px;
+      float: left;
+      height:26px;
+      font-size: 10px;
+      line-height: 26px;
+      font-family:"Helvetica Neue",Arial, Helvetica, sans-serif;
+      color: #FFFFFF;
+      text-align: center;
+      text-shadow:none;
+      vertical-align: middle;
+      cursor: pointer;
+      background:#313131;
+	  background:-moz-linear-gradient(#313131, #313131); 
+      background: -webkit-gradient(linear, left top, left bottom, from(#313131), to(#313131));
+      background: -o-linear-gradient(#313131, #313131);
+	  -pie-background: linear-gradient(#313131, #313131);
+	  box-shadow: #575f4a 0 0 2px;
+	  border:none;
+	  text-decoration:none;
+	  border-radius:4px; 
+	  behavior: url(PIE.htc); 
+	  position:relative;
+    }
+
+    .btn-more2.first { 
+ 	  margin-left:0
+	}
+    
+    .btn-more2:hover,
+    .btn-more2:active,
+    .btn-more2.active,
+    .btn-more2.disabled,
+    .btn-more2[disabled] {
+      background:#313131;
+	  background:-moz-linear-gradient(#403e3e, #403e3e); 
+      background: -webkit-gradient(linear, left top, left bottom, from(#403e3e), to(#403e3e));
+      background: -o-linear-gradient(#403e3e, #403e3e);
+	  -pie-background: linear-gradient(#403e3e, #403e3e);
+    }
+    
+    .btn-more2:active,
+    .btn-more2.active {
+      background:#313131;
+	  background:-moz-linear-gradient(#313131, #313131); 
+      background: -webkit-gradient(linear, left top, left bottom, from(#313131), to(#313131));
+      background: -o-linear-gradient(#313131, #313131);
+	  -pie-background: linear-gradient(#313131, #313131);
+    }
+        
+    .btn-more2:hover {
+      color: #FFFFFF;
+      text-decoration: none;
+      background:#313131;
+	  background:-moz-linear-gradient(#403e3e, #403e3e); 
+      background: -webkit-gradient(linear, left top, left bottom, from(#403e3e), to(#403e3e));
+      background: -o-linear-gradient(#403e3e, #403e3e);
+	  -pie-background: linear-gradient(#403e3e, #403e3e);
+      /* Buttons in IE7 don't get borders, so darken on hover */
+    
+      -webkit-transition: background-position 0.1s linear;
+         -moz-transition: background-position 0.1s linear;
+          -ms-transition: background-position 0.1s linear;
+           -o-transition: background-position 0.1s linear;
+              transition: background-position 0.1s linear;
+    }
+    
+    .btn-more2:focus {
+      outline:0;
+      outline: 0;
+      outline-offset: 0;
+    }
+	    
+    .btn-more2.active,
+    .btn-more2:active {
+      background:#313131;
+	  background:-moz-linear-gradient(#313131, #313131); 
+      background: -webkit-gradient(linear, left top, left bottom, from(#313131), to(#313131));
+      background: -o-linear-gradient(#313131, #313131);
+	  -pie-background: linear-gradient(#313131, #313131);
+      outline: 0;
+      -webkit-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+         -moz-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+              box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+    }
+    
+    .btn-more2.disabled,
+    .btn-more2[disabled] {
+      cursor: default;
+      background-color: #e6e6e6;
+      background-image: none;
+      opacity: 0.65;
+      filter: alpha(opacity=65);
+      -webkit-box-shadow: none;
+         -moz-box-shadow: none;
+              box-shadow: none;
+    }
 	
 	
 	/*=====================================================================
