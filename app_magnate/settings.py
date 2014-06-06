@@ -17,10 +17,6 @@ MANAGERS = ADMINS
 AUTH_USER_MODEL = 'auth.User'
 
 
-import dj_database_url # heroku, postgresql
-DATABASES = {
-    "default": dj_database_url.config(),
-}
 if not 'DATABASE_URL' in os.environ: # fall back on local
     DATABASES = {
         "default": {
@@ -31,6 +27,11 @@ if not 'DATABASE_URL' in os.environ: # fall back on local
             "HOST": "localhost",
             "PORT": "5432",
         }
+    }
+else:
+    import dj_database_url # heroku, postgresql
+    DATABASES = {
+        "default": dj_database_url.config(),
     }
 
 
