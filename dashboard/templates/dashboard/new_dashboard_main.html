@@ -1,0 +1,169 @@
+{% extends "site_base.html" %}
+{% load staticfiles %}
+{% load social_tags %}
+
+{% block style_base %}
+	<link href="{% static "css/ui.css" %}" rel="stylesheet">	
+{{ block.super }}
+{% endblock %} 
+
+{% block body %}
+
+<div class="dash_grid">
+    <div class="inner_dashcontent">
+    	<div class="section1 section3">
+        	<div class="user_breakdown">
+			<div class="ub_statusinfo">
+			<p>Current Status <br /> <span>Lurker</span></p>
+			<figure>
+			<img src="{% static "img/status_test.jpg" %}" alt="PHOTO" />
+			<span class="icon-plus">+</span>
+			</figure>
+			</div>
+
+			<div class="ub_tabcontent">
+			<div class="ub_tablinks">
+			<ul class="idTabs">
+			<li><a href="#mpd-fund">MPD Fund</a></li>
+			<li><a href="#mms-fund">MMS Fund</a></li>
+			</ul>
+			</div>
+        
+			<div class="ub_tabbox">
+			<div id="mpd-fund">
+			<article>
+			<p>Total Amount in Fund</p>
+			<h2><sup>$</sup>98,000.00</h2>
+			<div class="btn-middle"><a href="#" class="btn dashbtn_fix">Learn more</a></div>
+			</article>        
+			<aside>
+			<p>You are not currently participating in this fund </p>
+			<p><a href="#">Add more to the fund</a></p>
+			</aside>
+			</div>
+        
+			<div id="mms-fund">
+			<article>
+			<p>Total Amount in Fund</p>
+			<h2><sup>$</sup>72,000.00</h2>
+			<div class="btn-middle"><a href="#" class="btn dashbtn_fix">Learn more</a></div>
+			</article>      
+			<aside>
+			<p>You are not currently participating in this fund </p>
+			<p><a href="#">Add more to the fund</a></p>
+			</aside>
+			</div>        
+			</div>
+        </div>
+        
+        <div class="ub_otheractions">
+        <aside>
+        <p>Found a cool startup?  <br /> Make sure to <span><a href="#">tell us</a></span> about it!</p>
+        </aside>
+        
+        <aside class="blue_feedback">
+        <p>Want to leave us feedback? <br /> Check out the <span><a href="#">platform</a></span> page!</p>
+        </aside>
+        
+        <aside class="gray_news">
+        <p>Want to spread the good news? <br /> Send an <span><a href="#">Invitation</a></span> to a friend!</p>
+        </aside>
+        </div>
+        </div>
+        
+        
+        <div class="hangouts_dropdown">
+        <a href="#" class="icon-close">Close</a>
+        <aside>
+        <h2><span>New Magnate</span> Hangout</h2>
+        </aside>
+        
+        <figure><a href="#"><img src="{% static "img/dash_hangoutstest.jpg" %}" alt="PHOTO" /></a></figure>
+        
+        <aside>
+        <h2><span>Review Details</span></h2>
+        <div class="btn-middle"><a href="#" class="btn dashbtn_fix">Hangouts Home</a></div>
+        </aside>
+        </div>
+        
+        <div class="section6-bg">
+        <div class="section6">
+        <div class="dash_zinniafeed">
+        <div class="fund-feed">
+        <article>
+        <aside id="dot1">
+        <div class="icon"><a href="#"><img src="{% static "img/img_icon18.png" %}" alt="Trending icon" /></a></div>
+        <h4><a href="#">Lorem ipsum dolor sit amet, consectetuer adpisicing elit, sed do esti</a></h4>
+        <p>This is just another piece of content that represents activity in the Magnate Fund. It will become active upon selection, 
+displaying a list of questions associa... </p>
+		</aside>
+		</article>
+        
+        <article>
+        <aside id="dot2">
+        <div class="icon"><a href="#"><img src="{% static "img/img_icon19.png" %}" alt="$" /></a></div>
+        <h4><a href="#">Lorem ipsum dolor sit amet, consectetuer adpisicing elit, sed do esti</a></h4>
+        <p>This is just another piece of content that represents activity in the Magnate Fund. It will become active upon selection, 
+displaying a list of questions associa... </p>
+		</aside>
+		</article>
+        
+        <article class="article-active">
+        <h3><span>Fund</span>Feed</h3>
+        <figure><a href="#"><img src="{% static "img/fundfeed_test.jpg" %}" alt="PHOTO" /></a></figure>
+        
+        <aside>
+        <div class="icon"><a href="#"><img src="{% static "img/img_icon16.png" %}" alt="Category Icon" /></a></div>
+        <h4><a href="#">Magnate makes an investment in San Francisco real estate!</a></h4>
+        
+        <a href="#" class="btn-more2 first">Read more</a>
+        <a href="#" class="btn-more2">Ask Question</a>		
+        </aside>
+		</article>
+                
+        <article>
+        <aside id="dot3">
+        <div class="icon"><a href="#"><img src="{% static "img/img_icon17.png" %}" alt="Alert icon" /></a></div>
+        <h4><a href="#">Lorem ipsum dolor sit amet, consectetuer adpisicing elit, sed do esti</a></h4>
+        <p>This is just another piece of content that represents activity in the Magnate Fund. It will become active upon selection, 
+displaying a list of questions associa... </p>
+		</aside>
+		</article>
+        
+        <article>
+        <aside id="dot4">
+        <div class="icon"><a href="#"><img src="{% static "img/img_icon18.png" %}" alt="Trending icon" /></a></div>
+        <h4><a href="#">Lorem ipsum dolor sit amet, consectetuer adpisicing elit, sed do esti</a></h4>
+        <p>This is just another piece of content that represents activity in the Magnate Fund. It will become active upon selection, 
+displaying a list of questions associa... </p>
+		</aside>
+		</article>
+        
+        <div class="btn-bg">
+        <div class="btn-middle">
+        <a href="#" class="btn dashbtn_fix">Show more</a>
+        </div>
+        </div>
+        </div>
+        </div>
+        
+        </div>
+        </div>
+      </div>
+    </div><!-- contentinner -->
+    </div><!-- grid_16 -->
+
+{% endblock %}
+{% block script_base %}
+{{ block.super }}
+
+{% comment %}
+Removed the raty javascript from this page. It is now going to be needed on another.
+
+Short polling. Poll the server every once in a while to see if there is a new article, new badge, new private message, etc., so we can display those even if the user does not refresh a page. 
+{% endcomment %}
+
+<script src="{% static "js/jquery.idTabs.js" %}"></script> 
+<script type="text/javascript" src="{% static "js/receive_updates.js" %}"></script>
+
+{% endblock %} 

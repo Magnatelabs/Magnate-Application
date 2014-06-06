@@ -11,5 +11,6 @@ admin.autodiscover()
 urlpatterns = patterns("",
   url(r"^dashboard/$", DashboardView.as_view(), name="dashboard"),
   url(r"updates/$", "dashboard.views.receive_updates_api", name="receive_updates_api"),
-  url(r"^user_badges/$", "dashboard.views.user_badges", name="user_badges")
+  url(r"^user_badges/$", "dashboard.views.user_badges", name="user_badges"),
+  url(r"^new_dash/$", "dashboard.views.new_dashboard_index", name="super_dash"),
 )
