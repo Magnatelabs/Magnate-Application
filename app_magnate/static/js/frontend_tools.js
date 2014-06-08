@@ -39,3 +39,25 @@ function autosize_font ( i, box ) {
 }
  
 //$( '.dollar' ).each(autosize_font);
+
+
+/*  OTHER JAVASCRIPT FOR DASHBOARD NAVIGATION, ETC. */
+
+function toggleArticleActive(article_dom_id, is_active) {
+  if (is_active) { // deactivate all that are active
+    $('.article-active').each(function(index, value) {
+      toggleArticleActive($(this).attr('id'), false);
+    });
+  }
+
+  var a = $('#' + article_dom_id);
+  a.attr("class", is_active ? "article-active" : "");
+
+  if (is_active) {
+    a.find(".show-when-article-active").show(); // can animate, e.g. show('slow')
+    a.find(".show-when-article-not-active").hide();
+  } else {
+    a.find(".show-when-article-active").hide();
+    a.find(".show-when-article-not-active").show();
+  }
+}
