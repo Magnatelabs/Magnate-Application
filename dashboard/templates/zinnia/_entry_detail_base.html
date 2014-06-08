@@ -1,0 +1,15 @@
+{% load staticfiles %}
+       <article   id="entry-{{ object.pk }}" onclick="toggleArticleActive('entry-{{ object.pk }}', true);">
+        <aside id="dot2">
+
+  {% block entry-header %}
+  {% endblock %}
+  {% block entry-image %}
+  {% endblock %}
+  {% block entry-title %}
+  {% endblock %}
+  {% block entry-content %}
+  {% endblock %}
+
+                </aside>
+                </article>
