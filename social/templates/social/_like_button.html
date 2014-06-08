@@ -1,0 +1,8 @@
+
+<div class="likebtn" id={{ div_dom_id }}><input type="Button" id="{{ dom_id }}" value="{{ button_text }}" style="float: right" 
+{% if user.is_authenticated %}
+onClick="on_click_like_entry({{ entry_id }}, this.id)"
+{% else %}
+onClick="alert('Please, log in to like or unlike posts')"
+{% endif %}
+/></div>

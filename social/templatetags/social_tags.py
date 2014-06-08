@@ -21,12 +21,8 @@ def like_entry_button(entry_id, user): # entry_id is an integer
     total_likes = total_entry_likes(entry) # total number of users who like it
     button_text=['Mark', 'Unmark'][user_likes_entry] + (' (%d)' % (total_likes))
 
-    if user.is_authenticated():
-        on_click='on_click_like_entry(%d, this.id)' % (entry_id)
-    else:
-        on_click='alert(\'Please, log in to like or unlike posts\')'
-    return '<div class="likebtn" id=%s><input type="Button" id="%s" value="%s" style="float: right" onClick="%s" /></div>' % (div_dom_id, dom_id, button_text, on_click)
-
+    ctx = {'div_dom_id': div_dom_id, 'dom_id': dom_id, 'button_text': button_text, 'entry_id': entry_id, 'user': user}
+    return render_to_string('social/_like_button.html', ctx)
 
 # Need context to create csrf token
 @register.simple_tag(takes_context = True)
