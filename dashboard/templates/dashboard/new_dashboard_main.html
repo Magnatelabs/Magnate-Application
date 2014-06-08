@@ -110,7 +110,7 @@ displaying a list of questions associa... </p>
 		</aside>
 		</article>
         
-        <article class="article-active">
+        <article class="NO-article-active">
         <h3><span>Fund</span>Feed</h3>
         <figure><a href="#"><img src="{% static "img/fundfeed_test.jpg" %}" alt="PHOTO" /></a></figure>
         
@@ -158,6 +158,27 @@ displaying a list of questions associa... </p>
 {% endblock %}
 {% block script_base %}
 {{ block.super }}
+
+<script type="text/javascript">
+function toggleArticleActive(article_dom_id, is_active) {
+  if (is_active) { // deactivate all that are active
+    $('.article-active').each(function(index, value) {
+      toggleArticleActive($(this).attr('id'), false);
+    });
+  }
+
+  var a = $('#' + article_dom_id);
+  a.attr("class", is_active ? "article-active" : "");
+
+  if (is_active) {
+    a.find(".show-when-article-active").show(); // can animate, e.g. show('slow')
+    a.find(".show-when-article-not-active").hide();
+  } else {
+    a.find(".show-when-article-active").hide();
+    a.find(".show-when-article-not-active").show();
+  }
+}
+</script>
 
 {% comment %}
 Removed the raty javascript from this page. It is now going to be needed on another.
