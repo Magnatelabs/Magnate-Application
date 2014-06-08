@@ -89,8 +89,7 @@
       </div>
 	{% else %}
         <span class="show-when-article-active">
-        <a href="#"><figure><img src="{% static "img/fundfeed_test.jpg" %}" alt=
-"PHOTO" /></figure></a>
+        <a href="{{ object.get_absolute_url }}"><figure><img id="blog-entry-image" src="{% static "img/fundfeed_test.jpg" %}" alt="{{ object.title }}"  /></figure></a>
 	</span>
 	{% endif %}
 {% endblock %}
@@ -100,7 +99,7 @@
 	{% if continue_reading %}
 	  <span class="show-when-article-not-active"><p>{{ object_content }}</p></span>
 	  <span class="show-when-article-active">
-	    <a href="#" class="btn-more2 first">Read more</a>
+	    <a href="{{ object.get_absolute_url }}" class="btn-more2 first">Read more</a>
             <a href="#" class="btn-more2">Ask Question</a>   
 	  </span>
 	{% else %}
