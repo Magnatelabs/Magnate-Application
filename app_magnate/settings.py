@@ -21,11 +21,11 @@ if not 'DATABASE_URL' in os.environ: # fall back on local
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.postgresql_psycopg2",
-            "NAME": "mydb",
-            "USER": "user",
-            "PASSWORD": "12345",
-            "HOST": "localhost",
-            "PORT": "5432",
+            "NAME": "magnate",
+            "USER": "sergey",
+            "PASSWORD": "",
+            "HOST": "",
+            "PORT": "",
         }
     }
 else:
@@ -198,6 +198,7 @@ INSTALLED_APPS = [
     "bonus_awards",
     "study",
     "statistics",
+    "rewards",
 ]
 
 TEST_RUNNER = 'django_test_exclude.runners.ExcludeTestSuiteRunner'
