@@ -1,3 +1,10 @@
+/* Added for the dashboard, so some things in the feed are hidden by default, before we show them with Javascript */
+.show-when-article-active {
+    display:none;
+}
+.show-when-article-not-active {
+    display: visible;
+}
 
 /*=======================================================================
 
