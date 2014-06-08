@@ -1,5 +1,5 @@
 {% load staticfiles %}
-       <article   id="entry-{{ object.pk }}" onclick="toggleArticleActive('entry-{{ object.pk }}', true);">
+       <article   id="entry-{{ object.pk }}" {% if continue_reading %} onclick="toggleArticleActive('entry-{{ object.pk }}', true);" {% endif %}>
         <aside id="dot2">
 
   {% block entry-header %}
