@@ -87,13 +87,15 @@
         </div>
         
         <div class="section6-bg">
-        <div class="section6">
+
 
 	{% comment %}
 	If is_dashboard, then wrap the block content so it goes into the left column. Otherwise it gets all the space.
 	{% endcomment %}
 
 	{% if is_dashboard %}
+	<div class="section6"> {% comment %}section6 is also only for the dashboard mode. We want a pure white screen otherwise{% endcomment %}
+
         <div class="dash_zinniafeed">
         <div class="fund-feed">
   	{% endif %}
@@ -112,10 +114,11 @@
         <div id="div_activity">
 	  Hello, world!
 	</div>
+
+        </div>
 	{% endif %}
 
 
-        </div>
         </div>
       </div>
 
