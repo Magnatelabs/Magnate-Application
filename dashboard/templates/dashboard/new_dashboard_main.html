@@ -88,11 +88,20 @@
         
         <div class="section6-bg">
         <div class="section6">
+
+	{% comment %}
+	If is_dashboard, then wrap the block content so it goes into the left column. Otherwise it gets all the space.
+	{% endcomment %}
+
+	{% if is_dashboard %}
         <div class="dash_zinniafeed">
         <div class="fund-feed">
+  	{% endif %}
+
 	{% block content %}
 	{% endblock %}
-        
+
+        {% if is_dashboard %}
         <div class="btn-bg">
         <div class="btn-middle">
         <a href="#" class="btn dashbtn_fix">Show more</a>
@@ -100,10 +109,16 @@
         </div>
         </div>
         </div>
-        
+        <div id="div_activity">
+	  Hello, world!
+	</div>
+	{% endif %}
+
+
         </div>
         </div>
       </div>
+
     </div><!-- contentinner -->
     </div><!-- grid_16 -->
 
