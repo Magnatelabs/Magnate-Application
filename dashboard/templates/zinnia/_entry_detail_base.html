@@ -10,6 +10,12 @@
   {% endblock %}
   {% block entry-content %}
   {% endblock %}
-
+  {% if not continue_reading %}
+    {% block entry-footer %}
+      {% block entry-tags %}{% endblock %}
+      {% block entry-shorturl %}{% endblock %}
+      {% block entry-comments %}{% endblock %}
+    {% endblock %}
+  {% endif %}
                 </aside>
                 </article>
