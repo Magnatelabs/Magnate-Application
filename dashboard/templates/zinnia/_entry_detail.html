@@ -16,9 +16,28 @@
 
 {% block entry-header %}
 {% if continue_reading %} 
+
+<span class="show-when-article-active">
+   <h3><span>Fund</span>Feed</h3>
+</span>
+        
+
 <!-- Icon of the entry -->
-<img id="feed-entry-icon" src="{{ object.icon_url }}" height="10%" width="10%" style="float: left" />
+<div class="icon">
+<img id="feed-entry-icon" src="{{ object.icon_url }}"   />
+
+		{% if object.is_public %}
+		{% else %}
+			<img id="privatefeed-entry-icon" src="{{ object.private_icon_url }}" style="float: left" />
+		{% endif %}
+
 {{ block.super }}
+
+
+</div>
+
+
+
 {% else %}
 <div class="blog-entry-header">
 {{ block.super }}
@@ -28,23 +47,9 @@
 
 
 {% block entry-title %}
-	{% if continue_reading %}
-    	<div class="entry-title">
-		{% if object.is_public %}
-			{% with authors=object.authors.all %}
-				{% if authors|length %}
-				{% for author in authors %}
-				<p><a href="{{ author.get_absolute_url }}" class="fn url{% if not author.get_full_name %} nickname{% endif %}" rel="author"
-					title="{% blocktrans %}Show all {{ author }}'s entries{% endblocktrans %}">{{ author }}</a> {{ object.title }}</p>{% if 					not forloop.last %}, {% endif %}
-				{% endfor %}
-				{% endif %}
-			{% endwith %}
-		{% else %}
-		<p id="entry-title-text" href="{{ object.get_absolute_url }}" title="{{ object.title }}" rel="bookmark">{{ object.title }}</p>
-		{% endif %}
-		</div>	
-	{% else %}
-   {% endif %}
+  {% if continue_reading %}
+    <h4><a href="{{ object.get_absolute_url }}">{{ object.title }}</a></h4>
+  {% endif %}
 {% endblock %}
 
 
@@ -67,35 +72,37 @@
 {% block entry-image %}
 	{% if object.image %}
       <div class="entry-image">
-        <p>
+        
 <!--      <img src="..." class="entry-image-{{continue_reading}}"   entry-image-0 entry-image-1-->
          {% if continue_reading %}
+          <span class="show-when-article-active">
           <a href="{{ object.get_absolute_url }}" title="{{ object.title }}" rel="bookmark">
-			  <img id="feed-entry-image" src="{{ object.image.url }}" alt="{{ object.title }}" class="left" width="180px" height="120px" />
+			  <figure><img id="feed-entry-image" src="{{ object.image.url }}" alt="{{ object.title }}" class="left"  /></figure>
          </a>
+	  </span>
           {% else %}
           <a href="{{ object.get_absolute_url }}" title="{{ object.title }}" rel="bookmark">
 			  <img id="blog-entry-image" src=" {{ object.image.url }}" alt="{{ object.title }}" class="left" width="100%" height="100%" />
           </a>
           {% endif %}
-        </p>
+        
       </div>
+	{% else %}
+        <span class="show-when-article-active">
+        <a href="#"><figure><img src="{% static "img/fundfeed_test.jpg" %}" alt=
+"PHOTO" /></figure></a>
+	</span>
 	{% endif %}
 {% endblock %}
 
 
 {% block entry-content %}
 	{% if continue_reading %}
-		{% if object.is_public %}
-		    <div class="feedpublic-entry-content">
-				{{ object_content }}
-			</div>
-		{% else %}
-			<img id="privatefeed-entry-icon" src="{{ object.private_icon_url }}" style="float: left" />
-		    <div class="feedprivate-entry-content">
-				{{ object_content }}
-			</div>		
-		{% endif %}
+	  <span class="show-when-article-not-active"><p>{{ object_content }}</p></span>
+	  <span class="show-when-article-active">
+	    <a href="#" class="btn-more2 first">Read more</a>
+            <a href="#" class="btn-more2">Ask Question</a>   
+	  </span>
 	{% else %}
 		{% if object.is_public %}
 			<div class="blogpublic-entry-content">
