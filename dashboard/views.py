@@ -69,6 +69,11 @@ class DashboardView(zinnia.views.archives.EntryIndex):
         # QUESTION: how is it achieved in Zinnia?
         return Entry.private.authorized_or_published(self.request.user)
 
+    def get_context_data(self, **kwargs):
+        context = super(DashboardView, self).get_context_data(**kwargs)
+        context['is_dashboard'] = True
+        return context
+
 
 def dash_confirm_index(request):
     return render(request, 'dashboard/dashboard_confirm.html')
