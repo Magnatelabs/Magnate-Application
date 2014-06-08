@@ -158,10 +158,8 @@
 		{% like_entry_button object.pk request.user %}
 	{% endif %}
 	{% if continue_reading %}
-		{{ block.super }}
-	{% else %}
 		<div class="blog-entry-footer">
-		{{ block.super }}
+		  
 		</div>
 	{% endif %}
 {% endblock %}
