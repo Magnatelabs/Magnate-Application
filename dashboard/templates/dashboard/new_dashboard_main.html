@@ -129,30 +129,7 @@
 {% block script_base %}
 {{ block.super }}
 
-<script type="text/javascript">
-function toggleArticleActive(article_dom_id, is_active) {
-  if (is_active) { // deactivate all that are active
-    $('.article-active').each(function(index, value) {
-      toggleArticleActive($(this).attr('id'), false);
-    });
-  }
-
-  var a = $('#' + article_dom_id);
-  a.attr("class", is_active ? "article-active" : "");
-
-  if (is_active) {
-    a.find(".show-when-article-active").show(); // can animate, e.g. show('slow')
-    a.find(".show-when-article-not-active").hide();
-  } else {
-    a.find(".show-when-article-active").hide();
-    a.find(".show-when-article-not-active").show();
-  }
-}
-</script>
-
 {% comment %}
-Removed the raty javascript from this page. It is now going to be needed on another.
-
 Short polling. Poll the server every once in a while to see if there is a new article, new badge, new private message, etc., so we can display those even if the user does not refresh a page. 
 {% endcomment %}
 
