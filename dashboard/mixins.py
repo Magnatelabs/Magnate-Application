@@ -11,7 +11,7 @@ from django.db import settings
 # The decorated model MUST have a field called "user".
 class PrivatelyPublishedModelMixin(models.Model):
     # Private entry (blog post) noifying the user about a  donation, badge, etc.
-    entry = models.OneToOneField(Entry,) # related_name='object_reason_for_post')
+    entry = models.OneToOneField(Entry, blank=True) # related_name='object_reason_for_post')
 
     # Override this method to auto-generate meaningful titles for automated posts
     def create_entry_title(self):
