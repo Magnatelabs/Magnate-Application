@@ -28,7 +28,7 @@ class Hangout(PrivatelyPublishedModelMixin, models.Model):
 
     #override
     def create_entry_content(self):
-        return '%s. The event will take place on %s. Make the associated entry PUBLIC to publish it on the website.' % (self.admin_note, self.date)
+        return '%s. The event will take place on %s. This entry is hidden. Edit it to describe the event, add pictures, etc. See how it looks on your own dashboard. However, you are the only one who can see it. When you are ready, set the status to PUBLISHED so other users can see it as well. Lastly, do not confuse the timestamp of this entry with the start time of the actual event.' % (self.admin_note, self.date)
 
     #override 
     def create_entry_slug(self):
