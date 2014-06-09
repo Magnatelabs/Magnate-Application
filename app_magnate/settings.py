@@ -173,6 +173,7 @@ INSTALLED_APPS = [
     "billing",
     "brabeion",
     "analytical",
+    "admin_enhancer",
 
     # project
     "app_magnate",
