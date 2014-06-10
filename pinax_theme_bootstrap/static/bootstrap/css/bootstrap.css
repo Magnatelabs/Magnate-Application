@@ -6656,7 +6656,7 @@ Blog style
 .blogpublic-entry-content {padding-left: 16px; padding-bottom: 10px;}
 .blog-entry-footer {padding-top: 60px; padding-left: 16px; }
 .blog-entry-header {padding-left: 16px;}
-.comments {position: relative; margin-left: -60px;}
+.comments {position: relative; margin-left: 10px;}
 .comment-list {-webkit-padding-start: 0px;}
 .comment-list img {float: left; padding-right: 10px; }
 .comments .comment-list p {padding-top: 10px; padding-bottom: 25px; color: #333333;}
