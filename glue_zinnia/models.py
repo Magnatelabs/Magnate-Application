@@ -80,6 +80,22 @@ class EntryCheck(
     def is_public(self):
         return self.status == PUBLISHED
 
+    # Check if this entry described a Magnate Hangout
+    # Could also do is_badgeaward, is_donation, etc.
+    # Note that we are not checking if it is public or not
+    def is_hangout(self):
+        from rewards.models import Hangout
+        try:
+            # it is never None, just to see if it raises an exception
+            if (self.hangout != None): 
+                return True
+            else:
+                # this non-nullable field should never be None
+                # but just in case django changes, or whatever
+                return False 
+        except Hangout.DoesNotExist:
+            return False
+
     # Word limit for private and public entries, respectively
     def blurb_word_limit(self):
         return [settings.MAGNATE_PRIVATE_ENTRY_BLURB_WORD_LIMIT, settings.MAGNATE_PUBLIC_ENTRY_BLURB_WORD_LIMIT][self.status==PUBLISHED]
