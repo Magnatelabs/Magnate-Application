@@ -5,28 +5,22 @@
 /app_magnate/app_magnate/site_media/media/
 *~
 *.pyc
-app_magnate/#k#
+\#*\#
 app_magnate/billing/integrations/y.html
-app_magnate/billing/tests/#authorize_net_tests.py#
 app_magnate/y.html
 .DS_Store
-dashboard/#mixins.py#
 app_magnate/.settings.py.swp
 #requirements.txt#
 
-app_magnate/#requirements.txt#
 
 app_magnate/app_magnate/.settings.py.swp
 
-app_magnate/dashboard/#mixins.py#
 
 glue_zinnia/.#models.py
 
-glue_zinnia/#models.py#
 
 app_magnate/glue_zinnia/.#models.py
 
-app_magnate/glue_zinnia/#models.py#
 
 *.log
 
