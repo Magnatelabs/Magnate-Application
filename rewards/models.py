@@ -43,4 +43,5 @@ class Hangout(PrivatelyPublishedModelMixin, models.Model):
     def create_entry_slug(self):
         return 'hangout'
 
-
+    def is_completed(self):
+        return self.status == COMPLETED
