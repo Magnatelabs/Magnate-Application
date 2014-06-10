@@ -2,17 +2,26 @@ from django.db import models
 from dashboard.mixins import PrivatelyPublishedModelMixin
 from django.conf import settings
 
+SCHEDULED = 0
+COMPLETED = 1
+
 # The users also get rewarded in this way: they are invited to a hangout.
 #
 # Using PrivatelyPublishedModelMixin, so the new hangout will automatically
 # get a Zinnia entry. After it is edited, the admin should set its
 # visibility to PUBLIC.
 class Hangout(PrivatelyPublishedModelMixin, models.Model):
+    STATUS_CHOICES = ((SCHEDULED, 'scheduled'),
+                      (COMPLETED, 'completed'),)
+
     # the user who created the event
     user = models.ForeignKey(settings.AUTH_USER_MODEL)
 
     # when the event starts
     date = models.DateTimeField()
+
+    status = models.IntegerField(
+        'status', choices=STATUS_CHOICES, default=SCHEDULED)
 
     # arbitrary comments; probably the name of the event
     # this is for admin use only; this will NOT be published to the users
