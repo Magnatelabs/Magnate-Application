@@ -161,7 +161,9 @@
       
 {% block entry-footer %}
 	{% if object.is_hangout %}
+	  {% if not object.hangout.is_completed %}
 	        {% count_me_in_button %}
+	  {% endif %}
 	{% endif %}
 	{% if object.is_public %}
 		{% like_entry_button object.pk request.user %}
