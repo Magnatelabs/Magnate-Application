@@ -1,6 +1,9 @@
 {% load staticfiles %}
+
+  {% block article-tag %}
        <article   id="entry-{{ object.pk }}" {% if continue_reading %} onclick="toggleArticleActive('entry-{{ object.pk }}', true);" {% endif %}>
-        <aside id="dot2">
+  {% endblock %}
+
 
   {% block entry-header %}
   {% endblock %}
@@ -17,5 +20,8 @@
       {% block entry-comments %}{% endblock %}
     {% endblock %}
   {% endif %}
-                </aside>
+
+
                 </article>
+
+
