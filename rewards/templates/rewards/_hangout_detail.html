@@ -1,16 +1,25 @@
 {% extends "zinnia/_entry_detail.html" %}
 {% load staticfiles %}
 
+{% block article-tag %}
+  <article class="article-hangout">
+{% endblock %}
 
-
+{% block entry-image %}
+  <div class="hangout-image">
+    {{ block.super }}
+  </div>
+{% endblock %}
 
 {% block entry-title %}
-    <h3 style="clear: both;">
+    <h3>
       <a href="{{ object.get_absolute_url }}" title="{{ object.title }}" rel="bookmark">
         {{ object.title }}
       </a>
     </h3>
+
 {% endblock %}
+
 
         <aside>
         <figure><a href="#"><img src="{% static "img/rw2.jpg" %}" alt="PHOTO" /></a></figure>
