@@ -189,6 +189,9 @@ function validate_amount(evt) {
 {% block content-loop-new %}
 {% for object in object_list %}
   {% if not object.hangout.is_completed %}
+      {% ifchanged %}
+	<h2 style="font-weight: normal; padding: 0 0 0 45px">{{ object.hangout.date|date:"F Y" }}</h2>
+      {% endifchanged %}  
     {% include "rewards/_hangout_detail.html" with object_content=object.html_content|truncatewords_html:100|safe continue_reading=0 %}
   {% endif %}
 {% endfor %}
@@ -246,6 +249,9 @@ function validate_amount(evt) {
 {% block content-loop-future %}
 {% for object in object_list %}
   {% if object.hangout.is_completed %}
+      {% ifchanged %}
+	<h2 style="font-weight: normal; padding: 0 0 0 45px">{{ object.hangout.date|date:"F Y" }}</h2>
+      {% endifchanged %}  
     {% include "rewards/_hangout_detail.html" with object_content=object.html_content|truncatewords_html:100|safe continue_reading=0 %}
   {% endif %}
 {% endfor %}
