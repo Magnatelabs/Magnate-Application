@@ -6647,6 +6647,7 @@ Login / Logout page styling
 .likebtn input[type=button].active,
 .likebtn input[type=button]:active { background:#bbbcbc url(/site_media/static/img/img-icon21.png) no-repeat; background:-moz-linear-gradient(#dadada, #a5a6a6) url(/site_media/static/img/img-icon21.png) no-repeat; background: -webkit-gradient(linear, left top, left bottom, from(#dadada), to(#a5a6a6)) url(/site_media/static/img/img-icon21.png) no-repeat; background: -o-linear-gradient(#dadada, #a5a6a6) url(/site_media/static/img/img-icon21.png) no-repeat; -pie-background: linear-gradient(#dadada, #a5a6a6) url(/site_media/static/img/img-icon21.png) no-repeat; outline: 0; -webkit-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05); -moz-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05); box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05); }
 
+.btn-count-me-in {margin: -10px 80px 0 0;}
 
 /*----------------------------------------------------------------------------------------------------
 Blog style
@@ -6738,6 +6739,8 @@ Rewards
 .order-left article h2 { font-weight: normal; color: #4d4c4b; padding-bottom: 0px; }
 .order-left article aside { width: 90%; float: left; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; padding: 0 0 33px 40px; }
 .order-left article aside h3 { font-size: 18px; line-height: 10px; color: #4d4c4b; }
+.order-left article h3 { font-size: 18px; line-height: 10px; color: #4d4c4b; }
+
 .order-left article aside p { margin: 0px; }
 .order-left article aside btn-more, .btn-count-me-in {display: inline-block; padding: 0 10px; float: left; height: 26px; font-size: 12px; line-height: 26px; font-family: "Helvetica Neue",Arial, Helvetica, sans-serif; color: #313131; text-align: center; text-shadow: none; vertical-align: middle; cursor: pointer; background: #e4e4e4; background: -moz-linear-gradient(#e8e8e8, #dedede); background: -webkit-gradient(linear, left top, left bottom, from(#e8e8e8), to(#dedede)); background: -o-linear-gradient(#e8e8e8, #dedede); -pie-background: linear-gradient(#e8e8e8, #dedede); border: 1px solid #9f9f9e; text-decoration: none; border-radius: 4px; behavior: url(PIE.htc); position: relative; }
 .btm_eventborder {width: 100%; height: 2px; float: left; background: #a6c987; border-radius: 2px; behavior: position: relative;}
@@ -6745,6 +6748,10 @@ Rewards
 #reward_bottom {padding-bottom: 0px; font-weight: normal; font-size: 16px; margin: 0px; padding-top: 60px; line-height: 30px; }
 .order-bottom article { width: 100%; float: left; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; padding: 0 0 0 45px;}
 .order-bottom article h2 { font-size: 20px; font-weight: normal; color: #4d4c4b; padding-bottom: 0px; }
+.order-bottom h2 { font-size: 20px; font-weight: normal; color: #4d4c4b; padding-bottom: 0px; }
+
+.order-bottom #reward_bottom { font-size: 20px; font-weight: normal; color: #4d4c4b; padding-bottom: 0px; }
+
 .order-bottom article aside { width: 90%; float: left; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; padding: 0 0 33px 0px; }
 .order-bottom article aside .past-img { width: 35%; float: left; padding-right: 10px; }
 .order-bottom article aside .past-text { width: 90%; }
@@ -6752,6 +6759,8 @@ Rewards
 .order-bottom article aside p { margin: 0px; }
 .rewardfund {width: 240px; }
 .rewardslct article {padding: 32px 14.6% 20px 7.6%;}
+.hangout-image {padding-right: 10px;}
+.order-bottom .hangout-image {float:left;}
 
 /*----------------------------------------------------------------------------------------------------
 Dashboard v5 Styling
