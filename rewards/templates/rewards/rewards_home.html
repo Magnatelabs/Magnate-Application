@@ -186,17 +186,14 @@ function validate_amount(evt) {
 
 
 
-{% block content-loop %}
+{% block content-loop-new %}
 {% for object in object_list %}
-  {% include "rewards/_hangout_detail.html" with object_content=object.html_content|truncatewords_html:100|safe continue_reading=0 %}
+  {% if not object.hangout.is_completed %}
+    {% include "rewards/_hangout_detail.html" with object_content=object.html_content|truncatewords_html:100|safe continue_reading=0 %}
+  {% endif %}
 {% endfor %}
 {% endblock %}
 
-{% block content-pagination %}
-{% if is_paginated %}
-  {% zinnia_pagination page_obj %}
-{% endif %}
-{% endblock %}
 
 
         <article>
@@ -243,6 +240,22 @@ function validate_amount(evt) {
         
         <div class="order-bottom">
         <h3 id="reward_bottom">Past Hangouts</h3>
+
+
+
+{% block content-loop-future %}
+{% for object in object_list %}
+  {% if object.hangout.is_completed %}
+    {% include "rewards/_hangout_detail.html" with object_content=object.html_content|truncatewords_html:100|safe continue_reading=0 %}
+  {% endif %}
+{% endfor %}
+{% endblock %}
+
+{% block content-pagination %}
+{% if is_paginated %}
+  {% zinnia_pagination page_obj %}
+{% endif %}
+{% endblock %}
         <div class="btm_eventborder"></div>
         <article>
         <h2>May 2014</h2>

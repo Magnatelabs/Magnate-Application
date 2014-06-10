@@ -12,6 +12,7 @@ from companyinfo.forms import MediaUpdatesForm
 from zinnia.views.archives import EntryIndex
 from zinnia.models.entry import Entry
 
+
 class RewardsView(EntryIndex):
     def get_template_names(self):
         return ['rewards/rewards_home.html']
