@@ -6,6 +6,30 @@
     display: visible;
 }
 
+/* FIXME: we shouldn't need the !important below.
+
+   On the list of hangouts do not float the articles, as we want to 
+   specify the month names in between.
+   (Though, we are we defaulting to floating the articles?)
+
+   Also overriding the padding, for now, as a hack, as it was taken from article aside, but I removed the aside.
+*/
+.order-left .article-hangout {
+    float: none !important;
+    padding: 0 0 73px 70px !important; /* added the paddings from article and aside */
+    width: 90% !important;
+}
+
+.order-bottom .article-hangout {
+    padding: 0 0 33px 30px !important;
+    width: 80% !important;
+}
+
+
+.article-hangout h3 {
+    font-size: 18px;
+}
+
 /*=======================================================================
 
 	Buttons
