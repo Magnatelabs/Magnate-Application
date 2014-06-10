@@ -24,6 +24,11 @@ def like_entry_button(entry_id, user): # entry_id is an integer
     ctx = {'div_dom_id': div_dom_id, 'dom_id': dom_id, 'button_text': button_text, 'entry_id': entry_id, 'user': user}
     return render_to_string('social/_like_button.html', ctx)
 
+@register.simple_tag
+def count_me_in_button():
+    return '<a href="#" class="btn-count-me-in"><span>Count me in</span></a>'
+
+
 # Need context to create csrf token
 @register.simple_tag(takes_context = True)
 def render_star_rating(context, user):
