@@ -1,13 +1,18 @@
+{% extends "zinnia/entry_list.html" %}
+{% comment %}
 {% extends "site_base.html" %}
-{% load staticfiles %}
+{% endcomment %}
 
-{% block body %} 
+
+
+{% load staticfiles %}
+{% load zinnia_tags %}
+
+
 
 {% block style_base %}
-<link href="{% static "bootstrap/css/bootstrap.css" %}" rel="stylesheet">
-<link href="{% static "bootstrap/css/bootstrap-responsive.css" %}" rel="stylesheet">
-<link href="{% static "pinax/css/theme.css" %}" rel="stylesheet">
-{% block extra_style %}{% endblock %}
+
+{{ block.super }}
 
 <script>
 var checkboxHeight = "60";
@@ -158,6 +163,7 @@ function validate_amount(evt) {
 {% endblock %}
 
 
+{% block content %}
  <div class="grid_16">
     <div class="contentinner">
     	<div class="bgsection2">
@@ -169,7 +175,7 @@ function validate_amount(evt) {
         <h1>Magnate Rewards</h1>
         {% endif %}
         </div>
-        
+
         <div class="section2">
         <div class="left_section2">
         <div class="order-left">
@@ -177,6 +183,22 @@ function validate_amount(evt) {
         <h3 id="reward_up">Upcoming Hangouts</h3>
         <div class="eventborder"></div>
         </div>
+
+
+
+{% block content-loop %}
+{% for object in object_list %}
+  {% include "rewards/_hangout_detail.html" with object_content=object.html_content|truncatewords_html:100|safe continue_reading=0 %}
+{% endfor %}
+{% endblock %}
+
+{% block content-pagination %}
+{% if is_paginated %}
+  {% zinnia_pagination page_obj %}
+{% endif %}
+{% endblock %}
+
+
         <article>
         <h2>May 2014</h2>
         <aside>
