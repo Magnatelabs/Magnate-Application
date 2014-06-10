@@ -1,8 +1,15 @@
 {% extends "zinnia/_entry_detail.html" %}
 {% load staticfiles %}
 
-{% block entry-image %}
-FUN
+
+
+
+{% block entry-title %}
+    <h3 style="clear: both;">
+      <a href="{{ object.get_absolute_url }}" title="{{ object.title }}" rel="bookmark">
+        {{ object.title }}
+      </a>
+    </h3>
 {% endblock %}
 
         <aside>
