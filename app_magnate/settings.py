@@ -42,6 +42,8 @@ import sys
 TESTING=False
 if 'test' in sys.argv or 'test_coverage' in sys.argv: #Covers regular testing and django-coverage
     TESTING=True
+    SOUTH_TESTS_MIGRATE=False
+    SKIP_SOUTH_TESTS = True
     DATABASES['default'] = {
         'ENGINE': 'django.db.backends.sqlite3',
 #        'TEST_NAME': os.path.join(os.path.dirname(__file__), 'test.db'),
