@@ -46,6 +46,7 @@ if 'test' in sys.argv or 'test_coverage' in sys.argv: #Covers regular testing an
     SKIP_SOUTH_TESTS = True
     DATABASES['default'] = {
         'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': ':memory:',
 #        'TEST_NAME': os.path.join(os.path.dirname(__file__), 'test.db'),
 #        'NAME': 'mytestdatabase',
     }
