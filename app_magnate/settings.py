@@ -179,7 +179,7 @@ INSTALLED_APPS = [
     "app_magnate",
 
     #migrations
- #   "south",
+    "south",
 
     #created 
 #    "startedQuestionnaire", (renamed)
