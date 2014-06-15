@@ -372,3 +372,5 @@ GOOGLE_ANALYTICS_PROPERTY_ID = 'UA-46652906-1'
 from osqa_settings import *
 
 MODULE_LIST=[]
+# OSQA style; overriding our TEMPLATE_LOADERS!
+TEMPLATE_LOADERS = list(template_loaders) if DEBUG else [ ('django.template.loaders.cached.Loader', template_loaders) ]
