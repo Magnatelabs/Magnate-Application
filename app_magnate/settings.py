@@ -206,10 +206,14 @@ INSTALLED_APPS = [
     "study",
     "statistics",
     "rewards",
+
+    #DEBUG
+    "django_pdb",
 ]
 
+
 TEST_RUNNER = 'django_test_exclude.runners.ExcludeTestSuiteRunner'
-TEST_EXCLUDE=[ "django.contrib", "zinnia", "account", "waitinglist", "brabeion", "analytical" ]
+TEST_EXCLUDE=[ "django.contrib", "zinnia", "account", "waitinglist", "brabeion", "analytical", "tagging"]
 
 
 # Disable Django caching for now. Note that django-avatar uses django caching to cache the avatars.
@@ -390,4 +394,7 @@ MIDDLEWARE_CLASSES += [
 TEMPLATE_CONTEXT_PROCESSORS += [
     'forum.context.application_settings',
     'forum.user_messages.context_processors.user_messages',
+]
+INSTALLED_APPS += [
+    'django.contrib.humanize',
 ]
