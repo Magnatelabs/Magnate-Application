@@ -11,3 +11,11 @@ APP_DOMAIN = app_url_split[1].split('/')[0]
 APP_BASE_URL = '%s://%s' % (APP_PROTOCOL, APP_DOMAIN)
 
 OSQA_DEFAULT_SKIN = 'default'
+
+
+template_loaders = (
+    'django.template.loaders.filesystem.Loader',
+    'django.template.loaders.app_directories.Loader',
+    'forum.modules.template_loader.module_templates_loader',
+    'forum.skins.load_template_source',
+)
