@@ -10,6 +10,15 @@ APP_PROTOCOL = app_url_split[0]
 APP_DOMAIN = app_url_split[1].split('/')[0]
 APP_BASE_URL = '%s://%s' % (APP_PROTOCOL, APP_DOMAIN)
 
+FORCE_SCRIPT_NAME=''
+
+for path in app_url_split[1].split('/')[1:]:
+    FORCE_SCRIPT_NAME = FORCE_SCRIPT_NAME + '/' + path
+
+if FORCE_SCRIPT_NAME.endswith('/'):
+    FORCE_SCRIPT_NAME = FORCE_SCRIPT_NAME[:-1]
+
+
 OSQA_DEFAULT_SKIN = 'default'
 
 
