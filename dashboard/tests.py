@@ -8,7 +8,7 @@ Replace this with more appropriate tests for your application.
 from django.test import TestCase
 from django.test.client import Client
 from django.core.urlresolvers import reverse
-from django.db import settings
+from django.conf import settings
 from urlparse import urlparse
 from urllib import urlencode
 
