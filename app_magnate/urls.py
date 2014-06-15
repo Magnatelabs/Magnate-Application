@@ -52,6 +52,14 @@ urlpatterns = patterns("",
     url(r"^status/", include("status_awards.urls")),
     url(r"^study/", include("study.urls")), 
     url(r"^rewards/", include("rewards.urls")), 
+    url(r"^forum/", include("forum.urls")),
 )
 
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += patterns('',
+                        (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
+#    (r'^site_media/media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
+)
+
+
+#urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+#urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
