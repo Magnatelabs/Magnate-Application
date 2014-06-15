@@ -154,6 +154,7 @@ TEMPLATE_DIRS = [
 ]
 
 INSTALLED_APPS = [
+
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -177,6 +178,8 @@ INSTALLED_APPS = [
     "brabeion",
     "analytical",
     "admin_enhancer",
+
+    "forum",
 
     # project
     "app_magnate",
@@ -366,3 +369,6 @@ CRAZY_EGG_ACCOUNT_NUMBER = '00204380'
 GOOGLE_ANALYTICS_PROPERTY_ID = 'UA-46652906-1'
 
 
+from osqa_settings import *
+
+MODULE_LIST=[]
