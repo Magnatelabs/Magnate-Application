@@ -374,3 +374,20 @@ from osqa_settings import *
 MODULE_LIST=[]
 # OSQA style; overriding our TEMPLATE_LOADERS!
 TEMPLATE_LOADERS = list(template_loaders) if DEBUG else [ ('django.template.loaders.cached.Loader', template_loaders) ]
+MIDDLEWARE_CLASSES += [
+'forum.middleware.extended_user.ExtendedUser',
+
+
+# 'forum.middleware.anon_user.ConnectToSessionMessagesMiddleware',
+#    'forum.middleware.request_utils.RequestUtils',
+#    'forum.middleware.cancel.CancelActionMiddleware',
+#    'forum.middleware.admin_messages.AdminMessagesMiddleware',
+#    'forum.middleware.custom_pages.CustomPagesFallbackMiddleware',
+#    'django.middleware.transaction.TransactionMiddleware',
+#    'forum.middleware.django_cookies.CookiePostHandlerMiddleware',
+
+]
+TEMPLATE_CONTEXT_PROCESSORS += [
+    'forum.context.application_settings',
+    'forum.user_messages.context_processors.user_messages',
+]
