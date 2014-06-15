@@ -1,4 +1,5 @@
-from django.db import models, settings
+from django.db import models
+from django.conf import settings
 from zinnia.models.entry import Entry
 import datetime
 import pytz

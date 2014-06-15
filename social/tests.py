@@ -20,7 +20,7 @@ import json
 class SimpleTest(TestCase):
     def test_basic(self):
         # Make sure we are testing with sqlite3
-        from django.db import settings
+        from django.conf import settings
         self.assertEqual(settings.DATABASES['default']['ENGINE'], 'django.db.backends.sqlite3')
 
         user = User.objects.create_user("Monica Schlicht", "m-schlicht@clearwaters.sky", "2380vh23v")
@@ -275,7 +275,7 @@ class SimpleTest(TestCase):
 
         # NOW
         # Say, we can rate again after a day
-        from django.db import settings
+        from django.conf import settings
         settings.MAGNATE_CAN_STAR_RATE_EVERY = 'days=1'
         
         # Say, the user actually rated this item 23 hours ago
