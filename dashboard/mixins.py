@@ -3,7 +3,7 @@ from django.contrib.sites.models import Site
 from zinnia.models.entry import Entry
 from zinnia.managers import HIDDEN
 #from slugify import slugifyx
-from django.db import settings
+from django.conf import settings
 
 # This mixin is used to make certain model automatically publish a post to the blog on the first save() -- or possibly later if the post hasn't been published yet because of some error. Example: badges, donations. After you make a donation, you want to see a post about it. After you are awarded a badge, you want to see a post about it. Then, for example, a picture with a badge could link to this post...
 
