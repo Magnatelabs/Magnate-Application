@@ -13,7 +13,8 @@ User=get_user_model()
 from django.core.urlresolvers import reverse
 from django.contrib.sites.models import Site
 
-from django.db import settings, models, connection
+from django.conf import settings
+from django.db import models, connection
 
 from zinnia.models.entry import Entry
 from zinnia.models.author import Author
