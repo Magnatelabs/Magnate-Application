@@ -52,7 +52,12 @@ urlpatterns = patterns("",
     url(r"^status/", include("status_awards.urls")),
     url(r"^study/", include("study.urls")), 
     url(r"^rewards/", include("rewards.urls")), 
+
     url(r"^forum/", include("forum.urls")),
+    #media for forum; adding here as they all point to /m/..., 
+    #and I want to minimize edits to forum/
+    url(r'^m/(?P<skin>\w+)/media/(?P<path>.*)$', 'forum.views.meta.media' , name='osqa_media'),
+
 )
 
 urlpatterns += patterns('',
