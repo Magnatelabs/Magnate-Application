@@ -1,12 +1,12 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
-from zinnia.models.entry import EntryAbstractClass, CoreEntry
+from zinnia.models_bases.entry import AbstractEntry, CoreEntry
 from zinnia.managers import PUBLISHED
 
 
 from django.db.models.query import QuerySet
 from django.db.models import Q
-from django.db import settings
+from django.conf import settings
 
 # From  http://stackoverflow.com/questions/2163151/custom-queryset-and-manager-without-breaking-dry
 #
@@ -63,10 +63,10 @@ class AuthorizedUsersEntry(models.Model):
         abstract = True
 
 
-# We are extending Zinnia's EntryAbstractClass.
+# We are extending Zinnia's AbstractEntry.
 # Now we will set e.g. ZINNIA_ENTRY_BASE_MODEL= 'models.EntryCheck' in settings.py
 class EntryCheck(
-        EntryAbstractClass,
+        AbstractEntry,
         AuthorizedUsersEntry,):
 
     def __unicode__(self):
