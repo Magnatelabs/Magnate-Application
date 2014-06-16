@@ -207,8 +207,6 @@ INSTALLED_APPS = [
     "statistics",
     "rewards",
 
-    #DEBUG
-    "django_pdb",
 ]
 
 
