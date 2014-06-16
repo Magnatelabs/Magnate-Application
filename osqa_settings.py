@@ -4,6 +4,9 @@
 APP_URL = 'http://'
 
 CACHE_MAX_KEY_LENGTH = 235
+#SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
+
 
 
 app_url_split = APP_URL.split("://")
@@ -30,3 +33,6 @@ template_loaders = (
     'forum.modules.template_loader.module_templates_loader',
     'forum.skins.load_template_source',
 )
+
+
+
