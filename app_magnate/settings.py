@@ -327,7 +327,8 @@ ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 2
 WAITINGLIST_SURVEY_INVITE_FROM_EMAIL = "jolumwilliams@yoursite.com"
 
 AUTHENTICATION_BACKENDS = [
-    "account.auth_backends.UsernameAuthenticationBackend",
+    #"account.auth_backends.UsernameAuthenticationBackend",
+    'django.contrib.auth.backends.ModelBackend'
 ]
 
 MERCHANT_TEST_MODE = True         # Toggle for live transactions
@@ -375,7 +376,24 @@ GOOGLE_ANALYTICS_PROPERTY_ID = 'UA-46652906-1'
 
 from osqa_settings import *
 
-MODULE_LIST=[]
+
+
+SITE_SRC_ROOT = PROJECT_ROOT
+
+# OSQA moduel system
+MODULES_PACKAGE = 'forum_modules'
+MODULES_FOLDER = os.path.join(SITE_SRC_ROOT, MODULES_PACKAGE)
+DISABLED_MODULES = ['project_badges', 'updates', 'default_badges'] #'recaptcha', 'project_bages']
+
+MODULE_LIST = filter(lambda m: getattr(m, 'CAN_USE', True), [
+        __import__('forum_modules.%s' % f, globals(), locals(), ['forum_modules'])
+        for f in os.listdir(MODULES_FOLDER)
+        if os.path.isdir(os.path.join(MODULES_FOLDER, f)) and
+           os.path.exists(os.path.join(MODULES_FOLDER, "%s/__init__.py" % f)) and
+           not f in DISABLED_MODULES
+])
+
+
 # OSQA style; overriding our TEMPLATE_LOADERS!
 TEMPLATE_LOADERS = list(template_loaders) if DEBUG else [ ('django.template.loaders.cached.Loader', template_loaders) ]
 MIDDLEWARE_CLASSES += [
