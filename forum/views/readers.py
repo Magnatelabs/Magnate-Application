@@ -211,6 +211,14 @@ def question_list(request, initial,
     if page_title is None:
         page_title = _("Questions")
 
+    
+    # Added custom code to OSQA to make it more useful for Magnate
+    # BEGIN
+    if request.GET.get('entry', None):
+        questions = questions.filter(title__startswith=request.GET.get('entry'))
+        page_title = _(unicode(page_title) + " about " + request.GET.get('entry'))
+    # END
+
     if request.GET.get('type', None) == 'rss':
         if feed_sort:
             questions = questions.order_by(*feed_sort)
