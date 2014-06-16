@@ -212,6 +212,7 @@ INSTALLED_APPS = [
 ]
 
 
+# Note that by using this test runner to exclude particular apps, we are reverting to the pre-Django 1.5 method of test discovery
 TEST_RUNNER = 'django_test_exclude.runners.ExcludeTestSuiteRunner'
 TEST_EXCLUDE=[ "django.contrib", "zinnia", "account", "waitinglist", "brabeion", "analytical", "tagging"]
 
@@ -396,19 +397,19 @@ MODULE_LIST = filter(lambda m: getattr(m, 'CAN_USE', True), [
 
 # OSQA style; overriding our TEMPLATE_LOADERS!
 TEMPLATE_LOADERS = list(template_loaders) if DEBUG else [ ('django.template.loaders.cached.Loader', template_loaders) ]
-MIDDLEWARE_CLASSES += [
-'forum.middleware.extended_user.ExtendedUser',
 
+if not TESTING:      # The tests are not ready for the forum.user user model
+  MIDDLEWARE_CLASSES += [
+  'forum.middleware.extended_user.ExtendedUser',
+  # 'forum.middleware.anon_user.ConnectToSessionMessagesMiddleware',
+  #    'forum.middleware.request_utils.RequestUtils',
+  #    'forum.middleware.cancel.CancelActionMiddleware',
+  #    'forum.middleware.admin_messages.AdminMessagesMiddleware',
+  #    'forum.middleware.custom_pages.CustomPagesFallbackMiddleware',
+  #    'django.middleware.transaction.TransactionMiddleware',
+  #    'forum.middleware.django_cookies.CookiePostHandlerMiddleware',
+   ]
 
-# 'forum.middleware.anon_user.ConnectToSessionMessagesMiddleware',
-#    'forum.middleware.request_utils.RequestUtils',
-#    'forum.middleware.cancel.CancelActionMiddleware',
-#    'forum.middleware.admin_messages.AdminMessagesMiddleware',
-#    'forum.middleware.custom_pages.CustomPagesFallbackMiddleware',
-#    'django.middleware.transaction.TransactionMiddleware',
-#    'forum.middleware.django_cookies.CookiePostHandlerMiddleware',
-
-]
 TEMPLATE_CONTEXT_PROCESSORS += [
     'forum.context.application_settings',
     'forum.user_messages.context_processors.user_messages',
