@@ -3,6 +3,8 @@
 # I.e., http://www.yoursite.com or http://www.hostedsite.com/yourhostapp
 APP_URL = 'http://'
 
+CACHE_MAX_KEY_LENGTH = 235
+
 
 app_url_split = APP_URL.split("://")
 
