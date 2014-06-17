@@ -179,10 +179,12 @@ INSTALLED_APPS = [
     "analytical",
     "admin_enhancer",
 
-    "forum",
+    "forum",      # OSQA - system for questions and answers
+    "glue_osqa",  # glue code to connect OSQA to our app
 
     # project
     "app_magnate",
+
 
     #migrations
     "south",
