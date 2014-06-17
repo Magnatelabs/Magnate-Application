@@ -12,6 +12,7 @@ app_magnate/y.html
 app_magnate/.settings.py.swp
 #requirements.txt#
 
+integration_tests/selenium*.jar
 
 app_magnate/app_magnate/.settings.py.swp
 
