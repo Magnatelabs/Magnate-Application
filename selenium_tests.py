@@ -6,6 +6,8 @@
 # Trap ctrl-c and call ctrl_c()
 trap ctrl_c INT
 
+# Port to run the Django development server
+DJANGO_PORT=8123
 
 
 # Terminate all child processes
@@ -47,7 +49,7 @@ function ctrl_c() {
 }
 
 # Start Django's Dev server
-python manage.py runserver 8123 &
+python manage.py runserver $DJANGO_PORT &
 pid_django=$!
 echo "Starting Django server, pid=$pid_django"
 
@@ -65,7 +67,11 @@ is_running $pid_django || { wait $pid_django;  echo "ERROR! Django server not ru
 is_running $pid_selenium || { wait $pid_selenium; echo "ERROR! Selenium server not running, returned exit code $?"; cleanup_and_exit 4; }
 
 
-sleep 4
 
-cleanup_and_exit 0
+# Great! Both Django and Selenium are up and running. Now run the tests...
+# Remember, we are still inside integration_tests/
+python all_selenium_tests.py
+exit_code=$?
+
+cleanup_and_exit $exit_code
 
