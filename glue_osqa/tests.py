@@ -14,3 +14,8 @@ class FirstOSQATest(TestCase):
         # broken... you get the idea. 
         self.assertTrue(hasattr(settings, 'CACHE_MAX_KEY_LENGTH'))
 
+
+    def testOSQAModels(self):
+        from forum.models.question import Question
+        result = Question.objects.all().filter_state(delete=False)
+
