@@ -27,6 +27,7 @@ from forum.feed import RssQuestionFeed, RssAnswerFeed
 from forum.utils.pagination import generate_uri
 
 import decorators
+import pytz
 
 class HottestQuestionsSort(pagination.SortBase):
     def apply(self, questions):
@@ -38,7 +39,7 @@ class HottestQuestionsSort(pagination.SortBase):
                     AND NOT(fn1.state_string LIKE '%%(deleted)%%')
                     AND added_at > %s'''
             },
-            select_params=[ (datetime.datetime.now() - datetime.timedelta(days=2))
+            select_params=[ (datetime.datetime.now(pytz.utc) - datetime.timedelta(days=2))
                 .strftime('%Y-%m-%d')]
         ).order_by('-new_child_count', 'last_activity_at')
 
@@ -323,7 +324,7 @@ def update_question_view_times(request, question):
 
     if (not last_seen) or (last_seen < question.last_activity_at):
         QuestionViewAction(question, request.user, ip=request.META['REMOTE_ADDR']).save()
-        last_seen_in_question[question.id] = datetime.datetime.now()
+        last_seen_in_question[question.id] = datetime.datetime.now(pytz.utc)
         request.session['last_seen_in_question'] = last_seen_in_question
 
 def match_question_slug(id, slug):
