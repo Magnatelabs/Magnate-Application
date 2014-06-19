@@ -214,10 +214,22 @@ def question_list(request, initial,
 
     
     # Added custom code to OSQA to make it more useful for Magnate
+    # Only show those questions that are linked to a given Zinnia entry
     # BEGIN
     if request.GET.get('entry', None):
-        questions = questions.filter(title__startswith=request.GET.get('entry'))
-        page_title = _(unicode(page_title) + " about " + request.GET.get('entry'))
+        from zinnia.models.entry import Entry
+        try:
+            entry_pk = int(request.GET.get('entry'))
+            entry = Entry.objects.get(pk=entry_pk) # make sure it exists
+            if entry.is_public():
+                questions = questions.filter(about_entries__entry__pk=entry_pk)
+                page_title = _(unicode(page_title) + " about " + entry.title)
+        except (ValueError, Entry.DoesNotExist) as e:
+            # If the entry id is not integer, ignore ?entry
+            # If there is no such entry, ignore ?entry
+            # If there is, but it is not public, ignore ?entry
+            # If it is public, show related entries and change the title
+            pass
     # END
 
     if request.GET.get('type', None) == 'rss':
