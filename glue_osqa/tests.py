@@ -1,4 +1,4 @@
-from django.test import TestCase
+from django.test import TestCase, Client
 
 # Create your tests here.
 class FirstOSQATest(TestCase):
@@ -46,3 +46,17 @@ class FirstOSQATest(TestCase):
         self.assertEqual(u.pk, eu.pk)
         self.assertEqual(u.username, eu.username)
 
+
+
+class testOSQATemplates(TestCase):
+    urls = 'glue_osqa.unittest_urls'
+
+    def test_nodeIndex(self):
+        from forum.models.user import User
+        u = User.objects.create(username='piglet')
+        from forum.models.question import Question
+        Question.objects.create(author_id=u.pk)
+
+        self.client = Client()
+        r = self.client.get('/osqa_forum/')
+        self.assertEqual(r.status_code, 200)
