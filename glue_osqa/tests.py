@@ -19,3 +19,30 @@ class FirstOSQATest(TestCase):
         from forum.models.question import Question
         result = Question.objects.all().filter_state(delete=False)
 
+        
+    def testExtendedUser(self):
+        from django.contrib.auth import get_user_model
+        User = get_user_model()
+
+        from forum.models.user import User as ExtendedUser
+        self.assertEqual(User.objects.count(), 0)
+        self.assertEqual(ExtendedUser.objects.count(), 0)
+
+        u = User.objects.create(username='rabbit')
+
+        self.assertEqual(User.objects.count(), 1)
+        self.assertEqual(ExtendedUser.objects.count(), 0)
+
+        from tools import downcastUserToExtendedUser
+        downcastUserToExtendedUser(u)
+
+        self.assertEqual(User.objects.count(), 1)
+        self.assertEqual(ExtendedUser.objects.count(), 1)
+
+        #reload
+        u = User.objects.all()[0]
+        eu = ExtendedUser.objects.all()[0]
+        
+        self.assertEqual(u.pk, eu.pk)
+        self.assertEqual(u.username, eu.username)
+
