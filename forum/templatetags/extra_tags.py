@@ -149,8 +149,10 @@ def get_age(birthday):
 def diff_date(date, limen=2):
     if not date:
         return _('unknown')
+    
+    import pytz
+    now = datetime.datetime.now(pytz.utc)
 
-    now = datetime.datetime.now()
     diff = now - date
     days = diff.days
     hours = int(diff.seconds/3600)
