@@ -4,8 +4,15 @@
 APP_URL = 'http://'
 
 CACHE_MAX_KEY_LENGTH = 235
-#SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
+
+# OSQA is using it, though Django warns against it: 
+# https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-SESSION_SERIALIZER
+# Better to use django.contrib.sessions.serializers.JSONSerializers, but
+# then OSQA complains that datetime.datetime(...) is not JSON serializable.
+SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
+
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
+SESSION_ENGINE = 'django.contrib.sessions.backends.db' # default
 
 
 
