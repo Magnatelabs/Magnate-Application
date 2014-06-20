@@ -106,12 +106,37 @@ def ask(request):
         elif "go" in request.POST:
             form = AskForm({'title': request.POST['q']}, user=request.user)
             
-    if not form:
-        form = AskForm(user=request.user)
+    #BEGIN
 
-    return render_to_response('ask.html', {
+    template_name = 'ask.html'
+
+    if not form:
+        # BEGIN
+        # Changed this part to link OSQA to Magnate's zinnia entries
+        #
+        # Original: form = AskForm(user=request.user)
+        from zinnia.models.entry import Entry
+        entry_id=None
+        entry_title=None
+        try: 
+            entry_id=int(request.GET.get('entry'))
+            entry= Entry.objects.get(pk=entry_id)
+            if entry.is_public(): # Can only ask questions about public entries
+                form = AskForm(user=request.user, initial={'entry_id': entry_id, 'entry_title': entry.title})
+                template_name='ask_about.html'
+        except (TypeError, ValueError, Entry.DoesNotExist) as e:
+            form = AskForm(user=request.user)
+            template_name='ask.html'
+    
+    # Also changed below ask.html --> ask_about.html
+    # END
+
+    # template_name was just ask.html
+    return render_to_response(template_name, {
         'form' : form,
-        'tab' : 'ask'
+        'tab' : 'ask',
+        
+        
         }, context_instance=RequestContext(request))
 
 def convert_to_question(request, id):
