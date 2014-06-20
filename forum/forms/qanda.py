@@ -175,6 +175,14 @@ class AskForm(forms.Form):
     title  = TitleField()
     text   = QuestionEditorField()
 
+    # BEGIN
+    # Linking OSQA with Magnate's zinnia entry
+    entry_id = forms.CharField(widget=forms.HiddenInput(), required=False)   
+
+    # The title is here just so we can show it
+    entry_title = forms.CharField(widget=forms.HiddenInput(), required=False)
+    # END
+
     def __init__(self, data=None, user=None, *args, **kwargs):
         super(AskForm, self).__init__(data, *args, **kwargs)
 
