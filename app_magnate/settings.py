@@ -401,13 +401,13 @@ TEMPLATE_LOADERS = list(template_loaders) if DEBUG else [ ('django.template.load
 if not TESTING:      # The tests are not ready for the forum.user user model
   MIDDLEWARE_CLASSES += [
   'forum.middleware.extended_user.ExtendedUser',
-  # 'forum.middleware.anon_user.ConnectToSessionMessagesMiddleware',
-  #    'forum.middleware.request_utils.RequestUtils',
-  #    'forum.middleware.cancel.CancelActionMiddleware',
-  #    'forum.middleware.admin_messages.AdminMessagesMiddleware',
-  #    'forum.middleware.custom_pages.CustomPagesFallbackMiddleware',
-  #    'django.middleware.transaction.TransactionMiddleware',
-  #    'forum.middleware.django_cookies.CookiePostHandlerMiddleware',
+#   'forum.middleware.anon_user.ConnectToSessionMessagesMiddleware',
+     'forum.middleware.request_utils.RequestUtils',
+#      'forum.middleware.cancel.CancelActionMiddleware',
+#      'forum.middleware.admin_messages.AdminMessagesMiddleware',
+#      'forum.middleware.custom_pages.CustomPagesFallbackMiddleware',
+#      'django.middleware.transaction.TransactionMiddleware',
+#      'forum.middleware.django_cookies.CookiePostHandlerMiddleware',
    ]
 
 TEMPLATE_CONTEXT_PROCESSORS += [
@@ -417,3 +417,16 @@ TEMPLATE_CONTEXT_PROCESSORS += [
 INSTALLED_APPS += [
     'django.contrib.humanize',
 ]
+
+
+
+
+#[MIDDLEWARE_CLASSES.extend(
+#        ["%s.%s" % (m.__name__, mc) for mc in getattr(m, 'MIDDLEWARE_CLASSES', [
+#])]
+#                          ) for m in MODULE_LIST]
+#
+#[TEMPLATE_LOADERS.extend(
+#        ["%s.%s" % (m.__name__, tl) for tl in getattr(m, 'TEMPLATE_LOADERS', [])
+#]
+#                          ) for m in MODULE_LIST]
