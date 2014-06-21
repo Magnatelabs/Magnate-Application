@@ -56,6 +56,9 @@ function toggleArticleActive(article_dom_id, is_active) {
   if (is_active) {
     a.find(".show-when-article-active").show(); // can animate, e.g. show('slow')
     a.find(".show-when-article-not-active").hide();
+
+    // Load questions about this entry in the main div
+    $('#div_activity').load('/f/?entry=' + article_dom_id.replace('entry-','') );
   } else {
     a.find(".show-when-article-active").hide();
     a.find(".show-when-article-not-active").show();

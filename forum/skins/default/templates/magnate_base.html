@@ -1,0 +1,40 @@
+{% extends "../../../../dashboard/templates/dashboard/new_dashboard_main.html" %}
+<!--{ % extends "base_content.html" % }-->
+
+{% comment %} OSQA has block forejs for javascript in the beginning. For now just linking it by inserting it into the extra_style block, so inheriting pages can use it. {% endcomment %}
+{% block extra_style %}
+  {{ block.super }}
+  {% block forejs %}
+  {% endblock %}
+{% endblock %}
+
+
+
+
+{% block page_center %}
+
+{% block full_width_banner %}{% endblock %}
+
+<div id="wrapper">
+    {% block site_width_banner %}{% endblock %}
+    
+    <div id="room">
+        <div id="CALeft">
+            {% block content%}
+            {% endblock%}
+
+        </div>
+        <div id="CARight">
+            {% block sidebar%}
+            {% endblock%}
+
+        </div>
+        <div id="tail" style="clear:both;">
+            {% block tail %}
+            {% endblock %}
+        </div>
+    </div>
+    <div class="spacer3"></div>
+</div>
+{% endblock %}
+

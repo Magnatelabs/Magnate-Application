@@ -105,6 +105,19 @@ def index(request):
                          feed_url=reverse('latest_questions_feed'),
                          paginator_context=paginator_context)
 
+# BEGIN
+@decorators.render('embedded_index.html')
+def embedded_index(request):
+    paginator_context = QuestionListPaginatorContext()
+    paginator_context.base_path = reverse('questions')
+    return question_list(request,
+                         Question.objects.all(),
+                         base_path=reverse('questions'),
+                         feed_url=reverse('latest_questions_feed'),
+                         paginator_context=paginator_context)
+#END
+
+
 @decorators.render('questions.html', 'unanswered', _('unanswered'), weight=400)
 def unanswered(request):
     return question_list(request,

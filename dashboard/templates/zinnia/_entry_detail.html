@@ -106,7 +106,7 @@
 	  <span class="show-when-article-not-active"><p>{{ object_content }}</p></span>
 	  <span class="show-when-article-active">
 	    <a href="{{ object.get_absolute_url }}" class="btn-more2 first">Read more</a>
-            <a href="#" class="btn-more2">Ask Question</a>   
+            <a href="/forum/questions/ask/?entry={{ object.pk }}" class="btn-more2">Ask Question</a>   
 	  </span>
 	{% else %}
 		{% if object.is_public %}

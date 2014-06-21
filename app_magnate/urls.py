@@ -54,6 +54,7 @@ urlpatterns = patterns("",
     url(r"^rewards/", include("rewards.urls")), 
 
     url(r"^forum/", include("forum.urls")),
+    url(r"^f/", 'forum.views.readers.embedded_index'),
     #media for forum; adding here as they all point to /m/..., 
     #and I want to minimize edits to forum/
     url(r'^m/(?P<skin>\w+)/media/(?P<path>.*)$', 'forum.views.meta.media' , name='osqa_media'),

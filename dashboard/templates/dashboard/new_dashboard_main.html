@@ -5,6 +5,17 @@
 {% block style_base %}
 	<link href="{% static "css/ui.css" %}" rel="stylesheet">	
 {{ block.super }}
+
+
+{% load i18n extra_tags extra_filters ui_registry %}
+    <!-- Styling for OSQA -->
+        <link href="{% media  "/media/style/style.css" %}" rel="stylesheet" type="text/css" />
+
+        <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" />
+
+        <script src="http://www.google.com/jsapi" type="text/javascript"></script>
+        <script type="text/javascript" src="{% media  "/media/js/osqa.main.js" %}"></script>
+
 {% endblock %} 
 
 {% block body %}
@@ -111,7 +122,7 @@
         </div>
         </div>
         </div>
-        <div id="div_activity">
+        <div id="div_activity" width="500" height="500">
 	  Hello, world!
 	</div>
 
