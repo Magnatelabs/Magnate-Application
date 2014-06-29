@@ -398,6 +398,10 @@
     .btn-more2.first { 
  	  margin-left:0
 	}
+	
+	.btn-more2.fundfeed_btn_mod { 
+ 	  margin-left:30px;
+	}
     
     .btn-more2:hover,
     .btn-more2:active,
