@@ -1,10 +1,14 @@
 {% extends "site_base.html" %}
+{% block body_id %}dashboard_body{% endblock %}
 {% load staticfiles %}
 {% load social_tags %}
 
 {% block style_base %}
-	<link href="{% static "css/ui.css" %}" rel="stylesheet">	
+	<link href="{% static "css/main.css" %}" rel="stylesheet">
+	<link href="{% static "css/ui.css" %}" rel="stylesheet">
+	<link href="{% static "css/960.css" %}" rel="stylesheet">	
 {{ block.super }}
+
 
 
 {% load i18n extra_tags extra_filters ui_registry %}
@@ -45,7 +49,7 @@
 			<article>
 			<p>Total Amount in Fund</p>
 			<h2><sup>$</sup>98,000.00</h2>
-			<div class="btn-middle"><a href="#" class="btn dashbtn_fix">Learn more</a></div>
+			<div class="btn-middle"><a href="#" class="btn" id="dashbtn_fix">Learn more</a></div>
 			</article>        
 			<aside>
 			<p>You are not currently participating in this fund </p>
@@ -57,7 +61,7 @@
 			<article>
 			<p>Total Amount in Fund</p>
 			<h2><sup>$</sup>72,000.00</h2>
-			<div class="btn-middle"><a href="#" class="btn dashbtn_fix">Learn more</a></div>
+			<div class="btn-middle"><a href="#" class="btn" id="dashbtn_fix">Learn more</a></div>
 			</article>      
 			<aside>
 			<p>You are not currently participating in this fund </p>
@@ -93,7 +97,7 @@
         
         <aside>
         <h2><span>Review Details</span></h2>
-        <div class="btn-middle"><a href="{% url "rewards" %}" class="btn dashbtn_fix">Hangouts Home</a></div>
+        <div class="btn-middle"><a href="{% url "rewards" %}" class="btn" id="dashbtn_fix">Hangouts Home</a></div>
         </aside>
         </div>
         
@@ -107,7 +111,7 @@
 	{% if is_dashboard %}
 	<div class="section6"> {% comment %}section6 is also only for the dashboard mode. We want a pure white screen otherwise{% endcomment %}
 
-        <div class="dash_zinniafeed">
+        <div class="dash_zinniafeed grid_3 alpha omega">
         <div class="fund-feed">
   	{% endif %}
 
@@ -117,15 +121,19 @@
         {% if is_dashboard %}
         <div class="btn-bg">
         <div class="btn-middle">
-        <a href="#" class="btn dashbtn_fix">Show more</a>
+        <a href="#" class="btn" id="dashbtn_fix">Show more</a>
         </div>
         </div>
         </div>
         </div>
+        
+        <div class="right-col">
         <div id="div_activity" width="500" height="500">
-	  Hello, world!
-	</div>
-
+			{% comment %}
+			This div is needed to display the Q&A feed.
+			{% endcomment %}
+			</div>
+		</div>
         </div>
 	{% endif %}
 
