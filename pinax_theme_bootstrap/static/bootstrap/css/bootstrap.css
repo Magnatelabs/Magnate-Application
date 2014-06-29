@@ -223,11 +223,6 @@ textarea {
 
 body {
   margin: 0;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  line-height: 20px;
-  color: #333333;
-  background:#edece8 url(../img/bg_body.gif) repeat-x top left
 }
 
 a {
@@ -6630,8 +6625,8 @@ Login / Logout page styling
 .entry-image { float: left; }
 .entry-footer { padding-bottom: 50px;}
 .entry-title p {color: #000000; }
-#feed-entry-image { padding-left: 3px; padding-right: 10px; padding-top: 20px; }
-#feed-entry-icon { padding-right: 13px; }
+#feed-entry-image {  }
+#feed-entry-icon { width: 32px; float: right; }
 #privatefeed-entry-icon {padding-left: 3px; padding-right: 10px; padding-top: 20px; margin-bottom: 49px;}
 .feedpublic-entry-content { padding-top: 20px;}
 .feedprivate-entry-content { padding-top: 20px;}
@@ -6761,75 +6756,6 @@ Rewards
 .rewardslct article {padding: 32px 14.6% 20px 7.6%;}
 .hangout-image {padding-right: 10px;}
 .order-bottom .hangout-image {float:left;}
-
-/*----------------------------------------------------------------------------------------------------
-Dashboard v5 Styling
-----------------------------------------------------------------------------------------------------*/
-.user_breakdown{width:100%; float:left; background:#cacac8 url(/site_media/static/img/bg01.png) repeat-y top right; border-radius: 2px 2px 0 0; behavior: url(PIE.htc); position:relative; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; padding:0px 0px 0px 30px}
-.ub_statusinfo{width:160px; float:left; background:#a6c987; box-shadow: #999 0 0 1px; border-radius:3px; behavior: url(PIE.htc); -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; position:relative; padding:16px 19px 19px 19px}
-.ub_statusinfo p { font-size:12px; font-family:"helveticaneuebold", Arial, Helvetica, sans-serif; color:#FFFFFF; text-align:center; line-height:17px; padding-bottom:6px; margin: 0 0 0px;}
-.ub_statusinfo p span { font-size:24px}
-.ub_statusinfo figure { width:100%; float:left; border:1px solid #748c5e; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; position:relative}
-.ub_statusinfo figure img { width:100%}
-.ub_statusinfo .icon-plus { width:37px; height:31px; float:left; background:url(/site_media/static/img/icon-plus01.png) no-repeat; position:absolute; bottom:-8px; right:-11px; font-size:27px; font-family:"helveticaneuemedium", Arial, Helvetica, sans-serif; text-align:center; color:#FFFFFF; text-decoration:none; line-height:25px}
-.ub_tabcontent { width:490px; float:left; margin:29px 0 0 28px}
-.ub_tablinks { width:100%; float:left}
-.ub_tablinks ul { float:left; padding:0 0 0 19px; -webkit-margin-after: 0em; -webkit-margin-before: 0em;}
-.ub_tablinks ul li { height:20px; float:left; font-size:12px}
-.ub_tablinks ul li:first-child { margin-right:-5px; position:relative; z-index:55}
-.ub_tablinks ul li a { height:20px; float:left; color:#4c4c4c; background:url(/site_media/static/img/bg-tab01.png) no-repeat top right; border-radius: 4px 0 0 0; behavior: url(PIE.htc); position:relative; border-bottom:1px solid #7e7f7e; z-index:50; line-height:22px; padding:0 20px 0 10px; margin-bottom:-4px}
-.ub_tablinks ul li a:hover { text-decoration:none}
-.ub_tablinks ul li a.selected { height:24px; background:url(/site_media/static/img/bg-tab02.png) no-repeat top right; text-decoration:none; border-bottom-color:#a6c987; z-index:56}
-.ub_tabbox { width:100%; float:left; background:#a6c987; border:1px solid #b2b2b1; box-shadow:inset #929f86 0 0 3px; border-radius: 3px; behavior: url(PIE.htc); -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; position:relative; padding:18px 10px 20px 30px}
-.ub_tabbox article { width:60%; float:left}
-.ub_tabbox article p { font-size:14px; color:#FFFFFF; padding-bottom:10px}
-.ub_tabbox article h2 { font-size:48px; color:#FFFFFF; padding-bottom:19px; line-height: 25px;}
-.ub_tabbox article h2 sup { font-size:36px; top:-0.3em; font-family:"Tahoma", Arial, Helvetica, sans-serif}
-.ub_tabbox aside { width:40%; float:right; padding:20px 0 0 0}
-.ub_tabbox aside p { font-size:14px; color:#FFFFFF; text-align:center; padding-bottom:12px}
-.ub_tabbox aside p a{ color:#5a8e22; text-decoration:underline}
-.ub_tabbox aside p a:hover { text-decoration:none}
-.ub_otheractions { width:199px; float:right; background:#fcfcfc; border-radius: 0 2px 0 0; behavior: url(PIE.htc); position:relative; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; padding:15px 18px 5px 18px}
-.ub_otheractions aside { width:100%; float:left; background:#f9f0ec; box-shadow: #dddddd 0 2px 2px; border-radius:7px; behavior: url(PIE.htc); position:relative; padding:12px 0; margin-bottom:20px}
-.ub_otheractions aside p { font-size:10px; color:#4c4c4c; text-align:center; margin: 0 0 0px; line-height: 13px;}
-.ub_otheractions aside p span { color:#2398c9}
-.ub_otheractions aside p span a { color:#2398c9}
-.ub_otheractions .blue_feedback { background:#d7e4e7}
-.ub_otheractions .gray_news { background:#f8f8f8}
-.hangouts_dropdown { width:100%; float:left; background:#313131 url(../img/shadow01.png) repeat-x top left; box-shadow:inset #474747 0 -5px 5px; behavior: url(PIE.htc); position:relative; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; padding:14px 16.52%}
-.hangouts_dropdown aside { width:170px; float:left; vertical-align:middle; padding-top:8px}
-.hangouts_dropdown aside h2 { font-size:36px; color:#FFFFFF; text-align:center; font-family:"helveticaneuebold", Arial, Helvetica, sans-serif; line-height:32px; padding-bottom:2px; -webkit-margin-before: 0em; -webkit-margin-after: 0em; }
-.hangouts_dropdown aside h2 span { font-size:22px}
-.hangouts_dropdown aside h2 a { color:#FFFFFF}
-.hangouts_dropdown figure { width:285px; float:left; text-align:center}
-.hangouts_dropdown .btn-middle { width:110px; margin:0 auto; }
-.hangouts_dropdown .icon-close { width:13px; height:13px; float:left; background:url(/site_media/static/img/icon_close01.png) no-repeat center center; text-indent:-99999px; position:absolute; top:13px; right:23px}
-.dashbtn_fix {font-size: 11px;}
-.section6-bg { width:100%; float:left; background:#ffffff; border-radius:0 0 2px 0; behavior: url(PIE.htc); position:relative;}
-.section6 { width:100%; float:left; background:url(/site_media/static/img/bg02.png) repeat-y top left}
-
-.fund-feed { width:100%; float:left}
-.fund-feed article { width:100%; float:left; background:#4a4a49; border-top:1px solid #5d5d5c; padding:20px 0 10px 0}
-.fund-feed article h4 { font-size:14px; color:#FFFFFF; font-family:"helveticaneuemedium", Arial, Helvetica, sans-serif; line-height:15px; padding:0 15% 6px 0; margin: 0px 0;}
-.fund-feed article h4 a { color:#FFFFFF; font-weight: normal;}
-.fund-feed article p { font-size:12px; color:#FFFFFF; margin: 0 0 0px; line-height: 15px;}
-.fund-feed article p a { color:#FFFFFF}
-.fund-feed aside { width:100%; height:120px; float:left; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; padding:0 20px 0 20px; position:relative}
-.fund-feed .icon { width:32px; height:32px; float:left; position:absolute; top:0; right:0}
-
-.fund-feed .article-active { background:#aec987; box-shadow:inset #d5e6bd 0 -3px 5px, #6e775f 0 -1px 0; behavior: url(PIE.htc); position:relative; padding:14px 0 22px 0}
-.fund-feed .article-active figure { width:100%; float:left; padding-bottom:16px}
-.fund-feed .article-active figure img { width:100%}
-.fund-feed .article-active h3 { font-size:16px; color:#FFFFFF; padding:0 0 8px 20px}
-.fund-feed .article-active h3 a { color:#FFFFFF}
-.fund-feed .article-active h3 span { color:#4c4c4c}
-.fund-feed .article-active h3 span a { color:#4c4c4c}
-.fund-feed .article-active h4 { font-size:24px; line-height:28px; padding-bottom:16px}
-.fund-feed .article-active aside { height:auto}
-.fund-feed .btn-bg { width:100%; float:left; padding:23px 0 23px 0; border-bottom: 1px solid #c5c6c5;}
-.fund-feed .btn-middle { width:85px; margin:0 auto}
-.right-col { width:658px; float:right; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; padding:30px 12px 0 12px}
-.dash_zinniafeed { width: 280px; }
 
 
 
