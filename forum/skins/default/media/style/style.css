@@ -331,7 +331,8 @@ blockquote blockquote {
     overflow: hidden;
     padding: 3px 0px 5px 0;
     position: relative;
-    width: 740px;
+    width: 634px; /* mod by jmw 06.27.14
+    width: 740px; */
 }
 
 #listA .short-summary:first-of-type {
@@ -362,7 +363,8 @@ blockquote blockquote {
     float: left;
     margin-right: 0px;
     margin-top: 4px;
-    padding-right: 2px;
+    padding-right: 0px; /* mod by jmw 06.27.14
+    padding-right: 2px; */
 }
 
 .short-summary .counts .item-count {
@@ -372,7 +374,8 @@ blockquote blockquote {
 
 .short-summary .question-summary-wrapper {
   float: right;
-  width: 565px;
+  width: 461px; /* mod by jmw 06.27.14
+  width: 565px; */
 }
 
 .short-summary .votes, .short-summary .status, .short-summary .views {
