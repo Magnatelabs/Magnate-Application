@@ -116,6 +116,10 @@
 	    
 	    <!-- Automatically resize font inside every container with CSS class .dollar -->
 	    <script type="text/javascript">$( '.dollar' ).each(autosize_font);</script>
+	    <!-- Avoid window jump with CSS class .nojump -->
+	    <script type="text/javascript">$(".nojump").click(function(e) {e.preventDefault();
+			// Do your stuff
+		});</script>	
             
             {% block extra_script %}{% endblock %}
         {% endblock %}
