@@ -17,8 +17,13 @@
 {% block content %}
 
 <div class="tabBar">
+    
+    {% comment %}
+    Commenting out the following code for design purposes (jmw 06.27.14)
     {% include "question_list/title.html" %}
     <a class="feed-icon" style="background-image:url('{% media "media/images/feed-icon-small.png" %}');" href="{{ feed_url }}" title="{% trans "subscribe to question RSS feed" %}"></a>
+    {% endcomment %}
+    
     {{ questions.paginator.sort_tabs }}
 </div>
 <div id="listA">{% for question in questions.paginator.page %}
@@ -40,7 +45,10 @@
 <!--    { % sidebar_upper % }-->
 <!--    { % tag_selector % }-->
 <!--    { % sidebar_lower % }-->
-    {% question_list_related_tags questions.paginator.page %}
 
+	{% comment %}
+    Commenting out the following code for design purposes (jmw 06.27.14)
+    {% question_list_related_tags questions.paginator.page %}
+	{% endcomment %}
 {% endblock %}
 <!-- end questions.html -->
