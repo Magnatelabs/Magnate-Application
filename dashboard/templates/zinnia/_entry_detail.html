@@ -23,18 +23,6 @@
         
 
 <!-- Icon of the entry -->
-<div class="icon">
-<img id="feed-entry-icon" src="{{ object.icon_url }}"   />
-
-		{% if object.is_public %}
-		{% else %}
-			<img id="privatefeed-entry-icon" src="{{ object.private_icon_url }}" style="float: left" />
-		{% endif %}
-
-{{ block.super }}
-
-
-</div>
 
 
 
@@ -48,7 +36,15 @@
 
 {% block entry-title %}
   {% if continue_reading %}
-    <h4><a href="{{ object.get_absolute_url }}">{{ object.title }}</a></h4>
+  <div class="show-when-article-active">
+	  <img id="feed-entry-icon" src="{{ object.icon_url }}"   />
+		{% if object.is_public %}
+		{% else %}
+			<img id="privatefeed-entry-icon" src="{{ object.private_icon_url }}" style="float: left" />
+		{% endif %}
+		{{ block.super }}
+	</div>
+    <h4 class="fundfeed_title_active"><a href="{{ object.get_absolute_url }}">{{ object.title }}</a></h4>
   {% else %}
     <h2 class="entry-title">
       <a href="{{ object.get_absolute_url }}" title="{{ object.title }}" rel="bookmark">
@@ -105,7 +101,7 @@
 	{% if continue_reading %}
 	  <span class="show-when-article-not-active"><p>{{ object_content }}</p></span>
 	  <span class="show-when-article-active">
-	    <a href="{{ object.get_absolute_url }}" class="btn-more2 first">Read more</a>
+	    <a href="{{ object.get_absolute_url }}" class="btn-more2 fundfeed_btn_mod">Read more</a>
             <a href="/forum/questions/ask/?entry={{ object.pk }}" class="btn-more2">Ask Question</a>   
 	  </span>
 	{% else %}
