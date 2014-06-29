@@ -44,7 +44,7 @@
 		{% endif %}
 		{{ block.super }}
 	</div>
-    <h4 class="fundfeed_title_active"><a href="{{ object.get_absolute_url }}">{{ object.title }}</a></h4>
+    <h4 class="fundfeed_title_active nojump"><a href="#">{{ object.title }}</a></h4>
   {% else %}
     <h2 class="entry-title">
       <a href="{{ object.get_absolute_url }}" title="{{ object.title }}" rel="bookmark">
@@ -168,7 +168,8 @@
 		<div class="blog-entry-footer">
 		  
 		</div>
-	{% endif %}
+	{% endif %}	
 {% endblock %}
 
 <!-- add if continue reading tags to every block you want to be different on the detail page.-->
+
