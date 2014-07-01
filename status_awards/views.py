@@ -29,3 +29,8 @@ def award_detail(request):
 #    request.user.badges_earned.get(r
 
     return render(request, 'status_awards/status_award_detail.html', {'badge': badge})
+
+@login_required(login_url='/account/login')
+def newstatus_index(request):
+#    if not request.user.is_authenticated():                                                             #        return redirect('/donations/user/?next=%s' % request.path)                                       
+    return render(request, 'status_awards/newstatus_home.html')
