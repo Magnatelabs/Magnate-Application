@@ -147,3 +147,71 @@ updated: jmw 06.28.14
 .tabsA a {font-size: 8px;}
 
 
+/*----------------------------------------------------------------------------------------------------
+Status Home Styling
+created: jmw 06.30.14
+updated: jmw 06.30.14
+----------------------------------------------------------------------------------------------------*/
+.statushome_contentinner_header { width:100%; float:left; min-height:92px;}
+.statushome_contentinner_header .inner_blue { width:100%; float:left; min-height:92px; background:#d2e3e7}
+.statushome_contentinner_header .inner_blue h1{ font-family:"helveticaneuelight", Arial, Helvetica, sans-serif; font-size:36px; color:#4d4c4b; line-height:92px; padding:0 0 0 6.2%}
+.section1_status_display {width: 64%; float: left; margin: 2px 92px 10px 0px; background: #388173;}
+.section1_status_display h4 {color: #ffffff; padding-left: 40px;}
+.additional_right-overlay { width: 178px; float: right; margin-right: 58px; margin-top: 40px; display: inline; border: 1px solid #c7c8c8;}
+.order_right-overlay { width:100%; float:right; background:#ffffff}
+.order_right-overlay .roinner_one  { width:100%; float:right;}
+.order_right-overlay .roinner_one article {width: 100%; float: left; padding: 0px 0% 40px 5%;}
+.order_right-overlay .roinner_one article ul{ width:100%; float:left; font-family:"Helvetica Neue", Arial, Helvetica, sans-serif; font-size:14px; list-style-type: none;}
+.order_right-overlay .roinner_one article ul li { width:100%; float:left; color:#4d4c4b; padding:7px 0}
+.order_right-overlay .roinner_one article ul li img { width: 32px; float:left; padding-right: 10px;}
+.order_right-overlay .roinner_one article ul li p { font-size: 12px; line-height: normal; padding-top:3px; width: 85%;}
+.order_right-overlay .roinner_one article ul li a { color: #4d4c4b;	text-decoration: none;}
+.order_right-overlay .roinner_two  { width:100%; float:right; border-bottom:1px solid #e2e2e2;}
+.order_right-overlay .roinner_two article {width: 71.6%; float: left; padding: 5px 14.6% 0px 10%;}
+.order_right-overlay .roinner_two article ul{ width:100%; float:left; font-family:"Helvetica Neue", Arial, Helvetica, sans-serif; font-size:14px; list-style-type: none;}
+.order_right-overlay .roinner_two article ul li { width:100%; float:left; color:#4d4c4b; }
+.order_right-overlay .roinner_two article ul li a { color: #4d4c4b;	text-decoration: none;}
+.status_section1{ width:100%; float:left; padding:0px 0% 40px 0%}
+.status-info{ width:74%; float:left; padding:40px 0% 12px 0%;}
+.status-info article{ width:90%; float:left; padding:0px 0% 26px 58px;}
+.status-info figure{ width:180px; float:left; -webkit-margin-start: 0px; -webkit-margin-end: 0px; margin: 0px; padding: 0px; }
+.status-info figure img{ border:1px solid #b2b2b2}
+.status-info aside{ width:66.5%; float:right; padding-bottom: 10px; padding-left: 20px; }
+.status-info .btn-middle {float: right; margin-right: 16px; margin-top: 20px;}
+.status_section2 { width:100%; float:left; min-height:92px; }
+.status_section2 h4 {padding-left: 54px;}
+.status_actions { width: 100%; float: left; padding: 0px 0% 0px 54px; }
+.actions_info {width: 43%; float: left; padding: 0px 0% 26px 0%; margin: 10px 10px 0px 0px; background: #ffffff; border: 1px solid #bdbebf;}
+.actions_info .inner_empty {width: 80%; float: left; min-height: 40px;}
+.actions_info .action_counter {width: 12%; float: right; background-color: #ababab; border-radius: 4px; margin: 10px 10px 0px 0px;}
+.actions_info .action_counter h4 {padding-left: 10px; font-size: 14px; font-weight: bold; margin: 5px;}
+.actions_info article {float: left; margin-top: -20px;}
+.actions_info article figure {float: left; min-height: 100px; padding-left: 20px; padding-right: 10px;}
+.actions_info article figure img { width: 58px;}
+.actions_info article h4 {margin: 5px; }
+.actions_info article p {font-size: 10px; width: 95%; line-height: normal; }
+.karma_tip { width: 78.7%; float: left; padding: 0px 0% 26px 0%; margin: 0px 0px 0px 115px; }
+.karma_tip article {width: 90%; float: left; padding: 0px 0% 26px 7.8%; }
+.karma_tip article figure {width: 132px; float: left; margin: -2px 0px 0px 302px; }
+.karma_tip article aside {width: 33.2%; float: right; padding-bottom: 10px; padding-top: 48px; }
+.karma_tip article h3 { font-size: 18px; line-height: 0px; }
+.karma_tip article aside p { font-size: 14px; }
+.status_section3 { width:100%; float:left; min-height:92px; }
+.status_section3 h1 { padding-left: 50px; margin: 25px 0px 25px 80px;}
+.allstatus_container { width: 80%; float: left; margin: 0px 0px 0px 100px; border-top: 2px solid #818484; }
+.allstatus_list { width: 100%; float: left; padding: 20px 0% 140px 0%; }
+.allstatus_list h4 { font-size: 18px; padding-top: 40px; }
+.allstatus_awards { width: 86%; float: left; margin: 0px 50px 0px 50px;}
+.allstatus_awards ul{ width:100%; float:left; list-style-type: none; -webkit-padding-start: 0px; -webkit-margin-before: 0em;}
+.allstatus_awards ul li { width: 100%; float: left; padding: 25px 0px 0px 0px; }
+.allstatus_awards ul li figure { width: 135px; float: left; -webkit-margin-start: 0px; -webkit-margin-end: 0px; }
+.allstatus_awards ul li figure img { padding-left: 20px; }
+.section3_status_display1 {width: 100%; float: left; margin: 0px 0px 0px 0px; background: #388173; border: 1px solid #bdbebf;}
+.status_display_description {width: 90%;float: left; background-color: #eeeeee; border-bottom: 1px solid #bdbebf; margin: 0px 0px 0px 30px; border-left: 1px solid #bdbebf; border-right: 1px solid #bdbebf;}
+.status_section3 .section3_status_display1 h1 {color: #fff;}
+.status_display_description aside {margin: 10px 30px 20px 30px;}
+.section3_status_display2 {width: 100%; float: left; margin: 0px 0px 0px 0px; background: #d38900; border: 1px solid #bdbebf; opacity: .65;}
+.section3_status_display3 {width: 100%; float: left; margin: 0px 0px 0px 0px; background: #5b864c; border: 1px solid #bdbebf; opacity: .65;}
+.section3_status_display4 {width: 100%; float: left; margin: 0px 0px 0px 0px; background: #ed009e; border: 1px solid #bdbebf; opacity: .65;}
+
+
