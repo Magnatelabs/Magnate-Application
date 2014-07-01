@@ -1,0 +1,170 @@
+{% extends "site_base.html" %}
+{% block body_id %}dashboard_body{% endblock %}
+{% load staticfiles %}
+{% load brabeion_tags %}
+{% load status_awards_tags %}
+
+{% block style_base %}
+	<link href="{% static "css/main.css" %}" rel="stylesheet">
+	<link href="{% static "css/ui.css" %}" rel="stylesheet">
+	<link href="{% static "css/960.css" %}" rel="stylesheet">	
+	{{ block.super }}
+{% endblock %} 
+
+{% block body %}
+        
+    <div class="grid_16">
+    	<div class="contentinner">
+    		<div class="bgsection2">
+        
+    		<div class="statushome_contentinner_header">
+				<div class="inner_blue">
+					<h1>{{ request.user }}'s Status Page</h1>
+				</div>
+	   		</div>
+        
+        	<div class="status_section1">
+        		<div class="status-info">
+					<article>					
+						<figure><a href="{% url 'status_award_detail' %}?award={{ status_badge.pk }}">{% render_badge status_badge "status_large" %}						</a></figure>
+						<aside>
+							<div class="section1_status_display"><h4>Order of the Lurkers</h4>
+							</div>
+							{% if has_status_badge %}
+							<h3>{{ status_badge.name }}</h3>
+							{% else %}
+							<h3>Base Spectator</h3>Lorem ipsum dolor sit amet, consectetuer adipisicing elit, sed do euismond tempor incididunt ut labore et dalore magna aliqua. Ut enim ad minim veniam, quis nostrud execritation ullamco laboris nisi ut aliquip ex ca commo.
+							{% endif %}
+							<p>{{ status_badge.description }}</p>
+        				<div class="btn-middle"><a href="#" class="btn" id="dashbtn_fix">Learn more</a></div>
+        				</aside>        				
+					</article>
+				</div>
+				<div class="additional_right-overlay">
+						<div class="order_right-overlay">
+							<div class="roinner_two">
+								<article>
+									<ul class="unstyled">	
+									<li><a href="#">Status Benefits</a></li>
+									</ul>
+								</article>
+							</div>
+							<div class="roinner_one">
+								<article>
+									<ul class="unstyled">
+									<li><span class="left"><img src="{% static "img/status_award_smallicon7.png" %}" alt="PHOTO"></span>
+									<p class="right">VIP treats at all all the Magnate events</p></li>
+									<li><span class="left"><img src="{% static "img/status_award_smallicon6.png" %}" alt="PHOTO"></span>
+									<p class="right">Stake in monthly carry drawing</p></li>
+									<li><span class="left"><img src="{% static "img/status_award_smallicon8.png" %}" alt="PHOTO"></span>
+									<p class="right">10% discount for all friends invited to Magnate events</p></li>
+									</ul>
+								</article>
+							</div>	
+						</div>
+				</div>
+			</div> <!--status_section1-->
+			
+			        
+			{% if request.user.is_authenticated %}
+                {% badges_for_user request.user as badges %}
+            {% endif %}
+        	<div class="status_section2">
+        	<h4>Possible Actions</h4>
+        		<div class="status_actions">
+        			<div class="actions_info">
+        				<div class="inner_empty"></div>
+						<div class="action_counter"><h4>13</h4></div>
+						<article>
+						<figure><img src="{% static "img/status_award_smallicon6.png" %}" alt="PHOTO"></figure>
+						<h4>Ask a Question</h4><p>Curious about what's happening in one of the Magnate Funds? Ask a question and learn more about investing. The more you do, the better chance you have at receiving a cash injection of your own.</p></article>
+					</div>	
+					<div class="actions_info">
+        				<div class="inner_empty"></div>
+						<div class="action_counter"><h4>76</h4></div>
+						<article>
+						<figure><img src="{% static "img/status_award_smallicon7.png" %}" alt="PHOTO"></figure>
+						<h4>Spread the News</h4><p>Curious about what's happening in one of the Magnate Funds? Ask a question and learn more about investing. The more you do, the better chance you have at receiving a cash injection of your own.</p></article>
+					</div>	
+					<div class="actions_info">
+        				<div class="inner_empty"></div>
+						<div class="action_counter"><h4>27</h4></div>
+						<article>
+						<figure><img src="{% static "img/status_award_smallicon8.png" %}" alt="PHOTO"></figure>
+						<h4>Give some Feedback</h4><p>Curious about what's happening in one of the Magnate Funds? Ask a question and learn more about investing. The more you do, the better chance you have at receiving a cash injection of your own.</p></article>
+					</div>	
+					<div class="actions_info">
+        				<div class="inner_empty"></div>
+						<div class="action_counter"><h4>02</h4></div>
+						<article>
+						<figure><img src="{% static "img/status_award_smallicon5.png" %}" alt="PHOTO"></figure>
+						<h4>Leave your Mark</h4><p>Curious about what's happening in one of the Magnate Funds? Ask a question and learn more about investing. The more you do, the better chance you have at receiving a cash injection of your own.</p></article>
+					</div>	
+				</div>
+	
+				<div class="karma_tip">
+					<article>
+						<figure><img src="{% static "img/status_tippointer.png" %}" alt="PHOTO"></figure>
+							<aside>
+							<h3>Extra Tip:</h3>
+							<p>Action points determine your status type and which benefits are awarded to you!</p>
+							</aside>
+						</article>
+				</div>
+        	</div><!--status_section2-->
+			
+			
+			<div class="status_section3">
+				<div class="allstatus_container">
+					<div class="allstatus_list">
+        				<h4>The Magnate Status List</h4>
+						<div class="allstatus_awards">
+							<ul>
+							<li>
+							<div class="section3_status_display1">
+							<h1>Order of the Lurkers</h1>
+							</div>
+							<div class="status_display_description">
+							<aside>
+							<p>The first members that join Magnate are automatically placed in the Order of the Lurkers. The main objective for 								anyone in this status is to just go into the application and try stuff out. The Lurker automatically gets access to all 							information and the ability to ask questions.</p>
+							</aside>
+							</div>
+							</li>
+							
+							<li>
+							<div class="section3_status_display2">
+							<h1>Society of Magnates</h1>
+							</div>							
+							</li>
+							
+							<li>
+							<div class="section3_status_display3">
+							<h1>Advisors of the Funds</h1>
+							</div>
+							</li>
+							
+							<li>
+							<div class="section3_status_display4">
+							<h1>Sages of Investments</h1>
+							</div>
+							</li>
+        		
+							</ul>
+						</div>
+					</div>
+
+			
+			
+			
+			
+				</div>
+			</div><!--status_section3-->
+			
+			
+			
+        </div>
+    </div><!-- contentinner -->
+	</div><!-- grid_16 -->
+        
+        
+{% endblock %}
