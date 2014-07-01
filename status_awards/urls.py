@@ -11,4 +11,5 @@ from status_awards import views
 urlpatterns = patterns("",
   url(r"^home/$", "status_awards.views.status_index", name="status_home"),
   url(r"^award_detail/$", "status_awards.views.award_detail", name="status_award_detail"),
+  url(r"^newhome/$", "status_awards.views.newstatus_index", name="newstatus_home"),
 )
