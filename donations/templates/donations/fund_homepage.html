@@ -1,0 +1,203 @@
+{% extends "site_base.html" %}
+{% load staticfiles %}
+{% block body_id %}dashboard_body{% endblock %}
+{% block style_base %}
+	<link href="{% static "css/main.css" %}" rel="stylesheet">
+	<link href="{% static "css/ui.css" %}" rel="stylesheet">
+	<link href="{% static "css/960.css" %}" rel="stylesheet">	
+{{ block.super }}
+{% endblock %}
+
+{% block body %} 
+
+<div class="grid_16">
+    <div class="contentinner">
+        <div class="section1 section3">
+       
+        <div class="first_fund-description">
+        <h1>Magnate Permanent Fund (MPF)</h1>
+        <p>This is the initial fund focused on helping Magnate users learn how to invest in early-stage companies. It's purpose is to benefit the 			overall community and, as such, this fund's profits are never combined with the actual company's profits. If an investment from this fund 			makes a profit, 100% of the money is returned to the community.</p>
+        </div> 
+        
+        <div class="contribution-container">
+        <div class="contribution-contentinner">
+		<article>
+        <div class="current-amount">
+        <h4>Your Contribution</h4>
+        <div id="dollar">
+        <sup>$</sup><span>15.00</span></div>
+        </div>
+        <div class="amplification-container">
+		<p>Amplification Awards</p>
+		<div class="amplification-contentinner">
+		<ul class="unstyled">
+		<li class="amplified-active"><img src="{% static "img/amplification_img.png" %}" alt="PHOTO" /></li>
+		<li><img src="{% static "img/amplification_img.png" %}" alt="PHOTO" /></li>
+		<li><img src="{% static "img/amplification_img.png" %}" alt="PHOTO" /></li>
+		<li><img src="{% static "img/amplification_img.png" %}" alt="PHOTO" /></li>
+		</ul>
+		</div>
+        </div>
+        </article>       
+		</div>
+		
+		<div class="bg-btn">
+        <a href="{% url 'donations_add' %}" class="startedbtn">Add to the fund</a>
+        </div>        
+        </div>
+
+        <div class="fund_metrics-container">
+        <div class="metrics-contentinner">
+			<div class="metric">
+			<article>
+			<div class="metric-text">
+			<p>Number of new Investments</p>
+			</div>
+			<div class="metric-amount1">
+			<p>17</p>			
+			</div>
+			</article>       
+			</div>
+			
+			<div class="metric">
+			<article>
+			<div class="metric-amount2">
+			<p>$62,205</p>	
+			</div>
+			<div class="metric-text2">
+			<p>New Asset Inflows</p>
+			</div>
+			</article>       
+			</div>
+			
+			<div class="metric">
+			<article>
+			<div class="metric-amount2">
+			<p>$32,603</p>	
+			</div>
+			<div class="metric-text2">
+			<p>Number of Participants</p>
+			</div>
+			</article>       
+			</div>
+			
+			<div class="metric">
+			<article>
+			<div class="metric-text">
+			<p>Number of new Investments</p>
+			</div>
+			<div class="metric-amount1 no_change">
+			<p>00</p>			
+			</div>
+			</article>       
+			</div>
+		</div>	
+			<div class="fundbtn"><a href="#" class="btn disabled" id="dashbtn_fix">Detailed View</a></div>	
+        </div>
+		</div> <!--section1 section3-->
+        
+        <div class="section1 section3" id="second_fund">
+        	<div class="second_fund-container">
+           	<div class="second_fund-contentinner">
+       		<h1>Magnate Multi-Strategy Fund (MMSF)</h1> 	
+         	</div>
+         	<div class="fund_warning"><p>You cannot currently participate in this fund</p></div>
+        	</div>  
+        </div> <!--section1 section3 second_fund-->
+        
+          <div class="section1 section3" id="portfolio_breakdown">
+          	<div class="portfolio_heading-inner">
+			<h1>Portfolio</h1>
+			</div>			
+        	<div class="portfolio_breakdown-container">
+        	<img src="{% static "img/fundHome_tempimg1.jpg" %}" alt="PHOTO" />
+           	<div class="portfolio_breakdown-text">
+       		<h1>Fixable</h1> 
+       		<p>Fixable is the first on-demand multi-pickup solution --an iOS app offering an extremely affordable (50% of an UberX) and convenient 				transportation solution.</p>	
+       		<p class="portfolio-tags">Austin • Location Based Services • Transportation • Shuttle</p>
+         	</div>
+        	</div>  
+        	
+        	<div class="portfolio_breakdown-container">
+        	<img src="{% static "img/fundHome_tempimg2.jpg" %}" alt="PHOTO" />
+           	<div class="portfolio_breakdown-text">
+       		<h1>Kidblog</h1> 
+       		<p>Kidblog provides a space for kids to unleash their creativity for a global audience. We maintain a safe environment by leveraging the 			teachers and parents in kids’ lives to create a moderated space for sharing content. </p>	
+       		<p class="portfolio-tags">Minneapolis • Education • K-12</p>
+         	</div>
+        	</div> 
+        	
+        	<div class="portfolio_breakdown-container">
+        	<img src="{% static "img/fundHome_tempimg1.jpg" %}" alt="PHOTO" />
+           	<div class="portfolio_breakdown-text">
+       		<h1>Fixable</h1> 
+       		<p>Fixable is the first on-demand multi-pickup solution --an iOS app offering an extremely affordable (50% of an UberX) and convenient 				transportation solution.</p>	
+       		<p class="portfolio-tags">Austin • Location Based Services • Transportation • Shuttle</p>
+         	</div>
+        	</div>  
+        	
+        	<div class="portfolio_breakdown-container">
+        	<img src="{% static "img/fundHome_tempimg2.jpg" %}" alt="PHOTO" />
+           	<div class="portfolio_breakdown-text">
+       		<h1>Kidblog</h1> 
+       		<p>Kidblog provides a space for kids to unleash their creativity for a global audience. We maintain a safe environment by leveraging the 			teachers and parents in kids’ lives to create a moderated space for sharing content. </p>	
+       		<p class="portfolio-tags">Minneapolis • Education • K-12</p>
+         	</div>
+        	</div>  
+        	
+        	<div class="portfolio_breakdown-container">
+        	<img src="{% static "img/fundHome_tempimg1.jpg" %}" alt="PHOTO" />
+           	<div class="portfolio_breakdown-text">
+       		<h1>Fixable</h1> 
+       		<p>Fixable is the first on-demand multi-pickup solution --an iOS app offering an extremely affordable (50% of an UberX) and convenient 				transportation solution.</p>	
+       		<p class="portfolio-tags">Austin • Location Based Services • Transportation • Shuttle</p>
+         	</div>
+        	</div>
+        	<div class="portfolio_btn"><a href="#" class="btn" id="dashbtn_fix">See more</a></div>	
+         </div> <!--section1 section3 portfolio_breakdown-->
+        
+        <div class="section1 section3" id="relatedNews_breakdown">
+	        <div class="relatedNews_heading-inner">
+			<h1>Related News</h1>
+			</div>
+        	<div class="relatedNews_breakdown-container">           	
+        	<div class="relatedNews_breakdown-text">
+       		<a href="#"><h1>New Bitcoin Fraud Case</h1></a> 
+       		<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque enatibus 			et magnis dis parturient montes, nascetur ridiculus mus.</p>	
+       		<a href="#"><p class="newsSource-link">CNN Money</p></a>
+         	</div>
+        	</div>
+        	
+        	<div class="relatedNews_breakdown-container">           	
+        	<div class="relatedNews_breakdown-text">
+       		<a href="#"><h1>New Bitcoin Fraud Case</h1></a> 
+       		<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque enatibus 			et magnis dis parturient montes, nascetur ridiculus mus.</p>	
+       		<a href="#"><p class="newsSource-link">CNN Money</p></a>
+         	</div>
+        	</div>
+        	<div class="relatedNews_breakdown-container">           	
+        	<div class="relatedNews_breakdown-text">
+       		<a href="#"><h1>New Bitcoin Fraud Case</h1></a> 
+       		<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque enatibus 			et magnis dis parturient montes, nascetur ridiculus mus.</p>	
+       		<a href="#"><p class="newsSource-link">CNN Money</p></a>
+         	</div>
+        	</div>
+        	<div class="relatedNews_breakdown-container">           	
+        	<div class="relatedNews_breakdown-text">
+       		<a href="#"><h1>New Bitcoin Fraud Case</h1></a> 
+       		<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque enatibus 			et magnis dis parturient montes, nascetur ridiculus mus.</p>	
+       		<a href="#"><p class="newsSource-link">CNN Money</p></a>
+         	</div>
+        	</div>
+        	
+           	<div class="relatedNews_btn"><a href="#" class="btn" id="dashbtn_fix">Load more</a></div><!--Horrible, I don't care. I'm tired--!>	
+        </div> <!--section1 section3 relatedNews_breakdown-->
+        
+	</div> <!--contentinner-->
+</div>
+
+    
+{% endblock %}
+
+
+
