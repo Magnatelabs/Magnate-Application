@@ -27,6 +27,18 @@ from bonus_awards.utils import total_bonus_amount
 from django.views.decorators.http import require_http_methods
 from django.contrib.auth.decorators import login_required
 
+#@login_required                                                                                
+def fundpage_index(request):
+#    if not request.user.is_authenticated():                                                   #        return redirect('/donations/user/?next=%s' % request.path)                             
+    tda=total_donation_amount(request.user)
+    user_has_donation = (tda > 0)
+    tba=total_bonus_amount(request.user)
+    gt= tda+tba
+
+    return render(request, 'donations/fund_homepage.html', {'user_has_donation': user_has_donation, 'total_donation_amount': tda, 'total_bonus_amount': tba, 'grand_total': gt })
+#    return render(request, 'donations/fund_homepage.html')
+
+
 #@login_required
 def donation_index(request):
 #    if not request.user.is_authenticated():
