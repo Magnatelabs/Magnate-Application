@@ -215,3 +215,63 @@ updated: jmw 06.30.14
 .section3_status_display4 {width: 100%; float: left; margin: 0px 0px 0px 0px; background: #ed009e; border: 1px solid #bdbebf; opacity: .65;}
 
 
+/*----------------------------------------------------------------------------------------------------
+Fund Home Styling
+created: jmw 07.03.14
+updated: jmw 07.03.14
+----------------------------------------------------------------------------------------------------*/
+.first_fund-description { width: 58%; float: left; background: #FFFFFF; padding: 25px 4.16% 0px 4.16%;}
+.first_fund-description h1{ font-family:"Helvetica Neue",Arial, Helvetica, sans-serif; color:#4d4c4b; padding-bottom:9px; font-size: 30px;}
+.first_fund-description p{ font-size:17px; color:#4d4c4b; padding-bottom:30px}
+.contribution-container{ width:240px; margin:0 auto; float: right; padding: 40px 40px 0px 0px; }
+.contribution-container  h4{ font-size:16px; color:#4c4c4c; padding:0 0 0 12px; opacity: .8;}
+.contribution-contentinner { width:100%; float:left; background:#f8f8f8; border:1px solid #e3e4e4}
+.contribution-contentinner article{ width:92.2%; float:left; padding:0 3.9%}
+.contribution-contentinner .current-amount{ width:100%; float:left; }
+.contribution-contentinner .current-amount #dollar{ width:100%; float:left; padding-bottom:10px; font-size:72px; color:#a6c987; line-height:60px; text-align:center; margin-left: -6px; }
+.contribution-contentinner .current-amount #dollar sup {top:-.6em; font-size: 50%;}
+.contribution-container .bg-btn{ width:240px; margin:0 auto; float: right; }
+.contribution-container .startedbtn{ width: 100%; line-height: 50px; margin-top: 20px;}
+.fund_metrics-container { width: 61% ; margin:0 ; float: left; padding: 0px 0px 40px 4.6%;}
+.metrics-contentinner { width:100%; float:left;}
+.metric { width:230px; float:left; background:#4a4a49; min-height: 75px; margin-left: 20px; margin-bottom: 20px}
+.metric article { width: 90%; margin: 0px 0px 0px 10px; float: left; }
+.metric-text { width: 55%; color: #ffffff; text-align: center; font-size: 17px; float: left; font-family: "helveticaneuelight", Arial, Helvetica, sans-serif; padding: 15px 0px 0px 10px; }
+.metric-amount1 { width: 40%; color: #55a51c; float: left;}
+.metric-amount1 p {padding: 25px 0px 0px 20px; font-size: 47px;}
+.metric-text2 { width: 55%; color: #ffffff; text-align: center; font-size: 17px; float: left; font-family: "helveticaneuelight", Arial, Helvetica, sans-serif; padding: 15px 0px 0px 0px; }
+.metric-amount2 { width: 45%; color: #55a51c; float: left;}
+.metric-amount2 p {padding: 25px 0px 0px 0px; font-size: 26px;}
+.no_change {color: #d3222a;}
+.fundbtn {float: right; margin-right: 56px; }
+#second_fund {background: #c3e69d; margin: 40px 0px 20px 0px;}
+.second_fund-container { width: 91%; margin: 0px 0px 0px 40px; float: left; padding: 10px 0px 10px 0px;}
+.second_fund-contentinner {width: 80%; float: left;}
+.second_fund-contentinner h1{ font-family:"Helvetica Neue",Arial, Helvetica, sans-serif; color:#ffffff; font-size: 30px; opacity: .65;}
+.fund_warning { width: 20%; float: left; color: #7e3630; text-align: center; padding-top: 10px; opacity: .85;}
+.amplification-container { width: 194px; float: left; margin: 20px 0px 15px 12px; background: #a1a1a0; border:1px solid #e3e4e4; border-radius: 5px; }
+.amplification-container p {margin: 5px 0px 0px 5px; font-size: 12px; color: #ffffff;}
+.amplification-contentinner { float: left; margin-left: 10px;}
+.amplification-contentinner ul {width: 100%; float: left; padding-left: 10px; -webkit-margin-before: 0em; -webkit-margin-after: .4em;}
+.amplification-contentinner ul li { float: left; padding-right: 2px; list-style: none; opacity: .65;}
+.amplification-contentinner .amplified-active {opacity: 1;}
+#portfolio_breakdown {width: 518px; margin-bottom: 100px;}
+.portfolio_heading-inner {width: 100%; float: left; min-height: 46px; background: #cacac8; border-bottom:1px solid #e3e4e4; margin-bottom: 20px;}
+.portfolio_heading-inner h1 {font-family: "helveticaneuelight", Arial, Helvetica, sans-serif; font-size: 20px; color: #4c4c4c; padding: 10px 0 0 6.2%; -webkit-margin-after: 0em;}
+.portfolio_breakdown-container {width: 90%; float: left; margin-left: 40px; padding-bottom: 15px;}
+.portfolio_breakdown-container img {width: 100px; float: left; border:1px solid #e3e4e4;}
+.portfolio_breakdown-text {float: left; width: 70%; font-size: 14px; padding-left: 20px; color: #4d4c4b; }
+.portfolio_breakdown-text h1 {font-size: 20px; -webkit-margin-before: 0em; -webkit-margin-after: 0em; line-height: 30px;}
+.portfolio-tags { color: #cacac8; font-size: 10px;}
+.portfolio_btn {float: right; margin-right: 30px; margin-bottom: 20px;}
+
+#relatedNews_breakdown {width: 378px; margin-left: 20px; }
+.relatedNews_heading-inner {width: 100%; float: left; min-height: 46px; background: #d9e4cd; border-bottom:1px solid #e3e4e4; margin-bottom: 20px;}
+.relatedNews_heading-inner h1 {font-family: "helveticaneuelight", Arial, Helvetica, sans-serif; font-size: 20px; color: #4c4c4c; padding: 10px 0 0 6.2%; -webkit-margin-after: 0em;}
+.relatedNews_breakdown-container {width: 90%; float: left; margin-left: 40px; padding-bottom: 15px;}
+.relatedNews_breakdown-text { float: left; width: 90%; font-size: 14px; color: #4d4c4b; }
+.relatedNews_breakdown-text h1 {font-size: 20px; -webkit-margin-before: 0em; -webkit-margin-after: 0em; line-height: 30px; color: #2398c9; text-decoration: underline; }
+.newsSource-link { color: #000000; font-size: 12px;}
+.relatedNews_btn { float: right; margin-right: 30px; margin-bottom: 145px;}
+
+
