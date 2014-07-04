@@ -10,7 +10,8 @@ from  donations.views import DonationBilling
 #admin.autodiscover()
 
 urlpatterns = patterns("",
-  url(r"^donations/home$", "donations.views.donation_index", name="donations_home"),
+#  url(r"^donations/home$", "donations.views.donation_index", name="donations_home"),
+  url(r"^home$", "donations.views.fundpage_index", name="fund_home"),
   url(r"^donations/add$", "donations.views.donation_add", name="donations_add"),
   url(r"^donations/billing$", "donations.views.enter_billing_info", name="donations_billing"),
   url(r"^donations/finalize_order$", DonationBilling.as_view(), name="donations_finalize"),
