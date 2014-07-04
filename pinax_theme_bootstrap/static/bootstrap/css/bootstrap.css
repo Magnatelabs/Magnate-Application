@@ -6609,16 +6609,7 @@ Blog style
 
 /* Donation home added 12.13.13 by jw
 ----------------------------------------------------------------------------------------------------*/
-.donation-section { width: 91.68%; float: left; background: #FFFFFF; padding: 25px 4.16% 150px 4.16%;}
-.donation-section h1{ font-family:"helveticaneuemedium",Arial, Helvetica, sans-serif; color:#4d4c4b; padding-bottom:9px}
-.donation-section p{ font-size:18px; color:#4d4c4b; padding-bottom:45px}
-.donation-section .amount-box{ width:410px; margin:0 auto}
-.donation-section .amount-box  h4{ font-size:16px; color:#ffffff; padding:0 0 0 12px}
-.donation-section .amount-info{ width:99.8%; float:left; background:#eaf6de; border:1px solid #e3e4e4}
-.donation-section article{ width:92.2%; float:left; background:#a6c987; padding:0 3.9%}
-.donation-section .current-amount{ width:100%; float:left; border-bottom:1px solid #a1b790; padding:30px 0}
-.donation-section .current-amount #dollar{ width:100%; float:left; padding-bottom:10px} 
-.donation-section .current-amount #dollar{ font-size:154px; color:#ffffff; line-height:140px; text-align:center}
+
 .users_donation { width:43%; float:left; padding-right: 25px; line-height: 0px; padding-left: 15px;}
 .users_donation h4{ font-family: "Helvetica Neue", Arial, Helvetica, sans-serif; padding-bottom: 20px;}
 .fixme {margin-left: 5px; padding-top: 20px;}
@@ -6634,8 +6625,6 @@ Blog style
 .donation-section .time-info h2{ color:#ff5113; text-align:center}
 .donation-section .time-info h2 span{ background:url(../img/img_icon22.png) no-repeat left center; padding:3px 0 3px 36px}
 
-.donation-section .bg-btn{ width:265px; margin:0 auto; }
-.donation-section .startedbtn{ width: 256px; line-height: 50px; margin-top: 60px; }
 .donation-section .btn-gray{ width:100%; height:52px; font-family:"Helvetica Neue", Arial, Helvetica, sans-serif; font-size:20px; color:#fff; line-height:52px; margin:30px 0}
 
 /*----------------------------------------------------------------------------------------------------
