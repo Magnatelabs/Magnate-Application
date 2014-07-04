@@ -1,3 +1,4 @@
+
 from django.conf import settings
 from django.conf.urls import patterns, include, url
 from django.conf.urls.static import static
@@ -48,7 +49,7 @@ urlpatterns = patterns("",
     url(r"^errors/", include("siteErrors.urls")),
     url(r"^dash/", include("dashboard.urls")),
     url(r"^social/", include("social.urls")),
-    url(r"^donations/", include("donations.urls")),
+    url(r"^fund/", include("donations.urls")),
     url(r"^status/", include("status_awards.urls")),
     url(r"^study/", include("study.urls")), 
     url(r"^rewards/", include("rewards.urls")), 
