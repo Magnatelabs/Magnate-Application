@@ -1,4 +1,18 @@
-/* lightbox */
+/*----------------------------------------------------------------------------------------------------
+Common Styles
+created: jmw 07.08.14
+updated: jmw 07.08.14
+----------------------------------------------------------------------------------------------------*/
+.contentinner_header { width:100%; float:left; min-height:92px;}
+.contentinner_header h1{ font-family:"helveticaneuelight", Arial, Helvetica, sans-serif; font-size:36px; color:#4d4c4b; line-height:92px; padding:0 0 0 6.2%}
+
+
+
+/*----------------------------------------------------------------------------------------------------
+Lightbox Styles
+created: jmw old
+updated: jmw n/a
+----------------------------------------------------------------------------------------------------*/
 .popup{ width:100%; float:left; background:#FFFFFF; box-shadow: #333 0 0 5px; border-radius:3px; behavior: url(PIE.htc); position:relative}
 .popup h3{ font-size:24px; color:#4c4c4c; font-family:"helveticaneuebold", Arial, Helvetica, sans-serif; padding-bottom:16px}
 .popup h3 a{ color:#4c4c4c} 
@@ -23,7 +37,11 @@
 .lightboxsignup p{ text-align:center; padding:0 23% 40px 23%}
 .lightboxsignup .btns{ width:110px; margin:0 auto}
 
-/* Account detail */
+/*----------------------------------------------------------------------------------------------------
+Account Detail Styles
+created: jmw old
+updated: jmw n/a
+----------------------------------------------------------------------------------------------------*/
 header .toplinks{ float:right; padding-right:10px; padding-top:13px}
 header .toplinks ul{ float:left; font-size:13px}
 header .toplinks ul li{ height:28px; float:left; font-family:"helveticaneuebold", Arial, Helvetica, sans-serif; padding:0 0 0 44px; position:relative}
@@ -152,9 +170,7 @@ Status Home Styling
 created: jmw 06.30.14
 updated: jmw 06.30.14
 ----------------------------------------------------------------------------------------------------*/
-.statushome_contentinner_header { width:100%; float:left; min-height:92px;}
-.statushome_contentinner_header .inner_blue { width:100%; float:left; min-height:92px; background:#d2e3e7}
-.statushome_contentinner_header .inner_blue h1{ font-family:"helveticaneuelight", Arial, Helvetica, sans-serif; font-size:36px; color:#4d4c4b; line-height:92px; padding:0 0 0 6.2%}
+.inner_blue { width:100%; float:left; background:#d2e3e7}
 .section1_status_display {width: 64%; float: left; margin: 2px 92px 10px 0px; background: #388173;}
 .section1_status_display h4 {color: #ffffff; padding-left: 40px;}
 .additional_right-overlay { width: 178px; float: right; margin-right: 58px; margin-top: 40px; display: inline; border: 1px solid #c7c8c8;}
@@ -273,5 +289,36 @@ updated: jmw 07.03.14
 .relatedNews_breakdown-text h1 {font-size: 20px; -webkit-margin-before: 0em; -webkit-margin-after: 0em; line-height: 30px; color: #2398c9; text-decoration: underline; }
 .newsSource-link { color: #000000; font-size: 12px;}
 .relatedNews_btn { float: right; margin-right: 30px; margin-bottom: 145px;}
+
+
+/*----------------------------------------------------------------------------------------------------
+Source Submit Page Styling
+created: jmw 07.03.14
+updated: jmw 07.03.14
+----------------------------------------------------------------------------------------------------*/
+#sourcepage_body {margin: 0; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 14px; line-height: 20px; color: #333333; background:#edece8 url(../img/bg_body.gif) repeat-x top left; padding-top: 80px;}
+#sourcepage_main {background: #f8f8f8; margin-bottom: 30px}
+.sourcepage_content { width: 87.5%; float: left; padding: 0 6.3% 70px 6.3%;}
+.left_sourcepage-container { width: 500px; float: left; background: #ffffff; }
+.left_sourcepage-contentinner { width: 86%; float: left; padding: 30px 0px 0px 30px;}
+.sourceinfo_main {width: 100%; float: left;}
+.sourceinfo_main article { width: 100%; float: left; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; padding: 0 0 0 0px;}
+.sourceinfo_main article h2 { font-weight: normal; color: #4d4c4b; padding-bottom: 0px; }
+.sourceinfo_main article aside { width: 97%; float: left; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; padding: 0 0 33px 0px; }
+.sourceinfo_main article aside h3 { font-size: 18px; line-height: 10px; color: #4d4c4b; }
+.sourceinfo_main article h3 { font-size: 18px; line-height: 10px; color: #4d4c4b; }
+.sourceinfo_main article aside p { margin: 0px; }
+.sourceinfo_main_add-container {width: 65%; float: left;}
+.sourceinfo_main article aside p input { margin-bottom: 20px;}
+.sourceinfo_main article aside p { margin-bottom: 20px; }
+.sourceinfo_main form article textarea {width: 100%;}
+.sourceinfo_main article aside p input[type="file"] { line-height: 0px;}
+.right_sourcepage-container {width: 280px; float: right; display: inline; }
+.right_sourcepage-contentinner { width:100%; float:right; background:#ffffff}
+.right_sourcepage-contentinner article{ width:71.6%; float:left; padding:38px 14.6% 20px 14.6%}
+.right_sourcepage-contentinner h3{ font-family:"Helvetica Neue", Arial, Helvetica, sans-serif; padding-bottom:4px; font-size: 18px; font-weight: normal; -webkit-margin-before: 0em; -webkit-margin-after: 0em;}
+.right_sourcepage-contentinner ul{ width:100%; float:left; font-family:"Helvetica Neue", Arial, Helvetica, sans-serif; font-size:14px; -webkit-padding-start: 0px; list-style-type: none; -webkit-margin-before: 0em; -webkit-margin-after: 0em;}
+.right_sourcepage-contentinner article input[type="submit"] {width: auto;}
+
 
 
