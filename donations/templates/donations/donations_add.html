@@ -1,4 +1,5 @@
 {% extends "site_base.html" %}
+{% block body_id %}dashboard_body{% endblock %}
 {% load staticfiles %}
 
 {% block body %} 
@@ -7,6 +8,9 @@
 <link href="{% static "bootstrap/css/bootstrap.css" %}" rel="stylesheet">
 <link href="{% static "bootstrap/css/bootstrap-responsive.css" %}" rel="stylesheet">
 <link href="{% static "pinax/css/theme.css" %}" rel="stylesheet">
+<link href="{% static "css/main.css" %}" rel="stylesheet">
+<link href="{% static "css/ui.css" %}" rel="stylesheet">
+<link href="{% static "css/960.css" %}" rel="stylesheet">	
 {% block extra_style %}{% endblock %}
 
 <script>
