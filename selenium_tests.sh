@@ -53,9 +53,10 @@ function ctrl_c() {
 # May not work well with Python 3. 
 # http://stackoverflow.com/questions/1871549/python-determine-if-running-inside-virtualenv
 INSIDE_VIRTUALENV=`python -c "import sys; print hasattr(sys, 'real_prefix')"`
-if [ "$INSIDE_VIRTUALENV" != "True" ];
+
+if [ "$INSIDE_VIRTUALENV" != "True" ] && [ "$DATABASE_URL" == "" ];
 then
-    echo "VIRTUALENV is not active. Cannot run the tests. Exiting."
+    echo "VIRTUALENV is not active, and we are not on Heroku either. Cannot run the tests. Exiting."
     cleanup_and_exit 1
 fi
 
