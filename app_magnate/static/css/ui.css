@@ -778,21 +778,21 @@
         float:left
 	}
 	    
-    textarea,
-    input[type="text"],
-    input[type="password"],
-    input[type="datetime"],
-    input[type="datetime-local"],
-    input[type="date"],
-    input[type="month"],
-    input[type="time"],
-    input[type="week"],
-    input[type="number"],
-    input[type="email"],
-    input[type="url"],
-    input[type="search"],
-    input[type="tel"],
-    input[type="color"],
+    textarea_old,
+    input[type="text_old"],
+    input[type="password_old"],
+    input[type="datetime_old"],
+    input[type="datetime-local_old"],
+    input[type="date_old"],
+    input[type="month_old"],
+    input[type="time_old"],
+    input[type="week_old"],
+    input[type="number_old"],
+    input[type="email_old"],
+    input[type="url_old"],
+    input[type="search_old"],
+    input[type="tel_old"],
+    input[type="color_old"],
     .uneditable-input {
       display: inline-block;
       height: 30px;
@@ -801,21 +801,21 @@
       line-height: normal;
     }
     
-    textarea,
-    input[type="text"],
-    input[type="password"],
-    input[type="datetime"],
-    input[type="datetime-local"],
-    input[type="date"],
-    input[type="month"],
-    input[type="time"],
-    input[type="week"],
-    input[type="number"],
-    input[type="email"],
-    input[type="url"],
-    input[type="search"],
-    input[type="tel"],
-    input[type="color"],
+    textarea_old,
+    input[type="text_old"],
+    input[type="password_old"],
+    input[type="datetime_old"],
+    input[type="datetime-local_old"],
+    input[type="date_old"],
+    input[type="month_old"],
+    input[type="time_old"],
+    input[type="week_old"],
+    input[type="number_old"],
+    input[type="email_old"],
+    input[type="url_old"],
+    input[type="search_old"],
+    input[type="tel_old"],
+    input[type="color_old"],
     .uneditable-input {
       background-color: #ffffff;
       border: none;
@@ -865,21 +865,12 @@
 		margin: 0;
 	}
 	
- 	.field .text input, .field .text input[type="search"], form textarea {
-		font-size: 14px;
+ 	.field .text input, .field .text input[type="search"], {
 		width: 100%;
-		border: none;
-		box-shadow: none;
-		-webkit-box-shadow: none;
-		border: none;
 		padding: 0;
 		margin: 0;
 		outline: none;
 		resize: none;
-	}
-
-	form textarea {
-		height: 150px;
 	}
 	
 	.field .text input[type="search"] {
@@ -919,9 +910,6 @@
 		;
 	}
 	
-	label + .text, label + textarea, label + select, label + div.dropdown, select + div.dropdown {
-		margin-top: -9px;
-	}
 	
 	.field.error .text,
 	.field.error .textarea {
@@ -1165,7 +1153,7 @@
 	input.placeholder, textarea.placeholder { color: #888; }
 
 	/* Text input and textarea sizes */
-	input.input-text, textarea { width: 254px; }
+	input.input-text, textareaold { width: 254px; }
 	input.small, textarea.small { width: 134px; }
 	input.medium, textarea.medium { width: 254px; }
 	input.large, textarea.large { width: 434px; }
