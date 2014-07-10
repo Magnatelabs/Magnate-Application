@@ -17,7 +17,19 @@ MANAGERS = ADMINS
 AUTH_USER_MODEL = 'auth.User'
 
 
-if not 'DATABASE_URL' in os.environ: # fall back on local
+# Continuous integration with CIRCLECI
+if os.environ.get('CIRCLECI')=='true':
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql_psycopg2",
+            "NAME": "circle_test",
+            "USER": "ubuntu",
+            "PASSWORD": "",
+            "HOST": "",
+            "PORT": "",
+        }
+    }
+elif not 'DATABASE_URL' in os.environ: # fall back on local
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.postgresql_psycopg2",
