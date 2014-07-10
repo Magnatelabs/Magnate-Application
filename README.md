@@ -1,4 +1,6 @@
 
+[ ![Codeship Status for Magnatelabs/Magnate-Application](https://www.codeship.io/projects/b5c76750-e9f2-0131-b97c-5a04e3162754/status)](https://www.codeship.io/projects/26265)
+
 # Testing 
 
 Be sure to run the tests with `python manage.py test`. They MUST PASS. Exception: if you are not connected to Internet, you get 2 failures in the merchant app in `billing.tests.AuthorizeNETAIMGatewayTestCase`. Also note that several external applications are excluded from testing. Specifically, in `app_magnate/settings.py` you will see
