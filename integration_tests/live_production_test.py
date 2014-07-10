@@ -63,9 +63,8 @@ class main_page(unittest.TestCase):
         elt_password = driver.find_element_by_id("id_password")
         elt_password.send_keys(TEST_PASSWORD)
         elt_password.submit() # will submit the form
+        self.check_url()
 
-        #self.failUnless(driver.current_url != url, "The URL has to change after successful login")
-        
         
         # After successful login, 
         # make sure there is no id_username element any more
