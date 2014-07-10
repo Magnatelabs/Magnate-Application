@@ -59,9 +59,9 @@ class main_page(unittest.TestCase):
         driver.get(_("/account/login/"))
         self.save_url()
         elt_username = driver.find_element_by_id("id_username")    
-        elt_username.send_keys("root")#TEST_USERNAME)    
+        elt_username.send_keys(TEST_USERNAME)    
         elt_password = driver.find_element_by_id("id_password")
-        elt_password.send_keys("root")#TEST_PASSWORD)
+        elt_password.send_keys(TEST_PASSWORD)
         elt_password.submit() # will submit the form
 
         #self.failUnless(driver.current_url != url, "The URL has to change after successful login")
