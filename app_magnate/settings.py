@@ -29,6 +29,8 @@ if os.environ.get('CIRCLECI')=='true':
             "PORT": "",
         }
     }
+    print 'CIRCLECI environment'
+    print DATABASES
 elif not 'DATABASE_URL' in os.environ: # fall back on local
     DATABASES = {
         "default": {
@@ -40,11 +42,14 @@ elif not 'DATABASE_URL' in os.environ: # fall back on local
             "PORT": "",
         }
     }
+    print 'Local environment'
+    print DATABASES
 else:
     import dj_database_url # heroku, postgresql
     DATABASES = {
         "default": dj_database_url.config(),
     }
+
 
 
 # Always run tests with sqlite3 so it does not take forever.
