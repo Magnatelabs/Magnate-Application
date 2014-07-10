@@ -45,8 +45,9 @@ class study_index(FormView):
             # Process the data in form.cleaned_data
             entry = StudyModel()
             entry.entity = form.data['entity']
+            entry.entity_url = form.data['entity_url']
             entry.description = form.data['description']
-            entry.analysis = form.data['analysis']
+            entry.industry = form.data['analysis']
             entry.created = datetime.datetime.now()
             entry.docfile = request.FILES['docfile']
             entry.user = request.user
