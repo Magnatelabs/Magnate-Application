@@ -6516,7 +6516,7 @@ color: #817d8e;}
 .order-right .sbHolder{ width:99.8%; font-size:12px; margin-bottom:20px}
 .order-right .sbOptions li{ width:100%; font-size:12px; padding:4px 0}
 .order-right .btn-gray { width:106px; height:27px; float:right; font-family:"Helvetica Neue", Arial, Helvetica, sans-serif; font-size:14px; line-height:27px; color:#ffffff}
-/* Donation Billing forms styling */
+/* Donation Billing forms styling REMOVE */
 .billing_forms ul li {padding-bottom: 0px; } 
 .billing_forms ul li p {padding-bottom: 0px; }
 /* Donation Pay styling */
@@ -6536,7 +6536,7 @@ color: #817d8e;}
 #adp_forms p input {width: 120px; }
 /* Added for donation add 12.11.13 */
 .order-right article{ width:71.6%; float:left; padding:38px 14.6% 20px 14.6%}
-.left_section2 {width: 520px; }
+.left_section2 {width: 520px; float: left; }
 .order-left .radio { width: 75px; height: 60px; padding: 0 5px 0 0; background:url(/site_media/static/img/radio_magnate3.png) no-repeat; display: block; clear: left; float: left; }
 .right_section2 {width: 280px; float: right; display: inline; }
 
