@@ -33,6 +33,7 @@ class main_page(unittest.TestCase):
 #        sel.open("/wefewwef/")
 #        sel.open("/account/login/")
 
+
         # See http://selenium-python.readthedocs.org/en/latest/getting-started.html#using-selenium-to-write-tests
         driver = self.driver
         driver.get(_("/"))
