@@ -3,4 +3,4 @@ deployment:
     branch: master
     commands:
       - git push git@heroku.com:magnate-prod.git $CIRCLE_SHA1:master
-      - wget http://magnate-prod.herokuapp.com
+      - python ./integration_tests/live_production_test.py
