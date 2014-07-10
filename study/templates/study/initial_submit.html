@@ -1,44 +1,97 @@
 {% extends "site_base.html" %}
 {% load staticfiles %}
+{% block body_id %}sourcepage_body{% endblock %}
+{% block style_base %}
+	<link href="{% static "css/main.css" %}" rel="stylesheet">
+	<link href="{% static "css/ui.css" %}" rel="stylesheet">
+	<link href="{% static "css/960.css" %}" rel="stylesheet">	
+{{ block.super }}
+{% endblock %}
+
 
 {% block body %} 
 
-<div class="donation-section">
-		<!-- List of uploaded documents -->
-		{% if documents %}
-			<ul>
-			{% for document in documents %}
-				<li><a href="{{ document.docfile.url }}">{{ document.docfile.name }}</a></li>
-			{% endfor %}
-			</ul>
-		{% else %}
-			<p>No documents.</p>
-		{% endif %}
+<div class="grid_16">
+    <div class="contentinner">
+        <div class="section1 section3" id="sourcepage_main">
 
-		<!-- Upload form. Note enctype attribute! -->
-		<form action="{% url "study_index" %}" method="post" enctype="multipart/form-data">
-			{% csrf_token %}
-			
-			<li>			
-			<p><label for="id_entity">Company Name</label>
-			<input id="id_entity" type="text" name="entity" maxlength="255" /></p>
-				
-			<p><label for="id_description">Description</label>
-			<input id="id_description" type="text" name="description" maxlength="255" /></p>    		
-    		</li>
-    		
-    		<p><label for="id_analysis">Analysis</label>
-			<input id="id_analysis" type="text" name="analysis" maxlength="" /></p> 
-		
-			<p>{{ form.non_field_errors }}</p>
+        <div class="contentinner_header">
+		<div class="inner_blue">
+		<h1>Source a Company</h1>
+		</div>
+	   	</div>
+        
+        <div class="sourcepage_content">
+        <div class="left_sourcepage-container">
+        <div class="left_sourcepage-contentinner">
+        	<div class="sourceinfo_main">
+        	<p>Want the Magnate community to consider funding a startup or idea that you're in love with? Leave some information and keep your 					fingers crossed--it might be the next Fund addition.</p>
+       
+        <form method="POST" action="{% url 'study_index' %}">
+        {% csrf_token %}
+        <article>
+        
+        
+        <aside>
+        <ul class="unstyled">
+        
+        <li><div class="sourceinfo_main_add-container">
+        <p><label for="id_entity">Company Name</label>
+		<input id="id_entity" type="text" name="entity" maxlength="200" /></p></div>
+        </li>
+        
+        <li><div class="sourceinfo_main_add-container">
+        <p><label for="id_entity_url">Website URL</label>
+		<input id="id_entity_url" type="text" name="entity_url" maxlength="200" /></p></div>
+        </li>
+        
+        
+        <li>
+        <p><label for="id_description">Description of Company or Idea</label>
+		<textarea class="source_pg" id="id_description" type="text" name="description" rows="10"></textarea></p> 
+        </li>
+
+        <li>
+        <p>{{ form.non_field_errors }}</p>
 			<p>{{ form.docfile.label_tag }} {{ form.docfile.help_text }}</p>
 			<p>
 				{{ form.docfile.errors }}
 				{{ form.docfile }}
 			</p>
-    		
-    		<p><input type="submit" value="Submit" /></p>
-		</form>
-</div>		
-
-{% endblock %} 
+        </li>
+        
+        </ul>
+        </aside>
+        </article>
+        </div><!sourceinfo>
+        
+        </div>
+        </div>
+        
+        <div class="right_sourcepage-container">
+        <div class="right_sourcepage-contentinner">
+        <article>
+        <ul class="unstyled">
+        <li class="nodivider">
+			<p><label for="id_industry">Select an Industry</label>
+				<select name="industry" id="id_industry">
+				<option value="Mobile">Mobile</option>
+				<option value="E-commerce">E-commerce</option>
+				<option value="Social_Network">Social Network</option>
+				<option value="Fitness">Fitness</option>
+				<option value="Other">Other</option></select></p> 
+        </li>
+        </ul>
+        <input type="submit" value="Submit" class="btn" />
+		</form>		
+		<a href="{% url "dashboard" %}" class="btn">Cancel</a>
+        </article>
+        </div>
+        </div>
+        </div>
+        </div>
+    </div><!-- contentinner -->
+    </div><!-- grid_16 -->
+    
+    
+{% endblock %}
