@@ -1,5 +1,6 @@
 deployment:
   staging:
     branch: master
-    heroku:
-      appname: magnate-prod
+    commands:
+      - git push git@heroku.com:magnate-prod.git $CIRCLE_SHA1:master
+      - wget http://magnate-prod.herokuapp.com
