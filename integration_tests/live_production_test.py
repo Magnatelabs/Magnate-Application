@@ -46,10 +46,18 @@ class main_page(unittest.TestCase):
 #        try: self.failUnless(sel.is_text_present("by popularity"))
 #        except AssertionError, e: self.verificationErrors.append(str(e))
     
+    def save_url(self):
+        self.url = self.driver.current_url
+        print 'Url:', self.url
+
+    def check_url(self):
+        self.failUnless(self.driver.current_url != self.url)
+
+
     def test_login(self):
         driver = self.driver
         driver.get(_("/account/login/"))
-        url = driver.current_url
+        self.save_url()
         elt_username = driver.find_element_by_id("id_username")    
         elt_username.send_keys("root")#TEST_USERNAME)    
         elt_password = driver.find_element_by_id("id_password")
@@ -65,30 +73,28 @@ class main_page(unittest.TestCase):
             driver.find_element_by_id("id_username")
         self.assertRaises(NoSuchElementException, foo)
 
-        url = driver.current_url
+        self.save_url()
         elt_link = driver.find_element_by_partial_link_text("Add more to the fund")
         elt_link.click()
-        self.failUnless(driver.current_url != url)
+        self.check_url()
 
-        url = driver.current_url
+        self.save_url()
         elt_link = driver.find_element_by_partial_link_text("Add to the fund")
         elt_link.click()
-        self.failUnless(driver.current_url != url)
-
+        self.check_url()
 
         # Try the same thing several times
         for ind in range(3): 
 
             # pick the first amount, probably $10.00
-            url = driver.current_url
+            self.save_url()
             elt_radio = driver.find_element_by_class_name("radio")
             elt_radio.click()
             elt_radio.submit()
-            self.failUnless(driver.current_url != url)
-
+            self.check_url()
 
             # Enter some billing address. Use China as the country.
-            url = driver.current_url
+            self.save_url()
             self.assertIn("Enter billing address", driver.page_source)
             driver.find_element_by_id("id_first_name").send_keys("Test")
             driver.find_element_by_id("id_last_name").send_keys("Selenium")
@@ -99,9 +105,9 @@ class main_page(unittest.TestCase):
             select = Select(driver.find_element_by_id("id_country"))
             select.select_by_visible_text("China")
             driver.find_element_by_id("id_country").submit()
-            self.failUnless(driver.current_url != url)
+            self.check_url()
 
-            url = driver.current_url
+            self.save_url()
             self.assertIn("Check your order and pay", driver.page_source)
             select = Select(driver.find_element_by_name("Card-type"))
             select.select_by_visible_text("Visa")
