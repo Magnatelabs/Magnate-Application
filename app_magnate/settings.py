@@ -31,6 +31,18 @@ if os.environ.get('CIRCLECI')=='true':
     }
     print 'CIRCLECI environment'
     print DATABASES
+elif os.environ.get('CI_NAME')=='codeship':
+    DATABASES = {
+        'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'test',
+        'USER': os.environ.get('PG_USER'),
+        'PASSWORD': os.environ.get('PG_PASSWORD'),
+        'HOST': '127.0.0.1',
+        }
+    }
+    print 'CODESHIP environment'
+    print DATABASES
 elif not 'DATABASE_URL' in os.environ: # fall back on local
     DATABASES = {
         "default": {
