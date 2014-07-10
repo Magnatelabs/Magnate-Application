@@ -68,15 +68,15 @@ echo "Starting Django server, pid=$pid_django"
 # Start Selenium server
 # It may involve downloading the JAR file!
 cd integration_tests
-./selenium_server.sh &
-pid_selenium=$!
-echo "Starting Selenium server, pid=$pid_selenium"
+##./selenium_server.sh &
+##pid_selenium=$!
+##echo "Starting Selenium server, pid=$pid_selenium"
 
 sleep 5 # give them time to start
 
 is_running $pid_django || { wait $pid_django;  echo "ERROR! Django server not running, returned exit code $?"; cleanup_and_exit 3; }
 
-is_running $pid_selenium || { wait $pid_selenium; echo "ERROR! Selenium server not running, returned exit code $?"; cleanup_and_exit 4; }
+##is_running $pid_selenium || { wait $pid_selenium; echo "ERROR! Selenium server not running, returned exit code $?"; cleanup_and_exit 4; }
 
 
 
