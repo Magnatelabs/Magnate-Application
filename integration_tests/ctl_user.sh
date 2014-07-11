@@ -4,7 +4,7 @@ HEROKU_APP=magnate-prod
 TEST_USERNAME=root2363432r322332
 TEST_PASSWORD=root
 
-function has_test_user() {
+function has_user() {
   USERNAME="$1"
   PASSWORD="$2"
 	output=`echo "from django.test import Client; c = Client(); c.login(username=\"$USERNAME\", password=\"$PASSWORD\"); exit()" | heroku run python manage.py shell --app $HEROKU_APP | tail -n 1`
