@@ -1,20 +1,36 @@
 #!/bin/bash
 
 HEROKU_APP=magnate-prod
-TEST_USERNAME=root
-TEST_PASSWORD=root123
+TEST_USERNAME=root3zzz
+TEST_PASSWORD=root
 
 # Check if there is such a user in a django Heroku app.
 # Log into Heroku using heroku run python manage.py shell 
 # Assumes that the name of the heroku app is $HEROKU_APP
 # @arg  USERNAME
 # @arg   PASSWORD
-# @returns   0 if there is such a user, 1 otherwise
+# @returns   0 if there is such a user (USERNAME, PASSWORD), 
+#            1 if there is no such user USERNAME,
+#            2 if the password is incorrect, but the user exists,
+#            3 otherwise (just in case)
 function has_user() {
   USERNAME="$1"
   PASSWORD="$2"
-	output=`echo "from django.test import Client; c = Client(); c.login(username=\"$USERNAME\", password=\"$PASSWORD\"); exit()" | heroku run python manage.py shell --app $HEROKU_APP | tail -n 1`
-	[ "$output" == "True" ] && return 0 || return 1
+	output=`echo -e "from django.test import Client
+c = Client()
+if c.login(username=\"$USERNAME\", password=\"$PASSWORD\"):
+  print 0; exit()
+
+import forum
+from forum.models.user import User
+try:
+  User.objects.get(username='$USERNAME')
+  print 2; exit()
+except forum.models.user.User.DoesNotExist:
+  print 1; exit()
+
+print 3; exit()" | heroku run python manage.py shell --app $HEROKU_APP | tail -n 1`
+  return $output
 }
 
 # Create a user in a django Heroku app. Uses user model forum.models.User
@@ -33,7 +49,9 @@ try:
   print 1; exit()
 except forum.models.user.User.DoesNotExist:
   try:
-    User.objects.create(username='$USERNAME', password='$PASSWORD')
+    u=User.objects.create(username='$USERNAME')
+    u.set_password('$PASSWORD')
+    u.save()
     print 0; exit()
   except Exception as e:
     print str(e); exit()
@@ -92,12 +110,21 @@ echo "Cmd: $cmd, user: $user"
 echo "Connecting to heroku app $HEROKU_APP..."
 if [ "$cmd" == "has_user" ]; 
 then
-  if ( has_user "$user" "$passwd" );
-  then
-    echo "There IS a user '$user'"
-  else
-    echo "There is NO user '$user'"
-  fi
+  has_user "$user" "$passwd"
+  case $? in
+    0)
+      echo "There IS a user '$user'"
+      ;;
+    1)
+      echo "There is NO user '$user'"
+      ;;
+    2)
+      echo "Wrong password, but the user '$user' exists"
+      ;;
+    *)
+      echo "Unknown error"
+      ;;
+  esac
 elif [ "$cmd" == "create_user" ];
 then
   create_user "$user" "$passwd"
