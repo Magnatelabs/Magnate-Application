@@ -5,6 +5,7 @@
 /app_magnate/app_magnate/site_media/media/
 *~
 *.pyc
+*.pyshc
 \#*\#
 app_magnate/billing/integrations/y.html
 app_magnate/y.html
