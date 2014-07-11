@@ -1,9 +1,15 @@
 #!/bin/bash
 
 HEROKU_APP=magnate-prod
-TEST_USERNAME=root2363432r322332
-TEST_PASSWORD=root
+TEST_USERNAME=root
+TEST_PASSWORD=root123
 
+# Check if there is such a user in a django Heroku app.
+# Log into Heroku using heroku run python manage.py shell 
+# Assumes that the name of the heroku app is $HEROKU_APP
+# @arg  USERNAME
+# @arg   PASSWORD
+# @returns   0 if there is such a user, 1 otherwise
 function has_user() {
   USERNAME="$1"
   PASSWORD="$2"
@@ -11,6 +17,12 @@ function has_user() {
 	[ "$output" == "True" ] && return 0 || return 1
 }
 
+# Create a user in a django Heroku app. Uses user model forum.models.User
+# Assumes that the name of the heroku app is $HEROKU_APP
+# @arg  USERNAME
+# @arg  PASSWORD
+# @returns   0 on success, 1 if the user already exists, 2 on other errors
+# Sets $error if the return value is not 0.
 function create_user() {
   USERNAME="$1"
   PASSWORD="$2"
@@ -39,19 +51,64 @@ exit()" | heroku run python manage.py shell --app $HEROKU_APP`
 }
 
 
-echo "Connecting to heroku app $HEROKU_APP..."
-#if ( has_test_user )
-#then
-#	echo "This app HAS a test user"
-#else
-#	echo "This app HAS NO test user"
-#fi
+function usage {
+  name=`basename $0`
+  echo "This tool connects to Heroku with 'heroku run python manage.py shell'"
+  echo "Usage:"
+  echo "$name has-test-user       See if there is a test user '$TEST_USERNAME'"
+  echo "$name create-test-user    Create a test user '$TEST_USERNAME'"
+  echo "$name has-user <user> <passwd>"
+  echo "$name create-user <user> <passwd>"
+}
 
-create_user "$TEST_USERNAME" "$TEST_PASSWORD"
-code=$?
-if [ $code -eq 0 ]; then
-  echo "OK, created test user '$TEST_USERNAME'"
+case $1 in
+  has-test-user)
+    cmd=has_user
+    user="$TEST_USERNAME"
+    passwd="$TEST_PASSWORD"
+    ;;
+  has-user)
+    cmd=has_user
+    user="$2"
+    passwd="$3"
+    ;;
+  create-test-user)
+    cmd=create_user
+    user="$TEST_USERNAME"
+    passwd="$TEST_PASSWORD"
+    ;;
+  create-user)
+    cmd=create_user
+    user="$2"
+    passwd="$3"
+    ;;
+  *)
+    usage
+    exit
+    ;;
+esac
+
+echo "Cmd: $cmd, user: $user"
+echo "Connecting to heroku app $HEROKU_APP..."
+if [ "$cmd" == "has_user" ]; 
+then
+  if ( has_user "$user" "$passwd" );
+  then
+    echo "There IS a user '$user'"
+  else
+    echo "There is NO user '$user'"
+  fi
+elif [ "$cmd" == "create_user" ];
+then
+  create_user "$user" "$passwd"
+  code=$?
+  if [ $code -eq 0 ]; then
+    echo "OK, created user '$user'"
+  else
+    echo "ERROR: cannot create the user '$user'"
+    echo "$error"
+  fi
 else
-  echo "ERROR: cannot create a test user"
-  echo "$error"
+  usage
+  exit
 fi
