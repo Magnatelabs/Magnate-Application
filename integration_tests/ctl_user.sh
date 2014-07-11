@@ -1,8 +1,9 @@
 #!/bin/bash
 
 HEROKU_APP=magnate-prod
-TEST_USERNAME=root3zzz
-TEST_PASSWORD=root
+
+
+source ./test_credentials.pysh
 
 # Check if there is such a user in a django Heroku app.
 # Log into Heroku using heroku run python manage.py shell 
