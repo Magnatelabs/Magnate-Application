@@ -8,8 +8,12 @@ import sys
 
 print "Testing Live Production"
 
-TEST_USERNAME = 'test'
-TEST_PASSWORD = 'S#95T*X6Q41`RG7'
+# Get TEST_USERNAME and TEST_PASSWORD from the file test_credentials.pysh
+import imp
+credentials=imp.load_source('test_credentials', './test_credentials.pysh')
+TEST_USERNAME=credentials.TEST_USERNAME
+TEST_PASSWORD=credentials.TEST_PASSWORD
+
 
 import urlparse
 def _(path):
@@ -50,8 +54,8 @@ class main_page(unittest.TestCase):
         self.url = self.driver.current_url
         print 'Url:', self.url
 
-    def check_url(self):
-        self.failUnless(self.driver.current_url != self.url)
+    def check_url(self, msg=""):
+        self.failUnless(self.driver.current_url != self.url, msg)
 
 
     def test_login(self):
@@ -63,7 +67,7 @@ class main_page(unittest.TestCase):
         elt_password = driver.find_element_by_id("id_password")
         elt_password.send_keys(TEST_PASSWORD)
         elt_password.submit() # will submit the form
-        self.check_url()
+        self.check_url("Cannot login as username='%s', incorrect password?" % (TEST_USERNAME))
 
         
         # After successful login, 
