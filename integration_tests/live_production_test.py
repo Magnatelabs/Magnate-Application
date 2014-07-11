@@ -9,8 +9,11 @@ import sys
 print "Testing Live Production"
 
 # Get TEST_USERNAME and TEST_PASSWORD from the file test_credentials.pysh
+import os
+dirname, filename = os.path.split(os.path.abspath(__file__))
+
 import imp
-credentials=imp.load_source('test_credentials', './test_credentials.pysh')
+credentials=imp.load_source('test_credentials', os.path.join(dirname, 'test_credentials.pysh'))
 TEST_USERNAME=credentials.TEST_USERNAME
 TEST_PASSWORD=credentials.TEST_PASSWORD
 
