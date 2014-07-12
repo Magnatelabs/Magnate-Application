@@ -1,6 +1,8 @@
 #!/bin/bash
 
 HEROKU_APP=magnate-prod
+REMOTE_SHELL="heroku run python manage.py shell --app $HEROKU_APP"
+# REMOTE_SHELL="python manage.py shell"
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 # The file is in the same directory as the script itself
@@ -13,7 +15,7 @@ function remote_command() {
   USERNAME="$2"
   PASSWORD="$3"
 	echo -e "from glue_osqa.user import $CMD
-print $CMD(\"$USERNAME\", \"$PASSWORD\"); exit()" | heroku run python manage.py shell --app $HEROKU_APP | tail -n 1
+print $CMD(\"$USERNAME\", \"$PASSWORD\"); exit()" | $REMOTE_SHELL | tail -n 1
 }
 
 
@@ -25,6 +27,7 @@ function usage {
   echo "$name create-test-user    Create a test user '$TEST_USERNAME'"
   echo "$name has-user <user> <passwd>"
   echo "$name create-user <user> <passwd>"
+  echo "$name create-siteowner <user> <passwd>"
 }
 
 case $1 in
@@ -45,6 +48,11 @@ case $1 in
     ;;
   create-user)
     cmd=create_user
+    user="$2"
+    passwd="$3"
+    ;;
+  create-siteowner)
+    cmd=create_siteowner
     user="$2"
     passwd="$3"
     ;;
