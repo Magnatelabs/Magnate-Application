@@ -96,8 +96,8 @@ class testGlueOSQA(TestCase):
         from forum.models.user import User as ForumUser
         from django.contrib.auth.models import User as DjangoUser
         self.assertEquals(has_user('abc', 'def'), USER_DOES_NOT_EXIST)
-        self.assertIsInstance(create_user('abc', 'def'), ForumUser)
-        self.assertIsInstance(create_user('abc', 'def'), str)
+        self.assertEquals(create_user('abc', 'def'), USER_CREATED)
+        self.assertEquals(create_user('abc', 'def'), USER_AUTHENTICATED)
         self.assertEquals(has_user('abc', 'def'), USER_AUTHENTICATED)
         self.assertEquals(has_user('abc', ''), USER_EXISTS_BUT_WRONG_PASSWORD)
 

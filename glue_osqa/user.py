@@ -8,6 +8,7 @@ USER_EXISTS_BUT_WRONG_PASSWORD='USER_EXISTS_BUT_WRONG_PASSWORD'
 USER_AUTHENTICATED_BUT_WRONG_MODEL='USER_AUTHENTICATED_BUT_WRONG_MODEL'
 USER_EXISTS_BUT_WRONG_PASSWORD_AND_WRONG_MODEL='USER_EXISTS_BUT_WRONG_PASWORD_AND_WRONG_MODEL'
 USER_DOES_NOT_EXIST='USER_DOES_NOT_EXIST'
+USER_CREATED='USER_CREATED'
 
 def has_user(username, password):
 	c = Client()
@@ -37,4 +38,4 @@ def create_user(username, password):
 	user = ForumUser.objects.create(username=username)
 	user.set_password(password)
 	user.save()
-	return user
+	return USER_CREATED
