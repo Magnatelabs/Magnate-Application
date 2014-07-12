@@ -65,4 +65,4 @@ esac
 echo "Cmd: $cmd, user: $user"
 echo "Connecting to heroku app $HEROKU_APP..."
 
-remote_command "$cmd" "$user" "$password"
+remote_command "$cmd" "$user" "$passwd"
