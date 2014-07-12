@@ -9,6 +9,7 @@ from dashboard.mixins import PrivatelyPublishedModelMixin
 from decimal import Decimal
 import datetime
 import status_awards
+import logging
 
 from statistics.statfunctions import update_statistics
 
@@ -49,6 +50,21 @@ class Donation (PrivatelyPublishedModelMixin, models.Model):
         return 'donation'
 
 
+    @receiver(transaction_was_unsuccessful)
+    def on_transaction_was_unsuccessful(sender, **kwargs):
+        if ('request' in kwargs) and (kwargs['request'].method=='POST'):
+            data = kwargs['request'].POST
+
+            try:
+                user=User.objects.get(username=data['x_cust_id'])
+            except User.DoesNotExist, e:
+                logging.error('Error while processing a failed donation: User %s does not exist' % data['x_cust_id'])
+                return
+            user=User.objects.get(username=data['x_cust_id'])
+            x_response_code=data['x_response_code']
+            x_response_reason_code=data['x_response_reason_code']            
+
+            logging.warn('FAILED DONATION. User: %s, code: %s, reason: %s' % (user, x_response_code, x_response_reason_code))
 
     @receiver(transaction_was_successful)
     def on_transaction_was_successful(sender, **kwargs):
@@ -58,8 +74,7 @@ class Donation (PrivatelyPublishedModelMixin, models.Model):
             try:
                 user=User.objects.get(username=data['x_cust_id'])
             except User.DoesNotExist, e:
-                # LOG FATAL ERROR
-                print 'FATAL ERROR while saving a donation: User %s does not exist' % data['x_cust_id']
+                logging.fatal('Error while processing a successful donation: User %s does not exist' % data['x_cust_id'])
                 return
 
             user = User.objects.get(username=data['x_cust_id'])
@@ -67,6 +82,8 @@ class Donation (PrivatelyPublishedModelMixin, models.Model):
             transaction_id = data['x_trans_id']
             donation = Donation(user=user, amount=amount, transaction_id=transaction_id)  
             donation.save()
+
+            logging.info('OK, DONATION SUCCESSFUL. User: %s, transaction_id: %s' % (user, transaction_id))
             status_awards.award_badges("user_donation", user)
             update_statistics() # This function is called to upadte the TOTAL_DONATION_AMOUNT
             #import pdb; pdb.set_trace()
