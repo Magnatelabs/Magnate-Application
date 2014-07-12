@@ -128,3 +128,4 @@ class testGlueOSQA(TestCase):
         self.assertTrue(user.is_siteowner)
 
         self.assertEquals(has_user('root_login', 'root_password'), USER_AUTHENTICATED)
+        self.assertEquals(has_user('root_login', 'sdjiofojsfo'), USER_EXISTS_BUT_WRONG_PASSWORD)
