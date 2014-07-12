@@ -8,6 +8,7 @@ from django.contrib.auth.models import User
 from django.template import RequestContext
 import datetime
 import time
+import logging
 
 from billing import get_integration
 
@@ -169,6 +170,8 @@ def donation_orderpay(request, entry):
           'x_country': entry.country,
         }
     int_obj.add_fields(fields)
+
+    logging.info("User '%s' is prepared to donate. Entering payment info..." % (request.user))
     return render_to_response("donations/donations_orderpay.html",
                              {"adp": int_obj,
                               "amount": donation_amount},
