@@ -88,3 +88,32 @@ class testOSQATemplates(TestCase):
         self.assertEqual(r.status_code, 200)
         self.assertContains(r, 'errorlist')
         # Because the user is anonymous, will require recaptcha!
+
+
+class testGlueOSQA(TestCase):
+    def test_user(self):
+        from user import *
+        from forum.models.user import User as ForumUser
+        from django.contrib.auth.models import User as DjangoUser
+        self.assertEquals(has_user('abc', 'def'), USER_DOES_NOT_EXIST)
+        self.assertIsInstance(create_user('abc', 'def'), ForumUser)
+        self.assertIsInstance(create_user('abc', 'def'), str)
+        self.assertEquals(has_user('abc', 'def'), USER_AUTHENTICATED)
+        self.assertEquals(has_user('abc', ''), USER_EXISTS_BUT_WRONG_PASSWORD)
+
+        # the password is not really 'rty', the hash of the password is
+        DjangoUser.objects.create(username='qwe', password='rty')
+        self.assertEquals(has_user('qwe', 'rty'), USER_EXISTS_BUT_WRONG_PASSWORD_AND_WRONG_MODEL)
+        self.assertEquals(create_user('qwe', ''), USER_EXISTS_BUT_WRONG_PASSWORD_AND_WRONG_MODEL)
+
+        u=DjangoUser.objects.get(username='qwe')
+        u.set_password('rty')
+        u.save() # now the password is really 'try'
+
+        self.assertEquals(has_user('qwe', 'rty'), USER_AUTHENTICATED_BUT_WRONG_MODEL)
+        # Cannot create a new user if there is such a Django User,
+        # even if there is no Forum User for this username
+        self.assertEquals(create_user('qwe', ''), USER_EXISTS_BUT_WRONG_PASSWORD_AND_WRONG_MODEL)
+        self.assertEquals(create_user('qwe', 'rty'), USER_AUTHENTICATED_BUT_WRONG_MODEL)
+
+        
