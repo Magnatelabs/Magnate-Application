@@ -51,6 +51,5 @@ def create_siteowner(username, password):
 
 	if user.is_superuser and user.is_siteowner:
 		return user
-	else:
-		user.delete()
-		return None
+	# Deleting is too complicated at this point; too many issues with user.delete()
+	raise Exception("Failed to create a site owner, though created a superuser")
