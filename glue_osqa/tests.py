@@ -91,6 +91,7 @@ class testOSQATemplates(TestCase):
 
 
 class testGlueOSQA(TestCase):
+    
     def test_user(self):
         from user import *
         from forum.models.user import User as ForumUser
@@ -116,4 +117,14 @@ class testGlueOSQA(TestCase):
         self.assertEquals(create_user('qwe', ''), USER_EXISTS_BUT_WRONG_PASSWORD_AND_WRONG_MODEL)
         self.assertEquals(create_user('qwe', 'rty'), USER_AUTHENTICATED_BUT_WRONG_MODEL)
 
-        
+        # too late to create a site owner
+        self.assertEquals(create_siteowner('root', 'root'), None)
+        self.assertEquals(has_user('root', 'root'), USER_DOES_NOT_EXIST)
+
+    def test_siteowner(self):
+        from user import *
+        user=create_siteowner('root_login', 'root_password')
+        self.assertTrue(user.is_superuser)
+        self.assertTrue(user.is_siteowner)
+
+        self.assertEquals(has_user('root_login', 'root_password'), USER_AUTHENTICATED)

@@ -39,3 +39,18 @@ def create_user(username, password):
 	user.set_password(password)
 	user.save()
 	return USER_CREATED
+
+def create_siteowner(username, password):
+	result = create_user(username, password)
+	if result != USER_CREATED:
+		return None
+
+	user = ForumUser.objects.get(username=username)
+	user.is_superuser=True
+	user.save()
+
+	if user.is_superuser and user.is_siteowner:
+		return user
+	else:
+		user.delete()
+		return None
