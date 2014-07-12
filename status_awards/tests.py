@@ -1,6 +1,7 @@
 from django.test import TestCase
-from django.contrib.auth import get_user_model
-User=get_user_model()
+#from django.contrib.auth import get_user_model
+#User=get_user_model()
+#from forum.models.user import User
 from brabeion.models import BadgeAward
 
 from zinnia.models.entry import Entry
@@ -13,9 +14,20 @@ from . import award_badges
 
 # Create your tests here.
 class BadgeAwardTestCase(TestCase):
+#    from forum.models.user import User as ForumUser
+
+# Running the tests with the standard user model
+# After that rerunning all the same tests with forum.models.User,
+# our custom user model that is inherited from the standard one.
+#
+# This is done by inheriting from BadgeAwardTestCase and 
+# overriding User.
+    from django.contrib.auth import get_user_model
+    User = get_user_model()
+
     def test_overloaded_model(self):
 
-        user=User(username='me', password='you')
+        user=self.User(username='me', password='you')
         user.save()
         slug='horse'
         awarded=7
@@ -31,8 +43,10 @@ class BadgeAwardTestCase(TestCase):
         self.assertEqual(entry.slug, "badge-1")
         self.assertEqual(entry.content, 'Fantastic! You have just been awarded the Salsa! ... <p> The best badge ever')
 
+        self.assertEqual(Entry.private.authorized_or_published(user).count(), 1)
+
     def test_metabadge(self):
-        user=User(username='she', password='is here')
+        user=self.User(username='she', password='is here')
         user.save()
         BadgeAward.objects.create(user=user, slug='horse', level=4)
         BadgeAward.objects.create(user=user, slug='donated-something', level=0)
@@ -62,7 +76,9 @@ class BadgeAwardTestCase(TestCase):
         self.assertEquals(2, sum([1 for b in BadgeAward.objects.all() if b.is_metabadge()])), "Should have received 2 metabadges by now: the Spiderman and the SuperSpiderman (for receiving the Spiderman badge)"
         l = BadgeAward.objects.all()
         self.assertEquals(len(l), 5)
-        self.assertTrue(all(user==b.user for b in l))
+        # Checking username equality, not user objects themselves
+        # Because we may have a custom user model
+        self.assertTrue(all(user.username==b.user.username for b in l))
         
         # Add badges on missing levels
         for i in range(4):
@@ -72,7 +88,9 @@ class BadgeAwardTestCase(TestCase):
             self.assertEquals(2, sum([1 for b in BadgeAward.objects.all() if b.is_metabadge()]))
             l = BadgeAward.objects.all()
             self.assertEquals(len(l), 5 + (i+1))
-            self.assertTrue(all(user==b.user for b in l))
+            # Checking username equality, not user objects themselves
+            # Because we may have a custom user model
+            self.assertTrue(all(user.username==b.user.username for b in l))
             for b in l:
                 if b.is_metabadge():
                     self.assertTrue(b.slug in ['spiderman-turn-off-the-dark', 'super-spiderman'])
@@ -81,7 +99,7 @@ class BadgeAwardTestCase(TestCase):
 
     def setUp(self):
         for i in range(10):
-            User.objects.create(username='user'+str(i), password=str(i))   
+            self.User.objects.create(username='user'+str(i), password=str(i))   
 
     def setup(self, nu): # not setUp; calling it manually
         seed(32847+nu)
@@ -89,7 +107,7 @@ class BadgeAwardTestCase(TestCase):
         self.nu=nu
         self.users=[]
         for i in range(self.nu):
-            user=User.objects.get(username=('user'+str(i)))
+            user=self.User.objects.get(username=('user'+str(i)))
             self.users.append(user)
 
         self.ne=10
@@ -169,4 +187,9 @@ class BadgeAwardTestCase(TestCase):
         self.do_many(2, 50)
         self.do_many(1, 30)
         self.do_many(5, 50) 
+
+
+class BadgeAwardTestCaseWithForumUserModel(BadgeAwardTestCase):
+    from forum.models.user import User as ForumUser
+    User=ForumUser
 
