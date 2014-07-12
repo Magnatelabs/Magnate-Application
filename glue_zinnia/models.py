@@ -24,9 +24,22 @@ class AuthorizedUserMixin(object):
         # Otherwise we risk returning ALL entries, including all hidden ones, instead of those authorized for a particular user.
         assert user.is_authenticated(), "Yes" 
 
+        # TODO: SANITY CHECK. Making sure we are not passing forum.models.User
+        # Can remove if everything is fine.
+        # from django.contrib.auth.models import User as DjangoUser
+        # from forum.models.user import User as ForumUser
+        # assert isinstance(user, DjangoUser)
+        # assert not isinstance(user, ForumUser)
+
         # FIXME! TODO! Temporary assertions. Can remove if everything is fine.
         for entry in self.filter(authorized_users=user):
-            assert user in entry.authorized_users.all(), "Tried to return an entry not authorized for %s" % (str(user))
+            # NB! FIXME! Since we do not know if we are dealing with
+            # django.contrib.auth.models.User or with forum.models.User,
+            # Just checking usernames for equality.
+            # Ideally this function should always get only the standard user.
+            # There should be a Selenium unit test for that.
+            assert user.username in [u.username for u in entry.authorized_users.all()], "Tried to return an entry not authorized for %s" % (str(user))
+
 
         return self.filter(Q(authorized_users=user) | Q(status=PUBLISHED))
 
