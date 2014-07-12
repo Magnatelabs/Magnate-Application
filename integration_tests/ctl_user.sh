@@ -2,8 +2,9 @@
 
 HEROKU_APP=magnate-prod
 
-
-source ./test_credentials.pysh
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+# The file is in the same directory as the script itself
+source "$DIR/test_credentials.pysh"
 
 # Check if there is such a user in a django Heroku app.
 # Log into Heroku using heroku run python manage.py shell 
