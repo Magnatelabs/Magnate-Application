@@ -43,7 +43,7 @@ class BadgeAwardTestCase(TestCase):
         self.assertEqual(entry.slug, "badge-1")
         self.assertEqual(entry.content, 'Fantastic! You have just been awarded the Salsa! ... <p> The best badge ever')
 
-        self.assertEqual(Entry.private.authorized_or_published(user).count(), 1)
+
 
     def test_metabadge(self):
         user=self.User(username='she', password='is here')
