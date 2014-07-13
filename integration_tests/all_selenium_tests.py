@@ -51,6 +51,30 @@ class main_page(MyTestCase):
         self.driver.switch_to.parent_frame()
         self.by_name("_save").click()
 
+        driver.get(_("/dash/dashboard"))
+
+        # Make sure we are on the dashboard
+        self.by_class_name("user_breakdown")
+
+        # We've just created a public entry; find it in the feed!
+        entry = self.by_id('entry-1')
+
+        # Let's expand it so we can see the standard picture, the (empty) list of Q&A, etc.
+
+        entry.click()
+        self.by_link_text('Ask Question').click()
+
+        self.by_id('id_title').send_keys("First question")
+        self.by_id('editor').send_keys("I am just curious about this Magnate thing. Does it work?")
+        self.by_id('id_tags').send_keys("user question curious")
+        self.by_name('ask').click()
+
+        # Assumption: the question was asked successfully, we were redirected
+        self.assertIn('first-question', self.driver.current_url)
+
+        # Make sure we still see the top of the dashboard
+        self.by_class_name("user_breakdown")
+
 
 if __name__ == "__main__":
     unittest.main()
