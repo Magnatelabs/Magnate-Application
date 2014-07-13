@@ -1,12 +1,13 @@
 # Testing Live Production server!
 
-from selenium import selenium, webdriver
 from selenium.webdriver.support.ui import Select
 
 
 import unittest, time, re
 import sys
-from seltools import MyTestCase, _
+
+from seltools import MyTestCase, set_host, _
+set_host('http://magnate-prod.herokuapp.com/')
 
 print "Testing Live Production"
 
@@ -23,25 +24,9 @@ TEST_PASSWORD=credentials.TEST_PASSWORD
 
 
 class main_page(MyTestCase):
-    def setUp(self):
-        self.verificationErrors = []
-        
-###        self.selenium = selenium("localhost", 4444, "*chrome", "http://127.0.0.1:8123/")
-###        self.selenium.start()
-   
-        #self.selenium.set_timeout(1000) # do not do it; default 30000=30sec is OK
-
-        self.driver = webdriver.Firefox()
-
-
 
 
     def test_main_page(self):
-#        sel = self.selenium
-#        sel.open("/wefewwef/")
-#        sel.open("/account/login/")
-
-
         # See http://selenium-python.readthedocs.org/en/latest/getting-started.html#using-selenium-to-write-tests
         driver = self.driver
         driver.get(_("/"))
@@ -119,12 +104,6 @@ class main_page(MyTestCase):
             self.assertIn("The+credit+card+number+is+invalid", self.driver.current_url)
 
 
-    def tearDown(self):
-  ###      self.selenium.stop()
-  ###      self.assertEqual([], self.verificationErrors)
-        
-        #self.driver.close()
-        self.driver.quit()
 
 if __name__ == "__main__":
     unittest.main()

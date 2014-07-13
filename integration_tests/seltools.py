@@ -1,4 +1,5 @@
 import unittest
+from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException
 import selenium.webdriver.support.expected_conditions as EC
@@ -7,12 +8,22 @@ from selenium.common.exceptions import NoSuchElementException
 
 
 import urlparse
+HOST=''
+def set_host(a):
+    global HOST
+    HOST=a    
 def _(path):
-    return urlparse.urljoin('http://magnate-prod.herokuapp.com/', path)
+    return urlparse.urljoin(HOST, path)
 
 
 
 class MyTestCase(unittest.TestCase):
+    def setUp(self):
+        self.driver = webdriver.Firefox()
+
+    def tearDown(self):
+        self.driver.quit()
+
 
     def save_url(self):
         self.url = self.driver.current_url
