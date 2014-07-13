@@ -86,7 +86,15 @@ class main_page(MyTestCase):
 
         # Now very important; see if we see this question we've just asked!
         # It should be shown after we've clicked once again on the entry
-        self.by_partial_link_text('Original question')
+        link=self.by_partial_link_text('Original question')
+
+        # let's open it
+        link.click()
+        editor=self.by_id('editor')
+        editor.send_keys("I am trying to answer my own question. Please, be kind...")
+        # not a great way to locate the submit button
+        # better to give it some id..
+        self.by_class_name('submit').click()
 
 
 if __name__ == "__main__":
