@@ -72,7 +72,6 @@ def upload(request):#ajax upload file to a question or answer
 
 def ask(request):
     form = None
-
     if request.POST:
         if request.session.pop('reviewing_pending_data', False):
             form = AskForm(initial=request.POST, user=request.user)
@@ -119,7 +118,7 @@ def ask(request):
         entry_id=None
         entry_title=None
         try: 
-            entry_id=int(request.GET.get('entry'))
+            entry_id=int(request.GET.get('entry_id'))
             entry= Entry.objects.get(pk=entry_id)
             if entry.is_public(): # Can only ask questions about public entries
                 form = AskForm(user=request.user, initial={'entry_id': entry_id, 'entry_title': entry.title})
