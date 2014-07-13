@@ -125,6 +125,7 @@ class testGlueOSQA(TestCase):
         from user import *
         user=create_siteowner('root_login', 'root_password')
         self.assertTrue(user.is_superuser)
+        self.assertTrue(user.is_staff)
         self.assertTrue(user.is_siteowner)
 
         self.assertEquals(has_user('root_login', 'root_password'), USER_AUTHENTICATED)

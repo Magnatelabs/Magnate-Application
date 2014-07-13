@@ -47,6 +47,7 @@ def create_siteowner(username, password):
 
 	user = ForumUser.objects.get(username=username)
 	user.is_superuser=True
+	user.is_staff=True
 	user.save()
 
 	if user.is_superuser and user.is_siteowner:
