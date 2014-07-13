@@ -3,9 +3,44 @@ from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException
 import selenium.webdriver.support.expected_conditions as EC
 import selenium.webdriver.support.ui as ui
+from selenium.common.exceptions import NoSuchElementException
+
+
+import urlparse
+def _(path):
+    return urlparse.urljoin('http://magnate-prod.herokuapp.com/', path)
+
 
 
 class MyTestCase(unittest.TestCase):
+
+    def save_url(self):
+        self.url = self.driver.current_url
+        print 'Url:', self.url
+
+    def check_url(self, msg=""):
+        self.failUnless(self.driver.current_url != self.url, msg)
+
+
+    def login_into_magnate(self, username, password):
+        driver = self.driver
+        driver.get(_("/account/login/"))
+        self.save_url()
+
+        elt_username = self.by_id("id_username")    
+        elt_username.send_keys(username)    
+        elt_password = self.by_id("id_password")
+        elt_password.send_keys(password)
+        elt_password.submit() # will submit the form
+        self.check_url("Cannot login as username='%s', incorrect password?" % (username))
+
+        
+        # After successful login, 
+        # make sure there is no id_username element any more
+        self.assertRaises(NoSuchElementException, lambda : driver.find_element_by_id("id_username"))
+        self.save_url()
+
+
     # assert that the element is visible within 10 seconds
     def assertVisible(self, by, locator, timeout=10):
         try:
