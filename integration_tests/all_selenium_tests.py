@@ -96,6 +96,8 @@ class main_page(MyTestCase):
         # better to give it some id..
         self.by_class_name('submit').click()
 
+        # Make sure we still see the dashboard
+        self.by_class_name("user_breakdown")
 
 if __name__ == "__main__":
     unittest.main()
