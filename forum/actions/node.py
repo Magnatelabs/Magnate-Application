@@ -33,8 +33,8 @@ class AskAction(NodeEditAction):
         #Linking OSQA node with Magnate zinnia entry
         from zinnia.models.entry import Entry        
         try:
-            entry_id = int(processed_data['entry_id'])
-            question.about_entries.create(Entry.objects.get(pk=entry_id))
+            entry_id = int(data['entry_id']) # not processed_data
+            question.about_entries.create(entry=Entry.objects.get(pk=entry_id))
         except (KeyError, ValueError, Entry.DoesNotExist) as e:
             pass
         #END
