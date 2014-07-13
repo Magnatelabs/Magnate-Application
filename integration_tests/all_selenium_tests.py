@@ -64,16 +64,29 @@ class main_page(MyTestCase):
         entry.click()
         self.by_link_text('Ask Question').click()
 
-        self.by_id('id_title').send_keys("First question")
+        self.by_id('id_title').send_keys("Original question")
         self.by_id('editor').send_keys("I am just curious about this Magnate thing. Does it work?")
         self.by_id('id_tags').send_keys("user question curious")
         self.by_name('ask').click()
 
         # Assumption: the question was asked successfully, we were redirected
-        self.assertIn('first-question', self.driver.current_url)
+        self.assertIn('original-question', self.driver.current_url)
 
         # Make sure we still see the top of the dashboard
         self.by_class_name("user_breakdown")
+
+        # Go back to the regular dashboard
+        driver.get(_("/dash/dashboard"))
+        # Make sure we are on the dashboard
+        self.by_class_name("user_breakdown")
+        # Once again select the first entry!
+        entry = self.by_id('entry-1')
+        # Select it once again; see if we can see our question on the right
+        entry.click()
+
+        # Now very important; see if we see this question we've just asked!
+        # It should be shown after we've clicked once again on the entry
+        self.by_partial_link_text('Original question')
 
 
 if __name__ == "__main__":
