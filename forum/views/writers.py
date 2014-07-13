@@ -2,6 +2,7 @@
 import os.path
 
 import datetime
+import pytz
 
 from django.core.urlresolvers import reverse
 from django.core.files.storage import FileSystemStorage
@@ -92,7 +93,7 @@ def ask(request):
                         'data_name': _("question"),
                         'type': 'ask',
                         'submission_url': reverse('ask'),
-                        'time': datetime.datetime.now()
+                        'time': datetime.datetime.now(pytz.utc)
                     }
 
                     if request.user.is_authenticated():
@@ -292,7 +293,7 @@ def answer(request, id):
                 'data_name': _("answer"),
                 'type': 'answer',
                 'submission_url': reverse('answer', kwargs={'id': id}),
-                'time': datetime.datetime.now()
+                'time': datetime.datetime.now(pytz.utc)
             }
 
             if request.user.is_authenticated():
