@@ -14,6 +14,8 @@ from forum.utils.userlinking import auto_user_link
 from forum.settings import SUMMARY_LENGTH
 from utils import PickledObjectField
 
+import pytz
+
 class NodeContent(models.Model):
     title      = models.CharField(max_length=300)
     tagnames   = models.CharField(max_length=125)
@@ -226,7 +228,7 @@ class Node(BaseModel, NodeContent):
     parent               = models.ForeignKey('Node', related_name='children', null=True)
     abs_parent           = models.ForeignKey('Node', related_name='all_children', null=True)
 
-    added_at             = models.DateTimeField(default=datetime.datetime.now)
+    added_at             = models.DateTimeField(default=lambda : datetime.datetime.now(pytz.utc))
     score                 = models.IntegerField(default=0)
 
     state_string          = models.TextField(default='')
@@ -344,7 +346,7 @@ class Node(BaseModel, NodeContent):
 
     def update_last_activity(self, user, save=False, time=None):
         if not time:
-            time = datetime.datetime.now()
+            time = datetime.datetime.now(pytz.utc)
 
         self.last_activity_by = user
         self.last_activity_at = time
@@ -522,7 +524,7 @@ class NodeRevision(BaseModel, NodeContent):
     node       = models.ForeignKey(Node, related_name='revisions')
     summary    = models.CharField(max_length=300)
     revision   = models.PositiveIntegerField()
-    revised_at = models.DateTimeField(default=datetime.datetime.now)
+    revised_at = models.DateTimeField(default=lambda : datetime.datetime.now(pytz.utc))
 
     class Meta:
         unique_together = ('node', 'revision')
