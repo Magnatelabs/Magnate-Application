@@ -10,8 +10,15 @@ from selenium import selenium, webdriver
 import unittest, time, re
 import sys
 
+
+from selenium.webdriver.support.ui import Select
+
 from seltools import MyTestCase, set_host, _
 set_host('http://127.0.0.1:8123/')
+
+# We expect the site owner (root, root) to be pre-created before integration testing.
+ROOT_LOGIN='root'
+ROOT_PASSWORD='root'
 
 print "All Selenium Tests for Magnate"
 print "Expecting Django server on port 8123"
@@ -25,7 +32,25 @@ class main_page(MyTestCase):
 
         indexbanner=self.by_class_name("indexbanner")
         self.assertIn('Unleash your inner mogul', indexbanner.text)
-    
+
+    def test_dashboard(self):
+        driver = self.driver
+
+        self.login_into_magnate(ROOT_LOGIN, ROOT_PASSWORD)
+        driver.get(_("/admin/zinnia/entry/"))
+        self.by_class_name("addlink").click()
+
+        self.by_id("id_title").send_keys("Magnate opens tomorrow. Let's celebrate!")
+        
+        select = Select(self.by_id("id_status"))
+        select.select_by_visible_text("published")
+
+        self.driver.switch_to.frame("")
+        self.by_class_name("wym_iframe").send_keys("Welcome to the website. This is just some sample content... \n\n\nSed ut perspiciatis, unde omnis iste natus error sit voluptatem ")
+        
+        self.driver.switch_to.parent_frame()
+        self.by_name("_save").click()
+
 
 if __name__ == "__main__":
     unittest.main()
