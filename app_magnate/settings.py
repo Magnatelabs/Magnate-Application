@@ -218,6 +218,9 @@ INSTALLED_APPS = [
     #migrations
     "south",
 
+    # store static and/or uploaded files remotely, e.g. on Amazon S3
+    "storages",
+
     #created 
 #    "startedQuestionnaire", (renamed)
     "social",
@@ -341,6 +344,13 @@ LOGGING = {
 FIXTURE_DIRS = [
     os.path.join(PROJECT_ROOT, "fixtures"),
 ]
+
+# File storage. Store static and/or uploaded files on Amazon S3.
+if 'AWS_ACCESS_KEY_ID' in os.environ and 'AWS_SECRET_ACCESS_KEY' in os.environ:
+  DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+  AWS_ACCESS_KEY_ID=os.environ.get('AWS_ACCESS_KEY_ID', '') 
+  AWS_SECRET_ACCESS_KEY=os.environ.get('AWS_SECRET_ACCESS_KEY', '') 
+AWS_STORAGE_BUCKET_NAME='magnate-app-assets'
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
