@@ -53,6 +53,7 @@ urlpatterns = patterns("",
     url(r"^status/", include("status_awards.urls")),
     url(r"^study/", include("study.urls")), 
     url(r"^rewards/", include("rewards.urls")), 
+    url(r"^qa/", include("glue_osqa.urls")), 
 
     url(r"^forum/", include("forum.urls")),
     url(r"^f/", 'forum.views.readers.embedded_index'),
