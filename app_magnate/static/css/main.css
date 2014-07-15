@@ -352,16 +352,17 @@ updated: jmw 07.14.14
 .question_page_related_container {float: left; width: 100%;}
 .question_page_related_container h3 {font-size: 14px; font-family:"helveticaneuebold", Arial, Helvetica, sans-serif;}
 .question_page_related_contentinner {float: left; width: 100%; }
-.question_page_related { float: left; width: 90%;}
-.related_post_number {float: left; width: 26px; background: #e9e9e9; }
+.question_page_related { float: left; width: 90%; margin-top: 0px; }
+.related_post_number {float: left; width: 26px; background: #e9e9e9; margin-top: 4px; }
 .related_post_number p {margin: 3px 3px 3px 5px;}
 .related_post_text { float: left; padding-left: 10px; width: 83%; color: #2398c9;}
+.related_post_text a {color: #2398c9;}
 
-
-
-
-
-
+/*These styles  will be deleted after the Content item is dropped in from the dashboard */
+.fund-feed .question_article { background: #aec987; position: relative; padding: 0px 0 22px 0; border-top: 0px;}
+.fund-feed .icon {width: 32px; height: 32px; float: left; position: absolute; top: 0; right: 0;}
+#ask_fix1 {width: 65%;}
+#ask_fix2 {width: 35%;}
 
 
 
