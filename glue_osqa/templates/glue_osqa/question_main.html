@@ -1,0 +1,170 @@
+{% extends "site_base.html" %}
+{% load staticfiles %}
+{% block body_id %}dashboard_body{% endblock %}
+{% block style_base %}
+	<link href="{% static "css/main.css" %}" rel="stylesheet">
+	<link href="{% static "css/ui.css" %}" rel="stylesheet">
+	<link href="{% static "css/960.css" %}" rel="stylesheet">	
+{{ block.super }}
+{% endblock %}
+
+{% block body %} 
+
+<div class="grid_16">
+	
+	<div class="section1 section3" id="helpbox">
+		<div class="helpbox_container">
+			 <div class="helpbox_contentinner">
+			 <div class="helpbox_text">
+			 <p>Still not sure how you're supposed to use Magnate? Check out our tutorial page for a quick explanation!</p></div>
+			 <div class="helpbox_button">
+				 <a href="#" class="btn" id="helpbox_btn_fix">Take the 2-minute tour</a></div>	
+			 </div>
+		</div>
+	</div>
+
+    <div class="contentinner">
+        <div class="section1 section3" id="question_page">
+        
+        <div class="question_banner">
+        	<article><a href="{% url 'dashboard' %}"><p><<</p>
+        	<p class="question_banner_textlink">Back to dashboard</p></a></article>
+			<a href="#" class="btn" id="askquestion_fix">Ask a Question</a>
+        </div>
+        
+        <div class="question_page_contentinner">
+        <div class="question_page_leftcontainer">
+        <div class="question_page_leftcontentinner">
+        <h1>Question Data Goes Here</h1>
+        <p>Feed me a question--Yummy, yum, yum! Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean 			massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque 			eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, 			rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus 				elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem 		ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam 		ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum 				rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. 		Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros 		faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, 			augue velit cursus nunc,</p>
+        </div> 
+        </div> <!--question_page_left-->
+		
+		<div class="question_page_rightcontainer">
+        <div class="question_page_rightcontentinner">
+        	<div class="question_page_stats_container">
+         	<div class="question_page_stats_contentinner">
+         	<ul class="question_stats unstyled">
+         		<li>
+			 	<p class="question_statleft">asked</p><p>04 Mar'14, 10:41</p>         		
+		 		</li>
+		 		<li>
+			 	<p class="question_statleft">viewed</p><p>2415 times</p>         		
+		 		</li>
+		 		<li>
+			 	<p class="question_statleft">active</p><p>27 Mar'14, 05:19</p>         		
+		 		</li>
+         	</ul>
+         	</div>
+        	</div>
+        	
+        	<div class="question_page_related_container">
+        	<h3>Related Question</h3>
+        	<div class="question_page_related_contentinner">
+        	<ul class="question_page_related unstyled">
+        		<li>
+				<div class="related_post">
+				<div class="related_post_number"><p>01</p></div>
+				<div class="related_post_text">
+					<p>Is Turkey an emerging market? Why should invest in it over a country like Brazil?</p>	
+				</div>
+				</div>
+        		</li>
+        		
+        		<li>
+				<div class="related_post">
+				<div class="related_post_number"><p>22</p></div>
+				<div class="related_post_text">
+					<p>Why are we using a hedging strategy with these investments?</p>	
+				</div>
+				</div>
+        		</li>
+        		
+        		<li>
+				<div class="related_post">
+				<div class="related_post_number"><p>01</p></div>
+				<div class="related_post_text">
+					<p>Is Turkey an emerging market? Why should invest in it over a country like Brazil?</p>	
+				</div>
+				</div>
+        		</li>
+        		
+        		<li>
+				<div class="related_post">
+				<div class="related_post_number"><p>22</p></div>
+				<div class="related_post_text">
+					<p>Why are we using a hedging strategy with these investments?</p>	
+				</div>
+				</div>
+        		</li>
+        		        		
+        		<li>
+				<div class="related_post">
+				<div class="related_post_number"><p>01</p></div>
+				<div class="related_post_text">
+					<p>Is Turkey an emerging market? Why should invest in it over a country like Brazil?</p>	
+				</div>
+				</div>
+        		</li>
+        		
+        		<li>
+				<div class="related_post">
+				<div class="related_post_number"><p>22</p></div>
+				<div class="related_post_text">
+					<p>Why are we using a hedging strategy with these investments?</p>	
+				</div>
+				</div>
+        		</li>
+        		
+        		<li>
+				<div class="related_post">
+				<div class="related_post_number"><p>01</p></div>
+				<div class="related_post_text">
+					<p>Is Turkey an emerging market? Why should invest in it over a country like Brazil?</p>	
+				</div>
+				</div>
+        		</li>
+        		
+        		<li>
+				<div class="related_post">
+				<div class="related_post_number"><p>22</p></div>
+				<div class="related_post_text">
+					<p>Why are we using a hedging strategy with these investments?</p>	
+				</div>
+				</div>
+        		</li>
+        		
+        		<li>
+				<div class="related_post">
+				<div class="related_post_number"><p>01</p></div>
+				<div class="related_post_text">
+					<p>Is Turkey an emerging market? Why should invest in it over a country like Brazil?</p>	
+				</div>
+				</div>
+        		</li>
+        		
+        		<li>
+				<div class="related_post">
+				<div class="related_post_number"><p>22</p></div>
+				<div class="related_post_text">
+					<p>Why are we using a hedging strategy with these investments?</p>	
+				</div>
+				</div>
+        		</li>
+        	</ul>
+        	</div>
+        	</div>
+        </div>	
+		</div> <!--question_page_right-->
+        
+        </div> <!--question_page_container-->
+		</div> <!--section1 section3-->
+        
+	</div> <!--contentinner-->
+</div>
+
+    
+{% endblock %}
+
+
+
