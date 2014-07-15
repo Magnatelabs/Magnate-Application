@@ -10,4 +10,5 @@ from glue_osqa import views
 
 urlpatterns = patterns("",
   url(r"^question/$", "glue_osqa.views.question_page", name="question_page"),
+  url(r"^ask/$", "glue_osqa.views.question_ask", name="askpage"),
 )
