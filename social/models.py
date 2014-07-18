@@ -1,6 +1,7 @@
 from django.db import models
 from django.conf import settings
 from zinnia.models.entry import Entry
+from django.utils import timezone
 import datetime
 import pytz
 
@@ -23,6 +24,16 @@ def can_rate(user):
       return (diff > delta)
    else:   # The user has never rated anything before
       return True
+
+# For feedback paragraph
+class FeedbackModel(models.Model):
+   user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='feedback')
+   created = models.DateTimeField(editable=False)
+   feedback_paragraph = models.TextField(max_length=750)
+
+   def __unicode__(self):
+        return self.first_name
+
 
 # Every instance will represent one Like of one entry by one user
 class Like(models.Model):
