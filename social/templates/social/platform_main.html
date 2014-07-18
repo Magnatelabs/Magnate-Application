@@ -1,0 +1,66 @@
+{% extends "site_base.html" %}
+{% load staticfiles %}
+{% block body_id %}sourcepage_body{% endblock %}
+{% load social_tags %}
+
+{% block style_base %}
+	<link href="{% static "css/main.css" %}" rel="stylesheet">
+	<link href="{% static "css/ui.css" %}" rel="stylesheet">
+	<link href="{% static "css/960.css" %}" rel="stylesheet">
+{{ block.super }}
+	<link href="{% static "fyneworks_star_rating/jquery.rating.css" %}" type="text/css" rel="stylesheet"/>	
+{% endblock %}
+
+
+{% block body %} 
+
+<div class="grid_16">
+    <div class="contentinner">
+        <div class="section1 section3" id="sourcepage_main">
+
+        <div class="contentinner_header">
+		<div class="inner_salmon">
+		<h1>Leave Us Feedback</h1>
+		</div>
+	   	</div>
+        
+        <div class="sourcepage_content">
+        <div class="left_sourcepage-container">
+        <div class="left_sourcepage-contentinner">
+        	<div class="sourceinfo_main">
+        	<p>We care a lot about what you think, so please keep us in the loop. You never know, your next suggestion might just be our next 					feature--thanks in advance!</p>
+       
+        <form method="POST" action="{% url 'platform_main' %}">
+        {% csrf_token %}
+        <article>
+        <aside>
+        <ul class="unstyled">
+        <li>
+		<textarea class="source_pg" id="id_feedback_paragraph" type="text" name="feedback_paragraph" rows="10"></textarea></p> 
+        </li>
+        </ul>
+        </aside>
+        
+        <input type="submit" class="startedbtn" value="Submit" />
+        </form>
+        <a href="{% url "dashboard" %}" class="btn-gray">Cancel</a>
+        </article>
+        </div><!sourceinfo>
+        
+        </div>
+        </div>
+        
+        <div class="right_sourcepage-container">
+        <div class="right_sourcepage-contentinner">
+        {% render_star_rating request.user %}
+        <article>
+        </article>
+        </div>
+        </div>
+        </div>
+        </div>
+    </div><!-- contentinner -->
+    </div><!-- grid_16 -->
+    
+    
+{% endblock %}
