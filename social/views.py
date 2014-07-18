@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.utils import simplejson
 from django.shortcuts import get_object_or_404, render, redirect, render_to_response
 from zinnia.models.entry import Entry
@@ -11,6 +11,23 @@ from django.contrib.auth import get_user_model
 
 from .models import toggle_like_unlike, total_entry_likes, StarRating, can_rate
 import status_awards
+
+#Added for feedback_entry
+from django.core.urlresolvers import reverse
+from django.views import generic
+from django.utils import timezone
+import datetime 
+from social.models import FeedbackModel
+from social.forms import FeedbackModelForm
+
+#imports to recognize django messages
+from django.contrib import messages
+from django.utils.translation import ugettext_lazy as _
+
+#import to recognize class based view
+from django.views.generic.edit import FormView
+
+
 
 #TODO! FIXME! Think about thread safety if multiple users like the same post at the same time!
 
@@ -74,3 +91,56 @@ def user_pages(request):
     except ValueError:
         return HttpResponse(status=404)
     return render(request, 'social/users.html', {'user': user})
+
+#def platform_index(request):
+#    return render(request, 'social/platform_main.html')
+
+
+class feedback_entry(FormView):
+#    import pdb #(test for checking each process)
+#    pdb.set_trace()
+     
+    template_name = 'social/platform_main.html'
+    form_class = FeedbackModelForm
+    redirect_field_name = "next"
+    messages = {
+        "survey_added": {
+            "level": messages.SUCCESS,
+            "text": _(u"Thanks, your feedback was successfully submitted.")
+        },
+        "input_error": {
+            "level": messages.ERROR,
+            "text": _(u"Your information was not entered correctly. Please try again.")
+        }
+    }
+
+    def get(self, request, *args, **kwargs):
+        form = self.form_class(initial=self.initial)
+        return render(request, self.template_name, {'form': form})
+
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST)
+        if form.is_valid():
+            # Process the data in form.cleaned_data
+            entry = FeedbackModel()
+            entry.feedback_paragraph = form.data['feedback_paragraph']
+            entry.created = datetime.datetime.now()
+            entry.save()
+            
+            messages.add_message(
+                self.request,
+                self.messages["survey_added"]["level"],
+                self.messages["survey_added"]["text"]
+            )
+    
+            return redirect('confirm_questions') # Redirect after POST
+        else:
+            messages.add_message(
+                self.request,
+                self.messages["input_error"]["level"],
+                self.messages["input_error"]["text"]
+            )
+            print 'DEBUG: form is not valid!!!', form.errors
+
+
+
