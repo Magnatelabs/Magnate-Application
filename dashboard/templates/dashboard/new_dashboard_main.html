@@ -4,9 +4,7 @@
 {% load social_tags %}
 
 {% block style_base %}
-	<link href="{% static "css/main.css" %}" rel="stylesheet">
-	<link href="{% static "css/ui.css" %}" rel="stylesheet">
-	<link href="{% static "css/960.css" %}" rel="stylesheet">	
+	<link href="{% static "css/jquery.fancybox-1.3.4.css" %}" rel="stylesheet">	
 {{ block.super }}
 
 
@@ -81,7 +79,7 @@
         </aside>
         
         <aside class="gray_news">
-        <p>Want to spread the good news? <br /> Send an <span><a href="#">Invitation</a></span> to a friend!</p>
+        <p>Want to spread the good news? <br /> Send an <span><a href="#lightbox" class="magnate">Invitation</a></span> to a friend!</p>
         </aside>
         </div>
         </div>
@@ -147,6 +145,9 @@
     </div><!-- contentinner -->
     </div><!-- grid_16 -->
 
+{% include "share/_share_lightbox.html" %} 
+
+
 {% endblock %}
 {% block script_base %}
 {{ block.super }}
@@ -185,7 +186,7 @@
 Short polling. Poll the server every once in a while to see if there is a new article, new badge, new private message, etc., so we can display those even if the user does not refresh a page. 
 {% endcomment %}
 
+<script src="{% static "js/jquery.fancybox-1.3.4.pack.js" %}"></script> 
 <script src="{% static "js/jquery.idTabs.js" %}"></script> 
 <script type="text/javascript" src="{% static "js/receive_updates.js" %}"></script>
-
 {% endblock %} 
