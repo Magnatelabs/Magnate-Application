@@ -9,20 +9,14 @@ updated: jmw 07.08.14
 
 
 /*----------------------------------------------------------------------------------------------------
-Lightbox Styles
-created: jmw old
-updated: jmw n/a
+Share Lightbox Styles
+created: jmw
+updated: jmw 07.18.14
 ----------------------------------------------------------------------------------------------------*/
-.popup{ width:100%; float:left; background:#FFFFFF; box-shadow: #333 0 0 5px; border-radius:3px; behavior: url(PIE.htc); position:relative}
-.popup h3{ font-size:24px; color:#4c4c4c; font-family:"helveticaneuebold", Arial, Helvetica, sans-serif; padding-bottom:16px}
-.popup h3 a{ color:#4c4c4c} 
-.popup p{ font-size:16px; color:#4c4c4c}
-.popup .btn{ width:110px; height:42px; float:right; box-shadow: #888 0 1px 2px; font-size:18px; line-height:42px}
-.popup .btn:active, .btn.active { box-shadow: inset #5a872e 0 2px 3px, #888 0 1px 2px}
-.lightbox{ width:340px; float:left; padding:5px}
-.lightbox form{ width:70.6%; float:left; padding:28px 14.70% 40px 14.70%}
-.lightbox form p{ width:100%; float: left; text-align:right}
-.lightbox form p a{ color:#00468c}
+.lightbox{ width:500px; float:left; padding:5px}
+.lightbox form{ width:100%; float:left; padding: 0px 0px 0px 0px;}
+lightbox form p{ width:100%; float: left; text-align:right}
+lightbox form p a{ color:#00468c}
 
 .lightbox form label{ width:100%; float:left; font-size:14px; padding-bottom:4px; margin-bottom:0}
 .lightbox form .input{ width:91.5%; height:16px; float:left; background:#FFFFFF; box-shadow:none; box-shadow:inset #aeaeae 1px 1px 2px; border:1px solid #bebebe; border-radius:4px; behavior: url(PIE.htc); position:relative; font-family:"HelveticaNeueLTStd55Roman", Arial, Helvetica, sans-serif; font-size:14px; padding:7px 4%}
@@ -36,6 +30,17 @@ updated: jmw n/a
 .lightboxsignup h3{ text-align:center}
 .lightboxsignup p{ text-align:center; padding:0 23% 40px 23%}
 .lightboxsignup .btns{ width:110px; margin:0 auto}
+.popup{ width:100%; float:left; background:#FFFFFF; box-shadow: #333 0 0 5px; border-radius:3px; behavior: url(PIE.htc); position:relative}
+.popup h3{ font-size:24px; color:#4c4c4c; font-family:"helveticaneuebold", Arial, Helvetica, sans-serif; padding-bottom:16px}
+.popup h3 a{ color:#4c4c4c} 
+.popup p{ font-size:16px; color:#4c4c4c}
+.popup .btn{ width:110px; height:42px; float:right; box-shadow: #888 0 1px 2px; font-size:18px; line-height:42px}
+.popup .btn:active, .btn.active { box-shadow: inset #5a872e 0 2px 3px, #888 0 1px 2px}
+.popup .contentinner_header .invite_blue h1 { font-size: 30px; }
+#invite_content {padding: 0 6% 70px 6.3%; background: #f8f8f8; }
+#invite_container {width: 438px;}
+.share_main_add-container {width: 77%; float: left;}
+.share_main_add-container textarea {font-size: 11px;}
 
 /*----------------------------------------------------------------------------------------------------
 Account Detail Styles
