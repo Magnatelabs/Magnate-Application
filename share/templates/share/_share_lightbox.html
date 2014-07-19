@@ -1,0 +1,43 @@
+<div style="display: none;">
+
+    <div class="lightbox" id="lightbox">
+    <div class="popup">
+    
+	    <div class="contentinner_header">
+			<div class="invite_blue inner_blue ">
+			<h1>Invite Friends</h1>
+			</div>
+   		</div>
+
+    <div class="sourcepage_content" id="invite_content">
+        <div class="left_sourcepage-container" id="invite_container">
+        <div class="left_sourcepage-contentinner">
+        	<div class="sourceinfo_main">
+        	<p>Who do you want to share Magnate with?</p>
+       
+			<form method="POST" action="{% url 'sharelightbox' %}">
+				{% csrf_token %}
+			<article>
+			<aside>
+				<ul class="unstyled">
+				<li><div class="share_main_add-container">
+				<p><textarea class="source_pg" id="id_share_email_list" type="text" name="share_email_list" rows="2" placeholder="Enter email addresses (separated by commas)..."></textarea></p>
+				</div> 
+				</li>
+        
+				<li>
+				<textarea class="sometin" id="id_share_email_content" type="text" name="share_email_content" rows="10"></textarea></p> 
+				</li>
+				</ul>
+			</aside>
+        
+			<input type="submit" class="startedbtn" value="Submit" />
+			</form>
+			<a href="{% url "dashboard" %}" class="btn-gray">Cancel</a>
+			</article>     
+			</div><!--sourceinfo_main-->
+		</div>
+</div>
+</div>
+</div>
+</div><!-- lightbox -->
