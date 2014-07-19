@@ -64,3 +64,23 @@ function toggleArticleActive(article_dom_id, is_active) {
     a.find(".show-when-article-not-active").show();
   }
 }
+
+
+// Added by Jimi W. 07.19.14
+// Used for 'share lightbox'
+// This script finds the container with a class specified, helps display placeholder text with a break in it and removes/replaces it
+// depending on if someone has actually inputted text.
+
+var placeholder = 'Hi there-- \nMagnate is a financial literacy platform that allows young people to learn about the world of investing. We can help you understand core concepts, save you money and help you invest that saved money wisely. There\'s no additional cost!\nSignup here: https:/\/www.magnate.io.\nHave fun!\nYour friends over at Magnate.';$('.sometin').attr('value', placeholder);
+
+$('.sometin').focus(function(){
+    if($(this).val() === placeholder){
+        $(this).attr('value', '');
+    }
+});
+
+$('.sometin').blur(function(){
+    if($(this).val() ===''){
+        $(this).attr('value', placeholder);
+    }    
+});
