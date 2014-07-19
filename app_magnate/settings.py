@@ -240,7 +240,7 @@ INSTALLED_APPS = [
     "study",
     "statistics",
     "rewards",
-
+    "share",
 ]
 
 
