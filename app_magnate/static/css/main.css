@@ -130,7 +130,8 @@ updated: jmw 06.25.14
 .ub_otheractions aside p span a { color:#2398c9}
 .ub_otheractions .blue_feedback { background:#d7e4e7}
 .ub_otheractions .gray_news { background:#f8f8f8}
-.hangouts_dropdown { width:100%; float:left; background:#313131 url(../img/shadow01.png) repeat-x top left; behavior: url(PIE.htc); position:relative; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; padding:14px 16.52%}
+.dashboard-divider {float: left; width: 100%; padding: 10px 0px 10px 0px; background: #313131 url(../img/shadow01.png) repeat-x top left; }
+.hangouts_dropdown {display: none; width:100%; float:left; background:#313131 url(../img/shadow01.png) repeat-x top left; behavior: url(PIE.htc); position:relative; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; padding:0px 16.52%}
 .hangouts_dropdown aside { width:170px; float:left; vertical-align:middle; padding-top:8px}
 .hangouts_dropdown aside h2 { font-size:36px; color:#FFFFFF; text-align:center; font-family:"helveticaneuebold", Arial, Helvetica, sans-serif; line-height:32px; padding-bottom:2px; -webkit-margin-before: 0em; -webkit-margin-after: 0em; }
 .hangouts_dropdown aside h2 span { font-size:22px}
