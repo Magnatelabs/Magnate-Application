@@ -84,3 +84,7 @@ $('.sometin').blur(function(){
         $(this).attr('value', placeholder);
     }    
 });
+
+$('#btnHangoutsClose').click(function(){
+	$('#hangoutsDropdown').slideUp(200);	
+});
