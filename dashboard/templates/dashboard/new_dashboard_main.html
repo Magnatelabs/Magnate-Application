@@ -84,24 +84,23 @@
         </div>
         </div>
         
+        <div class="dashboard-divider">
+        	<div id="hangoutsDropdown" class="hangouts_dropdown">
+				<button type="button" id="btnHangoutsClose" class="icon-close">Close</button>
+				<aside>
+					<h2><span>New Magnate</span> Hangout</h2>
+				</aside>
         
-        <div id="hangoutsDropdown" class="hangouts_dropdown">
-        <button type="button" id="btnHangoutsClose" class="icon-close">Close</button>
-        <aside>
-        <h2><span>New Magnate</span> Hangout</h2>
-        </aside>
+					<figure><a href="#"><img src="{% static "img/dash_hangoutstest.jpg" %}" alt="PHOTO" /></a></figure>
+				<aside>
+					<h2><span>Review Details</span></h2>
+					<div class="btn-middle"><a href="{% url "rewards" %}" class="btn" id="dashbtn_fix">Hangouts Home</a></div>
+				</aside>
+			</div>
+        </div><!--dashboard divider-->
         
-        <figure><a href="#"><img src="{% static "img/dash_hangoutstest.jpg" %}" alt="PHOTO" /></a></figure>
-        
-        <aside>
-        <h2><span>Review Details</span></h2>
-        <div class="btn-middle"><a href="{% url "rewards" %}" class="btn" id="dashbtn_fix">Hangouts Home</a></div>
-        </aside>
-        </div>
-        
+
         <div class="section6-bg">
-
-
 	{% comment %}
 	If is_dashboard, then wrap the block content so it goes into the left column. Otherwise it gets all the space.
 	{% endcomment %}
