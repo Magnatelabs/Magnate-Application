@@ -47,7 +47,7 @@ class study_index(FormView):
             entry.entity = form.data['entity']
             entry.entity_url = form.data['entity_url']
             entry.description = form.data['description']
-            entry.industry = form.data['analysis']
+            entry.industry = form.data['industry']
             entry.created = datetime.datetime.now()
             entry.docfile = request.FILES['docfile']
             entry.user = request.user
@@ -58,7 +58,8 @@ class study_index(FormView):
                 self.messages["survey_added"]["text"]
             )
     
-            return redirect('submit_completed') # Redirect after POST
+            return redirect('confirm_questions') # Redirect after POST
+#            return redirect('submit_completed') # Redirect after POST
         else:
             messages.add_message(
                 self.request,
