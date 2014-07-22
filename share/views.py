@@ -44,8 +44,8 @@ class share_index(FormView):
         if form.is_valid():
             # Process the data in form.cleaned_data
             entry = EmailShareModel()
-            entry.share_email_list = form.data['description']
-            entry.share_email_content = form.data['analysis']
+            entry.share_email_list = form.data['share_email_list']
+            entry.share_email_content = form.data['share_email_content']
             entry.created = datetime.datetime.now()
             entry.user = request.user
             entry.save()
@@ -54,8 +54,8 @@ class share_index(FormView):
                 self.messages["survey_added"]["level"],
                 self.messages["survey_added"]["text"]
             )
-    
-            return redirect('submit_completed') # Redirect after POST
+            return redirect('confirm_questions') # Redirect after POST    
+#            return redirect('submit_completed') # Redirect after POST
         else:
             messages.add_message(
                 self.request,
