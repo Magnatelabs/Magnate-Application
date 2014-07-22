@@ -1,4 +1,4 @@
-
+ 
 [ ![Codeship Status for Magnatelabs/Magnate-Application](https://www.codeship.io/projects/b5c76750-e9f2-0131-b97c-5a04e3162754/status)](https://www.codeship.io/projects/26265)
 
 # Testing 
