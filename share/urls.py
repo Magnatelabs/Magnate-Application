@@ -8,5 +8,5 @@ admin.autodiscover()
 
 urlpatterns = patterns("",
   url(r"^share_index/$", share_index.as_view(), name="sharelightbox"),
-#  url(r"^started_confirm/$", "getstartedquestions.views.confirmation_index", name="confirm_questions"),
+  url(r"^started_confirm/$", "getstartedquestions.views.confirmation_index", name="confirm_questions"),
 )
