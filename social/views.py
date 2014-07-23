@@ -125,6 +125,7 @@ class feedback_entry(FormView):
             entry = FeedbackModel()
             entry.feedback_paragraph = form.data['feedback_paragraph']
             entry.created = datetime.datetime.now()
+            entry.user = request.user
             entry.save()
             
             messages.add_message(

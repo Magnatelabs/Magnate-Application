@@ -27,7 +27,8 @@
         	<div class="sourceinfo_main">
         	<p>Want the Magnate community to consider funding a startup or idea that you're in love with? Leave some information and keep your 					fingers crossed--it might be the next Fund addition.</p>
        
-        <form method="POST" action="{% url 'study_index' %}">
+        <form action="{% url "study_index" %}" method="post" enctype="multipart/form-data">
+			{% csrf_token %}
         {% csrf_token %}
         <article>
         
