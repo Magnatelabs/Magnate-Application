@@ -83,7 +83,9 @@
                         <li><a href="{% url "admin_set" allsets.minrep.name %}">{{ allsets.minrep.title }}</a></li>
                         <li><a href="{% url "admin_set" allsets.voting.name %}">{{ allsets.voting.title }}</a></li>
                         <li><a href="{% url "admin_set" allsets.accept.name %}">{{ allsets.accept.title }}</a></li>
+                        {% comment %}
                         <li><a href="{% url "admin_set" allsets.badges.name %}">{{ allsets.badges.title }}</a></li>
+                        {% endcomment %}
                     </ul>
                 </div>
                 <div id="forum-sets-menu" class="module">
