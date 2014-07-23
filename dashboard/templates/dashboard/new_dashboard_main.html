@@ -112,8 +112,10 @@
         <div class="fund-feed">
   	{% endif %}
 
+  {% block page_center %}
 	{% block content %}
 	{% endblock %}
+  {% endblock %}
 
         {% if is_dashboard %}
         <div class="btn-bg">
