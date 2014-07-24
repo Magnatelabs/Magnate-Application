@@ -41,6 +41,15 @@ class MagnateFund (CachingMixin, models.Model):
         """
         return self.is_active
 
+    def statistics_as_html(self):
+        if not self.is_active:
+            return ""
+        from forum_modules.magnate.settings import MAGNATE_FUND_TEMPLATES
+        if self.pk in MAGNATE_FUND_TEMPLATES:
+            return MAGNATE_FUND_TEMPLATES[self.pk].value
+        else:
+            return ""
+
 
 class PortfolioCompany (models.Model):
     
