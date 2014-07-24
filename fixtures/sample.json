@@ -1,0 +1,24 @@
+[
+    {
+        "pk": 1, 
+        "model": "donations.PortfolioCompany", 
+        "fields": {
+            "fund": 1,
+            "name": "Fixable", 
+            "description": "Fixable is the first on-demand multi-pickup solution --an iOS app offering an extremely affordable (50% of an UberX) and convenient transportation solution.",
+            "tags": "Austin • Location Based Services • Transportation • Shuttle",
+            "image": "/site_media/static/img/fundHome_tempimg1.jpg"
+        }
+    },
+    {
+        "pk": 2, 
+        "model": "donations.PortfolioCompany", 
+        "fields": {
+            "fund": 1,
+            "name": "Kidblog", 
+            "description": "Kidblog provides a space for kids to unleash their creativity for a global audience. We maintain a safe environment by leveraging the teachers and parents in kids’ lives to create a moderated space for sharing content.",
+            "tags": "Minneapolis • Education • K-12",
+            "image": "/site_media/static/img/fundHome_tempimg2.jpg"
+        }
+    }    
+]
