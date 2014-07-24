@@ -45,54 +45,7 @@
         </div>        
         </div>
 
-        <div class="fund_metrics-container">
-        <div class="metrics-contentinner">
-			<div class="metric">
-			<article>
-			<div class="metric-text">
-			<p>Number of new Investments</p>
-			</div>
-			<div class="metric-amount1">
-			<p>17</p>			
-			</div>
-			</article>       
-			</div>
-			
-			<div class="metric">
-			<article>
-			<div class="metric-amount2">
-			<p>$62,205</p>	
-			</div>
-			<div class="metric-text2">
-			<p>New Asset Inflows</p>
-			</div>
-			</article>       
-			</div>
-			
-			<div class="metric">
-			<article>
-			<div class="metric-amount2">
-			<p>$32,603</p>	
-			</div>
-			<div class="metric-text2">
-			<p>Number of Participants</p>
-			</div>
-			</article>       
-			</div>
-			
-			<div class="metric">
-			<article>
-			<div class="metric-text">
-			<p>Number of new Investments</p>
-			</div>
-			<div class="metric-amount1 no_change">
-			<p>00</p>			
-			</div>
-			</article>       
-			</div>
-		</div>	
-			<div class="fundbtn"><a href="#" class="btn disabled" id="dashbtn_fix">Detailed View</a></div>	
-        </div>
+        {{ fund.statistics_as_html | safe }}
         
 	</div> <!--section1 section3-->
 {% endif %}
