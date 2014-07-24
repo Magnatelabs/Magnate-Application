@@ -254,6 +254,10 @@ TEST_EXCLUDE=[ "django.contrib", "zinnia", "account", "waitinglist", "brabeion",
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
+    },
+    # see https://cache-machine.readthedocs.org/en/latest/ -- can also use the default 
+    'cache_machine': {
+        'BACKEND': 'caching.backends.locmem.LocMemCache',
     }
 }
 
