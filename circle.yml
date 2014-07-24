@@ -3,7 +3,7 @@ deployment:
     branch: master
     commands:
       - git push git@heroku.com:magnate-prod.git $CIRCLE_SHA1:master
-	  - heroku run python manage.py migrate      
+      - heroku run python manage.py migrate      
       - heroku run python manage.py test_storage --app magnate-prod | grep "OK, done"
       - ./integration_tests/ctl_user.sh create-test-user
       - python ./integration_tests/live_production_test.py
