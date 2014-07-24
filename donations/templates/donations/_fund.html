@@ -1,0 +1,98 @@
+{% load staticfiles %}
+
+
+{% if not fund.is_active %}
+	<div class="section1 section3" id="second_fund">
+	  <div class="second_fund-container">
+	    <div class="second_fund-contentinner">
+	  <h1>{{ fund.name }}</h1>   
+	  </div>
+	  <div class="fund_warning"><p>You cannot currently participate in this fund</p></div>
+	  </div>  
+	</div> <!--section1 section3 second_fund-->
+{% else %}
+
+	<div class="section1 section3">   
+	    <div class="first_fund-description">
+	    	<h1>{{ fund.name }}</h1>
+	    	<p>{{ fund.description }}</p>
+	    </div> 
+        
+        <div class="contribution-container">
+        <div class="contribution-contentinner">
+		<article>
+        <div class="current-amount">
+        <h4>Your Contribution</h4>
+        <div id="dollar">
+        <sup>$</sup><span>15.00</span></div>
+        </div>
+        <div class="amplification-container">
+		<p>Amplification Awards</p>
+		<div class="amplification-contentinner">
+		<ul class="unstyled">
+		<li class="amplified-active"><img src="{% static "img/amplification_img.png" %}" alt="PHOTO" /></li>
+		<li><img src="{% static "img/amplification_img.png" %}" alt="PHOTO" /></li>
+		<li><img src="{% static "img/amplification_img.png" %}" alt="PHOTO" /></li>
+		<li><img src="{% static "img/amplification_img.png" %}" alt="PHOTO" /></li>
+		</ul>
+		</div>
+        </div>
+        </article>       
+		</div>
+		
+		<div class="bg-btn">
+        <a href="{% url 'donations_add' %}" class="startedbtn">Add to the fund</a>
+        </div>        
+        </div>
+
+        <div class="fund_metrics-container">
+        <div class="metrics-contentinner">
+			<div class="metric">
+			<article>
+			<div class="metric-text">
+			<p>Number of new Investments</p>
+			</div>
+			<div class="metric-amount1">
+			<p>17</p>			
+			</div>
+			</article>       
+			</div>
+			
+			<div class="metric">
+			<article>
+			<div class="metric-amount2">
+			<p>$62,205</p>	
+			</div>
+			<div class="metric-text2">
+			<p>New Asset Inflows</p>
+			</div>
+			</article>       
+			</div>
+			
+			<div class="metric">
+			<article>
+			<div class="metric-amount2">
+			<p>$32,603</p>	
+			</div>
+			<div class="metric-text2">
+			<p>Number of Participants</p>
+			</div>
+			</article>       
+			</div>
+			
+			<div class="metric">
+			<article>
+			<div class="metric-text">
+			<p>Number of new Investments</p>
+			</div>
+			<div class="metric-amount1 no_change">
+			<p>00</p>			
+			</div>
+			</article>       
+			</div>
+		</div>	
+			<div class="fundbtn"><a href="#" class="btn disabled" id="dashbtn_fix">Detailed View</a></div>	
+        </div>
+        
+	</div> <!--section1 section3-->
+{% endif %}
