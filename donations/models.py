@@ -12,6 +12,63 @@ import status_awards
 import logging
 
 from statistics.statfunctions import update_statistics
+from django.utils.translation import ugettext_lazy as _
+
+from caching.base import CachingManager, CachingMixin
+# See https://cache-machine.readthedocs.org/en/latest/ about caching
+
+UPLOAD_COMPANY_LOGO_TO = 'uploads/funds'
+
+class MagnateFund (CachingMixin, models.Model):
+    name = models.CharField(
+        _('name'), max_length=200)
+
+    description = models.TextField(
+        _('description'), default="")
+
+    is_active = models.BooleanField(
+        _('is active'), default=True)
+
+    objects = CachingManager()
+
+    def __unicode__(self):
+        return 'Fund: %s' % (self.name)
+
+    def is_visible(self, user):
+        """
+        Checks if the user can see the fund on his fund page.
+        In the future can depend on the status of the user.
+        """
+        return self.is_active
+
+
+class PortfolioCompany (models.Model):
+    
+    fund = models.ForeignKey('MagnateFund')
+
+    name = models.CharField(
+        _('company name'), max_length=200)
+
+    description = models.TextField(
+        _('company description'), default="")
+
+    tags = models.CharField(
+        _('tags'), max_length=400, default="")
+
+    image = models.ImageField(
+        _('company logo'), blank=True, upload_to=UPLOAD_COMPANY_LOGO_TO)
+
+    def __unicode__(self):
+        return 'Investment. Company: %s, Fund: %s' % (self.name, self.fund.name)
+
+
+#FUND_CHOICES = ((DRAFT, _('draft')),
+#                (HIDDEN, _('Magnate Permanent Fund (MPF)')),
+#                (PUBLISHED, _('Magnate Multi-Strategy Fund (MMSF)')))#
+#
+#class PortfolioCompany (models.Model):#
+#
+#    name = models.CharField(max_length=200)
 
 class BillingInfo (models.Model):
 #    user = models.ForeignKey(User)
