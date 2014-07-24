@@ -8,10 +8,14 @@ MAGNATE_FUNDS = SettingSet('MAGNATE_FUNDS', 'Magnate Funds', "Setttings for Magn
 
 MAGNATE_FUND_TEMPLATES={}
 
+# In case the table for MagnateFund has not been created yet...
+from django.db.utils import ProgrammingError 
+
 from donations.models import MagnateFund
-for fund in MagnateFund.objects.all():
-	FUND_METRICS_TEMPLATE = Setting('FUND_%d_METRICS_TEMPLATE' % (fund.pk),
-	"""        <div class="fund_metrics-container">
+try:
+	for fund in MagnateFund.objects.all():
+		FUND_METRICS_TEMPLATE = Setting('FUND_%d_METRICS_TEMPLATE' % (fund.pk),
+		"""        <div class="fund_metrics-container">
         <div class="metrics-contentinner">
 			<div class="metric">
 			<article>
@@ -60,11 +64,12 @@ for fund in MagnateFund.objects.all():
 			<div class="fundbtn"><a href="#" class="btn disabled" id="dashbtn_fix">Detailed View</a></div>	
         </div>
 
-""", MAGNATE_FUNDS, dict(
-label = "Template for statistics for %s" % (fund.name),
-help_text = """
-Template for statistics for %s 
-""" % (fund.name),
-widget=Textarea(attrs={'rows': '20'})))
-	MAGNATE_FUND_TEMPLATES[fund.pk] = FUND_METRICS_TEMPLATE
-
+	""", MAGNATE_FUNDS, dict(
+	label = "Template for statistics for %s" % (fund.name),
+	help_text = """
+	Template for statistics for %s 
+	""" % (fund.name),
+	widget=Textarea(attrs={'rows': '20'})))
+		MAGNATE_FUND_TEMPLATES[fund.pk] = FUND_METRICS_TEMPLATE
+except ProgrammingError:
+	pass
