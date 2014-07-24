@@ -9,7 +9,7 @@ MAGNATE_FUNDS = SettingSet('MAGNATE_FUNDS', 'Magnate Funds', "Setttings for Magn
 MAGNATE_FUND_TEMPLATES={}
 
 # In case the table for MagnateFund has not been created yet...
-from django.db.utils import ProgrammingError 
+from django.db.utils import ProgrammingError, OperationalError
 
 from donations.models import MagnateFund
 try:
@@ -71,5 +71,5 @@ try:
 	""" % (fund.name),
 	widget=Textarea(attrs={'rows': '20'})))
 		MAGNATE_FUND_TEMPLATES[fund.pk] = FUND_METRICS_TEMPLATE
-except ProgrammingError:
+except (ProgrammingError, OperationalError) as e:
 	pass
