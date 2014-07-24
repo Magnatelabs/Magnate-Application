@@ -14,5 +14,23 @@
             "domain": "example.com", 
             "name": "example.com"
         }
-    }
+    },
+    {
+        "pk": 1,
+        "model": "donations.MagnateFund",
+        "fields": {
+            "name": "Magnate Permanent Fund (MPF)",
+            "description": "This is the initial fund focused on helping Magnate users learn how to invest in early-stage companies. It's purpose is to benefit the overall community and, as such, this fund's profits are never combined with the actual company's profits. If an investment from this fund makes a profit, 100% of the money is returned to the community.",
+            "is_active": "True"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "donations.MagnateFund",
+        "fields": {
+            "name": "Magnate Multi-Strategy Fund (MMSF)",
+            "description": "",
+            "is_active": "False"
+        }
+    }    
 ]
