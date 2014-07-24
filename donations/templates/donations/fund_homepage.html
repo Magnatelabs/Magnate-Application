@@ -23,7 +23,11 @@
 			</div>			
           {% for company in portfolio %}
             <div class="portfolio_breakdown-container">
-              <img src="{{ company.image.url }}" alt="LOGO" />
+              {% if company.image %}
+                <img src="{{ company.image.url }}" alt="LOGO" />
+              {% else %}
+                <img src="{% static "img/fundHome_tempimg1.jpg" %}" alt="PHOTO" />
+              {% endif %}
               <div class="portfolio_breakdown-text">
                 <h1>{{ company.name }}</h1> 
                 <p>{{ company.description }}</p>  
