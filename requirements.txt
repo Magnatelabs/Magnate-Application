@@ -9,7 +9,7 @@ django-admin-enhancer==0.1.3
 django-analytical==0.16.0
 django-appconf==0.5
 django-avatar==2.0
--e git://github.com/Magnatelabs/django-blog-zinnia.git@f9a238d794dce5a4b30c4ca3f9a28dbd96615786#egg=django-blog-zinnia
+-e git://github.com/Magnatelabs/django-blog-zinnia.git@1052d4c3593d1cc83cb5efe942ea45462a12c608#egg=django-blog-zinnia
 django-cache-machine==0.8
 django-forms-bootstrap==2.0.3.post1
 django-jsonfield==0.8.12
