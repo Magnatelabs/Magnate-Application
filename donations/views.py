@@ -21,7 +21,7 @@ from django.views.generic.edit import FormView
 
 #imports to recognize forms 
 from .forms import BillingInfoForm
-from .models import BillingInfo
+from .models import BillingInfo, MagnateFund, PortfolioCompany
 from .utils import total_donation_amount
 from bonus_awards.utils import total_bonus_amount
 
@@ -36,7 +36,11 @@ def fundpage_index(request):
     tba=total_bonus_amount(request.user)
     gt= tda+tba
 
-    return render(request, 'donations/fund_homepage.html', {'user_has_donation': user_has_donation, 'total_donation_amount': tda, 'total_bonus_amount': tba, 'grand_total': gt })
+    funds = MagnateFund.objects.all()
+    portfolio = PortfolioCompany.objects.all()
+
+
+    return render(request, 'donations/fund_homepage.html', {'funds': funds, 'portfolio': portfolio, 'user_has_donation': user_has_donation, 'total_donation_amount': tda, 'total_bonus_amount': tba, 'grand_total': gt })
 #    return render(request, 'donations/fund_homepage.html')
 
 
