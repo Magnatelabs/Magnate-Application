@@ -423,6 +423,11 @@ class User(BaseModel, DjangoUser):
         return 'ask' not in settings.REQUIRE_EMAIL_VALIDATION_TO or self.email_isvalid
 
     def email_valid_and_can_answer(self):
+        # Magnatechange: answer wall
+        # Only superusers  or staff members can answer questions
+        if not (self.is_superuser or self.is_staff): 
+            return False
+        
         return 'answer' not in settings.REQUIRE_EMAIL_VALIDATION_TO or self.email_isvalid
 
     def check_password(self, old_passwd):
