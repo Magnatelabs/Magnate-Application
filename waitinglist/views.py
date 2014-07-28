@@ -23,6 +23,7 @@ def ajax_list_signup(request):
     '''  This view is called after the user enters his email and clicks Submit. 
     This view function takes the email form from homepage '''
 
+#    import pdb; pdb.set_trace()
     form = WaitingListEntryForm(request.POST)
     if form.is_valid():      # Essentially validate the email address that the user entered
         entry = form.save()  # Save user's email to the database - he is interested
@@ -32,7 +33,7 @@ def ajax_list_signup(request):
         #notify some other part of the django app that something happened: a new entry!
         
         # TODO: not clear what it is doing   
-        # signed_up.send(sender=ajax_list_signup, entry=entry)
+        signed_up.send(sender=ajax_list_signup, entry=entry)
 
 # This is something that waitinglist is doing for some purpose... Not sure. We are not using it.
 #
@@ -56,6 +57,7 @@ def ajax_list_signup(request):
     #return HttpResponse(json.dumps(data), mimetype="application/json")
 
 def list_signup(request, post_save_redirect=None):
+#    import pdb; pdb.set_trace()
     if request.method == "POST":
         form = WaitingListEntryForm(request.POST)
         if form.is_valid():
