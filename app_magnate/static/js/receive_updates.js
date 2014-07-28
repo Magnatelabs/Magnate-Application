@@ -35,7 +35,7 @@ if (window.refreshIntervalId != undefined) {
     clearInterval(window.refreshIntervalId);
     window.refreshIntervalId = undefined;
 }
-window.refreshPeriodMs = 2000;
+window.refreshPeriodMs = 120000;
 var last_ts = 0;
 saved_last_ts = readCookie("last_ts");
 if (saved_last_ts) {
