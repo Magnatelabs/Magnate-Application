@@ -22,17 +22,13 @@ try:
 			<div class="metric-text">
 			<p>Number of new Investments</p>
 			</div>
-			<div class="metric-amount1">
-			<p>17</p>			
-			</div>
+			<div class="metric-amount1 metric-resize">17</div>
 			</article>       
 			</div>
 			
 			<div class="metric">
 			<article>
-			<div class="metric-amount2">
-			<p>$62,205</p>	
-			</div>
+			<div class="metric-amount2 metric-resize">$62,205</div>
 			<div class="metric-text2">
 			<p>New Asset Inflows</p>
 			</div>
@@ -41,9 +37,7 @@ try:
 			
 			<div class="metric">
 			<article>
-			<div class="metric-amount2">
-			<p>$32,603</p>	
-			</div>
+			<div class="metric-amount2 metric-resize">$32,603</div>
 			<div class="metric-text2">
 			<p>Number of Participants</p>
 			</div>
@@ -55,9 +49,7 @@ try:
 			<div class="metric-text">
 			<p>Number of new Investments</p>
 			</div>
-			<div class="metric-amount1 no_change">
-			<p>00</p>			
-			</div>
+			<div class="metric-amount1 no_change metric-resize">00</div>
 			</article>       
 			</div>
 		</div>	
