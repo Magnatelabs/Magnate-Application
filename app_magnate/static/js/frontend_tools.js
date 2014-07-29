@@ -22,6 +22,7 @@ function autosize_font ( i, box ) {
         html = '<span style="white-space:nowrap">',
         line = $( box ).wrapInner( html ).children()[ 0 ];
     
+    //console.log("autosizing " + i + " width " + width)
     var l=1.0
     var r=500.0
     while (r-l>1) {      
