@@ -161,9 +161,13 @@
 	        {% count_me_in_button %}
 	  {% endif %}
 	{% endif %}
+
+{% comment %}
 	{% if object.is_public %}
 		{% like_entry_button object.pk request.user %}
 	{% endif %}
+{% endcomment %}
+
 	{% if continue_reading %}
 		<div class="blog-entry-footer">
 		  
