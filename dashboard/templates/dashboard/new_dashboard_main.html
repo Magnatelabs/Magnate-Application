@@ -36,7 +36,7 @@
 
 			<div class="ub_tabcontent">
 			<div class="ub_tablinks">
-			<ul class="idTabs">
+			<ul class="idTabs unstyled">
 			<li><a href="#mpd-fund">MPD Fund</a></li>
 			<li><a href="#mms-fund">MMS Fund</a></li>
 			</ul>
@@ -127,9 +127,7 @@
         </div>
         
         <div class="right-col">
-        <div class="question_banner">
-			<a href="#" class="btn" id="askquestion_fix">Ask a Question</a>
-        </div>
+
         <div id="div_activity" width="500" height="500">
 			{% comment %}
 			This div is needed to display the Q&A feed.
@@ -152,6 +150,22 @@
 {% endblock %}
 {% block script_base %}
 {{ block.super }}
+
+<script type="text/javascript">
+//$(document).ready(function() {
+//     $('.fund-feed').find('article').first(".show-when-article-active").show();
+//});
+
+
+$(document).ready(function() {
+     $('.fund-feed article:first-child').addClass("article-active");
+//     $('.fund-feed').find('article').first(".show-when-article-active").show();
+	//$('.show-when-article-active').show();
+	$('.fund-feed article:first-child').find('.show-when-article-active').show();
+});
+
+</script>
+
 
 <script type="text/javascript">
   // User liked a post. 
