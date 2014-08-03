@@ -99,10 +99,14 @@
 
 {% block entry-content %}
 	{% if continue_reading %}
+	  
 	  <span class="show-when-article-not-active"><p>{{ object_content }}</p></span>
+	  
 	  <span class="show-when-article-active">
+	    <div class="uppo">
 	    <a href="{{ object.get_absolute_url }}" class="btn-more2 fundfeed_btn_mod">Read more</a>
-            <a href="/forum/questions/ask/?entry_id={{ object.pk }}" class="btn-more2">Ask Question</a>   
+        <a href="/forum/questions/ask/?entry_id={{ object.pk }}" class="btn-more2">Ask Question</a>   
+	    </div>
 	  </span>
 	{% else %}
 		{% if object.is_public %}
