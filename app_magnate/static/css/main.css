@@ -146,7 +146,7 @@ updated: jmw 06.25.14
 .fund-feed { width:100%; float:left}
 .fund-feed article { width:100%; float:left; background:#4a4a49; border-top:1px solid #5d5d5c; padding:20px 0 10px 0}
 .fund-feed article h4 { font-size:14px; color:#FFFFFF; font-family:"helveticaneuemedium", Arial, Helvetica, sans-serif; line-height:15px; padding:0 15% 6px 0; margin: 0px 20px;}
-.fund-feed article h4 a { color:#FFFFFF; font-weight: normal;}
+.fund-feed article h4 { color:#FFFFFF; font-weight: normal; cursor: pointer; cursor: hand;}
 .fund-feed article p { font-size:12px; color:#FFFFFF; margin: 0 20px 0px; line-height: 15px;}
 .fund-feed article p a { color:#FFFFFF}
 .fund-feed aside { width:100%; height:120px; float:left; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; padding:0 20px 0 20px; position:relative}
@@ -165,7 +165,9 @@ updated: jmw 06.25.14
 .question_banner { background: #f4f6f6; width:658px; float: left; margin: 5px 0px 20px 0px; border: 1px solid #e7e8e8}
 #askquestion_fix {font-size: 12px; float: right; margin: 5px 10px 5px 0px; color: #7e3630; border-color: #e7dddc;}
 .uppo {float: left; margin-top: 20px;}
-
+.fund-feed article .show-when-article-not-active .hover-underline:hover {cursor: pointer; cursor: hand; }
+.fund-feed article .show-when-article-not-active .nohover-underline {cursor: text;} 
+.fund-feed article .nohover-underline {cursor: text;} 
 /*----------------------------------------------------------------------------------------------------
 Embedded Question List Styling Additions
 created: jmw 06.28.14
