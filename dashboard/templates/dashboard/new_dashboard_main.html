@@ -152,16 +152,12 @@
 {{ block.super }}
 
 <script type="text/javascript">
-//$(document).ready(function() {
-//     $('.fund-feed').find('article').first(".show-when-article-active").show();
-//});
-
-
+// Helps to display the first item in the fund-feed
 $(document).ready(function() {
-     $('.fund-feed article:first-child').addClass("article-active");
-//     $('.fund-feed').find('article').first(".show-when-article-active").show();
-	//$('.show-when-article-active').show();
-	$('.fund-feed article:first-child').find('.show-when-article-active').show();
+    $('.fund-feed article:first-child').addClass("article-active"); // adds highlight to first fund-feed item loaded
+	$('.fund-feed article:first-child').find('.show-when-article-active').show(); // reveals hidden content for first fund-feed item loaded
+	$('.fund-feed .article-active').find('.show-when-article-not-active p').addClass("nohover-underline"); // removes text-decoration for first fund-feed item loaded
+	$('.fund-feed .article-active').find('.fundfeed_title_active').addClass("nohover-underline"); // removes text-decoration for first fund-feed item loaded
 });
 
 </script>
