@@ -4,6 +4,7 @@
 }
 .show-when-article-not-active {
     display: visible;
+    cursor: pointer; cursor: hand;
 }
 
 /* FIXME: we shouldn't need the !important below.
