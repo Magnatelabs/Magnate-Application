@@ -17,7 +17,7 @@
 
         <script src="http://www.google.com/jsapi" type="text/javascript"></script>
         <script type="text/javascript" src="{% media  "/media/js/osqa.main.js" %}"></script>
-
+		
 {% endblock %} 
 
 {% block body %}
@@ -159,9 +159,22 @@ $(document).ready(function() {
 	$('.fund-feed .article-active').find('.show-when-article-not-active p').addClass("nohover-underline"); // removes text-decoration for first fund-feed item loaded
 	$('.fund-feed .article-active').find('.fundfeed_title_active').addClass("nohover-underline"); // removes text-decoration for first fund-feed item loaded
 });
-
 </script>
 
+<script type="text/javascript">    
+// Displays the first fund-feed entry question list on page load
+	var getNumericPart = function(id) {
+	var $num = id.replace(/[^\d]+/, '');
+	return $num;
+	}
+		
+	var entryid = $('.fund-feed article:first-child').attr('id');		
+	$('#div_activity').load('/f/?entry=' + getNumericPart(entryid).replace('entry-','') );
+
+//		function testbutton() {
+//		alert(getNumericPart(entryid));	
+//		}			
+</script>
 
 <script type="text/javascript">
   // User liked a post. 
