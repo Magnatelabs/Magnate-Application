@@ -44,7 +44,7 @@
 		{% endif %}
 		{{ block.super }}
 	</div>
-    <h4 class="fundfeed_title_active nojump"><a href="#">{{ object.title }}</a></h4>
+    <h4 class="fundfeed_title_active nojump">{{ object.title }}</h4>
   {% else %}
     <h2 class="entry-title">
       <a href="{{ object.get_absolute_url }}" title="{{ object.title }}" rel="bookmark">
