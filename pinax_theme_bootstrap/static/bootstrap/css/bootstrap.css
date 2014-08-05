@@ -6575,7 +6575,6 @@ Login / Logout page styling
 .entry-title p {color: #000000; }
 #feed-entry-image {  }
 #feed-entry-icon { width: 32px; float: right; }
-#privatefeed-entry-icon {padding-left: 3px; padding-right: 10px; padding-top: 20px; margin-bottom: 49px;}
 .feedpublic-entry-content { padding-top: 20px;}
 .feedprivate-entry-content { padding-top: 20px;}
 .feedprivate-entry-content p { width: 72%;}
