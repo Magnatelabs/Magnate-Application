@@ -37,12 +37,12 @@
 {% block entry-title %}
   {% if continue_reading %}
   <div class="show-when-article-active">
+	  {% if object.is_public %}
+	  {% else %}
+	  <img id="privatefeed-entry-icon" src="{{ object.private_icon_url }}" style="float: left" />
+	  {% endif %}
 	  <img id="feed-entry-icon" src="{{ object.icon_url }}"   />
-		{% if object.is_public %}
-		{% else %}
-			<img id="privatefeed-entry-icon" src="{{ object.private_icon_url }}" style="float: left" />
-		{% endif %}
-		{{ block.super }}
+	  {{ block.super }}
 	</div>
     <h4 class="fundfeed_title_active nojump">{{ object.title }}</h4>
   {% else %}
@@ -90,9 +90,12 @@
         
         <!--</div>-->
 	{% else %}
+	{% comment %}
+	## User does not need a link for this right now, but might come in handy later.
         <span class="show-when-article-active">
         <a href="{{ object.get_absolute_url }}"><figure><img id="blog-entry-image" src="{% static "img/fundfeed_test.jpg" %}" alt="{{ object.title }}"  /></figure></a>
 	</span>
+	{% endcomment %}
 	{% endif %}
 {% endblock %}
 
@@ -104,8 +107,12 @@
 	  
 	  <span class="show-when-article-active">
 	    <div class="uppo">
+	    {% if object.is_public %}
 	    <a href="{{ object.get_absolute_url }}" class="btn-more2 fundfeed_btn_mod">Read more</a>
-        <a href="/forum/questions/ask/?entry_id={{ object.pk }}" class="btn-more2">Ask Question</a>   
+        <a href="/forum/questions/ask/?entry_id={{ object.pk }}" class="btn-more2">Ask Question</a>
+        {% else %} 
+        <a href="{% url 'newstatus_home' %}" class="btn-more2 fundfeed_btn_mod">Check Status Page</a>
+        {% endif %}  
 	    </div>
 	  </span>
 	{% else %}
