@@ -103,9 +103,9 @@ updated: jmw 06.25.14
 .ub_statusinfo{width:160px; float:left; background:#9AD086; border-radius:3px; behavior: url(PIE.htc); -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; position:relative; padding:16px 19px 19px 19px}
 .ub_statusinfo p { font-size:12px; font-family:"helveticaneuebold", Arial, Helvetica, sans-serif; color:#FFFFFF; text-align:center; line-height:17px; padding-bottom:6px; margin: 0 0 0px;}
 .ub_statusinfo p span { font-size:24px}
-.ub_statusinfo figure { width:100%; float:left; border:1px solid #748c5e; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; position:relative}
+.ub_statusinfo figure { width:100%; float:left; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; position:relative}
 .ub_statusinfo figure img { width:100%}
-.ub_statusinfo .icon-plus { width:37px; height:31px; float:left; background:url(/site_media/static/img/icon-plus01.png) no-repeat; position:absolute; bottom:-8px; right:-11px; font-size:27px; font-family:"helveticaneuemedium", Arial, Helvetica, sans-serif; text-align:center; color:#FFFFFF; text-decoration:none; line-height:25px}
+.ub_statusinfo .icon-plus { width:37px; height:31px; float:left; background:url(/site_media/static/img/icon-plus01.png) no-repeat; position:absolute; bottom:-1px; right:2px; font-size:27px; font-family:"helveticaneuemedium", Arial, Helvetica, sans-serif; text-align:center; color:#FFFFFF; text-decoration:none; line-height:25px}
 .ub_tabcontent { width:490px; float:left; margin:26px 0 0 28px}
 .ub_tablinks { width:100%; float:left}
 .ub_tabcontent .ub_tablinks ul { float:left; padding:0 0 0 19px; -webkit-margin-after: 0em; -webkit-margin-before: 0em;}
@@ -168,6 +168,10 @@ updated: jmw 06.25.14
 .fund-feed article .show-when-article-not-active .hover-underline:hover {cursor: pointer; cursor: hand; }
 .fund-feed article .show-when-article-not-active .nohover-underline {cursor: text;} 
 .fund-feed article .nohover-underline {cursor: text;} 
+#privatefeed-entry-icon {
+	width:100%;
+	padding: 0px 0px 15px 0px;
+}
 /*----------------------------------------------------------------------------------------------------
 Embedded Question List Styling Additions
 created: jmw 06.28.14
@@ -183,7 +187,7 @@ created: jmw 06.30.14
 updated: jmw 06.30.14
 ----------------------------------------------------------------------------------------------------*/
 .inner_blue { width:100%; float:left; background:#d2e3e7}
-.section1_status_display {width: 64%; float: left; margin: 2px 92px 10px 0px; background: #388173;}
+.section1_status_display {width: 64%; float: left; margin: 2px 92px 10px 0px; background: #2e2f8f;}
 .section1_status_display h4 {color: #ffffff; padding-left: 40px;}
 .additional_right-overlay { width: 178px; float: right; margin-right: 58px; margin-top: 40px; display: inline; border: 1px solid #c7c8c8;}
 .order_right-overlay { width:100%; float:right; background:#ffffff}
@@ -203,7 +207,7 @@ updated: jmw 06.30.14
 .status-info{ width:74%; float:left; padding:40px 0% 12px 0%;}
 .status-info article{ width:90%; float:left; padding:0px 0% 26px 58px;}
 .status-info figure{ width:180px; float:left; -webkit-margin-start: 0px; -webkit-margin-end: 0px; margin: 0px; padding: 0px; }
-.status-info figure img{ border:1px solid #b2b2b2}
+.status-info figure img{}
 .status-info aside{ width:66.5%; float:right; padding-bottom: 10px; padding-left: 20px; }
 .status-info .btn-middle {float: right; margin-right: 16px; margin-top: 20px;}
 .status_section2 { width:100%; float:left; min-height:92px; }
@@ -234,12 +238,12 @@ updated: jmw 06.30.14
 .allstatus_awards ul li { width: 100%; float: left; padding: 25px 0px 0px 0px; }
 .allstatus_awards ul li figure { width: 135px; float: left; -webkit-margin-start: 0px; -webkit-margin-end: 0px; }
 .allstatus_awards ul li figure img { padding-left: 20px; }
-.section3_status_display1 {width: 100%; float: left; margin: 0px 0px 0px 0px; background: #388173; border: 1px solid #bdbebf;}
+.section3_status_display1 {width: 100%; float: left; margin: 0px 0px 0px 0px; background: #2e2f8f; border: 1px solid #bdbebf;}
 .status_display_description {width: 90%;float: left; background-color: #eeeeee; border-bottom: 1px solid #bdbebf; margin: 0px 0px 0px 30px; border-left: 1px solid #bdbebf; border-right: 1px solid #bdbebf;}
 .status_section3 .section3_status_display1 h1 {color: #fff;}
 .status_display_description aside {margin: 10px 30px 20px 30px;}
 .section3_status_display2 {width: 100%; float: left; margin: 0px 0px 0px 0px; background: #d38900; border: 1px solid #bdbebf; opacity: .65;}
-.section3_status_display3 {width: 100%; float: left; margin: 0px 0px 0px 0px; background: #5b864c; border: 1px solid #bdbebf; opacity: .65;}
+.section3_status_display3 {width: 100%; float: left; margin: 0px 0px 0px 0px; background: #388173; border: 1px solid #bdbebf; opacity: .65;}
 .section3_status_display4 {width: 100%; float: left; margin: 0px 0px 0px 0px; background: #ed009e; border: 1px solid #bdbebf; opacity: .65;}
 
 
