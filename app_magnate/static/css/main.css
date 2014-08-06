@@ -106,7 +106,7 @@ updated: jmw 06.25.14
 .ub_statusinfo figure { width:100%; float:left; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; position:relative}
 .ub_statusinfo figure img { width:100%}
 .ub_statusinfo .icon-plus { width:37px; height:31px; float:left; background:url(/site_media/static/img/icon-plus01.png) no-repeat; position:absolute; bottom:-1px; right:2px; font-size:27px; font-family:"helveticaneuemedium", Arial, Helvetica, sans-serif; text-align:center; color:#FFFFFF; text-decoration:none; line-height:25px}
-.ub_tabcontent { width:490px; float:left; margin:26px 0 0 28px}
+.ub_tabcontent { width:490px; float:left; margin:16px 0 0 28px}
 .ub_tablinks { width:100%; float:left}
 .ub_tabcontent .ub_tablinks ul { float:left; padding:0 0 0 19px; -webkit-margin-after: 0em; -webkit-margin-before: 0em;}
 .ub_tablinks ul li { height:20px; float:left; font-size:12px}
@@ -385,10 +385,28 @@ updated: jmw 07.17.14
 .inner_salmon {width: 100%; float: left; background: #faede7; }
 
 
+/*----------------------------------------------------------------------------------------------------
+Question Detail Styling Additions
+created: jmw 08.05.14
+updated: jmw 08.05.14
+----------------------------------------------------------------------------------------------------*/
+.section6-bg #wrapper {
+	width: 100%;
+}
 
+.section6-bg #CALeft {
+	width: 70%;
+	margin: 0px 0px 0px 20px;
+}
 
+.section6-bg #CARight {
+	width: 231px;
+	margin: 0px 15px 0px 0px;
+}
 
-
+#main-body #askform #editor {
+	width: 98%;
+}
 
 
 
