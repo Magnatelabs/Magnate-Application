@@ -6440,27 +6440,11 @@ color: #817d8e;}
 .paginator .previous { margin-left: 10px; float: left; display: block; padding-top: 5px;}
 #previous-paginator {position: absolute; z-index: 1; margin: -16px 0px 0px -49px;}
 #next-paginator {position: absolute; z-index: 1; margin: -16px 0px 0px 512px; }
-/* Star Rating */
-.bgcash-bonus{ width:200px; margin:0 auto}
-.cash-bonus{ width:100%; float:left; min-height:214px; margin:30px 0}
-.cash-bonus h4{ text-align:center; padding-bottom:0; margin-bottom:-3px; position:relative}
-.cash-bonus p{ font-size:12px; text-align:center; padding-bottom: 5px; }
-.cash-bonus p span{ color:#2398c9}
-.cash-bonus .dollar{ width:100%; float:left; text-align:center; font-size:60px; color:#ff5113}
-.cash-bonus .dollar span{ background:url(/site_media/static/img/img_dollar03.png) no-repeat 0 14px; padding-left:15px}
-.cash-bonus .bg-btn{ width:140px; margin:0 auto}
-.cash-bonus .btn{ width:140px; height:43px; font-family:"Helvetica Neue", Arial, Helvetica, sans-serif; line-height:43px; font-size:16px}
-.cash-bonus aside{ width:94%; padding:15px 3% 22px 3%}
-.star-rect { height: 48px; background:#eaf6de; border:1px solid #e9e9e9; border-radius: 20px; position: absolute; z-index: 2; width: 200px; }
-.prompt-rect {height: 195px; background: #c9d0c6; position: absolute; margin: 18px 0px 0px 0px; z-index: 1; width: 200px; border-radius: 15px; border: 1px solid #C7C6C6;}
-.prompt-rect h4 { padding-top: 24px; }
-.ratingbtn { width: 140px; height: 40px; font-family: "Helvetica Neue", Arial, Helvetica, sans-serif; line-height: 46px; font-size: 16px; margin-left: 20px; }
-#star-rating-message {position: absolute; z-index: 3; margin: 120px 0px 0px 42px; height: 48px; border-radius: 20px; font-size: 14px; line-height: 44px; }
 /* Spread Wealth specific */
 .donate-right .bg-pink{ background:#faede7}
 /* Stay in Touch specific */
 .donate-right .bg-skyblue{ box-shadow:none}
-.abuja {width: 99%}
+
 
 /* New Donation (v4) styling --do not remove, not old dashboard css
 ----------------------------------------------------------------------------------------------------*/
