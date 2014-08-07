@@ -5,7 +5,9 @@ updated: jmw 07.08.14
 ----------------------------------------------------------------------------------------------------*/
 .contentinner_header { width:100%; float:left; min-height:92px;}
 .contentinner_header h1{ font-family:"helveticaneuelight", Arial, Helvetica, sans-serif; font-size:36px; color:#4d4c4b; line-height:92px; padding:0 0 0 6.2%}
-
+.grid_16 {
+	padding-bottom: 100px;
+}
 
 
 /*----------------------------------------------------------------------------------------------------
@@ -115,10 +117,10 @@ updated: jmw 06.25.14
 .ub_tabbox { width:100%; float:left; background:url(/site_media/static/img/bg-tab06.png) repeat top right;; border-radius: 3px; behavior: url(PIE.htc); -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; position:relative; padding:18px 10px 20px 30px}
 .ub_tabbox article { width:60%; float:left}
 .ub_tabbox article p { font-size:14px; color:#FFFFFF; padding-bottom:10px}
-.ub_tabbox article h2 { font-size:48px; color:#FFFFFF; padding-bottom:19px; line-height: 25px;}
+.ub_tabbox article h2 { font-size:48px; color:#FFFFFF; padding-bottom:30px; line-height: 25px;}
 .ub_tabbox article h2 sup { font-size:36px; top:-0.3em; font-family:"Tahoma", Arial, Helvetica, sans-serif}
 .ub_tabbox aside { width:40%; float:right; padding:20px 0 0 0}
-.ub_tabbox aside p { font-size:14px; color:#FFFFFF; text-align:center; padding-bottom:12px}
+.ub_tabbox aside p { font-size:14px; color:#FFFFFF; text-align:center; }
 .ub_tabbox aside p a{ color:#5a8e22; text-decoration:underline}
 .ub_tabbox aside p a:hover { text-decoration:none}
 .ub_otheractions { width:199px; float:right; background:#fcfcfc; border-radius: 0 2px 0 0; behavior: url(PIE.htc); position:relative; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; padding:15px 18px 5px 18px}
@@ -266,11 +268,11 @@ updated: jmw 07.03.14
 .metrics-contentinner { width:100%; float:left;}
 .metric { width:230px; float:left; background:#4a4a49; min-height: 75px; margin-left: 20px; margin-bottom: 20px}
 .metric article { width: 90%; margin: 0px 0px 0px 10px; float: left; }
-.metric-text { width: 55%; color: #ffffff; text-align: center; font-size: 17px; float: left; font-family: "helveticaneuelight", Arial, Helvetica, sans-serif; padding: 15px 0px 0px 10px; }
-.metric-amount1 { width: 40%; color: #55a51c; float: left;}
+.metric-text { width: 57%; color: #ffffff; text-align: center; font-size: 17px; float: left; font-family: "helveticaneuelight", Arial, Helvetica, sans-serif; padding: 15px 0px 0px 0px; }
+.metric-amount1 { width: 40%; color: #55a51c; float: left; padding: 24px 0px 0px 0px;}
 .metric-amount1 p {padding: 25px 0px 0px 20px; font-size: 47px;}
 .metric-text2 { width: 55%; color: #ffffff; text-align: center; font-size: 17px; float: left; font-family: "helveticaneuelight", Arial, Helvetica, sans-serif; padding: 15px 0px 0px 0px; }
-.metric-amount2 { width: 45%; color: #55a51c; float: left;}
+.metric-amount2 { width: 45%; color: #55a51c; float: left; padding: 24px 0px 0px 0px;}
 .metric-amount2 p {padding: 25px 0px 0px 0px; font-size: 26px;}
 .no_change {color: #d3222a;}
 .fundbtn {float: right; margin-right: 56px; }
@@ -285,7 +287,7 @@ updated: jmw 07.03.14
 .amplification-contentinner ul {width: 100%; float: left; padding-left: 10px; -webkit-margin-before: 0em; -webkit-margin-after: .4em;}
 .amplification-contentinner ul li { float: left; padding-right: 2px; list-style: none; opacity: .65;}
 .amplification-contentinner .amplified-active {opacity: 1;}
-#portfolio_breakdown {width: 518px; margin-bottom: 100px;}
+#portfolio_breakdown {width: 56%; margin-bottom: 100px;}
 .portfolio_heading-inner {width: 100%; float: left; min-height: 46px; background: #cacac8; border-bottom:1px solid #e3e4e4; margin-bottom: 20px;}
 .portfolio_heading-inner h1 {font-family: "helveticaneuelight", Arial, Helvetica, sans-serif; font-size: 20px; color: #4c4c4c; padding: 10px 0 0 6.2%; -webkit-margin-after: 0em;}
 .portfolio_breakdown-container {width: 90%; float: left; margin-left: 40px; padding-bottom: 15px;}
@@ -295,7 +297,7 @@ updated: jmw 07.03.14
 .portfolio-tags { color: #cacac8; font-size: 10px;}
 .portfolio_btn {float: right; margin-right: 30px; margin-bottom: 20px;}
 
-#relatedNews_breakdown {width: 378px; margin-left: 20px; }
+#relatedNews_breakdown {width: 41%; margin-left: 20px; }
 .relatedNews_heading-inner {width: 100%; float: left; min-height: 46px; background: #d9e4cd; border-bottom:1px solid #e3e4e4; margin-bottom: 20px;}
 .relatedNews_heading-inner h1 {font-family: "helveticaneuelight", Arial, Helvetica, sans-serif; font-size: 20px; color: #4c4c4c; padding: 10px 0 0 6.2%; -webkit-margin-after: 0em;}
 .relatedNews_breakdown-container {width: 90%; float: left; margin-left: 40px; padding-bottom: 15px;}
@@ -303,6 +305,132 @@ updated: jmw 07.03.14
 .relatedNews_breakdown-text h1 {font-size: 20px; -webkit-margin-before: 0em; -webkit-margin-after: 0em; line-height: 30px; color: #2398c9; text-decoration: underline; }
 .newsSource-link { color: #000000; font-size: 12px;}
 .relatedNews_btn { float: right; margin-right: 30px; margin-bottom: 145px;}
+
+
+/* New Donation (v4) styling --do not remove, not old dashboard css
+----------------------------------------------------------------------------------------------------*/
+.bgsection2{ width:99.8%; float:left; background:#f8f8f8; border:1px solid #b9baba; box-shadow:inset #ebebeb 0 -3px 4px; border-radius:3px; position:relative; behaviior:url(PIE.htc); margin-bottom:30px}
+.heading-inner{ width:100%; float:left; min-height:92px; background:#d9e4cd}
+.heading-inner h1{ font-family:"helveticaneuelight", Arial, Helvetica, sans-serif; font-size:36px; color:#4d4c4b; line-height:92px; padding:0 0 0 6.2%}
+.section2{ width:87.4%; float:left; padding:0 6.3% 70px 6.3%}
+.order-left{ width:100%; float:left; background:#ffffff}
+.order-left h2{ font-size:24px; padding-bottom:20px}
+.order-left p{ font-size:14px; color:#4d4c4b; padding-bottom:18px}
+.order-left ul{ width:100%; float:left; -webkit-padding-start: 0px; list-style-type: none; -webkit-margin-before: 0em; -webkit-margin-after: 0em; }
+.order-left ul li{ width:100%; float:left; padding-bottom:16px}
+.order-left label{ font-size:16px; padding-bottom:7px}
+.order-left .input{ width:91.8%; height:17px; float:left; background:#FFFFFF; box-shadow:none; box-shadow:inset #bebebe 1px 1px 2px; border:1px solid #bebebe; border-radius:3px; behavior: url(PIE.htc); position:relative; font-family:"HelveticaNeueLTStd55Roman", Arial, Helvetica, sans-serif; font-size:14px; color:#9f9f9f; padding:9px 4%}
+.order-left .input:focus{ box-shadow:none; box-shadow:inset #bebebe 1px 1px 2px; border:1px solid #bebebe;}
+.order-left .sbHolder{ width:99.8%; font-family:Arial, Helvetica, sans-serif; font-size:14px}
+.order-left .sbOptions ul{ width:100%; padding:0}
+.order-left .sbOptions li{ width:100%; padding:0}
+.order-left .month{ width:140px}
+.order-left .year{ width:140px; float:right}
+.order-left .accept{ width:100%; float:left; padding-bottom:33px}
+/*.order-left .checkbox{ width:23px; height:23px; margin:0 10px 0 0; background:url(../img/checkbox01.png) no-repeat; display:block; clear:left; float:left; cursor:pointer} */
+.order-left .text{ width:88%; float:left; font-size:16px; color:#4c4c4c}
+.order-left .text a{ color:#2398c9}
+.order-left .btn { width:140px; height:43px; font-family:"Helvetica Neue", Arial, Helvetica, sans-serif; font-size:16px; line-height:43px; margin-right:40px}
+.order-left .btn-gray { width:120px; height:50px; line-height:50px; color:#ffffff; margin-left: 20px;}
+.order-left aside{ width:62.52%; float:left; padding:0 37.5% 15px 0}
+.order-left .amount-info{
+	width: 100%;
+	padding: 0px 0% 50px 10px;
+}
+.order-left .amount-info h3{ font-family:"Helvetica Neue", Arial, Helvetica, sans-serif; font-size:20px; color:#4d4c4b; padding-bottom:25px}
+.order-left .amount-info ul{ width:100%; float:left; font-size:30px; -webkit-padding-start: 0px; list-style-type: none; -webkit-margin-before: 0em; -webkit-margin-after: 0em;}
+.order-left .amount-info ul li{ width:100%; float:left; no-repeat 19px 21px; }
+.order-left .amount-info ul li p{ width:87.73%; float:left; no-repeat 19px 21px; font-size: 30px; }
+.order-left .amount-info ul li a{ width:87.73%; height:68px; float:left; color:#4a4a49; line-height:68px; text-decoration:none; padding:0 0 0 12.27%}
+.order-left .amount-info ul li:hover{ background:#72bb2a no-repeat 21px 22px; color:#ffffff}
+.order-left .amount-info ul li:active{ background:#72bb2a no-repeat 21px 22px; color:#ffffff}
+
+.order-left .amount-info p{
+	font-size: 16px;
+	line-height: 23px;
+	padding: 40px 0px 30px 5px;
+	width: 85%;
+}
+
+.order-left .amount-info .input{ width:41%; text-align:right; padding:9px 2.5%}
+.order-left .amount-info .code2{ width:27.2%; height:12px; float:right; color:#6d6f71; margin:20px 20px 20px 0}
+.order-left .amount-info .amount-box{ width:99.98%; float:left; border:1px solid #ecf1e6; padding:0}
+.order-left .amount-info .amount-box h1{ font-size:32px; font-weight: normal;}
+.order-left article{ 
+	width:92.5%; 
+	float:left; 
+	padding: 0px 0 40px 10px;
+	}
+.order-left .card-detail{ width:100%; float:left; padding:30px 0 0 0}
+.order-right{ width:100%; float:right; background:#ffffff}
+.order-right h3{ font-family:"Helvetica Neue", Arial, Helvetica, sans-serif; padding-bottom:4px; font-size: 18px; font-weight: normal; -webkit-margin-before: 0em; -webkit-margin-after: 0em;}
+.order-right h3 a{ color:#2398c9}
+.order-right h3 span{ float:right; font-size:12px}
+.order-right ul{ width:100%; float:left; font-family:"Helvetica Neue", Arial, Helvetica, sans-serif; font-size:14px; -webkit-padding-start: 0px; list-style-type: none; -webkit-margin-before: 0em; -webkit-margin-after: 0em;}
+.order-right ul li{ width:100%; float:left; border-top:1px solid #e2e2e2; color:#4d4c4b; padding:18px 0}
+.order-right ul li.nodivider{ border:none}
+.order-right ul li.total{ font-family:"helveticaneuebold", Arial, Helvetica, sans-serif}
+.order-right .column1{ width:75%; float:left}
+.order-right .column2{ width:25%; float:right; text-align:right}
+.order-right .sbHolder{ width:99.8%; font-size:12px; margin-bottom:20px}
+.order-right .sbOptions li{ width:100%; font-size:12px; padding:4px 0}
+.order-right .btn-gray { width:106px; height:27px; float:right; font-family:"Helvetica Neue", Arial, Helvetica, sans-serif; font-size:14px; line-height:27px; color:#ffffff}
+.participationbtn {margin-left: 12px;}
+.order-left .billing_forms {
+	width: 90%;
+	float: left;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 30px 0px 40px 15px;
+}
+.order-left .orderpay_forms {
+	width: 90%;
+	float: left;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 30px 0px 40px 15px;
+}
+.order-left .accept .text {
+	width: 88%;
+	float: right;
+	font-size: 16px;
+	color: #4c4c4c;
+}
+/* Donation Billing forms styling REMOVE */
+.billing_forms ul li {padding-bottom: 0px; } 
+.billing_forms ul li p {padding-bottom: 0px; }
+/* Donation Pay styling */
+.light { font-family: "helveticaneuelight",Arial, Helvetica, sans-serif; -webkit-margin-before: 0em; -webkit-margin-after: 0em; font-weight: normal; }
+
+#adp_forms p { padding-bottom: 4px; -webkit-margin-before: 0em; -webkit-margin-after: 0em; width: 200px; }
+#adp_forms p label { padding-bottom: 0px; }
+#id_x_card_num { width: 265px; }
+#id_x_first_name { width: 265px; }
+#id_x_last_name { width: 265px; }
+#id_x_zip { width: 265px; }
+#id_x_exp_date { width: 265px; }
+#id_x_card_code { width: 265px;	}
+.pay_startedbtn { line-height: 50px; }
+/* Button styling (new) 12.13.13--do not remove, not old */
+.btn-gray { display: inline-block; padding: 0; float: left; width: 140px; height: 56px; margin-bottom: 0; font-size: 20px; line-height: 56px; font-family: "helveticaneuelight",Arial, Helvetica, sans-serif; color: #020202; text-align: center; text-shadow: none; vertical-align: middle; cursor: pointer; background: #bbbcbc; background: -moz-linear-gradient(#dadada, #a5a6a6); background: -webkit-gradient(linear, left top, left bottom, from(#dadada), to(#a5a6a6)); background: -o-linear-gradient(#dadada, #a5a6a6); -pie-background: linear-gradient(#dadada, #a5a6a6); border: none; text-decoration: none; box-shadow: #777 0 1px 3px; border-radius: 6px; behavior: url(PIE.htc); position: relative; }	
+#adp_forms p input {width: 120px; }
+/* Added for donation add 12.11.13 */
+.order-right article{ width:71.6%; float:left; padding:38px 14.6% 20px 14.6%}
+
+.left_section2 {
+	width: 62%; 
+	float: left; 
+}
+
+.order-left .radio { width: 75px; height: 60px; padding: 0 5px 0 0; background:url(/site_media/static/img/radio_magnate3.png) no-repeat; display: block; clear: left; float: left; }
+
+.right_section2 {
+	width: 35%; 
+	float: right; 
+	display: inline; 
+}
 
 
 /*----------------------------------------------------------------------------------------------------
