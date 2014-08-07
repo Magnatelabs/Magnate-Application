@@ -6446,84 +6446,6 @@ color: #817d8e;}
 .donate-right .bg-skyblue{ box-shadow:none}
 
 
-/* New Donation (v4) styling --do not remove, not old dashboard css
-----------------------------------------------------------------------------------------------------*/
-.bgsection2{ width:99.8%; float:left; background:#f8f8f8; border:1px solid #b9baba; box-shadow:inset #ebebeb 0 -3px 4px; border-radius:3px; position:relative; behaviior:url(PIE.htc); margin-bottom:30px}
-.heading-inner{ width:100%; float:left; min-height:92px; background:#d9e4cd}
-.heading-inner h1{ font-family:"helveticaneuelight", Arial, Helvetica, sans-serif; font-size:36px; color:#4d4c4b; line-height:92px; padding:0 0 0 6.2%}
-.section2{ width:87.4%; float:left; padding:0 6.3% 70px 6.3%}
-.order-left{ width:100%; float:left; background:#ffffff}
-.order-left h2{ font-size:24px; padding-bottom:20px}
-.order-left p{ font-size:14px; color:#4d4c4b; padding-bottom:18px}
-.order-left ul{ width:100%; float:left; -webkit-padding-start: 0px; list-style-type: none; -webkit-margin-before: 0em; -webkit-margin-after: 0em; }
-.order-left ul li{ width:100%; float:left; padding-bottom:16px}
-.order-left label{ font-size:16px; padding-bottom:7px}
-.order-left .input{ width:91.8%; height:17px; float:left; background:#FFFFFF; box-shadow:none; box-shadow:inset #bebebe 1px 1px 2px; border:1px solid #bebebe; border-radius:3px; behavior: url(PIE.htc); position:relative; font-family:"HelveticaNeueLTStd55Roman", Arial, Helvetica, sans-serif; font-size:14px; color:#9f9f9f; padding:9px 4%}
-.order-left .input:focus{ box-shadow:none; box-shadow:inset #bebebe 1px 1px 2px; border:1px solid #bebebe;}
-.order-left .sbHolder{ width:99.8%; font-family:Arial, Helvetica, sans-serif; font-size:14px}
-.order-left .sbOptions ul{ width:100%; padding:0}
-.order-left .sbOptions li{ width:100%; padding:0}
-.order-left .month{ width:140px}
-.order-left .year{ width:140px; float:right}
-.order-left .accept{ width:100%; float:left; padding-bottom:33px}
-/*.order-left .checkbox{ width:23px; height:23px; margin:0 10px 0 0; background:url(../img/checkbox01.png) no-repeat; display:block; clear:left; float:left; cursor:pointer} */
-.order-left .text{ width:88%; float:left; font-size:16px; color:#4c4c4c}
-.order-left .text a{ color:#2398c9}
-.order-left .btn { width:140px; height:43px; font-family:"Helvetica Neue", Arial, Helvetica, sans-serif; font-size:16px; line-height:43px; margin-right:40px}
-.order-left .btn-gray { width:120px; height:50px; line-height:50px; color:#ffffff; margin-left: 20px;}
-.order-left aside{ width:62.52%; float:left; padding:0 37.5% 15px 0}
-.order-left .amount-info{ width:97%; padding:0 3% 50px 0}
-.order-left .amount-info h3{ font-family:"Helvetica Neue", Arial, Helvetica, sans-serif; font-size:20px; color:#4d4c4b; padding-bottom:25px}
-.order-left .amount-info ul{ width:100%; float:left; font-size:30px; -webkit-padding-start: 0px; list-style-type: none; -webkit-margin-before: 0em; -webkit-margin-after: 0em;}
-.order-left .amount-info ul li{ width:100%; float:left; no-repeat 19px 21px; }
-.order-left .amount-info ul li p{ width:87.73%; float:left; no-repeat 19px 21px; font-size: 30px; }
-.order-left .amount-info ul li a{ width:87.73%; height:68px; float:left; color:#4a4a49; line-height:68px; text-decoration:none; padding:0 0 0 12.27%}
-.order-left .amount-info ul li:hover{ background:#72bb2a no-repeat 21px 22px; color:#ffffff}
-.order-left .amount-info ul li:active{ background:#72bb2a no-repeat 21px 22px; color:#ffffff}
-.order-left .amount-info p{ font-size:20px; line-height:23px; padding-bottom:46px}
-.order-left .amount-info .input{ width:41%; text-align:right; padding:9px 2.5%}
-.order-left .amount-info .code2{ width:27.2%; height:12px; float:right; color:#6d6f71; margin:20px 20px 20px 0}
-.order-left .amount-info .amount-box{ width:99.98%; float:left; border:1px solid #ecf1e6; padding:0}
-.order-left .amount-info .amount-box h1{ font-size:32px; font-weight: normal;}
-.order-left article{ width:92.5%; float:left; padding:37px 0 38px 4.7%}
-.order-left .card-detail{ width:100%; float:left; padding:30px 0 0 0}
-.order-right{ width:100%; float:right; background:#ffffff}
-.order-right h3{ font-family:"Helvetica Neue", Arial, Helvetica, sans-serif; padding-bottom:4px; font-size: 18px; font-weight: normal; -webkit-margin-before: 0em; -webkit-margin-after: 0em;}
-.order-right h3 a{ color:#2398c9}
-.order-right h3 span{ float:right; font-size:12px}
-.order-right ul{ width:100%; float:left; font-family:"Helvetica Neue", Arial, Helvetica, sans-serif; font-size:14px; -webkit-padding-start: 0px; list-style-type: none; -webkit-margin-before: 0em; -webkit-margin-after: 0em;}
-.order-right ul li{ width:100%; float:left; border-top:1px solid #e2e2e2; color:#4d4c4b; padding:18px 0}
-.order-right ul li.nodivider{ border:none}
-.order-right ul li.total{ font-family:"helveticaneuebold", Arial, Helvetica, sans-serif}
-.order-right .column1{ width:75%; float:left}
-.order-right .column2{ width:25%; float:right; text-align:right}
-.order-right .sbHolder{ width:99.8%; font-size:12px; margin-bottom:20px}
-.order-right .sbOptions li{ width:100%; font-size:12px; padding:4px 0}
-.order-right .btn-gray { width:106px; height:27px; float:right; font-family:"Helvetica Neue", Arial, Helvetica, sans-serif; font-size:14px; line-height:27px; color:#ffffff}
-/* Donation Billing forms styling REMOVE */
-.billing_forms ul li {padding-bottom: 0px; } 
-.billing_forms ul li p {padding-bottom: 0px; }
-/* Donation Pay styling */
-.light { font-family: "helveticaneuelight",Arial, Helvetica, sans-serif; -webkit-margin-before: 0em; -webkit-margin-after: 0em; font-weight: normal; }
-
-#adp_forms p { padding-bottom: 4px; -webkit-margin-before: 0em; -webkit-margin-after: 0em; width: 200px; }
-#adp_forms p label { padding-bottom: 0px; }
-#id_x_card_num { width: 265px; }
-#id_x_first_name { width: 265px; }
-#id_x_last_name { width: 265px; }
-#id_x_zip { width: 265px; }
-#id_x_exp_date { width: 265px; }
-#id_x_card_code { width: 265px;	}
-.pay_startedbtn { line-height: 50px; }
-/* Button styling (new) 12.13.13--do not remove, not old */
-.btn-gray { display: inline-block; padding: 0; float: left; width: 140px; height: 56px; margin-bottom: 0; font-size: 20px; line-height: 56px; font-family: "helveticaneuelight",Arial, Helvetica, sans-serif; color: #020202; text-align: center; text-shadow: none; vertical-align: middle; cursor: pointer; background: #bbbcbc; background: -moz-linear-gradient(#dadada, #a5a6a6); background: -webkit-gradient(linear, left top, left bottom, from(#dadada), to(#a5a6a6)); background: -o-linear-gradient(#dadada, #a5a6a6); -pie-background: linear-gradient(#dadada, #a5a6a6); border: none; text-decoration: none; box-shadow: #777 0 1px 3px; border-radius: 6px; behavior: url(PIE.htc); position: relative; }	
-#adp_forms p input {width: 120px; }
-/* Added for donation add 12.11.13 */
-.order-right article{ width:71.6%; float:left; padding:38px 14.6% 20px 14.6%}
-.left_section2 {width: 520px; float: left; }
-.order-left .radio { width: 75px; height: 60px; padding: 0 5px 0 0; background:url(/site_media/static/img/radio_magnate3.png) no-repeat; display: block; clear: left; float: left; }
-.right_section2 {width: 280px; float: right; display: inline; }
-
 
 /* Status award detail styling
 ----------------------------------------------------------------------------------------------------*/
@@ -6575,25 +6497,6 @@ Login / Logout page styling
 .btn-count-me-in {margin: -10px 80px 0 0;}
 
 
-/* Donation home added 12.13.13 by jw
-----------------------------------------------------------------------------------------------------*/
-
-.users_donation { width:43%; float:left; padding-right: 25px; line-height: 0px; padding-left: 15px;}
-.users_donation h4{ font-family: "Helvetica Neue", Arial, Helvetica, sans-serif; padding-bottom: 20px;}
-.fixme {margin-left: 5px; padding-top: 20px;}
-.donation-section .current-amount aside p{ font-size:40px; line-height:53px; color:#ffffff; padding:0 0 16px 0px}
-.donation-section .current-amount aside span{ float:left; font-size:21px; margin-top:-10px; position:relative}
-.users_dollars{ width:40%; float:left; padding:0; line-height: 0px;}
-.redtext{ color:#ff5113; margin-left: 5px; padding-top: 20px;}
-#dollar #hasdonation { font-size: 118px; }
-.amount-btn {padding-top: 20px;}
-
-.donation-section .time-info{ width:100%; float:left; padding:30px 0}
-.donation-section .time-info h4{ font-size:14px; padding:0 0 18px 0}
-.donation-section .time-info h2{ color:#ff5113; text-align:center}
-.donation-section .time-info h2 span{ background:url(../img/img_icon22.png) no-repeat left center; padding:3px 0 3px 36px}
-
-.donation-section .btn-gray{ width:100%; height:52px; font-family:"Helvetica Neue", Arial, Helvetica, sans-serif; font-size:20px; color:#fff; line-height:52px; margin:30px 0}
 
 /*----------------------------------------------------------------------------------------------------
 Avatar settings page styling 
@@ -6635,7 +6538,7 @@ Rewards
 #reward_up {padding-bottom: 0px; font-weight: normal; }
 .order-left .order-left_header { width: 90%; margin-bottom: 13px; padding-top: 20px; padding-left: 20px; }
 .eventborder {width: 100%; height: 5px; float: left; background: #a6c987; border-radius: 2px; behavior: position: relative;}
-.order-left article { width: 100%; float: left; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; padding: 0 0 0 45px;}
+.order-left .article { width: 100%; float: left; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; padding: 0 0 0 45px;}
 .order-left article h2 { font-weight: normal; color: #4d4c4b; padding-bottom: 0px; }
 .order-left article aside { width: 90%; float: left; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; padding: 0 0 33px 40px; }
 .order-left article aside h3 { font-size: 18px; line-height: 10px; color: #4d4c4b; }
