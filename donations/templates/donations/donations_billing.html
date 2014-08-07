@@ -68,9 +68,12 @@
         
         </ul>
         </aside>
-
-        <p>Your billing information will be saved for future donations.</p>
-        <input type="submit" value="Continue" class="startedbtn" />
+        {% comment %}
+        We're not at the moment
+		<div class="billing-prompt">
+        <p>Your billing information will be saved for future donations.</p></div>
+        {% endcomment %}
+        <input type="submit" value="Continue" class="startedbtn participationbtn" />
 		</form>		
 
         <a href="{% url "fund_home" %}" class="btn-gray">Cancel</a>
