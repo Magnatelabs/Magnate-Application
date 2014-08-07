@@ -6569,7 +6569,6 @@ Login / Logout page styling
 /* Dashboard Zinnia Feed Styles added 12.07.13 by jw
 ----------------------------------------------------------------------------------------------------*/
 .hentry { border-bottom: 1px solid #cccaca; width: 116.4%; margin: 20px -75px 0px;}
-.entry-title { font-family: "helveticaneuebold",Arial, Helvetica, sans-serif; font-size: 13px; padding-bottom: 4px; -webkit-margin-before: 0em; -webkit-margin-after: 0em; line-height: 1em;}
 .entry-image { float: left; }
 .entry-footer { padding-bottom: 50px;}
 .entry-title p {color: #000000; }
@@ -6591,20 +6590,6 @@ Login / Logout page styling
 
 .btn-count-me-in {margin: -10px 80px 0 0;}
 
-/*----------------------------------------------------------------------------------------------------
-Blog style
-----------------------------------------------------------------------------------------------------*/
-#blog-entry-image {padding-left: 16px;}
-.blogpublic-entry-content {padding-left: 16px; padding-bottom: 10px;}
-.blog-entry-footer {padding-top: 60px; padding-left: 16px; }
-.blog-entry-header {padding-left: 16px;}
-.comments {position: relative; margin-left: 10px;}
-.comment-list {-webkit-padding-start: 0px;}
-.comment-list img {float: left; padding-right: 10px; }
-.comments .comment-list p {padding-top: 10px; padding-bottom: 25px; color: #333333;}
-#comment-info {margin: 0 0 0px; padding-bottom: 0px; padding-top: 0px;}
-#comment-published {cursor: none; border-bottom: 0px dotted #999999; color: #817d8e; font-size: 12px;}
-.article-info form fieldset legend {border-bottom: 0px}
 
 /* Donation home added 12.13.13 by jw
 ----------------------------------------------------------------------------------------------------*/
