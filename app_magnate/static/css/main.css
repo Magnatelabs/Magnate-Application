@@ -20,11 +20,9 @@ lightbox form p a{ color:#00468c}
 
 .lightbox form label{ width:100%; float:left; font-size:14px; padding-bottom:4px; margin-bottom:0}
 .lightbox form .input{ width:91.5%; height:16px; float:left; background:#FFFFFF; box-shadow:none; box-shadow:inset #aeaeae 1px 1px 2px; border:1px solid #bebebe; border-radius:4px; behavior: url(PIE.htc); position:relative; font-family:"HelveticaNeueLTStd55Roman", Arial, Helvetica, sans-serif; font-size:14px; padding:7px 4%}
-.lightbox form ul{ width:100%; float:left; padding-bottom:25px}
+.lightbox form ul{ width:100%; float:left; }
 .lightbox form ul li{  width:100%; float:left; padding-bottom:15px}
-.lightbox form .btn{ box-shadow: #888 0 1px 2px; margin-bottom:25px}
-.lightbox form .btn:active, .btn.active { box-shadow: inset #6a872e 0 2px 3px, #888 0 1px 2px}
-
+.lightbox form .btn{}
 .lightboxsignup{ width:564px; float:left; padding:5px}
 .lightboxsignup aside{ width:100%; float:left; padding:28px 0}
 .lightboxsignup h3{ text-align:center}
@@ -34,13 +32,13 @@ lightbox form p a{ color:#00468c}
 .popup h3{ font-size:24px; color:#4c4c4c; font-family:"helveticaneuebold", Arial, Helvetica, sans-serif; padding-bottom:16px}
 .popup h3 a{ color:#4c4c4c} 
 .popup p{ font-size:16px; color:#4c4c4c}
-.popup .btn{ width:110px; height:42px; float:right; box-shadow: #888 0 1px 2px; font-size:18px; line-height:42px}
-.popup .btn:active, .btn.active { box-shadow: inset #5a872e 0 2px 3px, #888 0 1px 2px}
 .popup .contentinner_header .invite_blue h1 { font-size: 30px; }
 #invite_content {padding: 0 6% 70px 6.3%; background: #f8f8f8; }
 #invite_container {width: 438px;}
 .share_main_add-container {width: 77%; float: left;}
 .share_main_add-container textarea {font-size: 11px;}
+#sharebox-aside {padding: 0px 0px 0px 0px;}
+#sharebox-article {padding: 0px 0px 50px 0px;}
 
 /*----------------------------------------------------------------------------------------------------
 Account Detail Styles
@@ -328,7 +326,11 @@ updated: jmw 07.03.14
 .sourceinfo_main article aside p input { margin-bottom: 20px;}
 .sourceinfo_main article aside p { margin-bottom: 20px; }
 .sourceinfo_main form article textarea {width: 100%;}
-.sourceinfo_main form article input { width: auto; }
+
+.sourceinfo_main form article input { 
+	width: auto; 
+}
+
 .sourceinfo_main article aside p input[type="file"] { line-height: 0px;}
 .right_sourcepage-container {width: 280px; float: right; display: inline; }
 .right_sourcepage-contentinner { width:100%; float:right; background:#ffffff}
