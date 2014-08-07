@@ -17,8 +17,8 @@
        
 			<form method="POST" action="{% url 'sharelightbox' %}">
 				{% csrf_token %}
-			<article>
-			<aside>
+			<article id="sharebox-article">
+			<aside id="sharebox-aside">
 				<ul class="unstyled">
 				<li><div class="share_main_add-container">
 				<p><textarea class="source_pg" id="id_share_email_list" type="text" name="share_email_list" rows="2" placeholder="Enter email addresses (separated by commas)..."></textarea></p>
@@ -31,9 +31,9 @@
 				</ul>
 			</aside>
         
-			<input type="submit" class="startedbtn" value="Submit" />
+			<input type="submit" class="btn" value="Submit" />
 			</form>
-			<a href="{% url "dashboard" %}" class="btn-gray">Cancel</a>
+			<a href="{% url "dashboard" %}" class="btn">Cancel</a>
 			</article>     
 			</div><!--sourceinfo_main-->
 		</div>
