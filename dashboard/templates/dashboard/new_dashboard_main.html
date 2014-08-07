@@ -47,7 +47,7 @@
 			<article>
 			<p>Total Amount in Fund</p>
 			<h2><sup>$</sup>98,000.00</h2>
-			<div class="btn-middle"><a href="#" class="btn" id="dashbtn_fix">Learn more</a></div>
+			<div class="btn-middle"><a href="#" class="btn disabled" id="dashbtn_fix">Learn more</a></div>
 			</article>        
 			<aside>
 			<p>You are not currently participating in this fund </p>
@@ -59,7 +59,7 @@
 			<article>
 			<p>Total Amount in Fund</p>
 			<h2><sup>$</sup>72,000.00</h2>
-			<div class="btn-middle"><a href="#" class="btn" id="dashbtn_fix">Learn more</a></div>
+			<div class="btn-middle"><a href="#" class="btn disabled" id="dashbtn_fix">Learn more</a></div>
 			</article>      
 			<aside>
 			<p>You are not currently participating in this fund </p>
@@ -120,7 +120,7 @@
         {% if is_dashboard %}
         <div class="btn-bg">
         <div class="btn-middle">
-        <a href="#" class="btn" id="dashbtn_fix">Show more</a>
+        <a href="#" class="btn disabled" id="dashbtn_fix">Show more</a>
         </div>
         </div>
         </div>
@@ -145,9 +145,9 @@
     </div><!-- grid_16 -->
 
 {% include "share/_share_lightbox.html" %} 
-
-
 {% endblock %}
+
+
 {% block script_base %}
 {{ block.super }}
 
