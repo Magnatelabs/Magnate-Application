@@ -170,19 +170,19 @@ function validate_amount(evt) {
         {% if request.GET.response %}
 		<h1>Whoops! There was an issue...</h1>
 		{% else %}        
-        <h1>Choose your donation</h1>
+        <h1>Choose your contribution</h1>
         {% endif %}
         </div>
         
         <div class="section2">
         <div class="left_section2">
         <div class="order-left">
-        <article>
+        <article class"contribution-article">
         <aside class="amount-info">
         {% if request.GET.response %}
         <p>We're sorry, your transaction could not be processed because {{ request.GET.response }}. Please enter your information one more time, and try again.</p>
         {% else %}        
-        <p>Discover how far your money can go when you trust us, and just throw that shit away.</p>
+        <p>Financial participation in Magnate is not mandatory, but it is the only way to profit off of the communities investments decisions.</p>
 		{% endif %}
         
         <div class="amount-box">
@@ -201,7 +201,7 @@ function validate_amount(evt) {
         <input type="text" id="id_donation_amount" name="amount" value="0.00" class="input code2" onchange="document.getElementById('id_input_other').click();" onkeypress="validate_amount(event);" />
         </div>
         </aside>
-		<input type="submit" class="startedbtn" value="Continue" />
+		<input type="submit" class="startedbtn participationbtn" value="Continue" />
         </form>
         <a href="{% url "fund_home" %}" class="btn-gray">Cancel</a>
         </article>
