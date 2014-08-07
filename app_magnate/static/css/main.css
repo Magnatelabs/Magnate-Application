@@ -408,6 +408,104 @@ updated: jmw 08.05.14
 	width: 98%;
 }
 
+/*----------------------------------------------------------------------------------------------------
+Zinnia blog Styling 
+created: jmw 08.05.14
+updated: jmw 08.05.14
+----------------------------------------------------------------------------------------------------*/
+.blogpublic-entry-content {
+	padding: 30px 0px 50px 20px;
+	float: left;
+	width: 70%;
+}
+
+.blog-entry-footer {
+	padding-top: 60px; 
+	padding-left: 16px; 
+}
+
+.blog-entry-header {
+	float: left;
+	width: 70%;
+	padding-left: 20px;
+}
+
+.comments {
+	position: relative; 
+	margin-left: 10px;
+}
+
+.comment-list {
+	-webkit-padding-start: 0px;
+}
+
+.comment-list img {float: left; padding-right: 10px; }
+.comments .comment-list p {padding-top: 10px; padding-bottom: 25px; color: #333333;}
+#comment-info {margin: 0 0 0px; padding-bottom: 0px; padding-top: 0px;}
+#comment-published {cursor: none; border-bottom: 0px dotted #999999; color: #817d8e; font-size: 12px;}
+.article-info form fieldset legend {border-bottom: 0px}
+
+.section6-bg .blog-entry-image {
+	float: left;
+	width: 70%;
+	margin: 0px 0px 0px 20px;
+}
+
+.section6-bg .blog-entry-title {
+	font-size: 220%;
+	padding: 40px 0px 0px 0px;
+}
+
+.section6-bg .blog-entry-info {
+	margin-top: 5px;
+}
+
+#relatedArticle-breakdown {
+	width: 221px;
+	margin-left: 20px;
+	margin-right: 20px;
+	float: right;
+	border: none;
+	margin-top: -65px;
+}
+
+.relatedArticle_breakdown-container {
+	width: 100%;
+	float: left;
+	padding-top: 20px;
+}
+
+.relatedQuestion-counter {
+	width: 12%;
+	float: left;
+	background-color: #ababab;
+	border-radius: 4px;
+	margin: 4px 0px 0px 0px;
+}
+
+.relatedArticle_breakdown-text {
+	width: 100%;
+	float: left;
+}
+
+.relatedArticle_breakdown-text h4 {
+	font-size: 12px;
+	margin: 3px 0px 3px 5px;
+}
+
+.relatedArticle_breakdown-text a {
+	float: right;	
+	width: 82%;
+	color:#2398c9;
+}
+
+.relatedArticle_breakdown-text p {
+	margin-bottom: 0px;
+}
+
+
+
+
 
 
 
