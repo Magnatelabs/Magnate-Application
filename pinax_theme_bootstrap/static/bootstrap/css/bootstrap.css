@@ -4702,6 +4702,7 @@ input[type="submit"].btn.btn-mini {
 .navbar .nav li.dropdown > .dropdown-toggle .caret {
   border-top-color: #777777;
   border-bottom-color: #777777;
+  position: inherit;
 }
 
 .navbar .nav li.dropdown.open > .dropdown-toggle .caret,
