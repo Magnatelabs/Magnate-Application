@@ -119,8 +119,18 @@ updated: jmw 06.25.14
 .ub_tabbox article p { font-size:14px; color:#FFFFFF; padding-bottom:10px}
 .ub_tabbox article h2 { font-size:48px; color:#FFFFFF; padding-bottom:30px; line-height: 25px;}
 .ub_tabbox article h2 sup { font-size:36px; top:-0.3em; font-family:"Tahoma", Arial, Helvetica, sans-serif}
-.ub_tabbox aside { width:40%; float:right; padding:20px 0 0 0}
+
+.ub_tabbox aside { 
+	width:37%;
+	float:right; 
+	padding:20px 0 0 0
+}
+
 .ub_tabbox aside p { font-size:14px; color:#FFFFFF; text-align:center; }
+#mms-fund aside p {
+	color: #7e3630;
+	opacity: .85;
+}
 .ub_tabbox aside p a{ color:#5a8e22; text-decoration:underline}
 .ub_tabbox aside p a:hover { text-decoration:none}
 .ub_otheractions { width:199px; float:right; background:#fcfcfc; border-radius: 0 2px 0 0; behavior: url(PIE.htc); position:relative; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; padding:15px 18px 5px 18px}
@@ -394,7 +404,7 @@ updated: jmw 07.03.14
 }
 .order-left .accept .text {
 	width: 88%;
-	float: right;
+	float: left;
 	font-size: 16px;
 	color: #4c4c4c;
 }
