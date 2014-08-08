@@ -7,9 +7,9 @@ from .base import MetaBadge
 class LikesBadge(Badge):
     slug="likes"
     levels = [
-        BadgeDetail("Finger Painting Badge", "Your very first Magnte Mark--this one is going on the fridge"),
-        BadgeDetail("Crayon Badge", "An upgrade from finger paints! Just try your best to keep all Magnate Marks within the lines"),
-        BadgeDetail("Colored Pencil Badge", "Crayons be damned. You express your opinions at a toddler's level"),
+        BadgeDetail("Finger Painting", "Your very first Magnte Mark--this one is going on the fridge"),
+        BadgeDetail("Crayon", "An upgrade from finger paints! Just try your best to keep all Magnate Marks within the lines"),
+        BadgeDetail("Colored Pencil", "Crayons be damned. You express your opinions at a toddler's level"),
 
 #        BadgeDetail("Bronze-Liker", "Likes a little"),
 #        BadgeDetail("Silver-Liker", "Likes more"),
@@ -36,10 +36,10 @@ class LikesBadge(Badge):
 class DonorBadge(Badge):
     slug="donor"
     levels = [
-        BadgeDetail("New Donor Badge", "Some skin is now in the game. You are a bona fide member of the Magnate community"),
-        BadgeDetail("Intermediate Donor Badge", "A second donation? Wow, you just upped the game"),
-        BadgeDetail("Organ Donor Badge", "Hand over the card, Magnate is now a serious part of your life"),
-        BadgeDetail("Karmic Donor Badge", "Give away everything")
+        BadgeDetail("New Donor", "Some skin is now in the game. You are a bona fide member of the Magnate community"),
+        BadgeDetail("Intermediate Donor", "A second donation? Wow, you just upped the game"),
+        BadgeDetail("Organ Donor", "Hand over the card, Magnate is now a serious part of your life"),
+        BadgeDetail("Karmic Donor", "Give away everything")
 
 #        BadgeDetail("New Donor", "Donated a lilttle"),
 #        BadgeDetail("Intermediate Donor", "Donated more"),
@@ -68,10 +68,10 @@ class DonorBadge(Badge):
 class RaterBadge(Badge):
     slug='rater'
     levels = [
-        BadgeDetail("Nooby Tester Badge", "Cleaning Magnate bugs through rating"),
-        BadgeDetail("Gold Nooby Tester Badge", "A little spring cleaning only helps Magnate"),
-        BadgeDetail("Alpha Tester Badge", "Rated a lot"),
-        BadgeDetail("Beta Tester Badge", "Rated everything"),
+        BadgeDetail("Nooby Tester", "Cleaning Magnate bugs through rating"),
+        BadgeDetail("Gold Nooby Tester", "A little spring cleaning only helps Magnate"),
+        BadgeDetail("Alpha Tester", "Rated a lot"),
+        BadgeDetail("Beta Tester", "Rated everything"),
 
 #        BadgeDetail("Bronze Rater", "Rated a little"),
 #        BadgeDetail("Silver Rater", "Rated some more"),
