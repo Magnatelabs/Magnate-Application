@@ -133,8 +133,8 @@ class feedback_entry(FormView):
                 self.messages["survey_added"]["level"],
                 self.messages["survey_added"]["text"]
             )
-    
-            return redirect('confirm_questions') # Redirect after POST
+            return redirect('platform_main') # Redirect after POST    
+#            return redirect('confirm_questions') # Redirect after POST
         else:
             messages.add_message(
                 self.request,
