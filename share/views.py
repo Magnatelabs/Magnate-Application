@@ -27,7 +27,7 @@ class share_index(FormView):
     messages = {
         "survey_added": {
             "level": messages.SUCCESS,
-            "text": _(u"Your information was successfully submitted.")
+            "text": _(u"Your friends will re information was successfully submitted.")
         },
         "input_error": {
             "level": messages.ERROR,
@@ -54,8 +54,8 @@ class share_index(FormView):
                 self.messages["survey_added"]["level"],
                 self.messages["survey_added"]["text"]
             )
-            return redirect('confirm_questions') # Redirect after POST    
-#            return redirect('submit_completed') # Redirect after POST
+            return redirect('dashboard') # Redirect after POST    
+#            return redirect('confirm_questions') # Redirect after POST
         else:
             messages.add_message(
                 self.request,
