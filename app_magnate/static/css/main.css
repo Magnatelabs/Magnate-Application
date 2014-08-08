@@ -547,7 +547,7 @@ updated: jmw 07.03.14
 }
 
 /*----------------------------------------------------------------------------------------------------
-Question Pages Styling
+osQA Page Styling
 created: jmw 07.14.14
 updated: jmw 07.14.14
 ----------------------------------------------------------------------------------------------------*/
@@ -586,6 +586,14 @@ updated: jmw 07.14.14
 .fund-feed .icon {width: 32px; height: 32px; float: left; position: absolute; top: 0; right: 0;}
 #ask_fix1 {width: 65%;}
 #ask_fix2 {width: 35%;}
+/* Ask Question Styles */
+#askform form .form-item label {
+	padding-bottom: 0px;
+}
+
+#askform form .form-item .form-error {
+	margin-left: 0px;
+}
 
 /*----------------------------------------------------------------------------------------------------
 Platform Index Styling
