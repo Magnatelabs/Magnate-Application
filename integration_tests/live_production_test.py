@@ -45,10 +45,11 @@ class main_page(MyTestCase):
         elt_link.click()
         self.check_url()
 
-        self.save_url()
-        elt_link = self.by_partial_link_text("Add to the fund")
-        elt_link.click()
-        self.check_url()
+#       The above link navigates directly to the donation_add page now
+#        self.save_url()
+#        elt_link = self.by_partial_link_text("Add to the fund")
+#        elt_link.click()
+#        self.check_url()
 
         # Try the same thing several times
         for ind in range(3): 
