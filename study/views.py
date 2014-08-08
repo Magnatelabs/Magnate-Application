@@ -58,8 +58,8 @@ class study_index(FormView):
                 self.messages["survey_added"]["text"]
             )
     
-            return redirect('confirm_questions') # Redirect after POST
-#            return redirect('submit_completed') # Redirect after POST
+            return redirect('dashboard') # Redirect after POST
+#            return redirect('confirm_questions') # Redirect after POST
         else:
             messages.add_message(
                 self.request,
