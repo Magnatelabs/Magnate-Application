@@ -222,7 +222,11 @@ updated: jmw 06.30.14
 .status-info .btn-middle {float: right; margin-right: 16px; margin-top: 20px;}
 .status_section2 { width:100%; float:left; min-height:92px; }
 .status_section2 h4 {padding-left: 54px;}
-.status_actions { width: 100%; float: left; padding: 0px 0% 0px 54px; }
+.status_actions { 
+	width: 100%; 
+	float: left; 
+	padding: 0px 0% 100px 54px; 
+}
 .actions_info {width: 43%; float: left; padding: 0px 0% 26px 0%; margin: 10px 10px 0px 0px; background: #ffffff; border: 1px solid #bdbebf;}
 .actions_info .inner_empty {width: 80%; float: left; min-height: 40px;}
 .actions_info .action_counter {width: 12%; float: right; background-color: #ababab; border-radius: 4px; margin: 10px 10px 0px 0px;}
@@ -232,10 +236,30 @@ updated: jmw 06.30.14
 .actions_info article figure img { width: 58px;}
 .actions_info article h4 {margin: 5px; }
 .actions_info article p {font-size: 10px; width: 95%; line-height: normal; }
-.karma_tip { width: 78.7%; float: left; padding: 0px 0% 26px 0%; margin: 0px 0px 0px 115px; }
-.karma_tip article {width: 90%; float: left; padding: 0px 0% 26px 7.8%; }
-.karma_tip article figure {width: 132px; float: left; margin: -2px 0px 0px 302px; }
-.karma_tip article aside {width: 33.2%; float: right; padding-bottom: 10px; padding-top: 48px; }
+
+.karma_tip { 
+	width: 49.7%;
+	float: right;
+	padding: 0px 0px 0px 0px;
+}
+
+.karma_tip article {
+	width: 70%;
+	float: left;
+}
+
+.karma_tip article figure {
+	width: 123px;
+	float: left;
+	margin: -2px 0px 0px 0px;
+}
+.karma_tip article aside {
+	width: 61.2%;
+	float: right;
+	padding-bottom: 10px;
+	padding-top: 44px;
+}
+
 .karma_tip article h3 { font-size: 18px; line-height: 0px; }
 .karma_tip article aside p { font-size: 14px; }
 .status_section3 { width:100%; float:left; min-height:92px; }
