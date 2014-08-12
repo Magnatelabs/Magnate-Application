@@ -25,7 +25,7 @@ class QuestionListForm(forms.Form):
     last_name = forms.CharField(max_length=200)
     waitinglistemail = forms.EmailField()
     sex = forms.ChoiceField(widget=forms.Select, choices=SEX_CHOICES) #forms.CharField(max_length=200, label='Gender')
-    dob = forms.DateField(required=False, input_formats=['%m/%d/%Y']) ,
+    dob = forms.DateField(required=False, input_formats=['%m/%d/%Y'],
         widget=forms.DateInput(format = '%m/%d/%Y') )
 
 #    funding_knowledge = forms.CharField(max_length=200, widget=forms.RadioSelect(renderer=HorizontalRadioRenderer, choices=(('yes','YES'),('no','NO'))))
