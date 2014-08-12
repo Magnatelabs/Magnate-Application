@@ -16,7 +16,8 @@ from getstartedquestions.models import QuestionList
 #import to recognize class based view
 from django.views.generic.edit import FormView
 
-
+from forum.models.user import User as ForumUser
+from forum.utils.mail import send_template_email
 
 
 class survey_index(FormView):
@@ -38,7 +39,7 @@ class survey_index(FormView):
     }
 
     def get(self, request, *args, **kwargs):
-        form = self.form_class(initial=self.initial)
+        form = self.form_class(initial={'waitinglistemail': request.GET.get('email')})#(initial=self.initial)
         return render(request, self.template_name, {'form': form})
 
     def post(self, request, *args, **kwargs):
@@ -50,16 +51,17 @@ class survey_index(FormView):
             entry.last_name = form.data['last_name']
             entry.waitinglistemail = form.data['waitinglistemail']
             entry.sex = form.data['sex']
-            entry.dob = form.data['dob']
             entry.industry_preference = form.data['industry_preference']
             entry.funding_knowledge = form.data['funding_knowledge']
             entry.site_rec = form.data['site_rec']
             entry.income = form.data['income']
             entry.funding_preference = form.data['funding_preference']
             entry.created = datetime.datetime.now()
-            s = form.data['dob']
-            # Convert date from 05/29/1986 to 1986--05--29
-            entry.dob = s[-4:] + '-' + s[:2] + '-' + s[3:5]
+
+            #s = form.data['dob']
+            #Convert date from 05/29/1986 to 1986--05--29
+            #entry.dob = s[-4:] + '-' + s[:2] + '-' + s[3:5]
+            entry.dob = form.cleaned_data['dob']
             entry.save()
 	    messages.add_message(
                 self.request,
@@ -67,6 +69,9 @@ class survey_index(FormView):
                 self.messages["survey_added"]["text"]
             )
     
+            user = ForumUser(username='newuser', email='a@mailinator.com')
+            #send_template_email([user], "notifications/alphasignupcomplete.html", {"survey": entry})
+
             return redirect('confirm_questions') # Redirect after POST
         else:
             messages.add_message(
@@ -74,7 +79,9 @@ class survey_index(FormView):
                 self.messages["input_error"]["level"],
                 self.messages["input_error"]["text"]
             )
+
             print 'DEBUG: form is not valid!!!', form.errors
+            return render(request, self.template_name, {'form': form})
 
 
 def confirmation_index(request):
