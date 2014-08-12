@@ -9,7 +9,7 @@ class QuestionList (models.Model):
     last_name = models.CharField(max_length=200)
     created = models.DateTimeField(editable=False)
     sex =  models.CharField(max_length=200)
-    dob = models.DateField()
+    dob = models.DateField(null=True)
     funding_knowledge = models.CharField(max_length=200)
     income = models.CharField(max_length=200)
 #    income = models.PositiveIntegerField(editable=False, default=0)
