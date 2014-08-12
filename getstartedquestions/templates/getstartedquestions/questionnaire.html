@@ -10,78 +10,72 @@
  	
     	<form action="{% url 'startedsurvey' %}" method="post">
     	{% csrf_token %}
-    		
+    		{{ form.non_field_errors }}
+
     		<li>			
-			<p><label for="id_first_name">First Name</label>
-			<input id="id_first_name" type="text" name="first_name" maxlength="200" /></p>
+			<p>
+    			{{ form.first_name.errors }}
+				<label for="id_first_name">First Name</label>
+				{{ form.first_name }}
+			</p>
 				
-			<p><label for="id_last_name">Last Name</label>
-			<input id="id_last_name" type="text" name="last_name" maxlength="200" /></p>    		
+			<p>
+				{{ form.last_name.errors }}
+				<label for="id_last_name">Last Name</label>
+				{{ form.last_name }}
+			</p>    		
     		</li>
 				
-			<p><label for="id_waitinglistemail">Email</label>
-				<input id="id_waitinglistemail" type="text" name="waitinglistemail" maxlength="200" value="{{ request.GET.email }}" /></p>	
+			<p>
+				{{ form.waitinglistemail.errors }}
+				<label for="id_waitinglistemail">Email</label>
+				{{ form.waitinglistemail }}
+			</p>	
 				
-			<p><label for="id_sex">Gender</label>
-				<select name="sex" id="id_sex">
-				<option value="female">Female</option>
-				<option value="male">Male</option></select></p>
-				
+			<p>
+				{{ form.sex.errors }}
+				<label for="id_sex">Gender</label>
+				{{ form.sex }}
+			</p>
+
+			{{ form.dob.errors }}
 			<label for="id_dob">Date of Birth<aside>mm/dd/yyyy</aside></label>
-				<input type="text" name="dob" id="id_dob" />
+			{{ form.dob }}
     	</ul>
     	
 		<ul class="rightcolumn unstyled">	
-		
-				<p><label for="id_funding_knowledge">When it comes to Crowdfunding I'm a...</label>
-				
-				<label id="noob_radial">serious noob
-				<span class="radio"><input type="radio" name="funding_knowledge" value="noob"></span></label>
-				
-				<label id="amateur_radial">skeptical amateur
-				<span class="radio"><input type="radio" name="funding_knowledge" value="expert"></span></label>
-				
-				<label id="expert_radial">seasoned expert
-				<span class="radio"><input type="radio" name="funding_knowledge" value="expert"></span></label>
 
-				<label id="what_radial">wait, what?
-				<span class="radio"><input type="radio" name="funding_knowledge" value="what?"></span></label></p>
-				
+				<p>
+					{{ form.funding_knowledge.errors }}		
+					<label for="id_funding_knowledge">When it comes to Crowdfunding I'm a...</label>
+					{{ form.funding_knowledge }}
+				</p>				
 				    	
-				<p><label for="id_income">My Yearly Income is...</label>
-				<select name="income" id="id_income">
-				<option value=">$32k">less than $32,000</option>
-				<option value="$32k-$60k">between $32,000 and $60,000</option>
-				<option value="$60k-$100k">between $60,000 and $100,000</option>
-				<option value="$100k-$200k">between $100,000 and $200,000</option>
-				<option value=">$200k">greater than $200,000</option></select></p>
+				<p>
+					{{ form.income.errors }}
+					<label for="id_income">My Yearly Income is...</label>
+					{{ form.income }}
+				</p>
 
 
-				<p><label for="id_funding_preference">I like to fund...</label>
-				<select name="funding_preference" id="id_funding_preference">
-				<option value="non-profits">to help non-profits</option>
-				<option value="reward based">for the rewards</option>
-				<option value="recognition">just to help out great ideas</option>
-				<option value="savings or returns">to save money, or make extra money</option></select></p>
+				<p>
+					{{ form.funding_preference.errors }}
+					<label for="id_funding_preference">I like to fund...</label>
+					{{ form.funding_preference }}
+				</p>
+				
+				<p>
+					{{ form.industry_preference.errors }}
+					<label for="id_industry_preference">What type of projects are you interested in funding?</label>
+					{{ form.industry_preference }}
+				</p>
 
 				
-				<p><label for="id_industry_preference">What type of projects are you interested in funding?</label>
-				<select name="industry_preference" id="id_industry_preference">
-				<option value="film & tV">Film & TV</option>
-				<option value="music">Music</option>
-				<option value="technology">Technology</option>
-				<option value="games">Games</option>
-				<option value="social causes">Social Causes</option></select></p>
-
-				
-				<p><label for="id_site_rec">How did you hear about us? (optional)</label>
-				<select name="site_rec" id="id_site_rec">
-				<option value="friends">Friends</option>
-				<option value="facebook">Facebook</option>
-				<option value="twitter">Twitter</option>
-				<option value="pinterest">Pinterest</option>
-				<option value="blog">Blogs</option></select></p>
-
+				<p>
+					{{ form.site_rec.errors }}
+					<label for="id_site_rec">How did you hear about us? (optional)</label>
+					{{ form.site_rec }}
+				</p>
 				<input name="" type="submit" value="Submit" class="question_btn" />
 				
 		</ul></form>
