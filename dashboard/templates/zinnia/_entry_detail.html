@@ -148,11 +148,11 @@
 	{% else %}
 		{% if object.is_public %}
 			<div class="blogpublic-entry-content">
-				{{ object_content }}
+				{{ object_content|safe }}
 			</div>
 		{% else %}
 			<div class="blogprivate-entry-content">
-				{{ object_content }}
+				{{ object_content|safe }}
 			</div>						
 		{% endif %}
 	{% endif %}
