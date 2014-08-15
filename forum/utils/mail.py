@@ -24,28 +24,43 @@ from forum.context import application_settings
 from forum.utils.html2text import HTML2Text
 from threading import Thread
 
+# We may want to specify email settings in django settings, overriding
+# OSQA's email settings stored in the database
+from django.conf import settings as django_settings
+email_settings = ['EMAIL_HOST', 'EMAIL_PORT', 'EMAIL_USE_TLS', 'EMAIL_HOST_USER', 'EMAIL_HOST_PASSWORD' ]
+for s in email_settings:
+    # try to use e.g. django_settings.EMAIL_HOST
+    if hasattr(django_settings, s): 
+        locals()[s] = getattr(django_settings, s)
+    else: # or default to e.g. settings.EMAIL_HOST
+        locals()[s] = getattr(settings, s)
+
+
 def send_template_email(recipients, template, context, sender=None, reply_to = None):
     t = loader.get_template(template)
     context.update(dict(recipients=recipients, settings=settings, sender=sender, reply_to=reply_to))
     t.render(Context(context))
 
+
+
+
 def create_connection():
-    connection = SMTP(str(settings.EMAIL_HOST), str(settings.EMAIL_PORT),
+    connection = SMTP(str(EMAIL_HOST), str(EMAIL_PORT),
                           local_hostname=DNS_NAME.get_fqdn())
 
-    if bool(settings.EMAIL_USE_TLS):
+    if bool(EMAIL_USE_TLS):
         connection.ehlo()
         connection.starttls()
         connection.ehlo()
 
-    if settings.EMAIL_HOST_USER and settings.EMAIL_HOST_PASSWORD:
-        connection.login(str(settings.EMAIL_HOST_USER), str(settings.EMAIL_HOST_PASSWORD))
+    if EMAIL_HOST_USER and EMAIL_HOST_PASSWORD:
+        connection.login(str(EMAIL_HOST_USER), str(EMAIL_HOST_PASSWORD))
 
     return connection
 
 
 def create_and_send_mail_messages(messages, sender_data=None, reply_to=None):
-    if not settings.EMAIL_HOST:
+    if not EMAIL_HOST:
         return
 
     sender = Header(unicode(settings.APP_SHORT_NAME), 'utf-8')
