@@ -14,28 +14,28 @@ widget=TestEmailSettingsWidget))
 
 EMAIL_HOST = Setting('EMAIL_HOST', '', EMAIL_SET, dict(
 label = _("Email Server"),
-help_text = _("The SMTP server through which your application will be sending emails."),
+help_text = _("NOT USED. The SMTP server through which your application will be sending emails."),
 required=False))
 
 EMAIL_PORT = Setting('EMAIL_PORT', 25, EMAIL_SET, dict(
 label = _("Email Port"),
-help_text = _("The port on which your SMTP server is listening to. Usually this is 25, but can be something else."),
+help_text = _("NOT USED. The port on which your SMTP server is listening to. Usually this is 25, but can be something else."),
 required=False))
 
 EMAIL_HOST_USER = Setting('EMAIL_HOST_USER', '', EMAIL_SET, dict(
 label = _("Email User"),
-help_text = _("The username for your SMTP connection."),
+help_text = _("NOT USED. The username for your SMTP connection."),
 required=False))
 
 EMAIL_HOST_PASSWORD = Setting('EMAIL_HOST_PASSWORD', '', EMAIL_SET, dict(
 label = _("Email Password"),
-help_text = _("The password for your SMTP connection."),
+help_text = _("NOT USED. The password for your SMTP connection."),
 required=False,
 widget=PasswordInput(render_value=True)))
 
 EMAIL_USE_TLS = Setting('EMAIL_USE_TLS', False, EMAIL_SET, dict(
 label = _("Use TLS"),
-help_text = _("Whether to use TLS for authentication with your SMTP server."),
+help_text = _("NOT USED. Whether to use TLS for authentication with your SMTP server."),
 required=False))
 
 DEFAULT_FROM_EMAIL = Setting('DEFAULT_FROM_EMAIL', '', EMAIL_SET, dict(
