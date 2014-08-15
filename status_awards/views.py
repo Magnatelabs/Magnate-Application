@@ -30,7 +30,24 @@ def award_detail(request):
 
     return render(request, 'status_awards/status_award_detail.html', {'badge': badge})
 
+# This can be moved somewhere, merged with magnate_user_info in dashboard/contexts.py, etc.
+# For now just putting it here for the sake of simplicity.
+def user_stats(request):
+	user=request.user
+	from forum.models.question import Question
+	from social.models import FeedbackModel
+	questions_asked = Question.objects.filter(author=user).count()
+	feedback_given = FeedbackModel.objects.filter(user=user).count()
+	knowledge_ranking = user.reputation
+	news_spread = 0
+	startups_sourced = 0
+	return {'questions_asked': questions_asked,
+		    'feedback_given': feedback_given,
+		    'knowledge_ranking': knowledge_ranking,
+		    'news_spread': news_spread,
+		    'startups_sourced': startups_sourced}
+
 @login_required(login_url='/account/login')
 def newstatus_index(request):
 #    if not request.user.is_authenticated():                                                             #        return redirect('/donations/user/?next=%s' % request.path)                                       
-    return render(request, 'status_awards/newstatus_home.html')
+    return render(request, 'status_awards/newstatus_home.html', {'stats': user_stats(request) })
