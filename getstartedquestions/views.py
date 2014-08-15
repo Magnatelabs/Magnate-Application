@@ -68,9 +68,10 @@ class survey_index(FormView):
                 self.messages["survey_added"]["level"],
                 self.messages["survey_added"]["text"]
             )
-    
-            user = ForumUser(username='newuser', email='a@mailinator.com')
-            #send_template_email([user], "notifications/alphasignupcomplete.html", {"survey": entry})
+
+            # fake user object just to pass the data to the template        
+            user = ForumUser(username='%s %s' % (entry.first_name, entry.last_name), email=entry.waitinglistemail)
+            send_template_email([user], "notifications/alphasignupcomplete.html", {"survey": entry})
 
             return redirect('confirm_questions') # Redirect after POST
         else:
@@ -80,7 +81,6 @@ class survey_index(FormView):
                 self.messages["input_error"]["text"]
             )
 
-            print 'DEBUG: form is not valid!!!', form.errors
             return render(request, self.template_name, {'form': form})
 
 
