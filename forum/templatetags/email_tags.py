@@ -19,6 +19,9 @@ class MultiUserMailMessage(template.Node):
             context['recipient'] = recipient
             self.nodelist.render(context)
             messages.append((recipient, context['subject'], context['htmlcontent'], context['textcontent'], context['embeddedmedia']))
+
+            logging.info('MultiUserMailMessage subject="%s" recipient="%s" at "%s"' %
+                (context['subject'], str(recipient), recipient.email))
         
         create_and_send_mail_messages(messages, sender_data=context['sender'], reply_to=context['reply_to'])
 
