@@ -1,0 +1,43 @@
+{% load i18n extra_tags email_tags %}
+
+{% declare %}
+    prefix = smart_str(settings.EMAIL_SUBJECT_PREFIX)
+    app_name = smart_str(settings.APP_SHORT_NAME)
+
+    exclude_finetune = True
+{% enddeclare %}
+
+{% email %}
+    {% subject %}{% blocktrans %}{{ prefix }} Alpha Signup with {{ app_name }} is now complete.{% endblocktrans %}{% endsubject %}
+
+    {% htmlcontent notifications/base.html %}
+        <p>
+            Thank you for registering for the Alpha Signup Version!...
+        </p>
+        <p>
+            {% if survey.site_rec == "facebook" %}
+                We also love Facebook!
+            {% elif survey.site_rec == "twitter" %}
+                We do not like Twitter!
+            {% else %}
+                Great!
+            {% endif %}
+            Income: {{ survey.income }}
+        </p>
+
+    {% endhtmlcontent %}
+
+{% textcontent notifications/base_text.html %}
+            Thank you for registering for the Alpha Signup Version!...
+            {% if survey.site_rec == "facebook" %}
+                We also love Facebook!
+            {% elif survey.site_rec == "twitter" %}
+                We do not like Twitter!
+            {% else %}
+                Great!
+            {% endif %}
+            Income: {{ survey.income }}
+{% endtextcontent %}
+
+{% endemail %}
+
