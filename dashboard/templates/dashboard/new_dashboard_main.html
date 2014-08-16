@@ -187,12 +187,14 @@
 {% block script_base %}
 {{ block.super }}
 
-<script type="text/javascript">
-// Helps to display the first item in the fund-feed
-  $(document).ready(function() {
-    toggleArticleActive($('.fund-feed article:first-child').attr("id"), true);
-  });
-</script>
+{% if is_dashboard %}
+  <script type="text/javascript">
+  // Helps to display the first item in the fund-feed
+    $(document).ready(function() {
+      toggleArticleActive($('.fund-feed article:first-child').attr("id"), true);
+    });
+  </script>
+{% endif %}
 
 <script type="text/javascript">
   // User liked a post. 
