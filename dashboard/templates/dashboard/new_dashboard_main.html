@@ -189,27 +189,9 @@
 
 <script type="text/javascript">
 // Helps to display the first item in the fund-feed
-$(document).ready(function() {
-    $('.fund-feed article:first-child').addClass("article-active"); // adds highlight to first fund-feed item loaded
-	$('.fund-feed article:first-child').find('.show-when-article-active').show(); // reveals hidden content for first fund-feed item loaded
-	$('.fund-feed .article-active').find('.show-when-article-not-active p').addClass("nohover-underline"); // removes text-decoration for first fund-feed item loaded
-	$('.fund-feed .article-active').find('.fundfeed_title_active').addClass("nohover-underline"); // removes text-decoration for first fund-feed item loaded
-});
-</script>
-
-<script type="text/javascript">    
-// Displays the first fund-feed entry question list on page load
-	var getNumericPart = function(id) {
-	var $num = id.replace(/[^\d]+/, '');
-	return $num;
-	}
-		
-	var entryid = $('.fund-feed article:first-child').attr('id');		
-	$('#div_activity').load('/f/?entry=' + getNumericPart(entryid).replace('entry-','') );
-
-//		function testbutton() {
-//		alert(getNumericPart(entryid));	
-//		}			
+  $(document).ready(function() {
+    toggleArticleActive($('.fund-feed article:first-child').attr("id"), true);
+  });
 </script>
 
 <script type="text/javascript">
