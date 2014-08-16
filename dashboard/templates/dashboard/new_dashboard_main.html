@@ -13,9 +13,38 @@
     <!-- Styling for OSQA -->
         <link href="{% media  "/media/style/style.css" %}" rel="stylesheet" type="text/css" />
 
-        <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" />
-
         <script src="http://www.google.com/jsapi" type="text/javascript"></script>
+
+        <script type="text/javascript">
+        /*<![CDATA[*/
+            // OSQA defines all those things - try to do without them   
+
+            // google.load("jquery", "1");
+            // google.load("jqueryui", "1", {autoload:true});
+
+            // var i18nLang = '{{ settings.LANGUAGE_CODE }}';
+            // var appUrl = '{{ settings.APP_URL }}'
+            // var scriptUrl = '{{ settings.FORCE_SCRIPT_NAME }}/'
+            // var osqaSkin = '{{ settings.OSQA_SKIN }}';
+
+            var messages = {
+                username: '{{ user.username }}',
+                confirm: "{% trans "Are you sure?" %}",
+                yes: "{% trans "Yes" %}",
+                no: "{% trans "No" %}",
+                message: "{% trans "Message:" %}",
+                cancel: "{% trans "Cancel" %}",
+                close: "{% trans "Close" %}",
+                ok: "{% trans "Ok" %}",
+                matching_tags_url: "{% url 'matching_tags' %}",
+                word: "{% trans "word" %}",
+                words: "{% trans "words" %}",
+                character: "{% trans "character" %}",
+                characters: "{% trans "characters" %}"
+            }
+        /*]]>*/
+        </script>
+
         <script type="text/javascript" src="{% media  "/media/js/osqa.main.js" %}"></script>
 		
 {% endblock %} 
