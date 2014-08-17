@@ -288,18 +288,19 @@ def answer(request, id):
 
             return HttpResponseRedirect(answer.get_absolute_url())
         else:
-            request.session[PENDING_SUBMISSION_SESSION_ATTR] = {
-                'POST': request.POST,
-                'data_name': _("answer"),
-                'type': 'answer',
-                'submission_url': reverse('answer', kwargs={'id': id}),
-                'time': datetime.datetime.now(pytz.utc)
-            }
+#            request.session[PENDING_SUBMISSION_SESSION_ATTR] = {
+#                'POST': request.POST,
+#                'data_name': _("answer"),
+#                'type': 'answer',
+#                'submission_url': reverse('answer', kwargs={'id': id}),
+#                'time': datetime.datetime.now(pytz.utc)
+#            }
 
             if request.user.is_authenticated():
-                messages.info(request, _("Your answer is pending until you %s.") % html.hyperlink(
-                    django_settings.APP_URL + reverse('send_validation_email', prefix='/'), _("validate your email")
-                ))
+ #               messages.info(request, _("Your answer is pending until you %s.") % html.hyperlink(
+ #                   django_settings.APP_URL + reverse('send_validation_email', prefix='/'), _("validate your email")
+ #               ))
+                messages.info(request, _("Your Magnate status does not allow you to answer questions."))
                 return HttpResponseRedirect(question.get_absolute_url())
             else:
                 return HttpResponseRedirect(reverse('auth_signin'))
