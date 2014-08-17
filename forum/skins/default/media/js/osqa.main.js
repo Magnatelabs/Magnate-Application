@@ -3,7 +3,7 @@
  * Get the csrftoken cookie and pass it to the X-CSRFToken HTTP request property.
  */
 
-$('html').ajaxSend(function(event, xhr, settings) {
+$(document).ajaxSend(function(event, xhr, settings) {
     function getCookie(name) {
         var cookieValue = null;
         if (document.cookie && document.cookie != '') {
