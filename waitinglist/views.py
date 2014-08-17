@@ -94,8 +94,8 @@ def survey(request, code):
 
 def cohort_list(request):
     
-   # if not request.user.is_staff:
-    #    raise Http404()
+    if not request.user.is_staff:
+        raise Http404()
     
     ctx = {
         "cohorts": Cohort.objects.order_by("-created")
@@ -137,6 +137,17 @@ def cohort_detail(request, pk):
         email__in=User.objects.values("email")
     )
     
+    # Magnate fix
+    # Since we are using an ad-hoc survey, include
+    # the results here
+    from getstartedquestions.models import QuestionList
+    for  entry in waiting_list:
+        try:
+            survey=QuestionList.objects.get(waitinglistemail=entry.email)
+            entry.survey = survey
+        except QuestionList.DoesNotExist:
+            pass
+
     ctx = {
         "cohort": cohort,
         "waiting_list": waiting_list,
@@ -185,6 +196,13 @@ def cohort_send_invitations(request, pk):
         raise Http404()
     
     cohort = Cohort.objects.get(pk=pk)
-    cohort.send_invitations()
-    
+
+    import smtplib
+    try:
+        cohort.send_invitations()
+    except smtplib.SMTPAuthenticationError as e:
+        from django.http import HttpResponse
+        return HttpResponse(str(e), content_type='text/html')
+
+
     return redirect("waitinglist_cohort_detail", cohort.id)
