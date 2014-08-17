@@ -2,7 +2,7 @@ from django import forms
 
 from .models import Cohort, SurveyAnswer, SurveyQuestion, WaitingListEntry
 from .signals import answered_survey
-
+from forum.models.user import User
 
 class WaitingListEntryForm(forms.ModelForm):
     
@@ -11,16 +11,22 @@ class WaitingListEntryForm(forms.ModelForm):
     
     def clean_email(self):
         value = self.cleaned_data["email"]
+
+        try: 
+            user = User.objects.get(email=value)
+        except User.DoesNotExist:
+            pass
+        else:
+            raise forms.ValidationError(
+                "Unfortunately, the email address %s is already registered." % (value)
+            )
         try:
             entry = WaitingListEntry.objects.get(email=value)
         except WaitingListEntry.DoesNotExist:
             return value
         else:
             raise forms.ValidationError(
-                "The email address %(email)s already registered on %(date)s." % {
-                    "email": value,
-                    "date": entry.created.strftime("%m/%d/%y"),
-                }
+                "Unfortunately, the email address %s is already registered." % (value)
             )
     
     def __init__(self, *args, **kwargs):
