@@ -90,9 +90,9 @@ class main_page(MyTestCase):
 # Now we are using a fancy select box.
 # First click to open the drop down.
 # There is only one sbHolder on this page.
-            self.by_class_name('sbHolder').click()
+###            self.by_class_name('sbHolder').click()
 # Now pick Visa.
-            self.by_partial_link_text('Visa').click()
+###            self.by_partial_link_text('Visa').click()
 
             self.by_id("id_x_card_num").send_keys("123192038")
             self.by_id("id_x_exp_date").send_keys("01/05")
