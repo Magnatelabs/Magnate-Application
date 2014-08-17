@@ -1,0 +1,11 @@
+{% load url from future %}
+
+Create new cohort<br/>
+<a href="{% url 'waitinglist_cohort_list' %}">All cohorts</a><br/>
+<br/><br/>
+
+<form action="{% url 'waitinglist_cohort_create' %}" method="POST">
+{% csrf_token %}
+{{ form }}
+<input type="submit" value="Create cohort"/>
+</form>

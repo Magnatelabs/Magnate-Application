@@ -1,0 +1,56 @@
+{% load url from future %}
+
+Cohort name: {{ cohort.name }}, total {{ cohort.member_counts.total }} members, {{ cohort.member_counts.users }} users, {{ cohort.member_counts.pending }} pending (not yet invited) <br/>
+
+Cohort created: {{ cohort.created }}<br/>
+
+<a href="{% url 'waitinglist_cohort_list' %}">All cohorts</a><br/>
+
+<h3>Cohort members:</h3><br/>
+<table border="1">
+	<thead><td>Email</td><td>Signup Code</td><td>User</td><td>Emailed invitation</td></thead>
+{% for member in cohort.members %}
+  <tr><td>{{ member.email }} </td><td>{{ member.signup_code.code }} </td><td>{% if member.user %}{{ member.user }}{% endif %} </td><td>{{ member.invited }} </td></tr>
+{% endfor %}
+</table>
+<br/>
+
+<form action="{% url 'waitinglist_cohort_send_invitations' cohort.pk %}" method="POST" onsubmit="return confirm('Do you really want to email invitations?');">
+	{% csrf_token %}
+	<input type="submit" value="Email invitations for this cohort ({{ cohort.name }})" />
+</form>
+<h3>People who are NOT invited or not on the site already:</h3> <br/>
+(<u>Just because somebody is invited does not mean that you have emailed them the signup code. It just means they have a code. A code is generated when they are added to some cohort.</u>)
+<table border="1">
+{% for entry in waiting_list %}
+  <tr><td>{{ entry.email }}</td><td>{{ entry.created }}</td>
+<td>
+ <form action="add_member/" method="POST">
+  {% csrf_token %}
+  <input type="hidden" name="email" value="{{ entry.email }}"/>
+  <input type="submit"  value="Add {{ entry.email }} to this cohort" />
+ </form>
+
+</td>
+<td>{% if entry.survey %}<a href="" onclick="var div=document.getElementById('survey_{{ entry.pk }}'); div.style.display=(div.style.display=='none' ? 'block' : 'none'); return false">Show/Hide survey</a>
+	{% else %} No survey {% endif %} </td>
+  </tr>
+
+{% endfor %}
+</table>
+
+{% for entry in waiting_list %}
+{% if entry.survey %}
+<div id="survey_{{ entry.pk }}" style="display:none">
+<b>Survey for {{ entry.email }}</b><br>
+{{ entry.survey.first_name }} {{ entry.survey.last_name }} {{ entry.survey.dob }} {{ entry.survey.sex }}<br>
+Funding knowledge: {{ entry.survey.funding_knowledge }}<br/>
+Income: {{ entry.survey.income }}<br/>
+Funding preference: {{ entry.survey.funding_preference }}<br/>
+Industry preference: {{ entry.survey.industry_preference }}<br/>
+Site recommended: {{ entry.survey.site_rec }}<br/>
+<hr>
+<br/>
+</div>
+{% endif %}
+{% endfor %}

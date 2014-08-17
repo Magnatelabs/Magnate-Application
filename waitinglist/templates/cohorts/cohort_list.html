@@ -1,0 +1,11 @@
+{% load url from future %}
+List of cohorts. <br/><br/>
+<a href="{% url 'waitinglist_cohort_create' %}">Create new cohort</a><br/>
+<br/><br/>
+<table>
+{% for cohort in cohorts %}
+<tr>
+	<td><a href="{% url 'waitinglist_cohort_detail' cohort.pk %}">{{ cohort.name }}</a></td><td>{{ cohort.created }}</td>
+</tr>
+{% endfor %}
+</table>
