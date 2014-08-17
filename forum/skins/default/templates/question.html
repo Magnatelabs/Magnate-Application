@@ -191,7 +191,8 @@
             <div style="clear:both">
             </div>
 
-            {% if not question.closed %}
+            {% comment %} Magnate Answer Wall {% endcomment %}
+            {% if not question.closed and request.user.email_valid_and_can_answer  %}
                 <div style="padding:10px 0 0 0;">
                     {% spaceless %}
                     <div class="headNormal">
