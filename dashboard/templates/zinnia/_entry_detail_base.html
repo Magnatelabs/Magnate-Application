@@ -9,7 +9,10 @@
   {% endblock %}
   {% block entry-image %}
   {% endblock %}
-    {% if not continue_reading %}    
+
+  {% block related-questions %}
+    {% if not continue_reading  %}    
+    
     <div class="section1 section3" id="relatedArticle-breakdown">
 			<h3>Related Questions</h3>
         	<div class="relatedArticle_breakdown-container">           	
@@ -68,7 +71,10 @@
          	</div>
         	</div>
     </div>         	
+  
 	{% endif %}
+  {% endblock %}
+  
   {% block entry-title %}
   {% endblock %}
   {% block entry-content %}
