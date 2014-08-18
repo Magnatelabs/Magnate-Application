@@ -17,24 +17,14 @@
         </aside>
  </div>
 
-{% comment %}
-##Removed until the text is hashed out
-
- <div class="hero-unit">
-    {% block banner %}
-    <! Above django tag refers to "homepage" template in /mysite/mysite/templates>
-    {% endblock %}
- </div>
-
-{% endcomment %}
 
  {% if not request.user.is_authenticated %}
   <div class="row">
     	<h2>Sign up</h2>
     	<p>Want to join the club? Reserve a spot today, and leave your mark on Magnate as we build out the application.</p>	
 		<p>Enter your email address and we'll put you on the invite list&hellip;</p>
-	    {% waitinglist_entry_form as form %}
-        <! Remember that the above assignment tag works in tandem with templatetags (so load your template tags!)>
+
+	      {% waitinglist_entry_form as form %}
         
         {% include "waitinglist/_list_signup.html" %}	        
 	    <div id="codesignup">
@@ -44,15 +34,11 @@
   </div>	
  {% endif %}
  
-	<script src="http://127.0.0.1:6060/site_media/static/js/jquery-1.9.0.min.js"></script>
-	<script src="http://127.0.0.1:6060/site_media/static/js/selectjquery.js"></script>	
-   <!--test-->
 
     
    {% endblock %}
    
-   <script src="http://127.0.0.1:6060/site_media/static/js/jquery-1.9.0.min.js"></script>
-   <script src="http://127.0.0.1:6060/site_media/static/js/selectjquery.js"></script>	
+>	
    
             <script src="{% static "js/selectjquery.js" %}"></script>
 			<script src="{% static "js/select_functions.js" %}"></script>
