@@ -1,5 +1,5 @@
 import zinnia
-from .mixins import HiddenEntryProtectionMixin
+from .mixins import HiddenEntryProtectionMixin, AddRelatedQuestionsMixin
 
-class HiddenEntryDetail(HiddenEntryProtectionMixin, zinnia.views.entries.EntryDateDetail):
+class HiddenEntryDetail(HiddenEntryProtectionMixin, AddRelatedQuestionsMixin, zinnia.views.entries.EntryDateDetail):
     pass

@@ -17,3 +17,15 @@ class HiddenEntryProtectionMixin(EntryProtectionMixin):
 
     def post(self, request, *args, **kwargs):
         return self.get(request, *args, **kwargs)
+
+class AddRelatedQuestionsMixin(object):
+    def get_context_data(self, **kwargs):
+        context = super(AddRelatedQuestionsMixin, self).get_context_data(**kwargs)
+
+        entry_pk = context['object'].pk # Zinnia entry
+        from forum.models.question import Question
+        initial=Question.objects.all()
+        questions = initial.filter_state(deleted=False)
+        questions = questions.filter(about_entries__entry__pk=entry_pk)
+        context['related_questions']=questions.order_by('-added_at')
+        return context
