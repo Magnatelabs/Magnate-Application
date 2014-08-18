@@ -1,26 +1,7 @@
 {% extends "main.html" %}
 {% load staticfiles %}
-{% block body_id %}dashboard_body{% endblock %}
+{% block body_id %}{% endblock %}
 
-{% block style_base %}
-	<link href="{% static "css/main.css" %}" rel="stylesheet">
-	<link href="{% static "css/ui.css" %}" rel="stylesheet">
-	<link href="{% static "css/960.css" %}" rel="stylesheet">	
-{{ block.super }}
-{% endblock %}
 
-{% load metron_tags %}
-{% load i18n %}
 
-{% block extra_head_base %}
-    {% block extra_head %}{% endblock %}
-{% endblock %}
 
-{% block footer %}
-    {% include "_footer.html" %}
-{% endblock %}
-
-{% block extra_body_base %}
-    {% analytics %}
-    {% block extra_body %}{% endblock %}
-{% endblock %}

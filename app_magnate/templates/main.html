@@ -1,6 +1,8 @@
 {% load staticfiles %}
 {% load url from future %}
 {% load analytical %}
+{% load metron_tags %}
+
 
 <!DOCTYPE html>
 <html lang="{{ LANGUAGE_CODE }}">
@@ -13,6 +15,10 @@
         {% endblock %}
 
         {% block style_base %}
+            <link href="{% static "css/main.css" %}" rel="stylesheet">
+            <link href="{% static "css/ui.css" %}" rel="stylesheet">
+            <link href="{% static "css/960.css" %}" rel="stylesheet">   
+
             <link href="{% static "pinax/css/theme.css" %}" rel="stylesheet">
             <link href="{% static "bootstrap/css/bootstrap.css" %}" rel="stylesheet">
             <link href="{% static "bootstrap/css/bootstrap-responsive.css" %}" rel="stylesheet">
@@ -97,7 +103,7 @@
 					<div class="indexdivider"></div>
                         <footer>
                             {% block footer %}
-                            <! Above django tag refers to the _footer template>
+                                {% include "_footer.html" %}
                             {% endblock %}
                         </footer>
                     {% endblock %}
@@ -125,6 +131,9 @@
         {% endblock %}
 
         {% block extra_body_base %}
+
+            {% analytics %}
+        
             {% block extra_body %}{% endblock %}
         {% endblock %}
     {% analytical_body_bottom %}
