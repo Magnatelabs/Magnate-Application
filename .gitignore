@@ -47,3 +47,4 @@ app_magnate/logs/django_request.log
 *.1
 
 /app_magnate/site_media/media/
+/app_magnate/site_media/static/
