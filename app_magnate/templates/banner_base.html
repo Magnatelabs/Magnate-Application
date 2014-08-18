@@ -1,45 +1,43 @@
 {% extends "site_base.html" %}
 {% load staticfiles %}
-{% load waitinglist_tags %}
+{% load url from future %}
 
-{% load i18n %}
 
 {% block body %}
 
   <div class="indexbanner">
  		<figure>
- 		<img src="{% static "img/homepage_image1.jpg" %}" alt="PHOTO" />
+ 		  <img src="{% static "img/homepage_image1.jpg" %}" alt="PHOTO" />
  		</figure>
 		<aside>
         <h1>Unleash your inner mogul</h1>
         <p>Discover the world of alternative investments</p>
         <a href="#codesignup" class="indexbtn">Get Started</a>
-        </aside>
- </div>
+    </aside>
+  </div>
 
 
- {% if not request.user.is_authenticated %}
-  <div class="row">
+  {% if not request.user.is_authenticated %}
+    <div class="row">
     	<h2>Sign up</h2>
     	<p>Want to join the club? Reserve a spot today, and leave your mark on Magnate as we build out the application.</p>	
-		<p>Enter your email address and we'll put you on the invite list&hellip;</p>
+		  <p>Enter your email address and we'll put you on the invite list&hellip;</p>
 
-	      {% waitinglist_entry_form as form %}
-        
-        {% include "waitinglist/_list_signup.html" %}	        
-	    <div id="codesignup">
-	    {% url "account_signup" as signup_url %}
-	    <p id="what"><a href="{{ signup_url }}">Already have a code? Log in</a></p>
+
+      {% include "waitinglist/_list_signup.html" %}	        
+	    
+      <div id="codesignup">
+	     <p id="what"><a href="{% url 'account_signup' %}">Already have a code? Log in</a></p>
 	    </div>
-  </div>	
- {% endif %}
- 
+    </div>	
+  {% endif %}
 
-    
-   {% endblock %}
+{% endblock %}
    
->	
+	
    
-            <script src="{% static "js/selectjquery.js" %}"></script>
+   <!--
+      <script src="{% static "js/selectjquery.js" %}"></script>
 			<script src="{% static "js/select_functions.js" %}"></script>
 			<script src="{% static "js/jquery-1.9.0.min.js" %}"></script>
+-->
