@@ -49,8 +49,10 @@ class study_index(FormView):
             entry.description = form.data['description']
             entry.industry = form.data['industry']
             entry.created = datetime.datetime.now()
-            entry.docfile = request.FILES['docfile']
-            entry.user = request.user
+            if 'docfile' in request.FILES:
+              entry.docfile = request.FILES['docfile']
+            if request.user.is_authenticated():
+              entry.user = request.user
             entry.save()
 	    messages.add_message(
                 self.request,
@@ -66,7 +68,7 @@ class study_index(FormView):
                 self.messages["input_error"]["level"],
                 self.messages["input_error"]["text"]
             )
-            print 'DEBUG: form is not valid!!!', form.errors
+            return render(request, self.template_name, {'form': form})
 
 
 def submit_completed(request):
