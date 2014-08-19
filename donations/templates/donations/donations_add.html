@@ -2,16 +2,10 @@
 {% block body_id %}dashboard_body{% endblock %}
 {% load staticfiles %}
 
-{% block body %} 
-
 {% block style_base %}
-<link href="{% static "bootstrap/css/bootstrap.css" %}" rel="stylesheet">
-<link href="{% static "bootstrap/css/bootstrap-responsive.css" %}" rel="stylesheet">
-<link href="{% static "pinax/css/theme.css" %}" rel="stylesheet">
-<link href="{% static "css/main.css" %}" rel="stylesheet">
-<link href="{% static "css/ui.css" %}" rel="stylesheet">
-<link href="{% static "css/960.css" %}" rel="stylesheet">	
-{% block extra_style %}{% endblock %}
+{{ block.super }}
+
+<style type="text/css">input.styled { display: none; } select.styled { position: relative; width: ' + selectWidth + 'px; opacity: 0; filter: alpha(opacity=0); z-index: 5; } .disabled { opacity: 0.5; filter: alpha(opacity=50); }</style>
 
 <script>
 var checkboxHeight = "60";
@@ -19,10 +13,6 @@ var radioHeight = "60";
 var selectWidth = "190";
 
 
-/* No need to change anything after this */
-
-
-document.write('<style type="text/css">input.styled { display: none; } select.styled { position: relative; width: ' + selectWidth + 'px; opacity: 0; filter: alpha(opacity=0); z-index: 5; } .disabled { opacity: 0.5; filter: alpha(opacity=50); }</style>');
 
 var Custom = {
 	init: function() {
@@ -161,6 +151,7 @@ function validate_amount(evt) {
 
 {% endblock %}
 
+{% block body %} 
 
  <div class="grid_16">
     <div class="contentinner">
