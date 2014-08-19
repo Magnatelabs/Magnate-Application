@@ -29,27 +29,34 @@
        
         <form action="{% url "study_index" %}" method="post" enctype="multipart/form-data">
 			{% csrf_token %}
-        {% csrf_token %}
         <article>
         
         
-        <aside>
         <ul class="unstyled">
         
-        <li><div class="sourceinfo_main_add-container">
-        <p><label for="id_entity">Company Name</label>
-		<input id="id_entity" type="text" name="entity" maxlength="200" /></p></div>
+        <li>
+        <p>
+        {{ form.entity.errors }}
+        <label for="id_entity">Company Name</label>
+		{{ form.entity }}
+        </p>
         </li>
         
-        <li><div class="sourceinfo_main_add-container">
-        <p><label for="id_entity_url">Website URL</label>
-		<input id="id_entity_url" type="text" name="entity_url" maxlength="200" /></p></div>
+        <li>
+        <p>
+        {{ form.entity_url.errors }}
+        <label for="id_entity_url">Website URL</label>
+	    {{ form.entity_url }}  
+         </p>
         </li>
         
         
         <li>
-        <p><label for="id_description">Description of Company or Idea</label>
-		<textarea class="source_pg" id="id_description" type="text" name="description" rows="10"></textarea></p> 
+        <p>
+        {{ form.description.errors }}
+        <label for="id_description">Description of Company or Idea</label>
+        {{ form.description }}
+        </p> 
         </li>
 
         <li>
@@ -62,10 +69,8 @@
         </li>
         
         </ul>
-        </aside>
         </article>
-        </div><!sourceinfo>
-        
+        </div>
         </div>
         </div>
         
@@ -74,13 +79,11 @@
         <article>
         <ul class="unstyled">
         <li class="nodivider">
-			<p><label for="id_industry">Select an Industry</label>
-				<select name="industry" id="id_industry">
-				<option value="Mobile">Mobile</option>
-				<option value="E-commerce">E-commerce</option>
-				<option value="Social_Network">Social Network</option>
-				<option value="Fitness">Fitness</option>
-				<option value="Other">Other</option></select></p> 
+			<p>
+            {{ form.industry.errors }}
+            <label for="id_industry">Select an Industry</label>
+            {{ form.industry }}
+            </p> 
         </li>
         </ul>
         <input type="submit" value="Submit" class="btn" />
