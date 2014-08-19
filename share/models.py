@@ -10,5 +10,3 @@ class EmailShareModel(models.Model):
     share_email_list = models.TextField(max_length=750)
     share_email_content = models.TextField(max_length=750)
 
-    def __unicode__(self):
-        return self.first_name
