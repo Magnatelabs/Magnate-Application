@@ -17,11 +17,11 @@
 {% block content %}
 
     <div class="question_banner">
-        <a href="/forum/questions/ask/?entry_id={{ object.pk }}" class="btn" id="askquestion_fix">Ask a Question</a>
+        <a href="/forum/questions/ask/?entry_id={{ request.GET.entry }}" class="btn" id="askquestion_fix">Ask a Question</a>
     </div>
 
 <div class="tabBar">
-    
+
     {% comment %}
     Commenting out the following code for design purposes (jmw 06.27.14)
     {% include "question_list/title.html" %}
