@@ -7,21 +7,31 @@ user - either the same user, if we are on the dashboard, or whoever's profile we
 if request.user==user, then we should display controls like "Change profile picture", etc.
 Otherwise it is read-only.
 {% endcomment %}
-
+	<!-- begin user_breakdown -->
   <div class="bgprofile-info">
         <div class="profile-info">
+        <!-- user image -->
         <article>
-         <figure>{% avatar user 146 %}
+         <figure>{% avatar user 80 %}
         {% ifequal user request.user %}
-        <span class="caption"><a href="{% url 'avatar_change' %}">Change profile photo?</a></span>
+		
+		{% comment %}
+		#Just thinking whether or not we need to keep this for later?
+		<span class="caption"><a href="{% url 'avatar_change' %}">Change profile photo?</a></span> -->
+		{% endcomment %}
+		
         {% endifequal %}
         </figure>
+        <div class="profile-name">
+        <h3>{{ user }}</h3>
+        </div>
         <aside>
-          <h3><a href="">{{ user }}</a></h3>
-        
-  
-	<div id="user_badges">
-	</div>
+		<div id="user_badges">
+		</div>
+		<div class="dash-search">
+		<input name type="text" class="input" value="Search for something specific...">
+		<div class="btn">go</div>
+		</div>
 
 	<script type="text/javascript">
 	    // Load badges dynamically even the first time so as to prevent caching
@@ -38,15 +48,8 @@ Otherwise it is read-only.
 	</script>
 
         </aside>
-        </article>
+        </article>      
         </div>
-
-        {% ifequal user request.user %}
-            {% if user_has_donation %}
-		        {% include "dashboard/__user_donation_stats.html" %} 
-	        {% else %}
-		        {% include "dashboard/__user_nodonation_stats.html" %}
-	        {% endif %}
-        {% endifequal %}
-        </div>
+        {% include "dashboard/_user_activity_feed.html" %}
+  </div>
 

@@ -16,16 +16,6 @@
 
 {% block entry-header %}
 {% if continue_reading %} 
-
-<span class="show-when-article-active">
-   <h3><span>Fund</span>Feed</h3>
-</span>
-        
-
-<!-- Icon of the entry -->
-
-
-
 {% else %}
 <div class="blog-entry-header">
     <h2 class="blog-entry-title">{{ object.title }}</h2>
@@ -77,7 +67,8 @@
 	  <img id="feed-entry-icon" src="{{ object.icon_url }}"   />
 	  {{ block.super }}
 	</div>
-    <h4 class="fundfeed_title_active nojump">{{ object.title }}</h4>
+    <div class="fundfeed-title">
+    <h4 class="fundfeed_title_active nojump">{{ object.title }}</h4></div>
   {% else %}
   {% endif %}
 {% endblock %}
@@ -105,11 +96,16 @@
         
 <!--      <img src="..." class="entry-image-{{continue_reading}}"   entry-image-0 entry-image-1-->
          {% if continue_reading %}
-          <span class="show-when-article-active">
-          <a href="{{ object.get_absolute_url }}" title="{{ object.title }}" rel="bookmark">
+        
+         {% comment %}
+		 ### We're not using right now.
+         <span class="show-when-article-active" >
+         <a href="{{ object.get_absolute_url }}" title="{{ object.title }}" rel="bookmark">
 			  <figure><img id="feed-entry-image" src="{{ object.image.url }}" alt="{{ object.title }}" class="left"  /></figure>
          </a>
-	  </span>
+		 </span>
+	  	{% endcomment %}
+	  	
           {% else %}
           <span class="blog-entry-image">
           <a href="{{ object.get_absolute_url }}" title="{{ object.title }}" rel="bookmark">
@@ -133,7 +129,7 @@
 {% block entry-content %}
 	{% if continue_reading %}
 	  
-	  <span class="show-when-article-not-active"><p>{{ object_content }}</p></span>
+	  <span class="fundfeed-content"><p>{{ object_content }}</p></span>
 	  
 	  <span class="show-when-article-active">
 	    <div class="uppo">

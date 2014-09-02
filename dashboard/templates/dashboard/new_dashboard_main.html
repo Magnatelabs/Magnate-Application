@@ -61,72 +61,11 @@
 <div class="dash_grid">
     <div class="inner_dashcontent">
     	<div class="section1 section3">
-        	<div class="user_breakdown">
-			<div class="ub_statusinfo">
-			<a href="{% url 'newstatus_home' %}"><p>Current Status <br /><span>Lurker</span></p></a>
-			<figure>
-			<a href="{% url 'newstatus_home' %}"><img src="{% static "img/base_status_small(fin).png" %}" alt="PHOTO" /></a>
-			<span class="icon-plus">+</span>
-			</figure>
-			</div>
+        	
+			{% include "dashboard/_user_breakdown.html" %}
 
-			<div class="ub_tabcontent">
-			<div class="ub_tablinks">
-			<ul class="idTabs unstyled">
-			<li><a href="#mpd-fund">MPer Fund</a></li>
-			<li><a href="#mms-fund">MMSF Fund</a></li>
-			</ul>
-			</div>
-        
-			<div class="ub_tabbox">
-			<div id="mpd-fund">
-			<article>
-			<p>Total Amount in Fund</p>
-			<h2><sup>$</sup>98,000.00</h2>
-			<div class="btn-middle"><a href="#" class="btn disabled" id="dashbtn_fix">Learn more</a></div>
-			</article>        
-			<aside>
-			{% if user_has_donation %}
-			<p>You are currently participating in this fund!</p>
-			<p><a href="{% url 'fund_home' %}">Go to the Magnate funds homepage</a></p>
-			{% else %}
-			<p>You are not currently participating in this fund </p>
-			<p><a href="{% url 'donations_add' %}">Add more to the fund</a></p>
-			{% endif %}
-			</aside>
-			</div>
-        
-			<div id="mms-fund">
-			<article>
-			<p>Total Amount in Fund</p>
-			<h2><sup>$</sup>XXX.XX</h2>
-			<div class="btn-middle"><a href="#" class="btn disabled" id="dashbtn_fix">Learn more</a></div>
-			</article>      
-			<aside>
-			<p>You can not currently participate in this fund </p>
-			<p><a href="{% url 'fund_home' %}">Go to the Magnate funds homepage</a></p>
-			<!--Create learn more page for this link
-			<p><a href="#">Find out how to access more funds</a></p> -->
-			</aside>
-			</div>        
-			</div>
-        </div>
-        
-        <div class="ub_otheractions">
-        <aside>
-        <p>Found a cool startup?  <br /> Make sure to <span><a href="{% url 'study_index' %}">tell us</a></span> about it!</p>
-        </aside>
-        
-        <aside class="blue_feedback">
-        <p>Want to leave us feedback? <br /> Check out the <span><a href="{% url 'platform_main' %}">platform</a></span> page!</p>
-        </aside>
-        
-        <aside class="gray_news">
-        <p>Want to spread the good news? <br /> Send an <span><a href="#lightbox" class="magnate">Invitation</a></span> to a friend!</p>
-        </aside>
-        </div>
-        </div>
-        
+		{% comment %}
+		#No need for hangouts feature or the dropdown at the momment
         <div class="dashboard-divider">
         	<div id="hangoutsDropdown" class="hangouts_dropdown">
 				<button type="button" id="btnHangoutsClose" class="icon-close">Close</button>
@@ -141,7 +80,7 @@
 				</aside>
 			</div>
         </div><!--dashboard divider-->
-        
+        {% endcomment %}
 
         <div class="section6-bg">
 	{% comment %}
@@ -161,23 +100,23 @@
   {% endblock %}
 
         {% if is_dashboard %}
-        <div class="btn-bg">
-        <div class="btn-middle">
-        <a href="#" class="btn disabled" id="dashbtn_fix">Show more</a>
+        <article class="loadmore-entry">
+        <div class="greyed-user">
+        	<div class="greyed-user-name"></div>
+			<div class="greyed-user-image"></div>
+			<div class="greyed-user-info"></div>
+			<div class="greyed-user-info"></div>
+			<div class="greyed-user-info"></div>
         </div>
+        <div class="greyed-article">
+	    	<div class="greyed-article-title"></div>
+	    	<div class="greyed-article-line"></div>    
         </div>
+        </article>
+        
         </div>
         </div>
         
-        <div class="right-col">
-			
-        <div id="div_activity" width="500" height="500">
-			{% comment %}
-			This div is needed to display the Q&A feed.
-			{% endcomment %}
-			</div>
-		</div>
-        </div>
 	{% endif %}
 
 
@@ -195,12 +134,17 @@
 {{ block.super }}
 
 {% if is_dashboard %}
+
+{% comment %}
+### No longer need to display the first item automatically
   <script type="text/javascript">
   // Helps to display the first item in the fund-feed
     $(document).ready(function() {
       toggleArticleActive($('.fund-feed article:first-child').attr("id"), true);
     });
   </script>
+{% endcomment %}  
+
 {% endif %}
 
 <script type="text/javascript">

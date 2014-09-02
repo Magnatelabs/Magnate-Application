@@ -1,9 +1,19 @@
 {% load staticfiles %}
+{% load avatar_tags %}
 
   {% block article-tag %}
-       <article   id="entry-{{ object.pk }}" {% if continue_reading %} onclick="toggleArticleActive('entry-{{ object.pk }}', true);" {% endif %}>
+       <article   id="entry-{{ object.pk }}">
   {% endblock %}
-
+  
+  <div class="fundfeed-userauthor">  
+  <div class="userauthor-profile-dates"><p><!-- osQA dates -->added   10 Aug, 09:26</p></div>		
+  <div class="userauthor-profile-image"><figure>{% avatar user 48 %}
+  {% ifequal user request.user %}</figure></div>{% endifequal %}
+  <div class="userauthor-profile-name"><p><!-- author_name-->{{ user }}</p></div>
+  <div class="userauthor-profile-ranking"><p><!-- osQA ranking -->3,042</p></div>
+  <div class="userauthor-lobby"><figure><!-- group_tagged_icon -->{% avatar user 21 %}
+  {% ifequal user request.user %}</figure></div>{% endifequal %}
+  </div>	
 
   {% block entry-header %}
   {% endblock %}
@@ -40,7 +50,25 @@
       {% block entry-comments %}{% endblock %}
     {% endblock %}
   {% endif %}
+    {% if continue_reading %} 
+  	<div class="expand-btn show-when-article-not-active">
+  		<figure><a href="#"><img src="{% static "img/expandbtn_normal.png" %}"  onclick="toggleArticleActive('entry-{{ object.pk }}', true);" alt="PHOTO" /></a></figure>
+  	</div>
 
-                </article>
+  	 <div class="show-when-article-active collapse-btn">
+  		<figure><a href="#"><img src="{% static "img/collapsebtn_normal.png" %}"  onclick="toggleArticleNotActive('entry-{{ object.pk }}', true);" alt="PHOTO" /></a></figure>
+  	</div>  	
+  {% endif %}
+  	
+  	        <div id="div_activity">
+			{% comment %}
+			This div is needed to display the Q&A feed.
+			{% endcomment %}
+			</div>
+
+  
+  
+  
+  	</article>
 
 

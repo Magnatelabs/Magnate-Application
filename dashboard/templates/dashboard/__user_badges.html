@@ -1,13 +1,12 @@
 {% load staticfiles %}
 {% load brabeion_tags %}
 {% load status_awards_tags %}
-
+	<!-- dashboard status -->
       <div class="info">
 	{% ifequal user request.user %}
 	    {% if has_status_badge %}
 	    <figure><a href="{% url 'status_home' %}">{% render_badge status_badge "status_icon" %}</a></figure>
                 <h3 class="unstyled"><a href="{% url 'status_home' %}">{{ status_badge.name }}:</a></h3>
-                <p>{{ status_badge.description }}.</p>
 	    {% else %}
 	    <figure>{% render_badge status_badge "status_icon"  %}</figure>
 	     	   <h3>Spectator:</h3><p><a href="#">You do not currently have a Magnate Status. Click to learn why status is important, and how to get it!</a></p>
@@ -18,23 +17,24 @@
             {% if user_has_status_badge %}
                 <h3>{{ user_status_badge.name }}:</h3>
             {% else %}
-                <h3>No status yet.</h3>
+                <h3>No Status Lurker</h3>
             {% endif %}
-	    <p>{{ user_status_badge.description }}.</p>
 	{% endifequal %}
-
-
-
-
-        <!--<p>Your donation’s funded mainly comics and internet startups!</p>-->       
       </div>
+	  
+	  <!-- dashboard usage stats -->
+	  <div class="info-stats">
+	  <ul class="unstyled">
+	  <li><p class="info-stats-title">Contribution</p><!--data--><p>02</p></li>
+	  <li><p class="info-stats-title">Knowledge Ranking</p><!--data--><p>2,004</p></li>
+	  </div>
 
       {% badges_for_user user as badges %}
 
 
         <div class="badges">
-
-        <h3>Badges ({{badges | no_metabadges | length }}) <span><a href="{% url 'status_home' %}">See All</a></span></h3>
+			<!--Now groups-->
+        <h2>Following ({{badges | no_metabadges | length }})</h2><span><a href="{% url 'status_home' %}">See All</a></span>
 
 	<ul class="unstyled">
 	{% for badge in badges %}
@@ -42,7 +42,9 @@
 	    {% ifequal user request.user %}
 	       <li><a href="{% url 'status_award_detail' %}?award={{ badge.pk }}">{% render_badge badge "small" %}</a></li>
 	    {% else %}
-              <li>{% render_badge badge "medium" %}</li>
+              <li>{% render_badge badge "medium" %}
+	          <!--Lobby title--><div class="dash-following"><h3><a href"#">The Educational Corner</a></h3><div class="btn">Following</div></div>    
+              </li>
 	    {% endifequal %}
 	  {% endif %}
 	{% endfor %}
