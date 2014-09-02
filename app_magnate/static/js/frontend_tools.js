@@ -58,7 +58,7 @@ function toggleArticleActive(article_dom_id, is_active) {
     a.find(".show-when-article-active").show(); // can animate, e.g. show('slow')
     a.find('.show-when-article-not-active').children().addClass("nohover-underline");
     a.find('.fundfeed_title_active').addClass("nohover-underline"); 
-//    a.find(".show-when-article-not-active").hide();		removed because added short description looks better
+    a.find(".show-when-article-not-active").hide();		
 
     // Load questions about this entry in the main div
     $('#div_activity').load('/f/?entry=' + article_dom_id.replace('entry-','') );
@@ -69,6 +69,17 @@ function toggleArticleActive(article_dom_id, is_active) {
     a.find('.fundfeed_title_active').removeClass("nohover-underline"); 
   }
 }
+
+
+function toggleArticleNotActive(article_dom_id, is_active) {
+  if (is_active) { // deactivate all that are active
+    $('.article-active').each(function(index, value) {
+      toggleArticleActive($(this).attr('id'), false);
+    });
+  }
+}  
+  
+  
 
 
 // Added by Jimi W. 07.19.14
