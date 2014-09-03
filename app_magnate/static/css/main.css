@@ -98,7 +98,16 @@ Dashboard v5 Styling
 created: jmw 05.15.14
 updated: jmw 06.25.14
 ----------------------------------------------------------------------------------------------------*/
-#dashboard_body {margin: 0; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 14px; line-height: 20px; color: #333333; background:#edece8 url(../img/bg_body.gif) repeat-x top left; padding-top: 80px;}
+#dashboard_body {
+	margin: 0; 
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
+	font-size: 14px; 
+	line-height: 20px; 
+	color: #333333; 
+	background:#edece8 url(../img/bg_body.gif) repeat-x top left; 
+	padding-top: 80px;
+	}
+	
 .user_breakdown{width:100%; float:left; background:#cacac8 url(/site_media/static/img/bg01.png) repeat-y top right; border-radius: 2px 2px 0 0; behavior: url(PIE.htc); position:relative; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; padding:0px 0px 0px 30px}
 .ub_statusinfo{width:160px; float:left; background:#9AD086; border-radius:3px; behavior: url(PIE.htc); -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; position:relative; padding:16px 19px 19px 19px}
 .ub_statusinfo p { font-size:12px; font-family:"helveticaneuebold", Arial, Helvetica, sans-serif; color:#FFFFFF; text-align:center; line-height:17px; padding-bottom:6px; margin: 0 0 0px;}
@@ -1012,6 +1021,86 @@ updated: jmw 09.01.14
 }
 
 
+/*----------------------------------------------------------------------------------------------------
+Lobby_home v1 Styling 
+created: jmw 09.02.14
+updated: jmw 09.02.14
+----------------------------------------------------------------------------------------------------*/
+#groups_body {
+	margin: 0; 
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
+	font-size: 14px; 
+	line-height: 20px; 
+	color: #333333; 
+	background:#edece8 url(../img/bg_body.gif) repeat-x top left; 
+	padding-top: 80px;
+	}
+
+.lobby_home {
+	width: 100%;
+	float: left;
+	padding: 40px 0 170px 0;
+}
+
+.available-header{
+	float: left;
+	width: 100%;
+}
+
+.available-header span{
+	float: left;
+	width: 9%;
+}
+
+.available-header h3{
+	font-size: 18px;
+	line-height: 20px;
+	margin: 0px 0px 0px 0px;
+}
+
+.available-list{
+	float: left;
+	width: 100%;
+}
+
+.available-list li{
+	float: left;
+	width: 24%;
+	padding: 0px 10px 0px 10px;
+}
+
+.available-list-lobby figure img{
+	min-width: 220px;
+}
+
+.list-lobby-description{
+	float: left;
+	width: 100%;
+	background: #ffffff;
+	min-height: 150px;
+}
+
+.list-lobby-description span{
+	float: left;
+	width: 90%;
+	margin: 20px 0px 0px 10px;
+}
+
+.list-lobby-description .lobby-description-title a{
+	font-size: 16px;
+	color: #1a9bd4;
+}
+
+.list-lobby-description p {
+	font-size: 12px;
+	line-height: 15px;
+}
+	
+.lobby-unavailable-list{
+	float: left;
+	width: 100%;
+	padding: 50px 0px 0px 0px;
+}
 
 
 
