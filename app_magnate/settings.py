@@ -241,6 +241,7 @@ INSTALLED_APPS = [
     "statistics",
     "rewards",
     "share",
+    "groups",
 ]
 
 
