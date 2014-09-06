@@ -788,8 +788,17 @@ updated: jmw 09.01.14
 	padding:28px 0 12px 0;
 	}
 	
-.profile-info h3{ font-family:"helveticaneuemedium",Arial, Helvetica, sans-serif; font-size:24px; color:#4d4c4b; padding-bottom:6px}
-.profile-info h3{ color:#4d4c4b; line-height: 0px; }
+.profile-info h3{ 
+	font-family:"helveticaneuemedium",Arial, Helvetica, sans-serif; 
+	font-size:24px; 
+	color:#4d4c4b; 
+	padding-bottom:6px
+	}
+	
+.profile-info h3{ 
+	color:#4d4c4b; 
+	line-height: 0px; 
+	}
 
 .profile-info figure{ 
 	width:82px; 
@@ -800,8 +809,6 @@ updated: jmw 09.01.14
 	-webkit-margin-start: 0px; 
 	-webkit-margin-end: 0px;
 	}
-	
-.profile-info figure img{}
 
 .profile-info .profile-name {
 	float: left;
@@ -1022,7 +1029,7 @@ updated: jmw 09.01.14
 
 
 /*----------------------------------------------------------------------------------------------------
-Lobby_home v1 Styling 
+Groups_all v1 Styling 
 created: jmw 09.02.14
 updated: jmw 09.02.14
 ----------------------------------------------------------------------------------------------------*/
@@ -1102,14 +1109,319 @@ updated: jmw 09.02.14
 	padding: 50px 0px 0px 0px;
 }
 
+/*----------------------------------------------------------------------------------------------------
+Groups_home v1 Styling 
+created: jmw 09.02.14
+updated: jmw 09.02.14
+----------------------------------------------------------------------------------------------------*/
+.lobby-detail{
+	width: 100%;
+	float: left;
+	padding: 40px 0 170px 0;
+}
+
+.lobby-detail-breakdown{
+	width: 100%;
+	float: left;
+
+}
+
+.detail-breakdown-description{
+	width: 100%;
+	float: left;
+	background: #ffffff;
+	padding-bottom: 40px;
+}
+
+.breakdown-description-header{
+	width: 62%;
+	float: left;
+	padding-top: 40px;
+	padding-left: 40px;
+}
+
+.header-top-name h1{
+	margin: 0px 0px 0px 0px;
+}
+
+.total-lobby-contribution{
+	background: #f8f8f8;
+	width: 108px;
+	border-radius: 6px;
+}
+
+.total-lobby-contribution sup{
+	color: #9ec977;
+}
+
+.total-lobby-contribution span{
+	color: #9ec977;
+}
+
+.description-header-top figure{
+	width: 80px;
+	float: left;
+	min-height: 80px;
+}
+
+.header-top-name {
+	width: 80%;
+	float: left;
+	margin-left: 20px;
+}
+
+.description-header-bottom{
+	width: 100%;
+	float: left;
+}
+
+.description-header-moderators{
+	float: left;
+	width: 35%;
+	padding-top: 40px;
+	max-width: 220px;
+}
+
+.description-header-moderators p{
+	font-size: 16px;
+	margin: 0px 0px 5px 0px;
+}
+
+.moderators-container{
+	background: #f8f8f8;
+	width: 100%;
+	float: left;
+	border: 1px solid #acacac;
+}
+
+.lobby-moderators{
+	float: left;
+	width: 81%;
+	padding: 10px 20px 20px 20px;
+}
+
+.lobby-moderators-image{
+	width: 28px;
+	float: left;
+	padding: 0px 0px 0px 0px;
+}
+
+.lobby-moderators-name{
+	float: left;
+	width: 70%;
+	margin: 0px 0px 0px 5px;
+	line-height: 10px;
+}
+
+.lobby-moderators-name p{
+	font-size: 12px;
+	margin: 0px;
+}
+
+.lobby-moderators-ranking{
+	float: left;
+	margin: 0px 0px 0px 5px;
+}
+
+.lobby-moderators-ranking p{
+	font-size: 12px;
+	margin: 0px;
+}
+
+.description-header-moderators span{
+	float: left;
+	width: 80%;
+	padding: 0px 0px 0px 40px;
+}
+
+.description-header-moderators span p a{
+	font-size: 12px;
+	color: #5a8e22;
+	text-decoration: underline;
+}
+
+.description-header-quickobjective{
+	float: right;
+	width: 33%;
+}
+
+.quickobjective-container{
+	float: left;
+	width: 85.5%;
+	margin: 40px 0px 0px 20px;
+	background: #f8f8f8;
+	border: 1px solid #e7e8e8;
+}
+
+.quickobjective-image {
+	float: left;
+	width: 92%;
+	padding: 20px 0px 0px 20px;
+}
+
+.quickobjective-image figure{
+	max-width: 222px;
+	float: left;
+}
+
+.quickobjective-image figure p{
+	float: right;
+	font-size: 10px;
+	font-family:"Helvetica Neue", Arial, Helvetica, sans-serif;
+	margin: 0px;
+}
+
+.quickobjective-image figure p a{
+	color: #1a9bd4;
+}
+	
+.quickobjective-image p{
+	font-family:"helveticaneuebold", Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	color: #4c4c4c;
+}
+
+.quickobjective-amount{
+	float: left;
+	width: 85.5%;
+	padding: 20px 0px 0px 20px;
+}
+
+.quickobjective-amount-total{
+	width: 100%;
+	float: left;
+	color: #a6c987;
+}
+
+.quickobjective-amount p{
+	font-family:"helveticaneuebold", Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	color: #4c4c4c;
+}
+
+.quickobjective-countdown{
+	float: left;
+	width: 85.5%;
+	padding: 20px 0px 0px 20px;
+}
+
+.quickobjective-countdown p{
+	font-family:"helveticaneuebold", Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	color: #4c4c4c;
+}
+
+.quickobjective-button{
+	float: left;
+	width: 85.5%;
+	padding: 20px 0px 0px 20px;
+}
+
+.quickobjective-container aside{
+	float: left;
+	width: 75%;
+	margin: 20px 0px 30px 20px;
+	line-height: 11px;
+	font-size: 11px;
+}
 
 
+.lobby-information-container{
+	float: left;
+	width: 100%;
+	background: #ffffff;
+}
 
 
+/*----------------------------------------------------------------------------------------------------
+Groups_objective v1 Styling 
+created: jmw 09.02.14
+updated: jmw 09.02.14
+----------------------------------------------------------------------------------------------------*/
 
+.lobby-objective{
+	width: 100%;
+	float: left;
+	padding: 40px 0 170px 0;
+}
 
+.lobby-detail-objective{
+	width: 100%;
+	float: left;
+}
 
+.detail-objective-description{
+	width: 100%;
+	float: left;
+	background: #ffffff;
+	padding-bottom: 40px;
+}
 
+.objective-description-content{
+	width: 62%;
+	float: left;
+	padding-top: 40px;
+	padding-left: 40px;
+}
 
+.description-content-header{
+	float: left;
+	width: 100%;
+	padding-bottom: 20px;	
+}
 
+.description-content-header figure{
+	width: 55px;
+	min-height: 55px;
+	float: left;
+}
+
+.description-header-title{
+	float: left;
+	width: 88%;
+	padding-left: 10px;
+}
+
+.description-header-title p{
+	margin: 0px;
+	font-size: 12px;
+}
+
+.header-title-objective{
+	width: 85%;
+	float: left;
+}
+
+.header-title-objective h1{
+	font-size: 48px;
+	line-height: 38px;
+	margin: 0px;
+}
+
+.objective-description-image{
+	width: 100%;
+	float: left;
+	padding-top: 30px;
+	padding-bottom: 20px;
+	border-top: 1px solid #bebebe;
+}
+
+.objective-description-text{
+	float: left;
+	width: 100%;
+}
+
+.detail-objective-sidemenu{
+	float: left;
+	width: 33%;
+}
+
+.detail-objective-sidemenu .description-header-quickobjective {
+	width: 100%;
+}
+
+.objective-sidemenu-contributors{
+	float: left;
+	margin: 40px 0px 0px 20px;
+}
 
