@@ -2,76 +2,96 @@
 {% block body_id %}groups_body{% endblock %}
 {% load staticfiles %}
 
+{% block style_base %}
+	<link href="{% static "css/jquery.fancybox-1.3.4.css" %}" rel="stylesheet">	
+{{ block.super }}
+
+
+
+{% load i18n extra_tags extra_filters ui_registry %}
+    <!-- Styling for OSQA -->
+        <link href="{% media  "/media/style/style.css" %}" rel="stylesheet" type="text/css" />
+
+        <script src="http://www.google.com/jsapi" type="text/javascript"></script>
+
+        <script type="text/javascript">
+        /*<![CDATA[*/
+            // OSQA defines all those things - try to do without them   
+
+            // google.load("jquery", "1");
+            // google.load("jqueryui", "1", {autoload:true});
+
+             var i18nLang = '{{ settings.LANGUAGE_CODE }}';
+            // var appUrl = '{{ settings.APP_URL }}'
+             var scriptUrl = '{{ settings.FORCE_SCRIPT_NAME }}/'
+             var osqaSkin = '{{ settings.OSQA_SKIN }}';
+
+            var messages = {
+                username: '{{ user.username }}',
+                confirm: "{% trans "Are you sure?" %}",
+                yes: "{% trans "Yes" %}",
+                no: "{% trans "No" %}",
+                message: "{% trans "Message:" %}",
+                cancel: "{% trans "Cancel" %}",
+                close: "{% trans "Close" %}",
+                ok: "{% trans "Ok" %}",
+                matching_tags_url: "{% url 'matching_tags' %}",
+                word: "{% trans "word" %}",
+                words: "{% trans "words" %}",
+                character: "{% trans "character" %}",
+                characters: "{% trans "characters" %}"
+            }
+        /*]]>*/
+        </script>
+
+        <script type="text/javascript" src="{% media  "/media/js/osqa.main.js" %}"></script>
+
+
+{% comment %} OSQA has block forejs for javascript in the beginning. For now just linking it by inserting it here {% endcomment %}
+
+  {% block forejs %}{% endblock %}
+
+		
+{% endblock %} 
+
 
 {% block body %} 
 <div class="grid_16">
-    <div class="contentinner lobby_home">
-
-    	<div class="lobby-header">
-			<div class="lobby-header-title"><h1>Magnate Lobbies</h1>
+    <div class="contentinner lobby-detail">
+    	<div class="section1 section3 lobby-detail-breakdown">
+			{% for fund in funds|slice:":1" %} <!-- change_to_lobbies -->
+			{% include "groups/_breakdown.html" %}
+			{% endfor %}
+   		
+	   		<div class="section6"> {% comment %}section6 is also only for the dashboard mode. We want a pure white screen otherwise{% endcomment %}
+		   		<div class="dash_zinniafeed grid_3 alpha omega">
+			   		<div class="fund-feed">
+				   		{% block page_center %} <!--why is this blocked in here?-->
+				   		{% block content %}
+				   		{% endblock %}
+				   		{% endblock %}
+				   		
+				   	</div>
+				</div>
 			</div>
-			<div class="lobby-header-description"><p>Follow a Lobby (or two) that you're interested in and the group's updates will appear on your dashboard.</p>
-			</div>
+			
     	</div>
-    	
-    	<div class="lobby-available-list">
-    		<div class="available-header">
-    			<span><h3>Available</h3></span><p><!-- data_numer --> (5)</p>
-    		</div>
-    		<div class="available-list">
-    			<ul class="unstyled"><!-- data_lobby -->
-    				{% for company in portfolio %}
-    				<li>
-    				<div class="available-list-lobby">
-    				{% if company.image %}
-    					<figure><a href="#"><img src="{{ company.image.url }}" alt="LOGO" /></a></figure>
-    					{% else %}
-						<figure><a href="#"><img src="{% static "img/fundHome_tempimg1.jpg" %}" alt="PHOTO" /></a></figure>
-						{% endif %}
-    					<div class="list-lobby-description">
-    						<span>
-	    						<p class="lobby-description-title"><a href="#">{{ company.name }}</a></p>
-								<p>{{ company.description }}</p>
-    						</span>    						
-							<div class="lobby-description-follow">
-    							<div class="btn">Follow</div>
-							</div>	
-    					</div>
-    				</div>
-					</li>{% endfor %}
-				</ul>
-    		</div>
-    	</div>
-    	
-		<div class="lobby-unavailable-list">
-    		<div class="available-header">
-    			<h3>Unavailable</h3><p><!-- data_numer --> (5)</p>
-    		</div>
-    		<div class="available-list">
-    			<ul class="unstyled"><!-- data_lobby -->
-    				{% for company in portfolio %}
-    				<li>
-    				<div class="available-list-lobby">
-    				{% if company.image %}
-    					<figure><a href="#"><img src="{{ company.image.url }}" alt="LOGO" /></a></figure>
-    					{% else %}
-						<figure><a href="#"><img src="{% static "img/fundHome_tempimg1.jpg" %}" alt="PHOTO" /></a></figure>
-						{% endif %}
-    					<div class="list-lobby-description">
-    						<p class="lobby-description-title">{{ company.name }}</p>
-    						<p>{{ company.description }}</p>    						
-    					</div>
-    				</div>
-					</li>{% endfor %}
-				</ul>
-    		</div>
-    	</div>
-    	
-    </div> <!-- contentinner -->
-</div> <!-- grid_16 -->
-
-
-
-
-
+    </div> <!-- end_contentinner -->
+</div> <!-- end_grid -->
 {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
