@@ -25,6 +25,9 @@ print "Expecting Django server on port 8123"
 
 
 class main_page(MyTestCase):
+    def assert_on_dashboard(self):
+        self.by_id("dashboard_body")
+
     def test_main_page(self):
         # See http://selenium-python.readthedocs.org/en/latest/getting-started.html#using-selenium-to-write-tests
         driver = self.driver
@@ -54,7 +57,7 @@ class main_page(MyTestCase):
         driver.get(_("/dash/dashboard"))
 
         # Make sure we are on the dashboard
-        self.by_class_name("user_breakdown")
+        self.assert_on_dashboard()
 
         # The firefox driver for selenium has a problem
         # When we are simulating a click on an element
@@ -71,7 +74,7 @@ class main_page(MyTestCase):
             elt.click()
 
         # We've just created a public entry; find it in the feed!
-        entry = self.by_id('entry-1')
+        entry = self.by_id('expand-entry-1')
 
         # Let's expand it so we can see the standard picture, the (empty) list of Q&A, etc.
 
@@ -89,14 +92,14 @@ class main_page(MyTestCase):
         self.assertIn('original-question', self.driver.current_url)
 
         # Make sure we still see the top of the dashboard
-        self.by_class_name("user_breakdown")
+        self.assert_on_dashboard()
 
         # Go back to the regular dashboard
         driver.get(_("/dash/dashboard"))
         # Make sure we are on the dashboard
-        self.by_class_name("user_breakdown")
+        self.assert_on_dashboard()
         # Once again select the first entry!
-        entry = self.by_id('entry-1')
+        entry = self.by_id('expand-entry-1')
         # Select it once again; see if we can see our question on the right
         
         scroll_and_click( entry )
@@ -119,7 +122,7 @@ class main_page(MyTestCase):
         scroll_and_click( self.by_class_name('submit') )
 
         # Make sure we still see the dashboard
-        self.by_class_name("user_breakdown")
+        self.assert_on_dashboard()
 
 if __name__ == "__main__":
     unittest.main()
