@@ -1,0 +1,77 @@
+{% extends "site_base.html" %}
+{% block body_id %}groups_body{% endblock %}
+{% load staticfiles %}
+
+
+{% block body %} 
+<div class="grid_16">
+    <div class="contentinner lobby_home">
+
+    	<div class="lobby-header">
+			<div class="lobby-header-title"><h1>Magnate Lobbies</h1>
+			</div>
+			<div class="lobby-header-description"><p>Follow a Lobby (or two) that you're interested in and the group's updates will appear on your dashboard.</p>
+			</div>
+    	</div>
+    	
+    	<div class="lobby-available-list">
+    		<div class="available-header">
+    			<span><h3>Available</h3></span><p><!-- total available groups --> (5)</p>
+    		</div>
+    		<div class="available-list">
+    			<ul class="unstyled"><!-- available groups list -->
+    				{% for company in portfolio %}
+    				<li>
+    				<div class="available-list-lobby"><!-- admin defined group image -->
+    				{% if company.image %}
+    					<figure><a href="#"><img src="{{ company.image.url }}" alt="LOGO" /></a></figure>
+    					{% else %}
+						<figure><a href="#"><img src="{% static "img/fundHome_tempimg1.jpg" %}" alt="PHOTO" /></a></figure>
+						{% endif %}
+    					<div class="list-lobby-description"><!-- admin defined name and description -->
+    						<span>
+	    						<p class="lobby-description-title"><a href="#">{{ company.name }}</a></p>
+								<p>{{ company.description }}</p>
+    						</span>    						
+							<div class="lobby-description-follow"><!-- select to filter tags for dashboard -->
+    							<div class="btn">Follow</div>
+							</div>	
+    					</div>
+    				</div>
+					</li>{% endfor %}
+				</ul>
+    		</div>
+    	</div>
+    	
+		<div class="lobby-unavailable-list">
+    		<div class="available-header">
+    			<h3>Unavailable</h3><p><!-- total unavailable groups --> (5)</p>
+    		</div>
+    		<div class="available-list">
+    			<ul class="unstyled"><!-- unavailable groups list -->
+    				{% for company in portfolio %}
+    				<li>
+    				<div class="available-list-lobby"><!-- admin defined group image -->
+    				{% if company.image %}
+    					<figure><a href="#"><img src="{{ company.image.url }}" alt="LOGO" /></a></figure>
+    					{% else %}
+						<figure><a href="#"><img src="{% static "img/fundHome_tempimg1.jpg" %}" alt="PHOTO" /></a></figure>
+						{% endif %}
+    					<div class="list-lobby-description"><!-- admin defined name and description -->
+    						<p class="lobby-description-title">{{ company.name }}</p>
+    						<p>{{ company.description }}</p>    						
+    					</div>
+    				</div>
+					</li>{% endfor %}
+				</ul>
+    		</div>
+    	</div>
+    	
+    </div> <!-- end_contentinner -->
+</div> <!-- end_grid_16 -->
+
+
+
+
+
+{% endblock %}

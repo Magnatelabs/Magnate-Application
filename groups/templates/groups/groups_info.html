@@ -1,0 +1,91 @@
+{% extends "site_base.html" %}
+{% block body_id %}groups_body{% endblock %}
+{% load staticfiles %}
+
+
+{% block body %} 
+<div class="grid_16">
+    <div class="contentinner lobby-detail">
+    	<div class="section1 section3 lobby-detail-breakdown"><!-- should be user selected groups -->
+			{% for fund in funds|slice:":1" %} 
+			{% include "groups/_breakdown.html" %}
+			{% endfor %}
+			
+			<div class="lobby-information-container">
+				
+				{{ fund.statistics_as_html | safe }} <!-- stats are now associated to a group -->
+
+				<div class="section1 section3" id="portfolio_breakdown"><!-- portfolios are now associated to a group -->		
+			  		{% for company in portfolio %} 
+			  		<div class="portfolio_breakdown-container">
+						{% if company.image %}
+						<img src="{{ company.image.url }}" alt="LOGO" />
+						{% else %}
+						<img src="{% static "img/fundHome_tempimg1.jpg" %}" alt="PHOTO" />
+						{% endif %}
+						<div class="portfolio_breakdown-text">
+							<h1>{{ company.name }}</h1>
+							<p>{{ company.description }}</p>  
+							<p class="portfolio-tags">{{ company.tags }}</p>
+						</div>
+					</div>  
+					{% endfor %}
+					<div class="portfolio_btn"><a href="#" class="btn" id="dashbtn_fix">See more</a></div>
+				</div>
+			
+				<div class="section1 section3" id="relatedNews_breakdown"><!-- related news is now associated to a group -->	
+					<div class="relatedNews_breakdown-container">           	
+						<div class="relatedNews_breakdown-text">
+							<a href="#"><h1>New Bitcoin Fraud Case</h1></a> 
+							<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque enatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>	
+							<a href="#"><p class="newsSource-link">CNN Money</p></a>
+						</div>
+					</div>
+        	
+					<div class="relatedNews_breakdown-container">           	
+						<div class="relatedNews_breakdown-text">
+							<a href="#"><h1>New Bitcoin Fraud Case</h1></a> 
+							<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque enatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>	
+							<a href="#"><p class="newsSource-link">CNN Money</p></a>
+						</div>
+					</div>
+        	
+					<div class="relatedNews_breakdown-container">           	
+						<div class="relatedNews_breakdown-text">
+							<a href="#"><h1>New Bitcoin Fraud Case</h1></a> 
+							<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque enatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>	
+							<a href="#"><p class="newsSource-link">CNN Money</p></a>
+						</div>
+					</div>
+        	
+					<div class="relatedNews_breakdown-container">           	
+						<div class="relatedNews_breakdown-text">
+							<a href="#"><h1>New Bitcoin Fraud Case</h1></a> 
+							<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque enatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>	
+							<a href="#"><p class="newsSource-link">CNN Money</p></a>
+						</div>
+					</div>
+					<div class="relatedNews_btn"><a href="#" class="btn" id="dashbtn_fix">Load more</a></div>
+	        	</div> <!--section1 section3 relatedNews_breakdown-->
+			</div><!-- information-container -->			
+		
+		</div>
+    </div> <!-- contentinner -->
+</div> <!-- grid -->
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

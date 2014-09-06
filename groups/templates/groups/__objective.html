@@ -1,0 +1,33 @@
+{% load staticfiles %}
+{% load avatar_tags %}	
+	
+	<div class="description-header-quickobjective"><!-- compact version of groups_objective.html -->
+		<div class="quickobjective-container">
+			<div class="quickobjective-image">
+				<figure><!-- small version of admin defined image -->
+					<a href="#"><img src="{% static "img/dash_hangoutstest.jpg" %}" alt="PHOTO" /></a>
+					<p><a href="#">Read more</a></p>
+				</figure>
+				<p>current lobby interest</p> 
+			</div>
+			<div class="quickobjective-amount">
+				<div class="quickobjective-amount-total" id="dollar">
+					<sup>$</sup><!-- current objective donated amount -->
+					<span>{{ all_donations_by_user }}</span>
+				</div>
+				<p>raised of <!-- admin defined amount -->{{ total_donation_amount }} minimum</p>
+			</div>
+			<div class="quickobjective-countdown"> <!-- countdown from admin defined -->
+				<div class="time-info">           
+					<div id="defaultCountdown"></div>
+					<p>days to go</p>     
+				</div>
+			</div>
+			<div class="quickobjective-button">
+				<div class="btn">Contribute to interest</div>
+			</div>
+			<aside>
+				<p>If at least the minimum of {{ total_donation_amount }} is raised this investment will be presented to the greater Magnate community for integration into a Magnate Fund.</p>
+			</aside>
+		</div>						        
+	</div>

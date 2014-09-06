@@ -1,0 +1,70 @@
+{% load staticfiles %}
+{% load avatar_tags %}
+	
+<div class="detail-breakdown-description">
+	<div class="breakdown-description-header">			
+		<div class="description-header-top">
+			<figure><a href="#"><img src="{% static "img/dash_hangoutstest.jpg" %}" alt="PHOTO" /></a></figure>
+			<div class="header-top-name"><!-- change to name of group -->
+				<h1>{{ fund.name }}</h1>
+				<div class="total-lobby-contribution"><!-- manual submit through admin  -->
+					<div id="dollar">
+						<sup>$</sup>
+						<span>{{ grand_total }}</span>								
+					</div>
+				</div>
+			</div>
+		</div>
+							
+		<div class="description-header-bottom"> 
+			<!-- change to group description --><p>{{ fund.description }}</p>
+			<div class="btn">follow</div>
+		</div>
+			
+		<div class="description-header-moderators">
+			<p>Moderators</p>
+			<div class="moderators-container">
+				<ul class="unstyled">
+					<li>
+						<div class="lobby-moderators">  
+							<div class="lobby-moderators-image"><!-- select specific users through admin -->
+								<figure>{% avatar user 28 %}{% ifequal user request.user %}</figure>
+							</div>{% endifequal %}
+							<div class="lobby-moderators-name"><p><!-- moderator's name-->{{ user }}</p></div>
+							<div class="lobby-moderators-ranking"><p><!-- moderator's osQA ranking -->3,042</p></div>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<span><p><a href="#">Want to lend a hand?</a></p></span>
+		</div>
+	</div>	
+	{% include "groups/__objective.html" %}	
+</div>
+
+
+
+<script type="text/javascript">
+var newYear = new Date(); 
+
+//python
+//ctx = {..., 'target': datetime(1, 2, 3);}
+
+
+//new Date( {{ target.year }}, {{target.month}}, {{target.day}});
+
+newYear = new Date({{ donation_vesting_date.year }}, {{ donation_vesting_date.month }} - 1, {{ donation_vesting_date.day }}); 
+$('#defaultCountdown').countdown({until: newYear}); 
+// the -1 for the month is because -python counts months at 1 and javascript frmo 0. The -1 allows it to sync better
+</script>
+
+
+
+
+
+
+
+
+
+
+
