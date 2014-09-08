@@ -8,7 +8,45 @@ updated: jmw 07.08.14
 .grid_16 {
 	padding-bottom: 100px;
 }
+#homepage_body {
+	margin: 0; 
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
+	font-size: 14px; 
+	line-height: 20px;
+	color: #333333; 
+	background:#edece8 url(../img/bg_body.gif) repeat-x top left; 
+	padding-top: 80px;
+}
 
+#about_body{
+	margin: 0; 
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
+	font-size: 14px; 
+	line-height: 20px; 
+	color: #333333; 
+	background:#edece8 url(../img/bg_body.gif) repeat-x top left; 
+	padding-top: 80px;
+}
+
+#account_body{
+	margin: 0; 
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
+	font-size: 14px; 
+	line-height: 20px; 
+	color: #333333; 
+	background:#edece8 url(../img/bg_body.gif) repeat-x top left; 
+	padding-top: 80px;
+}
+
+#normal_body{
+	margin: 0; 
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
+	font-size: 14px; 
+	line-height: 20px; 
+	color: #333333; 
+	background:#edece8 url(../img/bg_body.gif) repeat-x top left; 
+	padding-top: 80px;
+}
 
 /*----------------------------------------------------------------------------------------------------
 Share Lightbox Styles
