@@ -6,8 +6,6 @@
 	<link href="{% static "css/jquery.fancybox-1.3.4.css" %}" rel="stylesheet">	
 {{ block.super }}
 
-
-
 {% load i18n extra_tags extra_filters ui_registry %}
     <!-- Styling for OSQA -->
         <link href="{% media  "/media/style/style.css" %}" rel="stylesheet" type="text/css" />
@@ -65,11 +63,13 @@
    		
 	   		<div class="section6"> {% comment %}section6 is also only for the dashboard mode. We want a pure white screen otherwise{% endcomment %}
 		   		<div class="dash_zinniafeed grid_3 alpha omega">
+			   		
 			   		<div class="fund-feed">
-				   		{% block page_center %} <!--why is this blocked in here?-->
-				   		{% block content %}
-				   		{% endblock %}
-				   		{% endblock %}
+				   		{% with continue_reading=True %}
+			   			{% for object in zea %}
+			   			{% include "zinnia/_entry_detail.html" %}
+				   		{% endfor %}
+				   		{% endwith %}
 				   		
 				   	</div>
 				</div>
