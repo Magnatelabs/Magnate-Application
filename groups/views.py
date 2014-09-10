@@ -52,9 +52,9 @@ def groups_detail_home(request):
 	gt= tda+tba
 	funds = MagnateFund.objects.all()
 	portfolio = PortfolioCompany.objects.all()
+	zea = Entry.objects.all()
 
-
-	return render(request, 'groups/groups_home.html', {'funds': funds, 'portfolio': portfolio, 'user_has_donation': user_has_donation, 'total_donation_amount': tda, 'total_bonus_amount': tba, 'grand_total': gt, 'all_donations_by_user': adu })
+	return render(request, 'groups/groups_home.html', {'funds': funds, 'portfolio': portfolio, 'user_has_donation': user_has_donation, 'total_donation_amount': tda, 'total_bonus_amount': tba, 'grand_total': gt, 'all_donations_by_user': adu, 'zea':zea })
 #	return render(request, 'groups/groups_detail.html')
 
 
