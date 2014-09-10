@@ -76,6 +76,7 @@ function toggleArticleNotActive(article_dom_id, is_active) {
     $('.article-active').each(function(index, value) {
       toggleArticleActive($(this).attr('id'), false);
     });
+	$('#div_activity').empty();  
   }
 }  
   
