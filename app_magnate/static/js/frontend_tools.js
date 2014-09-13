@@ -61,12 +61,14 @@ function toggleArticleActive(article_dom_id, is_active) {
     a.find(".show-when-article-not-active").hide();		
 
     // Load questions about this entry in the main div
-    $('#div_activity').load('/f/?entry=' + article_dom_id.replace('entry-','') );
+    $('#div_activity_'+article_dom_id.replace('entry-', '')).load('/f/?entry=' + article_dom_id.replace('entry-','') );
   } else {
     a.find(".show-when-article-active").hide();
     a.find(".show-when-article-not-active").show();
     a.find('.show-when-article-not-active').children().removeClass("nohover-underline");
     a.find('.fundfeed_title_active').removeClass("nohover-underline"); 
+
+    $('#div_activity_'+article_dom_id.replace('entry-', '')).empty();
   }
 }
 
@@ -75,6 +77,7 @@ function toggleArticleNotActive(article_dom_id, is_active) {
   if (is_active) { // deactivate all that are active
     $('.article-active').each(function(index, value) {
       toggleArticleActive($(this).attr('id'), false);
+
     });
   }
 }  
