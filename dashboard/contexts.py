@@ -1,5 +1,6 @@
 import donations.utils as du
 from brabeion.models import BadgeAward
+from forum.views.admin import get_recent_activity
 
 
 
@@ -19,6 +20,9 @@ def magnate_status_badge(user):
 
 
 def magnate_user_info(request):
+    # just a Django queryset
+    recent_activity = get_recent_activity().exclude(user=request.user)
+
     feed=du.all_donations_by_user(request.user)
     total_donation_amount = du.total_donation_amount(request.user)
     user_has_donation = (total_donation_amount > 0)
@@ -26,6 +30,6 @@ def magnate_user_info(request):
     dvd = du.donation_vesting_date(request.user)
     has_status_badge = (status_badge is not None)
 
-    return {'feed': feed, 'total_donation_amount': total_donation_amount, 'user_has_donation': user_has_donation, 'has_status_badge': has_status_badge, 'status_badge': status_badge, 'donation_vesting_date': dvd}
+    return {'recent_activity': recent_activity, 'feed': feed, 'total_donation_amount': total_donation_amount, 'user_has_donation': user_has_donation, 'has_status_badge': has_status_badge, 'status_badge': status_badge, 'donation_vesting_date': dvd}
 
 
