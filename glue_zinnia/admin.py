@@ -15,7 +15,7 @@ class EntryCheckAdmin(EntryAdmin):
   # Detect if there is a section called Privacy. There probably is.
   # Remove it, if it is present, and insert a new Privacy section at the end.
   l = EntryAdmin.fieldsets
-  fieldsets = [x for x in l if unicode(x[0]) != 'Privacy'] + [(_('Privacy'), {'fields': (
+  fieldsets = [x for x in l if unicode(x[0]) not in  ['Privacy', 'Templates']] + [(_('Privacy'), {'fields': (
       'login_required', 'authorized_users', 'password'), 
   'classes': ('collapse', 'collapse-closed')}),] 
 
