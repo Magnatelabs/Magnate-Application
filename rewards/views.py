@@ -17,7 +17,7 @@ class RewardsView(EntryIndex):
     def get_template_names(self):
         return ['rewards/rewards_home.html']
     def get_queryset(self): # TODO: unit test that we only show published entries, and only those that have an associated hangout
-        return Entry.published.filter(hangout__isnull=False)
+        return Entry.published.filter(agenda__agenda_type='hangout')#(hangout__isnull=False)
 
 def rewards_index(request):
     return RewardsView.as_view()(request, template_name='rewards/rewards_home.html')
