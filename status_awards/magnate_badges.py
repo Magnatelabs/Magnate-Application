@@ -4,6 +4,8 @@ from donations.utils import all_donations_by_user
 from brabeion import badges
 from .base import MetaBadge
 
+from forum.models.question import Question
+
 class LikesBadge(Badge):
     slug="likes"
     levels = [
@@ -95,6 +97,38 @@ class RaterBadge(Badge):
         elif ratings >= 1:
             return BadgeAwarded(1)
 
+class QuestionerBadge(Badge):
+    slug='questioner'
+    levels = [
+        BadgeDetail("Nooby Questioner Badge", "Cleaning Magnate bugs through questions"),
+        BadgeDetail("Gold Nooby Questioner Badge", "A little questioning only helps Magnate"),
+        BadgeDetail("Alpha Questioner Badge", "Questioned a lot"),
+        BadgeDetail("Beta Questioner Badge", "Questioned everything"),
+
+#        BadgeDetail("Bronze Rater", "Rated a little"),
+#        BadgeDetail("Silver Rater", "Rated some more"),
+#        BadgeDetail("Gold Rater", "Rated a lot"),
+#        BadgeDetail("Platinum Rater", "Rated everything"),        
+    ]
+    events = [
+        "ask"
+    ]
+    multiple = False
+
+    def award(self, **state):
+        user=state["user"]
+        questions = Question.objects.filter(author=user).count()
+
+        if questions >= 10:
+            return BadgeAwarded(4)
+        elif questions >= 5:
+            return BadgeAwarded(3)
+        elif questions >= 2:
+            return BadgeAwarded(2)
+        elif questions >= 1:
+            return BadgeAwarded(1)
+
+
 class MemeMagnate(MetaBadge):
     slug="meme_magnate"
     levels = [
@@ -120,5 +154,6 @@ class FavouriteMagnate(MetaBadge):
 badges.register(LikesBadge)
 badges.register(DonorBadge)
 badges.register(RaterBadge)
+badges.register(QuestionerBadge)
 badges.register(MemeMagnate)
 badges.register(FavouriteMagnate)
