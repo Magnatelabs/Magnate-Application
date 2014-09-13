@@ -1,25 +1,31 @@
 from django.db import models
 from dashboard.mixins import PrivatelyPublishedModelMixin
 from django.conf import settings
+from forum.models.utils import PickledObjectField
+from forum.models.action import ActionProxyMetaClass
+import re
 
 SCHEDULED = 0
-COMPLETED = 1
+ACTIVE = 1
+SUSPENDED = 2
+CANCELED = 3
+COMPLETED = 4
 
-# The users also get rewarded in this way: they are invited to a hangout.
-#
-# Using PrivatelyPublishedModelMixin, so the new hangout will automatically
-# get a Zinnia entry. After it is edited, the admin should set its
-# visibility to PUBLIC.
-class Hangout(PrivatelyPublishedModelMixin, models.Model):
+class Agenda(PrivatelyPublishedModelMixin, models.Model):
     STATUS_CHOICES = ((SCHEDULED, 'scheduled'),
+                      (ACTIVE, 'active'),
+                      (SUSPENDED, 'suspended'),
+                      (CANCELED, 'canceled'),
                       (COMPLETED, 'completed'),)
+
 
     # the user who created the event
     user = models.ForeignKey(settings.AUTH_USER_MODEL)
 
-    # when the event starts
-    date = models.DateTimeField()
+    agenda_type = models.CharField(max_length=32)
 
+    # when the event starts and/or when is the deadline
+    date = models.DateTimeField()
     status = models.IntegerField(
         'status', choices=STATUS_CHOICES, default=SCHEDULED)
 
@@ -27,9 +33,16 @@ class Hangout(PrivatelyPublishedModelMixin, models.Model):
     # this is for admin use only; this will NOT be published to the users
     admin_note = models.CharField(max_length=200)
 
+    extra = PickledObjectField()
+
 
     def __unicode__(self):
-        return '%s (hosted by %s on %s)' % (self.admin_note, self.user, self.date)
+        return '%s %s (event by %s on %s)' % (self.__class__.__name__, self.admin_note, self.user, self.date)
+
+    @classmethod
+    def get_type(cls):
+        return re.sub(r'agenda$', '', cls.__name__.lower())
+
 
     #override
     def create_entry_title(self):
@@ -43,5 +56,41 @@ class Hangout(PrivatelyPublishedModelMixin, models.Model):
     def create_entry_slug(self):
         return 'hangout'
 
+
+class AgendaProxy(Agenda):
+    # ActionProxyMetaClass works for us. We just need to make
+    # sure that everything inheriting from AgendaProxy is still a 
+    # proxy model; that's all.
+    __metaclass__ = ActionProxyMetaClass
+
+    class Meta:
+        proxy = True
+
+# The users also get rewarded in this way: they are invited to a hangout.
+#
+# Using PrivatelyPublishedModelMixin, so the new hangout will automatically
+# get a Zinnia entry. After it is edited, the admin should set its
+# visibility to PUBLIC.
+class HangoutAgenda(AgendaProxy):
+
+    def __unicode__(self):
+        return '%s (hosted by %s on %s)' % (self.admin_note, self.user, self.date)
+
+#    #override
+#    def create_entry_title(self):
+#        return '%s (EDIT THIS!)' % (self.admin_note)
+
+#    #override
+#    def create_entry_content(self):
+#        return '%s. The event will take place on %s. This entry is hidden. Edit it to describe the event, add pictures, etc. See how it looks on your own dashboard. However, you are the only one who can see it. When you are ready, set the status to PUBLISHED so other users can see it as well. Lastly, do not confuse the timestamp of this entry with the start time of the actual event.' % (self.admin_note, self.date)
+
+
     def is_completed(self):
         return self.status == COMPLETED
+
+class FundraisingAgenda(AgendaProxy):
+
+    # collected_amount, target_amount are stored in extra
+        
+    def __unicode__(self):
+        return '%s (hosted by %s on %s)' % (self.admin_note, self.user, self.date)
