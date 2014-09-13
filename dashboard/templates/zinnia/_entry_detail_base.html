@@ -1,5 +1,6 @@
 {% load staticfiles %}
 {% load avatar_tags %}
+{% load i18n %}
 
   {% block article-tag %}
        <article   id="entry-{{ object.pk }}">
@@ -41,6 +42,15 @@
   
   {% block entry-title %}
   {% endblock %}
+
+
+
+
+
+
+
+
+
   {% block entry-content %}
   {% endblock %}
   {% if not continue_reading %}
@@ -58,7 +68,22 @@
   	 <div class="show-when-article-active collapse-btn">
   		<figure><a href="#"><img src="{% static "img/collapsebtn_normal.png" %}"  onclick="toggleArticleNotActive('entry-{{ object.pk }}', true);" alt="PHOTO" /></a></figure>
   	</div>  	
+
+  {% block entry-categories %}
+      {% with categories=object.categories.all %}
+      {% if categories|length %}
+      {% trans "in" %}
+      {% for category in categories %}
+      <a href="{{ category.get_absolute_url }}"
+         title="{% blocktrans %}Show all entries in {{ category }}{% endblocktrans %}"
+         rel="tag category">{{ category }}</a>{% if not forloop.last %}, {% endif %}{% endfor %}{% endif %}.
+      {% endwith %}
+      {% endblock entry-categories %}
+
+
   {% endif %}
+
+
   	
   	        <div id="div_activity_{{ object.pk }}">
 			{% comment %}
