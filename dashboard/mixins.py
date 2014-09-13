@@ -40,6 +40,8 @@ class PrivatelyPublishedModelMixin(models.Model):
             entry.slug=self.create_entry_slug() + '-' + str(entry.pk)
             entry.sites.add(Site.objects.get(pk=settings.SITE_ID))
             entry.authorized_users.add(self.user)
+            entry.content_template += '.%s' % (self.__class__.__name__.lower())
+            entry.detail_template += '.%s' % (self.__class__.__name__.lower())
             entry.save()
             # Should we perhaps save somewhere this Site.objects.get(pk=settings.SITE_ID) so we don't have to query it every time? Though, I guess, it is not such a big deal here, as we are rarely saving things that have associated blog posts. We are not generating blog posts (entries) every second...
             self.entry=entry
