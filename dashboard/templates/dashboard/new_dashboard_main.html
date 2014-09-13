@@ -2,6 +2,7 @@
 {% block body_id %}dashboard_body{% endblock %}
 {% load staticfiles %}
 {% load social_tags %}
+{% load zinnia_tags %}
 
 {% block style_base %}
 	<link href="{% static "css/jquery.fancybox-1.3.4.css" %}" rel="stylesheet">	
@@ -94,10 +95,19 @@
         <div class="fund-feed">
   	{% endif %}
 
-  {% block page_center %} <!--why is this blocked in here?-->
-	{% block content %}
-	{% endblock %}
-  {% endblock %}
+    {% block page_center %}
+      {% block content %}
+      {% endblock %}
+
+
+
+      {% for object in entries.paginator.page %}
+        {% include object.content_template with object_content=object.html_content|truncatewords_html:object.blurb_word_limit|safe continue_reading=1 %}
+      {% endfor %}
+<div class="pager" style="float: right">
+    {{ entries.paginator.page_numbers }}
+</div>      
+    {% endblock %}
 
         {% if is_dashboard %}
         <article class="loadmore-entry">
