@@ -11,6 +11,14 @@ SUSPENDED = 2
 CANCELED = 3
 COMPLETED = 4
 
+class AgendaManager(models.Manager):
+    def get_queryset(self):
+        qs = super(AgendaManager, self).get_queryset()
+        if self.model is not Agenda:
+            return qs.filter(agenda_type = self.model.get_type())
+        else:
+            return qs
+
 class Agenda(PrivatelyPublishedModelMixin, models.Model):
     STATUS_CHOICES = ((SCHEDULED, 'scheduled'),
                       (ACTIVE, 'active'),
@@ -36,6 +44,9 @@ class Agenda(PrivatelyPublishedModelMixin, models.Model):
     extra = PickledObjectField()
 
 
+    objects = AgendaManager()
+
+
     def __unicode__(self):
         return '%s %s (event by %s on %s)' % (self.__class__.__name__, self.admin_note, self.user, self.date)
 
@@ -54,7 +65,18 @@ class Agenda(PrivatelyPublishedModelMixin, models.Model):
 
     #override 
     def create_entry_slug(self):
-        return 'hangout'
+        return self.agenda_type
+
+    def save(self, *args, **kwargs):
+        isnew = False
+
+        if not self.id:
+            self.agenda_type = self.__class__.get_type()
+            isnew = True
+
+        super(Agenda, self).save(*args, **kwargs)
+
+
 
 
 class AgendaProxy(Agenda):
