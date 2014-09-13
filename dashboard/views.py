@@ -48,6 +48,7 @@ def dashboard_index(request):
 
 
 from zinnia.models.entry import Entry
+from zinnia.managers import HIDDEN
 
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
@@ -110,8 +111,13 @@ def dashboard_index(request, *args, **kwargs):
     # when dealing with many-to-many relationships.
     # (Namely, if the user and the entry have multiple categories in common.)
     # Not quite sure if it is a bug or a feature.
+    #
+    # ...though had to comment out that distinct(), doing later anyway
     if len(ctx['following']) > 0:
-        ctx['entries'] = ctx['entries'].filter(categories__pk__in=[c.pk for c in ctx['following']]).distinct()
+        qs = ctx['entries']
+        ctx['entries'] = qs.filter(categories__pk__in=[c.pk for c in ctx['following']]) ###.distinct()
+        # fix to show one's private entries no matter what
+        ctx['entries'] = (ctx['entries'] | qs.filter(status=HIDDEN)).distinct()
     ctx['entries'] = ctx['entries'].order_by('-creation_date')
     return render(request, 'dashboard/new_dashboard_main.html', f_render(request, ctx))
 
