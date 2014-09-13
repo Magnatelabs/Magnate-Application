@@ -1,8 +1,31 @@
 {% load staticfiles %}
 {% load brabeion_tags %}
 {% load status_awards_tags %}
+{% load user_tags %}
+{% load i18n %}
 	<!-- activity_feed -->
       <div class="dash-activityfeed">
-      <div class="activity-feed"></div>
+      <div class="activity-feed">
+
+    <div class="module" style="width:98%; display: inline-block;">
+        <table width="100%">
+        <caption>{% trans "Recent activity" %}</caption>
+            <tr>
+                <td colspan="2">
+                    <table id="result_list" width="100%">
+                    {% for activity in recent_activity|slice:":4" %}
+                        <tr class="{% cycle 'row1' 'row2' %}"><td>{% activity_item activity request.user %}</td></tr>
+                    {% endfor %}
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <p class="paginator">
+            {{ recent_activity.paginator.page_numbers }}
+        </p>
+    </div>
+
+
+      </div>
       </div>
         
