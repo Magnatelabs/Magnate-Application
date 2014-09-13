@@ -41,7 +41,7 @@ class Agenda(PrivatelyPublishedModelMixin, models.Model):
     # this is for admin use only; this will NOT be published to the users
     admin_note = models.CharField(max_length=200)
 
-    extra = PickledObjectField()
+    extra = PickledObjectField(blank=True)
 
 
     objects = AgendaManager()
@@ -67,12 +67,16 @@ class Agenda(PrivatelyPublishedModelMixin, models.Model):
     def create_entry_slug(self):
         return self.agenda_type
 
+    def defaultExtra(self):
+        return None
+
     def save(self, *args, **kwargs):
         isnew = False
 
         if not self.id:
             self.agenda_type = self.__class__.get_type()
             isnew = True
+            self.extra = self.defaultExtra()
 
         super(Agenda, self).save(*args, **kwargs)
 
@@ -113,6 +117,11 @@ class HangoutAgenda(AgendaProxy):
 class FundraisingAgenda(AgendaProxy):
 
     # collected_amount, target_amount are stored in extra
+
+    def defaultExtra(self):
+        return { 'current-amount': 0,
+                 'target-amount':  0  }
+
         
     def __unicode__(self):
         return '%s (hosted by %s on %s)' % (self.admin_note, self.user, self.date)
