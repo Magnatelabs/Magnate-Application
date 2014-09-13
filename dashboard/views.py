@@ -27,6 +27,7 @@ from zinnia.views.archives import EntryIndex
 from zinnia.models.entry import Entry
 import time
 from django.template import loader, Context
+from forum.utils import pagination
 
 def dashboard_index(request):
     if not request.user.is_authenticated():
@@ -75,6 +76,24 @@ class DashboardView(zinnia.views.archives.EntryIndex):
         return context
 
 
+
+class DashboardPaginatorContext(pagination.PaginatorContext):
+    def __init__(self):
+        super (DashboardPaginatorContext, self).__init__('DASHBOARD_FEED', pagesizes=(5, 10, 20), default_pagesize=5)
+
+
+@login_required
+def dashboard_index(request, *args, **kwargs):
+    ctx = {
+        'is_dashboard': True,
+        'entries': Entry.private.authorized_or_published(request.user).order_by('-creation_date'),
+    }
+    return render(request, 'dashboard/new_dashboard_main.html', pagination.paginated(request, ("entries",DashboardPaginatorContext()), ctx ))
+
+
+#    return render(request, 'dashboard/new_dashboard_main.html', ctx)
+
+
 def dash_confirm_index(request):
     return render(request, 'dashboard/dashboard_confirm.html')
 
@@ -91,6 +110,8 @@ def user_badges(request):
             return HttpResponse(status=404)
         vars = {'user': user}
     return render(request, 'dashboard/__user_badges.html', vars)
+
+
 
 @login_required
 @require_http_methods(["GET"])
@@ -124,5 +145,3 @@ def receive_updates_api(request):
 
     return HttpResponse(simplejson.dumps(vars), mimetype='application/javascript')
 
-def new_dashboard_index(request):
-    return render(request, 'dashboard/new_dashboard_main.html')
