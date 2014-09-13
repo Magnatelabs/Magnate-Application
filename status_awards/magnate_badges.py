@@ -123,9 +123,9 @@ class QuestionerBadge(Badge):
             return BadgeAwarded(4)
         elif questions >= 5:
             return BadgeAwarded(3)
-        elif questions >= 2:
+        elif questions >= 4:
             return BadgeAwarded(2)
-        elif questions >= 1:
+        elif questions >= 3:
             return BadgeAwarded(1)
 
 
