@@ -30,15 +30,21 @@ from django.http import HttpResponse
 import zinnia
 from zinnia.views.archives import EntryIndex
 from zinnia.models.entry import Entry
+from zinnia.models import Category
 
+from forum.modules import decorate
+from forum.views.commands import AnonymousNotAllowedException
+from forum.views.decorators import command, CommandException
+from glue_osqa.models import UserCategoryFollowing
 
 @login_required 
 def groups_index(request):
 	#for fake data in page
 	funds = MagnateFund.objects.all()
 	portfolio = PortfolioCompany.objects.all()
-
-	return render(request, 'groups/groups_all.html', {'funds': funds, 'portfolio': portfolio, })
+	following = set([ucf.category.pk for ucf in request.user.following.all()])
+	categories = [(c, c.pk in following) for c in Category.objects.all()]
+	return render(request, 'groups/groups_all.html', {'categories': categories, 'following': [], 'funds': funds, 'portfolio': portfolio, })
 #    return render(request, 'groups/groups_home.html')
 
 
@@ -87,3 +93,39 @@ def groups_detail_objective(request):
 
 	return render(request, 'groups/groups_objective.html', {'funds': funds, 'portfolio': portfolio, 'user_has_donation': user_has_donation, 'total_donation_amount': tda, 'total_bonus_amount': tba, 'grand_total': gt, 'all_donations_by_user': adu })
 #	return render(request, 'groups/groups_objective.html')
+
+
+@decorate.withfn(command)
+def ajax_follow_category(request, id):
+    category = get_object_or_404(Category, id=id)
+    user = request.user
+
+    if not user.is_authenticated():
+        raise AnonymousNotAllowedException(_('follow category'))
+
+    command = request.POST.get('command', '')
+    
+    if not command in ['follow', 'unfollow']:
+    	raise CommandException("Unknown command: %s" % (command))
+
+    to_follow = (command == 'follow')
+
+    # Ignoring to_follow. Just toggle.
+
+    try:
+    	rel = user.following.get(category__pk=category.pk)
+        rel.delete()    	
+    	added = False
+    except UserCategoryFollowing.DoesNotExist:
+    	UserCategoryFollowing.objects.create(user=user, category=category)
+    	added = True
+    except UserCategoryFollowing.MultipleObjectsReturned:
+    	print 'WARNING. Fixing problem. MultipleObjectsReturned user=%s category=%s' % (user, category)
+    	user.following.filter(category__pk=category.pk).delete()
+    	added = False
+
+    return {
+    'commands': {
+    'update_button_text': added and 'Unfollow' or 'Follow',
+    }
+    }
