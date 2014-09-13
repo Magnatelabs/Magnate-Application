@@ -101,8 +101,18 @@ def dashboard_index(request, *args, **kwargs):
     ctx = {
         'is_dashboard': True,
         'following': [ucf.category for ucf in request.user.following.order_by('category__title')],
-        'entries': Entry.private.authorized_or_published(request.user).order_by('-creation_date'),
+        'entries': Entry.private.authorized_or_published(request.user),
     }
+
+    # If we are following anything, do not show the full feed
+    # Note the .distinct() at the end. For some weird reason,
+    # django can return the same item multiple times in this case,
+    # when dealing with many-to-many relationships.
+    # (Namely, if the user and the entry have multiple categories in common.)
+    # Not quite sure if it is a bug or a feature.
+    if len(ctx['following']) > 0:
+        ctx['entries'] = ctx['entries'].filter(categories__pk__in=[c.pk for c in ctx['following']]).distinct()
+    ctx['entries'] = ctx['entries'].order_by('-creation_date')
     return render(request, 'dashboard/new_dashboard_main.html', f_render(request, ctx))
 
 
