@@ -2,6 +2,7 @@ from django.db import models
 
 from zinnia.models.entry import Entry
 from forum.models.node import Node
+from forum.models import Action
 
 #     Zinnia entries are linked with OSQA nodes, so we can have
 #     e.g. questions ABOUT a particular post (Zinnia entry).
@@ -35,3 +36,11 @@ from forum.models.node import Node
 class EntryNodeAboutRelationship(models.Model):
     entry = models.ForeignKey(Entry, related_name='about_nodes')
     node  = models.ForeignKey(Node, related_name='about_entries')
+
+
+# Users can follow certain categories such as "Education". 
+from django.contrib.auth.models import User
+from zinnia.models import Category
+class UserCategoryFollowing(models.Model):
+	user = models.ForeignKey(User, related_name='following')
+	category = models.ForeignKey(Category, related_name='users')
