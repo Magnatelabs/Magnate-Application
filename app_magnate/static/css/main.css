@@ -1425,3 +1425,99 @@ updated: jmw 09.02.14
 	margin: 40px 0px 0px 20px;
 }
 
+
+/*----------------------------------------------------------------------------------------------------
+User_information v1 Styling 
+created: jmw 09.10.14
+updated: jmw 09.10.14
+----------------------------------------------------------------------------------------------------*/
+.leftside-userprofile{
+	width: 26.4%;
+	float: left;
+}
+
+.userprofile-image{
+	width: 100%;
+	float: left;
+	background: #ffffff;
+}
+
+.userprofile-image-container{
+	width: 83%;
+	float: left;
+	padding-left: 21px;
+}
+
+.userprofile-image-container figure{
+	margin: 20px 0px 0px 0px;
+}
+
+.userprofile-image-container .image-container-photo{
+	float: center;
+	width: 44%;
+	padding-top: 10px;
+}
+
+.userprofile-image-container .image-container-photo a{
+	color: #2398c9;
+	text-decoration: underline;
+}
+
+.rightside-userprofile{
+	width: 71%;
+	float: left;
+	background: #ffffff;
+	padding-bottom: 40px;
+	margin-left: 20px;
+}
+
+.userprofile-menu{
+	float: left;
+	width: 100%;
+	background: #dfe5e6;
+	border-bottom:1px solid #bebebe;
+	border-top:1px solid #bebebe;
+	margin-bottom: 30px;
+}
+
+.userprofile-menu ul li{
+	float: left;
+	padding: 10px 5px 10px 5px;
+	line-height: 18px;
+}
+
+.userprofile-menu ul li p{
+	margin-bottom: 0px;
+}
+
+.userprofile-menu .over{
+	padding-left: 20px;
+	padding-right: 30px;
+	width: 9%;
+}
+
+
+.userprofile-menu span{
+	padding-left: 25px;
+	float: left;
+}
+
+.userprofile-menu .item a{
+	font-size: 13px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
