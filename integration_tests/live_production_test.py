@@ -40,8 +40,8 @@ class main_page(MyTestCase):
         driver = self.driver
 
         self.login_into_magnate(TEST_USERNAME, TEST_PASSWORD)
-
-        elt_link = self.by_partial_link_text("Add more to the fund")
+        driver.get(_("/fund/home"))
+        elt_link = self.by_partial_link_text("Add to the fund")
         elt_link.click()
         self.check_url()
 
