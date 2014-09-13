@@ -4,6 +4,28 @@
 
 
 {% block body %} 
+<script type="text/javascript">
+  function follow(category_pk, to_follow) {
+    // tricky without hard-coding the address
+    $.ajax({
+        'type': 'POST',
+        'url': "/lobby/follow_category/"+category_pk+ "/",
+        'data': {
+            'command': '' + to_follow ? 'follow' : 'unfollow',
+            'csrfmiddlewaretoken': '{{ csrf_token }}',
+         },
+         success: function(data) {
+            if (!data['success']) {
+                alert(data['error_message']);
+                return;
+            }
+            $('#cat-btn-'+category_pk).html(data['commands']['update_button_text']);
+         }   
+
+    });
+  }
+</script>
+
 <div class="grid_16">
     <div class="contentinner lobby_home">
 
@@ -13,6 +35,32 @@
 			<div class="lobby-header-description"><p>Follow a Lobby (or two) that you're interested in and the group's updates will appear on your dashboard.</p>
 			</div>
     	</div>
+
+        <div class="category-available-list">
+            <div class="available-header">
+                <span><h3>Available category</h3></span><p> ({{ categories|length }})</p>
+            </div>
+            <div class="available-list">
+                <ul class="unstyled"><!-- available groups list -->
+                    {% for category in categories %}
+                    <li>
+                    <div class="available-list-lobby"><!-- admin defined group image -->
+                        <div class="list-lobby-description"><!-- admin defined name and description -->
+                            <span>
+                                <p class="lobby-description-title"><a href="#">{{ category.0.title }}</a></p>
+                                <p>{{ category.0.description }}</p>
+                            </span>                         
+                            <div class="lobby-description-follow"><!-- select to filter tags for dashboard -->
+                                <div class="btn" id="cat-btn-{{ category.0.pk }}" onclick="follow({{ category.0.pk }}, false );">{% if category.1 %}Unfollow{% else %}Follow{% endif %}
+                                </div>                            
+                            </div>  
+                        </div>
+                    </div>
+                    </li>{% endfor %}
+                </ul>
+            </div>
+        </div>
+
     	
     	<div class="lobby-available-list">
     		<div class="available-header">
