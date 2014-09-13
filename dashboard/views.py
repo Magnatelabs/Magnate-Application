@@ -100,6 +100,7 @@ else:
 def dashboard_index(request, *args, **kwargs):
     ctx = {
         'is_dashboard': True,
+        'following': [ucf.category for ucf in request.user.following.order_by('category__title')],
         'entries': Entry.private.authorized_or_published(request.user).order_by('-creation_date'),
     }
     return render(request, 'dashboard/new_dashboard_main.html', f_render(request, ctx))
