@@ -6,49 +6,12 @@
 {% load i18n %}
 {% load user_tags %}
 
-<div id="subheader" class="headUser{% if view_user.is_suspended %} suspended-user{% endif %}">
-    {{view_user.decorated_name}}
-</div>
+<div id="subheader" class="headUser{% if view_user.is_suspended %} suspended-user{% endif %}">{{view_user.decorated_name}}</div>
+{% if can_view_private %}{% user_menu request.user view_user %}{% endif %}
 <table class="user-info-table">
     <tr>
-        <td width="180" style="vertical-align:middle;text-align:center;">
-            <table width="100%">
-                <tr>
-                    <td>
-                        {% gravatar view_user 128 %}
-                    </td>
-                </tr>
-                <tr>
-                    <td align="center">
-                        {% if not view_user.is_suspended %}
-                            <div class="scoreNumber" id="user-reputation">{{view_user.reputation|intcomma}}</div>
-                            <p><b style="color:#777;">{% trans "reputation" %}</b></p>
-                        {% else %}
-                            <div class="scoreNumber">{% trans "Suspended" %}</div>
-                            <p>{{ view_user.suspension.extra.publicmsg }}</p>
-                        {% endif %}
-                    </td>
-                </tr>
-            </table>
-        </td>
         <td width="360" style="vertical-align: top;">
-        {% if can_view_private %}{% user_menu request.user view_user %}{% endif %}
             <table class="user-details">
-                <tr>
-                    <th colspan="2" align="left">
-                        <h3>
-                            {% if view_user.is_superuser %}
-                                {% trans "Administrator" %}
-                            {% else %}
-                                {% if view_user.is_staff %}
-                                    {% trans "Moderator" %}
-                                {% else %}
-                                    {% trans "Registered user" %}
-                                {% endif %}
-                            {% endif %}
-                        </h3>
-                    </th>
-                </tr>
                 {% if view_user.real_name %}
                 <tr>
                     <td>{% trans "real name" %}</td>
