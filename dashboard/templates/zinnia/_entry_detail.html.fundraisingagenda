@@ -1,0 +1,3 @@
+{% extends "zinnia/_entry_detail.html" %}
+{% load social_tags %}
+

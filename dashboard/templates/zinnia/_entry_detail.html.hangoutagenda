@@ -1,0 +1,12 @@
+{% extends "zinnia/_entry_detail.html" %}
+{% load social_tags %}
+
+
+{% block entry-footer %}
+	{% ifequal object.agenda.agenda_type "hangout" %}
+	  {% if not object.agenda.is_completed %}
+	        {% count_me_in_button %}
+	  {% endif %}
+	{% endifequal %}
+   {{ block.super }}
+{% endblock %}
