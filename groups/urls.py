@@ -10,4 +10,7 @@ urlpatterns = patterns("",
   url(r"^home/$", "groups.views.groups_detail_home", name="groups_detail_home"),
   url(r"^info/$", "groups.views.groups_detail_information", name="groups_detail_info"),
   url(r"^current_objective/$", "groups.views.groups_detail_objective", name="groups_detail_objective"),
+
+  url(r'^follow_category/(?P<id>\d+)/$', "groups.views.ajax_follow_category", name='follow_category'),
+  
 )
