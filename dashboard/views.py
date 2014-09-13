@@ -96,7 +96,7 @@ else:
     return ctx
   f_render = f
 
-@login_required
+@login_required(login_url='/account/login/')
 def dashboard_index(request, *args, **kwargs):
     ctx = {
         'is_dashboard': True,
