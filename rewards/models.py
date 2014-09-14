@@ -122,6 +122,13 @@ class FundraisingAgenda(AgendaProxy):
         return { 'current-amount': 0,
                  'target-amount':  0  }
 
+    # Convenience methods for the templates.
+    def current_amount(self):
+        return self.extra['current-amount']
+
+    def target_amount(self):
+        return self.extra['target-amount']
+
         
     def __unicode__(self):
         return '%s (hosted by %s on %s)' % (self.admin_note, self.user, self.date)
