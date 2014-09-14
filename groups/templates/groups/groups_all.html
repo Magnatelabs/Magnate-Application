@@ -47,7 +47,7 @@
                     <div class="available-list-lobby"><!-- admin defined group image -->
                         <div class="list-lobby-description"><!-- admin defined name and description -->
                             <span>
-                                <p class="lobby-description-title"><a href="#">{{ category.0.title }}</a></p>
+                                <p class="lobby-description-title"><a href="{% url 'category_home_page' category.0.pk %}">{{ category.0.title }}</a></p>
                                 <p>{{ category.0.description }}</p>
                             </span>                         
                             <div class="lobby-description-follow"><!-- select to filter tags for dashboard -->
