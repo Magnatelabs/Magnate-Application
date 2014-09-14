@@ -7,12 +7,12 @@ from .widgets import ExtraWidget
 
 import django.forms as forms
 
-class YourModelForm(forms.ModelForm):
+class AgendaModelForm(forms.ModelForm):
 
     extra_data = forms.Field(widget=ExtraWidget) #forms.CharField()
 
     def __init__(self, *args, **kwargs):
-        super(YourModelForm, self).__init__(*args, **kwargs)
+        super(AgendaModelForm, self).__init__(*args, **kwargs)
         # Take the "extra" field from the model
         extra = self.instance.extra
         if extra is None: # new model or somehow no value
@@ -22,13 +22,13 @@ class YourModelForm(forms.ModelForm):
     def save(self, commit=True):
         # this is what the widget returned in value_from_datadict
         extra_data = self.cleaned_data.get('extra_data', None)
-        instance = super(YourModelForm, self).save(commit=False)
+        instance = super(AgendaModelForm, self).save(commit=False)
         # Save the data back into the model
         instance.extra = extra_data
 
         if commit:
             instance.save()
-        return super(YourModelForm, self).save(commit=commit)
+        return super(AgendaModelForm, self).save(commit=commit)
 
     class Meta:
         model = Agenda
@@ -37,7 +37,7 @@ class YourModelForm(forms.ModelForm):
 # this way the admin editing a particular agenda (e.g. hangout) can go
 # straight to editing the corresponding Zinnia entry.
 class AgendaAdmin(EnhancedModelAdminMixin, admin.ModelAdmin):
-    form = YourModelForm
+    form = AgendaModelForm
     readonly_fields = ( 'user', 'agenda_type',  )
 
     # Automatically recording the user who created the agenda (e.g. hangout)
@@ -46,30 +46,6 @@ class AgendaAdmin(EnhancedModelAdminMixin, admin.ModelAdmin):
         obj.user = request.user
         obj.save()
 
-
-class AgendaAdmin2(EnhancedModelAdminMixin, admin.ModelAdmin):
-
-    fieldsets = (
-        (None, {
-            'fields': ('user', 'agenda_type', 'date', 'status', 'admin_note', ),
-        }),
-    )
-     
-    readonly_fields = ( 'user', 'agenda_type',  )
-
-
-    formfield_overrides = {
-        models.TextField: {'widget': ExtraWidget}
-    }
-
-    # edit the "Extra" part
-    def formfield_for_dbfield(self, db_field, **kwargs):
-        #kwargs['widget']=None
-
-        #if db_field.name == 'extra':
-        #    print 'hi'
-        #    kwargs['widget'] = ExtraWidget
-        return super(AgendaAdmin, self).formfield_for_dbfield(db_field, **kwargs)
 
 
 # from http://stackoverflow.com/questions/13817525/django-admin-make-all-fields-readonly
