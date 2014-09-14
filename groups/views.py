@@ -49,7 +49,11 @@ def groups_index(request):
 
 
 @login_required 
-def groups_detail_home(request):
+def groups_detail_home(request, id):
+	category = get_object_or_404(Category, id=id)
+	user = request.user
+
+
 	#for fake data in page
 	tda=total_donation_amount(request.user)
 	user_has_donation = (tda > 0)
@@ -60,7 +64,7 @@ def groups_detail_home(request):
 	portfolio = PortfolioCompany.objects.all()
 
 
-	return render(request, 'groups/groups_home.html', {'funds': funds, 'portfolio': portfolio, 'user_has_donation': user_has_donation, 'total_donation_amount': tda, 'total_bonus_amount': tba, 'grand_total': gt, 'all_donations_by_user': adu })
+	return render(request, 'groups/groups_home.html', {'category': category, 'funds': funds, 'portfolio': portfolio, 'user_has_donation': user_has_donation, 'total_donation_amount': tda, 'total_bonus_amount': tba, 'grand_total': gt, 'all_donations_by_user': adu })
 #	return render(request, 'groups/groups_detail.html')
 
 
