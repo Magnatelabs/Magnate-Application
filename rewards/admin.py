@@ -9,15 +9,20 @@ import django.forms as forms
 
 class AgendaModelForm(forms.ModelForm):
 
-    extra_data = forms.Field(widget=ExtraWidget) #forms.CharField()
+    extra_data = forms.Field(widget=ExtraWidget)
 
     def __init__(self, *args, **kwargs):
         super(AgendaModelForm, self).__init__(*args, **kwargs)
-        # Take the "extra" field from the model
-        extra = self.instance.extra
-        if extra is None: # new model or somehow no value
-            extra = self.instance.defaultExtra()
-        self.fields['extra_data'].initial = extra
+
+        if self.instance.pk is None: # new model
+            self.fields['extra_data'].initial = False # indicate that
+        else:
+            # Take the "extra" field from the model
+            extra = self.instance.extra
+            if extra is None: # no value
+                extra = self.instance.defaultExtra()
+            self.fields['extra_data'].initial = extra
+        self.fields['extra_data'].required = False
 
     def save(self, commit=True):
         # this is what the widget returned in value_from_datadict
@@ -51,6 +56,11 @@ class AgendaAdmin(EnhancedModelAdminMixin, admin.ModelAdmin):
 # from http://stackoverflow.com/questions/13817525/django-admin-make-all-fields-readonly
 from django.contrib.admin.util import flatten_fieldsets
 class ReadonlyAdmin(admin.ModelAdmin):
+    def has_add_permission(self, request):
+        return False
+    def has_delete_permission(self, request, extra_context=None):
+        return False
+
     def get_readonly_fields(self, request, obj=None):
 #        if request.user.is_superuser:
 #            return self.readonly_fields
