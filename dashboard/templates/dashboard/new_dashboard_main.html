@@ -95,7 +95,7 @@
         <div class="fund-feed">
         <h3> To configure the feed, <a href="{% url 'groups_all' %}">go to the lobby page</a>.</h3>
         <h3>Following: </h3>{% for category in following %}
-          {{ category.title }}
+          <a href="{% url 'category_home_page' category.pk %}">{{ category.title }}</a>
         {% endfor %}
   	{% endif %}
 
