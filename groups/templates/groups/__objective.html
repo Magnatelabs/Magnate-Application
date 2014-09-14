@@ -8,19 +8,23 @@
 					<a href="#"><img src="{% static "img/dash_hangoutstest.jpg" %}" alt="PHOTO" /></a>
 					<p><a href="#">Read more</a></p>
 				</figure>
-				<p>current lobby interest</p> 
+				{% if current_objective %}
+				<p>current lobby interest: {{ current_objective.entry.title }}</p> 
+				{% else %}
+				There are no active fundraisers in this lobby. Come back later...
+				{% endif %}
 			</div>
 			<div class="quickobjective-amount">
 				<div class="quickobjective-amount-total" id="dollar">
-					<sup>$</sup><!-- current objective donated amount -->
-					<span>{{ all_donations_by_user }}</span>
+					<sup>$</sup>
+					<span>{{ current_objective.current_amount }}</span>
 				</div>
-				<p>raised of <!-- admin defined amount -->{{ total_donation_amount }} minimum</p>
+				<p>raised of {{ current_objective.target_amount }} planned</p>
 			</div>
 			<div class="quickobjective-countdown"> <!-- countdown from admin defined -->
 				<div class="time-info">           
 					<div id="defaultCountdown"></div>
-					<p>days to go</p>     
+					{{ current_objective.date|timeuntil }}<p>to go</p>     
 				</div>
 			</div>
 			<div class="quickobjective-button">
