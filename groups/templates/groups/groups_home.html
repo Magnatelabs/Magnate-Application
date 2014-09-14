@@ -59,6 +59,8 @@
 <div class="grid_16">
     <div class="contentinner lobby-detail">
     	<div class="section1 section3 lobby-detail-breakdown">
+            <h1><u>Lobby for {{ category.title }}</u></h1>
+
 			{% for fund in funds|slice:":1" %} <!-- change_to_lobbies -->
 			{% include "groups/_breakdown.html" %}
 			{% endfor %}
