@@ -1,0 +1,12 @@
+{% ifequal keyvalue False %}
+  You need to save the new model before you can edit the extra fields.
+{% else %}
+  <table>
+    {% for kv in keyvalue %}
+      <tr>
+        <td><label>{{ kv.0 }}</label><td>
+        <td><input type='text' name='_aew_{{ kv.0 }}' value='{{ kv.1 }}'/></td>
+      </tr>
+    {% endfor %}
+  </table>
+{% endifequal %}
