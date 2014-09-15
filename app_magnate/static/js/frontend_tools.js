@@ -44,7 +44,7 @@ function autosize_font ( i, box ) {
 
 /*  OTHER JAVASCRIPT FOR DASHBOARD NAVIGATION, ETC. */
 
-function toggleArticleActive(article_dom_id, is_active) {
+function toggleArticleActive(article_dom_id, is_active, is_public) {
   if (is_active) { // deactivate all that are active
     $('.article-active').each(function(index, value) {
       toggleArticleActive($(this).attr('id'), false);
@@ -53,15 +53,16 @@ function toggleArticleActive(article_dom_id, is_active) {
 
   var a = $('#' + article_dom_id);
   a.attr("class", is_active ? "article-active" : "");
-
   if (is_active) {
-    a.find(".show-when-article-active").show(); // can animate, e.g. show('slow')
+    a.find(".show-when-article-active").fadeIn(); // can animate, e.g. show('slow')
     a.find('.show-when-article-not-active').children().addClass("nohover-underline");
     a.find('.fundfeed_title_active').addClass("nohover-underline"); 
     a.find(".show-when-article-not-active").hide();		
 
-    // Load questions about this entry in the main div
-    $('#div_activity_'+article_dom_id.replace('entry-', '')).load('/f/?entry=' + article_dom_id.replace('entry-','') );
+    if (is_public) {
+      // Only for public entries: load questions about this entry in the main div
+      $('#div_activity_'+article_dom_id.replace('entry-', '')).load('/f/?entry=' + article_dom_id.replace('entry-','') );
+    }
   } else {
     a.find(".show-when-article-active").hide();
     a.find(".show-when-article-not-active").show();

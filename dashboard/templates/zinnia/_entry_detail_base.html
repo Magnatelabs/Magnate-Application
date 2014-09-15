@@ -62,7 +62,7 @@
   {% endif %}
     {% if continue_reading %} 
   	<div class="expand-btn show-when-article-not-active">
-  		<figure><img id="expand-entry-{{ object.pk }}" src="{% static "img/expandbtn_normal.png" %}"  onclick="toggleArticleActive('entry-{{ object.pk }}', true);" alt="PHOTO" /></figure>
+  		<figure><img id="expand-entry-{{ object.pk }}" src="{% static "img/expandbtn_normal.png" %}"  onclick="toggleArticleActive('entry-{{ object.pk }}', true, {{ object.is_public|lower }});" alt="PHOTO" /></figure>
   	</div>
 
   	 <div class="show-when-article-active collapse-btn">
