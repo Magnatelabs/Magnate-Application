@@ -109,7 +109,6 @@ def ask(request):
     #BEGIN
 
     template_name = 'ask.html'
-
     if not form:
         # BEGIN
         # Changed this part to link OSQA to Magnate's zinnia entries
@@ -124,9 +123,18 @@ def ask(request):
             if entry.is_public(): # Can only ask questions about public entries
                 form = AskForm(user=request.user, initial={'entry_id': entry_id, 'entry_title': entry.title})
                 template_name='ask_about.html'
+            else:
+                # No point to ask questions about private entries, 
+                # as this is likely a mistake.
+                raise Http404
         except (TypeError, ValueError, Entry.DoesNotExist) as e:
-            form = AskForm(user=request.user)
-            template_name='ask.html'
+            # No point to ask questions about no entry in particular,
+            # as nobody will ever find them.
+            #
+            # form = AskForm(user=request.user)
+            # template_name='ask.html'
+            raise Http404
+
     
     # Also changed below ask.html --> ask_about.html
     # END
