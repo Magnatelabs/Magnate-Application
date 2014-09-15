@@ -42,7 +42,7 @@
     <span>
     {% for question in questions %}
 
-    {% if forloop.counter|divisibleby:show_more_questions_cycle %}<label  style="position:relative; float:left;"><button onclick="$('#show-more-{{ forloop.counter }}').show(); $(this).hide();">Show more questions.</button></label></span><span style="display: none" id="show-more-{{ forloop.counter }}">{% endif %}
+    {% if forloop.counter|divisibleby:show_more_questions_cycle %}<label  style="position:relative; float:left;"><button onclick="$('#show-more-{{ forloop.counter }}').prev().append($('#show-more-{{ forloop.counter }}').html()); $('#show-more-{{ forloop.counter }}').remove();$(this).parent().remove();">Show more questions.</button></label></span><span style="display: none" id="show-more-{{ forloop.counter }}">{% endif %}
 
     {% if show_summary %}
       {% question_list_item question question_summary=yes %}
