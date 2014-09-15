@@ -44,6 +44,11 @@ function autosize_font ( i, box ) {
 
 /*  OTHER JAVASCRIPT FOR DASHBOARD NAVIGATION, ETC. */
 
+// article_id is an integer: the primary key of the Zinnia entry
+function loadQuestionFeed(jqDiv, article_id) {
+  jqDiv.load('/f/?entry=' + article_id );
+}
+
 function toggleArticleActive(article_dom_id, is_active, is_public) {
   if (is_active) { // deactivate all that are active
     $('.article-active').each(function(index, value) {
@@ -61,7 +66,7 @@ function toggleArticleActive(article_dom_id, is_active, is_public) {
 
     if (is_public) {
       // Only for public entries: load questions about this entry in the main div
-      $('#div_activity_'+article_dom_id.replace('entry-', '')).load('/f/?entry=' + article_dom_id.replace('entry-','') );
+      loadQuestionFeed($('#div_activity_'+article_dom_id.replace('entry-', '')), article_dom_id.replace('entry-',''))
     }
   } else {
     a.find(".show-when-article-active").hide();

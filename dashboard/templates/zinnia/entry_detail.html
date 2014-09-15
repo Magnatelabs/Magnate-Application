@@ -20,7 +20,15 @@
 {% endblock %}  
 
 
+
 {% block entry-comments %}
+
+<script type="text/javascript">
+$(document).ready(function(){ loadQuestionFeed( $('#question-feed'), {{ entry.pk }} ); });
+</script>
+<div id="question-feed"/>
+
+
 <!-- Not sure if we want to use this comments feature
 {% if object.is_public %}
     <div class="comments">
@@ -76,7 +84,4 @@
 {% endblock %}
 
 {% block entry-comments-form %}
-    {% if object.is_public %}
-        {{ block.super }}
-    {% endif %}
 {% endblock %}
