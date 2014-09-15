@@ -21,28 +21,50 @@
     </div>
 
 <div class="tabBar">
+{% comment %}
 
-    {% comment %}
     Commenting out the following code for design purposes (jmw 06.27.14)
     {% include "question_list/title.html" %}
     <a class="feed-icon" style="background-image:url('{% media "media/images/feed-icon-small.png" %}');" href="{{ feed_url }}" title="{% trans "subscribe to question RSS feed" %}"></a>
-    {% endcomment %}
     
+    Also commenting out the sorting tabs,
+    and replacing questions.paginator.page with just questions below,
+    since now we have the "Show more questions" button (Sergey 09.14.14)
+
     {{ questions.paginator.sort_tabs }}
+{% endcomment %}
 </div>
-<div id="listA">{% for question in questions.paginator.page %}
+
+
+
+{% with show_more_questions_cycle=5 %}
+<div id="listA">
+    <span>
+    {% for question in questions %}
+
+    {% if forloop.counter|divisibleby:show_more_questions_cycle %}<label  style="position:relative; float:left;"><button onclick="$('#show-more-{{ forloop.counter }}').show(); $(this).hide();">Show more questions.</button></label></span><span style="display: none" id="show-more-{{ forloop.counter }}">{% endif %}
+
     {% if show_summary %}
       {% question_list_item question question_summary=yes %}
     {% else %}
       {% question_list_item question %}
     {% endif %}
-{% endfor %}</div>
+{% endfor %}
+    </span>
+</div>
+{% endwith %}
 {% endblock %}
+
+{% comment %}
+
+No more pagination. Remove it after a while.
 
 {% block tail %}
     <div class="pager">{{ questions.paginator.page_numbers }}</div>
     <div class="pagesize">{{ questions.paginator.page_sizes }}</div>
 {% endblock %}
+{% endcomment %}
+
 
 {% block sidebar %}
     {% include "question_list/count.html" %}
