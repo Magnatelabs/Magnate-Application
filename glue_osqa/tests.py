@@ -73,17 +73,41 @@ class testOSQATemplates(TestCase):
         # but then it would fail, because request.user would not contain
         # reputation and other fields
 
+        from zinnia.models.entry import Entry
+        from zinnia.managers import PUBLISHED, DRAFT, HIDDEN
+        import datetime, pytz
 
+        # No questions about no entry
         r = self.client.get('/osqa_forum/questions/ask/')
+        self.assertEqual(r.status_code, 404)
+
+        e=Entry.objects.create(title='Can only ask about public entries', slug='j', start_publication=datetime.datetime(2011,8,15,8,15,12,0,pytz.UTC))
+
+        # No questions about draft entries
+        e.status=DRAFT
+        e.save()
+        r = self.client.get('/osqa_forum/questions/ask/?entry_id=1')
+        self.assertEqual(r.status_code, 404)
+
+        # No questions about hidden entries
+        e.status=HIDDEN
+        e.save()
+        r = self.client.get('/osqa_forum/questions/ask/?entry_id=1')
+        self.assertEqual(r.status_code, 404)
+
+        # Yes, you can ask about public entries!
+        e.status=PUBLISHED
+        e.save()
+        r = self.client.get('/osqa_forum/questions/ask/?entry_id=1')
         self.assertEqual(r.status_code, 200)
 
-        r = self.client.post('/osqa_forum/questions/ask/', {'title': '', 'text': 'This is the text of my first question', 'tags': 'first second third'})
+        r = self.client.post('/osqa_forum/questions/ask/?entry_id=1', {'title': '', 'text': 'This is the text of my first question', 'tags': 'first second third'})
         self.assertEqual(r.status_code, 200)
         self.assertContains(r, 'errorlist')
         self.assertContains(r, 'This field is required')
         self.assertContains(r, 'please enter a descriptive title for your question')
 
-        r = self.client.post('/osqa_forum/questions/ask/', {'title': 'Now this is a legitimate question.', 'text': '', 'tags': 'good for real'})
+        r = self.client.post('/osqa_forum/questions/ask/?entry_id=1', {'title': 'Now this is a legitimate question.', 'text': '', 'tags': 'good for real'})
         
         self.assertEqual(r.status_code, 200)
         self.assertContains(r, 'errorlist')
