@@ -24,8 +24,6 @@ TEST_PASSWORD=credentials.TEST_PASSWORD
 
 
 class main_page(MyTestCase):
-
-
     def test_main_page(self):
         # See http://selenium-python.readthedocs.org/en/latest/getting-started.html#using-selenium-to-write-tests
         driver = self.driver
@@ -34,7 +32,15 @@ class main_page(MyTestCase):
         indexbanner=self.by_class_name("indexbanner")
         self.assertIn('Unleash your inner mogul', indexbanner.text)
 
-    
+
+    def test_dashboard(self):
+        driver = self.driver
+        
+        self.login_into_magnate(TEST_USERNAME, TEST_PASSWORD)        
+        driver.get(_("/dash/dashboard"))
+
+        # Make sure we are on the dashboard
+        self.assert_on_dashboard()
 
     def test_login(self):
         driver = self.driver
