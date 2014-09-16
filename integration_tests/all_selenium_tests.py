@@ -25,9 +25,6 @@ print "Expecting Django server on port 8123"
 
 
 class main_page(MyTestCase):
-    def assert_on_dashboard(self):
-        self.by_id("dashboard_body")
-
     def test_main_page(self):
         # See http://selenium-python.readthedocs.org/en/latest/getting-started.html#using-selenium-to-write-tests
         driver = self.driver

@@ -98,4 +98,7 @@ class MyTestCase(unittest.TestCase):
         self.assertVisible(By.XPATH, a)
         return self.driver.find_element_by_xpath(a)
 
+    def assert_on_dashboard(self):
+        self.by_id("dashboard_body")
+
 	
