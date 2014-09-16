@@ -13,9 +13,7 @@
 				<a href="{% url "dashboard" %}" class="first">Home</a> | 
 			{% endif %}
 						
-				<a href="{% url "aboutus" %}">About</a> | 
-				<a href="{% url "comingsoon" %}">Blog</a>
-
+				<a href="{% url "aboutus" %}">About</a>
 			</p>
         
         <p class="footer_mobile">
@@ -31,9 +29,14 @@
         
         <div class="footer_socialmedia">
         	<ul>
-				<li><a href="http://twitter.com/magnatelabs" target="_blank"><img src="{% static "img/twitter01.png" %}" alt="PHOTO" /></a></li>
+				<li><a href="http://twitter.com/magnateio" target="_blank"><img src="{% static "img/twitter01.png" %}" alt="PHOTO" /></a></li>
 				<li><a href="http://www.facebook.com/pages/Magnate-Labs/197894490391670" target="_blank"><img src="{% static "img/facebook01.png" %}" alt="PHOTO" /></a></li>
+				
+				{% comment %}
+				## We need a pinterest page dude
 				<li><a href="http://www.pinterest.com/MagnateLabs/" target="_blank"><img src="{% static "img/pinterest01.png" %}" alt="PHOTO" /></a></li>
+				{% endcomment %}
+					
 			</ul>
         </div>
 	</div>	
