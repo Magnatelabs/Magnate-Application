@@ -4304,7 +4304,7 @@ input[type="submit"].btn.btn-mini {
 }
 
 .navbar-inner {
-  min-height: 71px;
+  min-height: 63px;
   padding-right: 20px;
   padding-left: 20px;
   background-color: #4d4c4b;
@@ -4347,7 +4347,7 @@ input[type="submit"].btn.btn-mini {
 .navbar .brand {
   display: block;
   float: left;
-  padding: 14px 20px 10px;
+  padding: 10px 20px 10px;
   margin-left: -20px;
   font-size: 20px;
   font-weight: 200;
@@ -6456,8 +6456,6 @@ Login / Logout page styling
 .entry-image { float: left; }
 .entry-footer { padding-bottom: 50px;}
 .entry-title p {color: #000000; }
-#feed-entry-image {  }
-#feed-entry-icon { width: 32px; float: right; }
 .feedpublic-entry-content { padding-top: 20px;}
 .feedprivate-entry-content { padding-top: 20px;}
 .feedprivate-entry-content p { width: 72%;}
