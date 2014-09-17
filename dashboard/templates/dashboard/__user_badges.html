@@ -4,6 +4,10 @@
 	<!-- dashboard status -->
       <div class="info">
 	{% ifequal user request.user %}
+		
+		{% comment %}
+		## Not sure if we still need this
+
 	    {% if has_status_badge %}
 	    <figure><a href="{% url 'status_home' %}">{% render_badge status_badge "status_icon" %}</a></figure>
                 <h3 class="unstyled"><a href="{% url 'status_home' %}">{{ status_badge.name }}:</a></h3>
@@ -11,13 +15,14 @@
 	    <figure>{% render_badge status_badge "status_icon"  %}</figure>
 	     	   <h3>Spectator:</h3><p><a href="#">You do not currently have a Magnate Status. Click to learn why status is important, and how to get it!</a></p>
 	    {% endif %}
+	    {% endcomment %}
 
 	{% else %}
 	    <figure>{% render_badge user_status_badge "status_icon"  %}</figure>
             {% if user_has_status_badge %}
                 <h3>{{ user_status_badge.name }}:</h3>
             {% else %}
-                <h3>No Status Lurker</h3>
+                <h3>No Status</h3>
             {% endif %}
 	{% endifequal %}
       </div>
@@ -25,7 +30,7 @@
 	  <!-- dashboard usage stats -->
 	  <div class="info-stats">
 	  <ul class="unstyled">
-	  <li><p class="info-stats-title">Contribution</p><!--data--><p>02</p></li>
+	  <li><p class="info-stats-title">Contributions</p><!--data--><p>02</p></li>
 	  <li><p class="info-stats-title">Knowledge Ranking</p><!--data--><p>2,004</p></li>
 	  </div>
 
