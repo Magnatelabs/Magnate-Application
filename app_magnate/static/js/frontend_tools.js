@@ -70,7 +70,7 @@ function toggleArticleActive(article_dom_id, is_active, is_public) {
     }
   } else {
     a.find(".show-when-article-active").hide();
-    a.find(".show-when-article-not-active").show();
+    a.find(".show-when-article-not-active").fadeIn(200);
     a.find('.show-when-article-not-active').children().removeClass("nohover-underline");
     a.find('.fundfeed_title_active').removeClass("nohover-underline"); 
 
@@ -91,7 +91,6 @@ function toggleArticleNotActive(article_dom_id, is_active) {
   
 
 
-// Added by Jimi W. 07.19.14
 // Used for 'share lightbox'
 // This script finds the container with a class specified, helps display placeholder text with a break in it and removes/replaces it
 // depending on if someone has actually inputted text.
