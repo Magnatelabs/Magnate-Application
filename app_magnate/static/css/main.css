@@ -207,7 +207,7 @@ updated: jmw 06.25.14
 	float:left; 
 	background:#cbc9ca; 
 	border-top:1px solid #bcbbbb; 
-	padding:20px 0 10px 0
+	padding:13px 0 10px 0
 	}
 	
 .fund-feed article h4 { font-size:14px; color:#FFFFFF; font-family:"helveticaneuemedium", Arial, Helvetica, sans-serif; line-height:15px; padding:0 15% 6px 0; margin: 0px 20px;}
@@ -215,8 +215,6 @@ updated: jmw 06.25.14
 .fund-feed article h4 { 
 	color:#4c4c4c; 
 	font-weight: normal;
-	cursor: pointer; 
-	cursor: hand;
 	}
 
 .fund-feed article p { 
@@ -252,12 +250,6 @@ updated: jmw 06.25.14
 .right-col { width:658px; float:right; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;}
 .question_banner { background: #f4f6f6; width:658px; float: left; margin: 5px 0px 20px 0px; border: 1px solid #e7e8e8}
 #askquestion_fix {font-size: 12px; float: right; margin: 5px 10px 5px 0px; color: #7e3630; border-color: #e7dddc;}
-
-.uppo {
-	float: left; 
-	margin-top: 20px;
-	width: 30%;
-	}
 	
 .fund-feed article .show-when-article-not-active .hover-underline:hover {cursor: pointer; cursor: hand; }
 .fund-feed article .show-when-article-not-active .nohover-underline {cursor: text;} 
@@ -980,9 +972,29 @@ updated: jmw 09.01.14
 
 .dash-activityfeed .activity-feed {
 	background: #ffffff;
-	min-height: 80px;
-	min-height: 281px;
+	height: 281px;
 	float: left;
+	width: 90%;
+}
+
+.activity-feed caption{
+	padding: 5px 0px 10px 0px;
+	border-bottom: 1px solid #ddd;
+}
+
+.activity-feed .module{
+	width: 100%;
+}
+
+.activity-feed .module table{
+	border: none;
+}
+
+.activity-feed table tbody tr td {
+	padding: 10px 0px 0px 0px;
+}
+
+.action_container{
 	width: 90%;
 }
 
@@ -1008,6 +1020,44 @@ updated: jmw 09.01.14
 .fundfeed-content {
 	float: left;
 	width: 48%;
+}
+
+.fundfeed-entry-content-btns{
+	float: left;
+	width: 70%;
+}
+
+.content-btns-expand{
+	float: right;
+	margin-top: 20px;
+	width: 34%;
+}
+
+.expand-btn {
+	float: right;
+	width: 110px;
+	margin-top: -22px;
+	cursor: pointer; 
+	cursor: hand;
+}
+
+.collapse-btn {
+	float: right;
+	width: 108px;
+	margin-top: -94px;
+	cursor: pointer; 
+	cursor: hand;
+}
+
+.added-question-count{
+	float: right;
+	width: 18%;
+	margin-right: 20px;
+}
+
+.fund-feed article #listA{
+	padding: 0px 0px 40px 20px;
+	width: 75%;
 }
 
 .loadmore-entry .greyed-user {
