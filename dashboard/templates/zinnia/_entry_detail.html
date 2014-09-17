@@ -48,7 +48,7 @@
       {% for category in categories %}
       <a href="{% url 'category_home_page' category.pk %}"
          title="{% blocktrans %}Show all entries in {{ category }}{% endblocktrans %}"
-         rel="tag category">{{ category }}</a>{% if not forloop.last %}, {% endif %}{% endfor %}{% endif %}.
+         rel="tag category">{{ category }}</a>{% if not forloop.last %}, {% endif %}{% endfor %}{% endif %}
       {% endwith %}
       {% endblock entry-categories %}
     </p>
@@ -60,11 +60,18 @@
 {% block entry-title %}
   {% if continue_reading %}
   <div class="show-when-article-active">
+	  
+	  {% comment %}
+	  ## These are old icons that displayed for each type of Zinnia content, 
+	  ## and are not used at the current moment.
+	  
 	  {% if object.is_public %}
 	  {% else %}
 	  <img id="privatefeed-entry-icon" src="{{ object.private_icon_url }}" style="float: left" />
 	  {% endif %}
 	  <img id="feed-entry-icon" src="{{ object.icon_url }}"   />
+	  {% endcomment %}
+	  
 	  {{ block.super }}
 	</div>
     <div class="fundfeed-title">
@@ -131,16 +138,6 @@
 	  
 	  <span class="fundfeed-content"><p>{{ object_content }}</p></span>
 	  
-	  <span class="show-when-article-active">
-	    <div class="uppo">
-	    {% if object.is_public %}
-	    <a href="{{ object.get_absolute_url }}" class="btn-more2 fundfeed_btn_mod">Read more</a>
-        <a href="/forum/questions/ask/?entry_id={{ object.pk }}" class="btn-more2">Ask Question</a>
-        {% else %} 
-        <a href="{% url 'newstatus_home' %}" class="btn-more2 fundfeed_btn_mod">Check Status Page</a>
-        {% endif %}  
-	    </div>
-	  </span>
 	{% else %}
 		{% if object.is_public %}
 			<div class="blogpublic-entry-content">
@@ -152,6 +149,15 @@
 			</div>						
 		{% endif %}
 	{% endif %}
+	<span class="show-when-article-active fundfeed-entry-content-btns">
+		<div class="content-btns-expand">
+	    {% if object.is_public %}
+	    <a href="{{ object.get_absolute_url }}" class="btn-more2 fundfeed_btn_mod">Read more</a>
+        <a href="/forum/questions/ask/?entry_id={{ object.pk }}" class="btn-more2">Ask Question</a>
+        {% endif %}  
+	    </div>
+	</span>
+	
 {% endblock %}
 
 
