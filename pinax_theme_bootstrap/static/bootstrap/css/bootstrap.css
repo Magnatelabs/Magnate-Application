@@ -6110,8 +6110,7 @@ Homepage added styles (for banner_base and subsequent pages) 08.17.13
 .indexbanner aside h1 a { color:#FFFFFF;}
 .indexbanner aside p { font-size:18px; color:#FFFFFF; padding-bottom:18px;}
 .indexbanner aside p a { color:#FFFFFF}
-.indexbanner img {box-shadow: #676767 0 1px 3px;}
-
+.indexbanner img {border:1px solid #bebebe;}
 .indexbtn { display: inline-block; *display: inline; padding:0; float:left; width:154px; height:56px; margin-bottom: 0; *margin-left: .3em; font-size: 20px; line-height: 56px; font-family:"helveticaneuelight",Arial, Helvetica, sans-serif; color: #FFFFFF; text-align: center; text-shadow:none; vertical-align: middle; cursor: pointer; background:#80bc46; background:-moz-linear-gradient(#8ebc60, #72bb2b); background: -webkit-gradient(linear, left top, left bottom, from(#8ebc60), to(#72bb2b)); background: -o-linear-gradient(#8ebc60, #72bb2b); -pie-background: linear-gradient(#8ebc60, #72bb2b); border:none; text-decoration:none !important; box-shadow: #393128 0 1px 3px; border-radius:6px; behavior: url(PIE.htc); position:relative;}
 
 a.indexbtn:hover,
@@ -6141,7 +6140,7 @@ a.indexbtn.active { background:#80bc46; background:-moz-linear-gradient(#8ebc60,
 
 .hero-unit .feature_grid aside p { line-height: 1.2em; font-size: 14px; padding-bottom: 0; text-align: left; }
 
-.row { padding: 60px; max-width: 740px; margin: 0px 0px 0px 40px; margin-bottom: 170px; font-size: 18px; font-weight: 200; line-height: 30px; color: inherit; background-color: #ffffff; box-shadow: #999 0 0 3px;  -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; }
+.row { padding: 60px; max-width: 740px; margin: 0px 0px 0px 40px; margin-bottom: 170px; font-size: 18px; font-weight: 200; line-height: 30px; color: inherit; background-color: #ffffff; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; border:1px solid #bebebe; }
 
 .row .input {width: 91.5%; height: 16px; float: left; background: #FFFFFF; box-shadow: none; box-shadow: inset #bebebe 1px 1px 2px; border: 1px solid #bebebe; border-radius: 3px; behavior: url(PIE.htc); position: relative;
 font-family: "HelveticaNeueLTStd55Roman", Arial, Helvetica, sans-serif; font-size: 14px; color: #9f9f9f; padding: 7px 4%; }
