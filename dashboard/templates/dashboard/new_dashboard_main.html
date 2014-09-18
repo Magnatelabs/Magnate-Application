@@ -93,13 +93,12 @@
 
         <div class="dash_zinniafeed grid_3 alpha omega">
         <div class="fund-feed">
-        
-        {% comment %}
-        This does not belong here. Need to find a better location for this information.
+                
+        <h3> To configure the feed, <a href="{% url 'groups_all' %}">go to the lobby page</a>.</h3>
         <h3>Following: </h3>{% for category in following %}
           <a href="{% url 'category_home_page' category.pk %}">{{ category.title }}</a>
         {% endfor %}
-        {% endcomment %}
+        
         
   	{% endif %}
 
@@ -107,14 +106,12 @@
       {% block content %}
       {% endblock %}
 
-
-
-      {% for object in entries.paginator.page %}
+     {% for object in entries.paginator.page %}
         {% include object.content_template with object_content=object.html_content|truncatewords_html:object.blurb_word_limit|safe continue_reading=1 %}
-      {% endfor %}
-<div class="pager" style="float: right">
+     {% endfor %}
+	  <div class="pager" style="float: right">
     {{ entries.paginator.page_numbers }}
-</div>      
+	</div>      
     {% endblock %}
 
         {% if is_dashboard %}
