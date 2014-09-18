@@ -705,12 +705,12 @@ a.medal:hover {
 }
 
 .headUser {
-    border-bottom: 1px solid #777777;
-    font-size: 20px;
+    font-size: 36px;
     font-weight: 800;
     margin-bottom: 12px;
-    padding: 5px;
+    padding: 20px;
     text-align: left;
+    margin-top: 20px;
 }
 
 .questions-related {
@@ -1029,7 +1029,7 @@ ins {
 }
 
 .user-about {
-    background-color: #EEEEEE;
+/*    background-color: #EEEEEE;  */
     height: 200px;
     line-height: 20px;
     overflow: auto;
