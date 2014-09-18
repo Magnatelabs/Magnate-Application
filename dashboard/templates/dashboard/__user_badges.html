@@ -5,9 +5,9 @@
       <div class="info">
 	{% ifequal user request.user %}
 		
+		
 		{% comment %}
-		## Not sure if we still need this
-
+		Not sure if we still need this
 	    {% if has_status_badge %}
 	    <figure><a href="{% url 'status_home' %}">{% render_badge status_badge "status_icon" %}</a></figure>
                 <h3 class="unstyled"><a href="{% url 'status_home' %}">{{ status_badge.name }}:</a></h3>
@@ -16,6 +16,7 @@
 	     	   <h3>Spectator:</h3><p><a href="#">You do not currently have a Magnate Status. Click to learn why status is important, and how to get it!</a></p>
 	    {% endif %}
 	    {% endcomment %}
+
 
 	{% else %}
 	    <figure>{% render_badge user_status_badge "status_icon"  %}</figure>
@@ -39,8 +40,8 @@
 
         <div class="badges">
 			<!--Now groups-->
-        <h2>Following ({{badges | no_metabadges | length }})</h2><span><a href="{% url 'status_home' %}">See All</a></span>
-
+        <h2>You are following ({{following | length }}) lobbies.</h2><span><a href="{% url 'groups_all' %}">Click to see all</a></span>
+{% comment %}
 	<ul class="unstyled">
 	{% for badge in badges %}
           {% if not badge.is_metabadge %}
@@ -54,6 +55,6 @@
 	  {% endif %}
 	{% endfor %}
 	</ul>
-
+{% endcomment %}
         </div>
         
