@@ -901,7 +901,7 @@ updated: jmw 09.01.14
 	}
 
 .profile-info figure{ 
-	width:82px; 
+	width:90px; 
 	float:left; 
 	padding-right: 10px;
 	-webkit-margin-before: 0em; 
@@ -967,7 +967,7 @@ updated: jmw 09.01.14
 .profile-info .badges{ 
 	width:100%;
 	float:left;
-	padding-top: 10px;
+	padding-top: 20px;
 	}
 
 .profile-info .badges h2{
@@ -998,7 +998,7 @@ updated: jmw 09.01.14
 	}
 	
 .profile-info .badges a{ 
-	color:#b3b3b3
+	color:#d2f2a3;
 	}
 	
 .profile-info .badges ul{
@@ -1033,6 +1033,7 @@ updated: jmw 09.01.14
 	width: 28%;
 	margin-top: 30px;
 	min-height: 281px;
+	margin-bottom: 40px;
 }
 
 .dash-activityfeed .activity-feed {
@@ -1064,17 +1065,56 @@ updated: jmw 09.01.14
 }
 
 .dash-search {
-	width: 70%;
+	width: 80%;
 	background: #ffffff;
 	min-height: 50px;
 	float: left;
 	border-radius: 4px;
-	margin: 20px 0px 10px 0px;
+	margin: 30px 0px 10px 0px;
 }
 
-.bgprofile-info .profile-info .dash-search input {
-	width: 80%;
+.dash-search-bar{
+	float: left;
+	width: 100%;
+	padding: 5px 0px 0px 0px;
+}
+
+.dash-search .input {
+	width: 75%;
 	margin: 10px;
+	margin: 10px 10px 2px 10px;
+}
+
+.dash-search .searchbtn {
+	width: 15%;
+	float: left;
+	margin-top: 14px;
+}
+
+.dash-search .options{
+	float: left;
+	width: 82%;
+	padding-left: 85px;
+}
+
+.dash-search .options li{
+	float: left;
+	padding-right: 10px;
+}
+
+.dash-search .options li input{
+	width: 20px;
+	float: left;
+}
+
+.searchbtn[value] {
+	font-size: 24px;
+}
+
+.dash-search .options li p{
+	float: left;
+	margin-top: 3px;
+	margin-bottom: 5px;
 }
 
 .fundfeed-title {
