@@ -48,6 +48,57 @@ updated: jmw 07.08.14
 	padding-top: 80px;
 }
 
+body .dash-body-nav{
+	padding: 0px 0px 10px 0px;
+	border-bottom:1px solid #bebebe;
+	background-color: transparent;
+	min-height: 0px;
+	display: inline-block;
+	width: 100%;
+}
+
+.body-nav-inner{
+	float: left;
+	width: 940px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.nav-inner-pagetitle{
+	float: left;
+	width: 50%;
+}
+
+.nav-inner-demobtn{
+	float: right;
+	width: 21%;
+}
+
+/*----------------------------------------------------------------------------------------------------
+Site_base modifications 
+created: jmw
+updated: jmw 09.17.14
+----------------------------------------------------------------------------------------------------*/
+.nav-collapse{
+	float: left;
+	width: 40%;
+	padding-left: 40px;
+	padding: 27px 0px 0px 40px;
+}
+
+.quickselect-text{
+	float: left;
+	padding-right: 15px;
+}
+
+.quickselect-text a{
+	color: #ffffff;	
+}
+
+.quickselect-text a:hover{
+	text-decoration: none;
+}
+
 /*----------------------------------------------------------------------------------------------------
 Share Lightbox Styles
 created: jmw
@@ -136,6 +187,20 @@ Dashboard v5 Styling
 created: jmw 05.15.14
 updated: jmw 06.25.14
 ----------------------------------------------------------------------------------------------------*/
+.dash_grid { 
+	width: 940px; 
+	display: inline; 
+	float: left; 
+	margin-left: 10px; 
+	margin-right: 10px;	
+}
+
+.inner_dashcontent { 
+	width: 100%; 
+	float: left; 
+	padding: 50px 0 170px 0; 
+}
+
 #dashboard_body {
 	margin: 0; 
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
