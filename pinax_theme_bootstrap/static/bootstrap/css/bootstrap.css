@@ -4319,9 +4319,6 @@ input[type="submit"].btn.btn-mini {
           border-radius: 4px;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#fff2f2f2', GradientType=0);
   *zoom: 1;
-  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
-     -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
-          box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
 }
 
 .navbar-inner:before,
@@ -6372,8 +6369,6 @@ Dashboard styling
 #dash_confirm_row a { margin-top: 30px; }
 #dash_confirm_btn { font-size: 15px; }
 /* New Dashboard (v4) styling --do not remove, not old dashboard css */
-.dash_grid { width: 940px; display: inline; float: left; margin-left: 10px; margin-right: 10px;	}
-.inner_dashcontent { width: 100%; float: left; padding: 40px 0 170px 0; }
 #user_badges .info h3 { font-size:14px; color:#000000; padding-bottom: 2px; -webkit-margin-before: 0em; -webkit-margin-after: 0em; line-height: 1; }
 #user_badges .info h3 a{ font-size: 14px; }
 #user_badges .info a{ font-size: 12px; line-height: 14px; padding: 0 5% 0 0; } 
