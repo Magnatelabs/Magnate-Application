@@ -71,6 +71,7 @@
                                 {% block site_brand_loggedin %}<a class="brand" href="{% url "dashboard" %}" title="MAGNATE"><img src="{% static "img/logo.png" %}" alt="MAGNATE" /></a>{% endblock %}
                                 {% endif %}
                                 
+                                {% if request.user.is_authenticated %}
                                 <div class="nav-collapse">
                                 	<ul class='unstyled'>
                                 		<li>
@@ -90,7 +91,8 @@
                                 		</li>
                                 	</ul>
                                 </div>
-
+								{% endif %}
+								
                                     {% block nav %}
                                         {% comment %}
                                        <!--     <ul class="nav">
