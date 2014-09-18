@@ -1242,7 +1242,32 @@
  	
  ======================================================*/
  	
- 	table { background: #fff; -moz-border-radius: 3px; -webkit-border-radius: 3px; width: 100%; margin: 0 0 18px; border: 1px solid #ddd;  }
+.activity-feed table { background: #fff; -moz-border-radius: 3px; -webkit-border-radius: 3px; width: 100%; margin: 0 0 18px; border: 1px solid #ddd;  }
+ 	
+.activity-feed table thead { background: #f5f5f5; }
+.activity-feed table thead tr th,
+.activity-feed table tbody tr td { font-size: 12px; line-height: 18px; text-align: left; }
+.activity-feed table thead tr th { padding: 8px 10px 9px; font-size: 14px; font-weight: bold; color: #222; }
+.activity-feed table thead tr th:first-child { border-left: none; }
+.activity-feed table thead tr th:last-child { border-right: none; }
+ 	
+.activity-feed table thead tr {  }
+.activity-feed table tbody {  }
+.activity-feed table tbody tr {  }
+.activity-feed table tbody tr.even,
+.activity-feed table tbody tr.alt { background: #f1f8fe; }
+.activity-feed table tbody tr:nth-child(even) { background: #f1f8fe; }
+.activity-feed table tbody tr td { color: #999; padding: 9px 10px; vertical-align: top; border: none;}
+
+/*profile tables */
+table { 
+	background: #fff; 
+	-moz-border-radius: 3px; 
+	-webkit-border-radius: 3px; 
+	width: 100%; 
+	margin: 0px 0px 0px 10px;
+/*	margin: 0 0 18px;  */
+}
  	
  	table thead { background: #f5f5f5; }
  	table thead tr th,
@@ -1256,8 +1281,16 @@
  	table tbody tr {  }
  	table tbody tr.even,
  	table tbody tr.alt { background: #f1f8fe; }
- 	table tbody tr:nth-child(even) { background: #f1f8fe; }
- 	table tbody tr td { color: #999; padding: 9px 10px; vertical-align: top; border: none;}
+ 	
+table tbody tr:nth-child(even) {}
+
+table tbody tr td { 
+/* 	color: #999;  */
+/* 	padding: 9px 10px; */
+ 	vertical-align: top; 
+ 	border: none;
+}
+
 
 
 /*=====================================================
