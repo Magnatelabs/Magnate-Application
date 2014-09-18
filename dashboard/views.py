@@ -80,7 +80,7 @@ class DashboardView(zinnia.views.archives.EntryIndex):
 
 class DashboardPaginatorContext(pagination.PaginatorContext):
     def __init__(self):
-        super (DashboardPaginatorContext, self).__init__('DASHBOARD_FEED', pagesizes=(5, 10, 20), default_pagesize=5)
+        super (DashboardPaginatorContext, self).__init__('DASHBOARD_FEED', pagesizes=(5, 10, 20), default_pagesize=10)
 
 
 # Weird hack to disable pagination for unit tests.
