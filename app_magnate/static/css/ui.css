@@ -1257,7 +1257,13 @@
 .activity-feed table tbody tr.even,
 .activity-feed table tbody tr.alt { background: #f1f8fe; }
 .activity-feed table tbody tr:nth-child(even) { background: #f1f8fe; }
-.activity-feed table tbody tr td { color: #999; padding: 9px 10px; vertical-align: top; border: none;}
+
+.activity-feed table tbody tr td { 
+	color: #999; 
+	padding: 5px 0px 5px 0px;
+	vertical-align: top; 
+	border: none;
+}
 
 /*profile tables */
 table { 
