@@ -74,6 +74,28 @@ body .dash-body-nav{
 	width: 21%;
 }
 
+.quickselect-text p{
+	font-size: 13px;
+	line-height: 140%;
+	margin-bottom: 13px;
+}
+
+#back-select{
+	cursor: pointer; 
+	cursor: hand;
+}
+
+#back-select:hover{
+	color: #c5c5c5;
+}
+
+#back-select p{
+	float: left;
+	line-height: 31px;
+	margin-bottom: 0px;
+	padding-right: 2px;
+}
+
 /*----------------------------------------------------------------------------------------------------
 Site_base modifications 
 created: jmw
@@ -1050,6 +1072,7 @@ updated: jmw 09.01.14
 
 .activity-feed .module{
 	width: 100%;
+	max-height: 281px;
 }
 
 .activity-feed .module table{
@@ -1231,20 +1254,25 @@ Groups_all v1 Styling
 created: jmw 09.02.14
 updated: jmw 09.02.14
 ----------------------------------------------------------------------------------------------------*/
-#groups_body {
-	margin: 0; 
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
-	font-size: 14px; 
-	line-height: 20px; 
-	color: #333333; 
-	background:#edece8 url(../img/bg_body.gif) repeat-x top left; 
-	padding-top: 80px;
-	}
-
 .lobby_home {
 	width: 100%;
 	float: left;
 	padding: 40px 0 170px 0;
+}
+
+.lobby-header{
+	padding-bottom: 20px;
+}
+
+.lobby-header p{
+	font-size: 24px;
+	font-family:"helveticaneuebold", Arial, Helvetica, sans-serif;	
+}
+
+.category-available-list{
+	float: left;
+	padding-bottom: 40px;
+	min-width: 940px;
 }
 
 .available-header{
@@ -1254,7 +1282,7 @@ updated: jmw 09.02.14
 
 .available-header span{
 	float: left;
-	width: 9%;
+	padding-right: 2px;
 }
 
 .available-header h3{
@@ -1270,8 +1298,8 @@ updated: jmw 09.02.14
 
 .available-list li{
 	float: left;
-	width: 24%;
-	padding: 0px 10px 0px 10px;
+	width: 210px;
+	padding: 0px 0px 20px 20px;
 }
 
 .available-list-lobby figure img{
