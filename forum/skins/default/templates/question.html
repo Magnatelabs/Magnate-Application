@@ -94,6 +94,10 @@
         </noscript>
 {% endblock %}
 
+{% block body_navigation %}
+{% include "_bodynav_backselect.html" %}
+{% endblock %}
+
 {% block content %}
 <div class="headNormal">
     <h1><a href="{{ question.get_absolute_url }}">{{ question.headline }}</a></h1>
