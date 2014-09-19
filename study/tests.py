@@ -6,6 +6,7 @@ Replace this with more appropriate tests for your application.
 """
 
 from django.test import TestCase, Client
+from app_magnate.unittest import create_test_user
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
 from .models import StudyModel
@@ -13,7 +14,7 @@ from .models import StudyModel
 class SimpleTest(TestCase):
     def setUp(self):
         self.client = Client()
-        user = User.objects.create_user('temporary', 'temporary@gmail.com', 
+        user = create_test_user('temporary', 'temporary@gmail.com', 
 'temporary')
         self.client.login(username='temporary', password='temporary')
 

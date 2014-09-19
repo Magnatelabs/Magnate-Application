@@ -1,4 +1,5 @@
 from django.test import TestCase
+from app_magnate.unittest import create_test_user
 
 from django.contrib.auth import get_user_model
 User=get_user_model()
@@ -23,7 +24,7 @@ class SimpleTest(TestCase):
         from django.conf import settings
         self.assertEqual(settings.DATABASES['default']['ENGINE'], 'django.db.backends.sqlite3')
 
-        user = User.objects.create_user("Monica Schlicht", "m-schlicht@clearwaters.sky", "2380vh23v")
+        user = create_test_user("Monica Schlicht", "m-schlicht@clearwaters.sky", "2380vh23v")
         entry = Entry.objects.create(title="Who owns Warhol portrait of Fawcett?")
 
         self.assertEqual(entry_is_liked(entry, user), 0)
@@ -49,7 +50,7 @@ class SimpleTest(TestCase):
 
         ### One user likes it, then the other, then the forer unlikes, then the latter unlikes
 
-        u2 = User.objects.create_user("Schwarzenegger", "a-r@california.org", "32!!!@FJ#IOJV#E")
+        u2 = create_test_user("Schwarzenegger", "a-r@california.org", "32!!!@FJ#IOJV#E")
         # Now user u2 comes and likes the entry
         count = toggle_like_unlike(entry, u2)
         self.assertEqual(count, 1)
@@ -96,7 +97,7 @@ class SimpleTest(TestCase):
         random.seed(834932784)
         self.users=[]
         for i in range(20):
-            self.users.append(User.objects.create_user("User %d" % (i), "user-%d@people.biz" % (i), "12345678987654321"))
+            self.users.append(create_test_user("User %d" % (i), "user-%d@people.biz" % (i), "12345678987654321"))
         self.entries=[]
         for i in range(20):
             self.entries.append(Entry.objects.create(title="Entry %d" % (i)))
@@ -133,7 +134,7 @@ class SimpleTest(TestCase):
         self.do_many(10, 10, 75)
 
     def test_templatetags(self):
-        user = User.objects.create_user("Monica Schlicht", "m-schlicht@clearwaters.sky", "2380vh23v")
+        user = create_test_user("Monica Schlicht", "m-schlicht@clearwaters.sky", "2380vh23v")
         entry = Entry.objects.create(title="Who owns Warhol portrait of Fawcett?")
         html = social_tags.like_entry_button(entry.pk, user)
         self.assertTrue(social_tags.get_div_dom_id(entry.pk) in html)
@@ -148,7 +149,7 @@ class SimpleTest(TestCase):
         self.assertEqual(response401.status_code, 401)
 
         #Loggging in...
-        user = User.objects.create_user('temporary', 'temporary@gmail.com', 'temporary')
+        user = create_test_user('temporary', 'temporary@gmail.com', 'temporary')
         client.login(username='temporary', password='temporary')
         #Logged in
 
@@ -222,7 +223,7 @@ class SimpleTest(TestCase):
         self.assertEqual(response401.status_code, 401)
 
         #Loggging in...
-        user = User.objects.create_user('temporary', 'temporary@gmail.com', 'temporary')
+        user = create_test_user('temporary', 'temporary@gmail.com', 'temporary')
         client.login(username='temporary', password='temporary')
         #Logged in
 

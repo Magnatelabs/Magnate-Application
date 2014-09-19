@@ -6,6 +6,7 @@ Replace this with more appropriate tests for your application.
 """
 
 from django.test import TestCase
+from app_magnate.unittest import create_test_user
 from django.test.client import Client
 from django.core.urlresolvers import reverse
 from django.contrib.auth import get_user_model
@@ -50,8 +51,8 @@ class SimpleZinniaTest(TestCase):
     def test_restricted_access(self):
         client = Client()
  
-        user_g = User.objects.create_user("Guido van Rossum", "email@ppyytthhoonn.org", "3jh3j")
-        user_h = User.objects.create_user("Hilda von Varden", "adverse@bluehouse.gro", "777777777")
+        user_g = create_test_user("Guido van Rossum", "email@ppyytthhoonn.org", "3jh3j")
+        user_h = create_test_user("Hilda von Varden", "adverse@bluehouse.gro", "777777777")
 
         # must specify slug. Otherwise get_aboslute_url is broken and will get NoReverseMatch.
 
