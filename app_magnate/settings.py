@@ -448,7 +448,7 @@ MODULE_LIST = filter(lambda m: getattr(m, 'CAN_USE', True), [
 # OSQA style; overriding our TEMPLATE_LOADERS!
 TEMPLATE_LOADERS = list(template_loaders) if DEBUG else [ ('django.template.loaders.cached.Loader', template_loaders) ]
 
-if not TESTING:      # The tests are not ready for the forum.user user model
+if not False:      # The tests are not ready for the forum.user user model
   MIDDLEWARE_CLASSES += [
   'forum.middleware.extended_user.ExtendedUser',
 #   'forum.middleware.anon_user.ConnectToSessionMessagesMiddleware',
