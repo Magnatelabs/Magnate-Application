@@ -1,34 +1,35 @@
 {% extends "../../../../dashboard/templates/dashboard/new_dashboard_main.html" %}
 <!--{ % extends "base_content.html" % }-->
 
-
-
-
-
-{% block page_center %}
-
-{% block full_width_banner %}{% endblock %}
-
-<div id="wrapper">
-    {% block site_width_banner %}{% endblock %}
-    
-    <div id="room">
-        <div id="CALeft">
-            {% block content%}
-            {% endblock%}
-
-        </div>
-        <div id="CARight">
-            {% block sidebar%}
-            {% endblock%}
-
-        </div>
-        <div id="tail" style="clear:both;">
-            {% block tail %}
-            {% endblock %}
-        </div>
+	
+{% block body %}
+	<div class="dash_grid">
+    <div class="inner_dashcontent">
+    	<div class="section1 section3">
+	<div class="section6-bg">
+	{% block page_center %}
+		{% block full_width_banner %}{% endblock %}
+		<div id="wrapper">
+    		{% block site_width_banner %}{% endblock %}    
+			<div id="room">
+	        	<div id="CALeft">
+	            	{% block content%}
+					{% endblock%}
+				</div>
+				<div id="CARight">
+	            	{% block sidebar%}
+					{% endblock%}
+				</div>
+				<div id="tail" style="clear:both;">
+		            {% block tail %}
+					{% endblock %}
+				</div>
+			</div>
+		<div class="spacer3"></div>
+		</div>
+	{% endblock %}
+	</div>
+    	</div>
     </div>
-    <div class="spacer3"></div>
-</div>
+	</div>
 {% endblock %}
-
