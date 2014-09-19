@@ -1,4 +1,9 @@
 from django.test import TestCase, Client
+from app_magnate.unittest import create_test_user
+from django.test.utils import override_settings
+from django.contrib.auth.models import User
+from forum.models.user import User as ForumUser
+
 
 # Create your tests here.
 class FirstOSQATest(TestCase):
@@ -49,6 +54,11 @@ class FirstOSQATest(TestCase):
 
 
 
+#@override_settings(MIDDLEWARE_CLASSES=['django.middleware.common.CommonMiddleware',
+#                                       'django.contrib.sessions.middleware.SessionMiddleware',
+#                                       'django.contrib.auth.middleware.AuthenticationMiddleware',
+#                                       'forum.middleware.extended_user.ExtendedUser',
+#                                       'forum.middleware.request_utils.RequestUtils'])
 class testOSQATemplates(TestCase):
     urls = 'glue_osqa.unittest_urls'
 
@@ -66,6 +76,9 @@ class testOSQATemplates(TestCase):
     # Not really testing the whole thing...
     # We can't. See below...
     def test_AskQuestion(self):
+        user = create_test_user("Water Cooler", "cooler@water.un", "12621262")
+        self.client.login(username='Water Cooler', password='12621262')
+
 
         # Anonymous user
         # Because if we were to log in, then we need to have ExtendedUser, 
@@ -107,11 +120,28 @@ class testOSQATemplates(TestCase):
         self.assertContains(r, 'This field is required')
         self.assertContains(r, 'please enter a descriptive title for your question')
 
-        r = self.client.post('/osqa_forum/questions/ask/?entry_id=1', {'title': 'Now this is a legitimate question.', 'text': '', 'tags': 'good for real'})
-        
+        # with redirect follow=True
+        r = self.client.post('/osqa_forum/questions/ask/?entry_id=1', {'title': 'First question! This is now a legitimate question!.', 'text': 'This is great text.', 'tags': 'good for real'}, follow=True)
+        self.assertEqual(r.status_code, 200)
+        self.assertNotContains(r, 'errorlist')
+
+        # with redirect follow=True
+        r = self.client.post('/osqa_forum/questions/ask/?entry_id=1', {'title': 'Second question! This is a great title.', 'text': '', 'tags': 'good for real'}, follow=True)        
         self.assertEqual(r.status_code, 200)
         self.assertContains(r, 'errorlist')
-        # Because the user is anonymous, will require recaptcha!
+        self.assertContains(r, 'This field is required')
+
+
+        # ask another one
+        # with redirect follow=True
+        r = self.client.post('/osqa_forum/questions/ask/?entry_id=1', {'title': 'Third question!.', 'text': 'Keeps getting better.', 'tags': 'so good'}, follow=True)
+        self.assertEqual(r.status_code, 200)
+        self.assertNotContains(r, 'errorlist')
+
+        self.assertContains(r, 'First question!')      # was successful
+        self.assertNotContains(r, 'Second question!')  # failed
+        self.assertContains(r, 'Third question!')      # was successful
+
 
 
 class testGlueOSQA(TestCase):
