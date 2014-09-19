@@ -10,9 +10,7 @@
                     <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a href="{% url "dashboard" %}"> {% trans "Dashboard" %}</a></li>
-                    <li><a href="{% url "fund_home" %}"> {% trans "Funds page" %}</a></li>
-                    <li><a href="{% url "newstatus_home" %}"> {% trans "Status page" %}</a></li>
+                    <li><a href="{{ user.get_profile_url }}">{% trans "Profile" %}</a></li>
                     {% if request.user.is_staff %}
                         <li><a href="{% url THEME_ADMIN_URL|default:"admin:index" %}"> {% trans "Admin" %}</a></li>
                     {% endif %}
