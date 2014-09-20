@@ -1,5 +1,5 @@
 {% extends "site_base.html" %}
-{% block body_id %}groups_body{% endblock %}
+{% block body_id %}normal_body{% endblock %}
 {% load staticfiles %}
 
 {% block style_base %}
@@ -55,11 +55,14 @@
 {% endblock %} 
 
 
+{% block body_navigation %}
+	{% include "_bodynav_groupshome.html" %}
+{% endblock %}
+
 {% block body %} 
 <div class="grid_16">
     <div class="contentinner lobby-detail">
     	<div class="section1 section3 lobby-detail-breakdown">
-            <h1><u>Lobby for {{ category.title }}</u></h1>
 
 			{% for fund in funds|slice:":1" %} <!-- change_to_lobbies -->
 			{% include "groups/_breakdown.html" %}
