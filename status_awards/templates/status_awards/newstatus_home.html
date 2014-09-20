@@ -1,61 +1,49 @@
 {% extends "site_base.html" %}
-{% block body_id %}status_home_body{% endblock %}
+{% block body_id %}normal_body{% endblock %}
 {% load staticfiles %}
 {% load brabeion_tags %}
 {% load status_awards_tags %}
 
+{% block style_base %}
+	{% load i18n extra_tags extra_filters ui_registry %}
+	<link href="{% static "css/jquery.fancybox-1.3.4.css" %}" rel="stylesheet">	
+	<link href="{% media  "/media/style/style.css" %}" rel="stylesheet" type="text/css" />
+{{ block.super }}
+{% endblock %}
+
+{% block body_navigation %}
+	{% include "_bodynav_community.html" %}
+{% endblock %}
 
 {% block body %}       
     <div class="grid_16">
     	<div class="contentinner">
-    		<div class="bgsection2">
-        
-    		<div class="contentinner_header">
-				<div class="inner_blue">
-					<h1>{{ request.user }}'s Magnate Status</h1>
+    		<div class="bgsection2 community-bg2">
+
+				<div class="ub_statusinfo">
+					<p class="status-text-small">Current Status</p>
+					<figure>{% render_badge status_badge "status_large" %}</figure>
+					<span>
+						{% if has_status_badge %}
+						<p class="status-text-large">{{ status_badge.name }}</p>
+						{% else %}
+						<p class="status-text-large">Base Spectator</p>
+						{% endif %}
+						<p class="status-text-small">Order of the Lurkers</p>
+					</span>
 				</div>
-	   		</div>
         
         	<div class="status_section1">
         		<div class="status-info">
 					<article>					
-						<figure><a href="{% url 'status_award_detail' %}?award={{ status_badge.pk }}">{% render_badge status_badge "status_large" %}						</a></figure>
 						<aside>
-							<div class="section1_status_display"><h4>Order of the Lurkers</h4>
-							</div>
-							{% if has_status_badge %}
-							<h3>{{ status_badge.name }}</h3>
-							{% else %}
-							<h3>Base Spectator</h3>Whether you're new to the community, or just want to sit back and enjoy the view, the Lurker status is the right status for you. There's never any pressure to do anything in Magnate, but we recommend that you get involved and try some of the actions listed below. Who knows, you might just get acknowledged for being more than an anonymous wallflower!
-							{% endif %}
-							<p>{{ status_badge.description }}</p>
-        				<div class="btn-middle"><a href="#" class="btn" id="dashbtn_fix">Learn more</a></div>
+							<h3>Get Involved</h3>
+							<p>Whether you're new to the community, or just want to sit back and enjoy the view, the Lurker status is the right status for you. There's never any pressure to do anything in Magnate, but we recommend that you get involved and try some of the actions listed below. Who knows, you might just get acknowledged for being more than an anonymous wallflower!</p>
+      				<div class="btn-middle"><a href="#" class="btn" id="dashbtn_fix">Learn more</a></div>
         				</aside>        				
 					</article>
 				</div>
-				<div class="additional_right-overlay">
-						<div class="order_right-overlay">
-							<div class="roinner_two">
-								<article>
-									<ul class="unstyled">	
-									<li><a href="#">Status Benefits</a></li>
-									</ul>
-								</article>
-							</div>
-							<div class="roinner_one">
-								<article>
-									<ul class="unstyled">
-									<li><span class="left"><img src="{% static "img/status_award_smallicon7.png" %}" alt="PHOTO"></span>
-									<p class="right">VIP treats at all all the Magnate events</p></li>
-									<li><span class="left"><img src="{% static "img/status_award_smallicon8.png" %}" alt="PHOTO"></span>
-									<p class="right">Stake in monthly carry drawing</p></li>
-									<li><span class="left"><img src="{% static "img/status_award_smallicon9.png" %}" alt="PHOTO"></span>
-									<p class="right">10% discount for all friends invited to Magnate events</p></li>
-									</ul>
-								</article>
-							</div>	
-						</div>
-				</div>
+				
 			</div> <!--status_section1-->
 			
 			        
@@ -63,52 +51,77 @@
                 {% badges_for_user request.user as badges %}
             {% endif %}
         	<div class="status_section2">
-        	<h4>Possible Actions</h4>
+        	<h4>All available actions</h4>
         		<div class="status_actions">
+        			
         			<div class="actions_info">
-        				<div class="inner_empty"></div>
+						<article>
+						<figure><img src="{% static "img/community_action_01.png" %}" alt="PHOTO"></figure>
 						<div class="action_counter"><h4>{{ stats.questions_asked|stringformat:"02d" }}</h4></div>
-						<article>
-						<figure><img src="{% static "img/status_award_smallicon8.png" %}" alt="PHOTO"></figure>
-						<h4>Ask a Question</h4><p>Curious about what's happening in one of the Magnate Funds? Ask a question and learn more about investing. The more you do, the better chance you have at receiving a cash injection of your own.</p></article>
+						<div class="actions_info_description">
+						<h4>Fund Question</h4>
+						<p>Curious about what's happening in one of the Magnate Funds? Ask a question and learn more about investing. The more you do, the better chance you have at receiving a cash injection of your own.</p>
+						</div>
+						<div class="btn-middle" id="actionbtn_fix"><a href="{% url "dashboard" %}" class="btn" >Ask a question</a></div>
+						</article>
 					</div>	
+					
 					<div class="actions_info">
-        				<div class="inner_empty"></div>
+						<article>
+						<figure><img src="{% static "img/community_action_02.png" %}" alt="PHOTO"></figure>
 						<div class="action_counter"><h4>{{ stats.news_spread|stringformat:"02d" }}</h4></div>
-						<article>
-						<figure><img src="{% static "img/status_award_smallicon9.png" %}" alt="PHOTO"></figure>
-						<h4>Spread the News</h4><p>If you enjoy sharing a good thing with friends, go and spread the wealth by sharing the Magnate platform. Whenever you do we keep track of your invitations and make it easier for you to offer the next "hookup" whenever possible.</p></article>
+						<div class="actions_info_description">
+						<h4>Spread the news</h4>
+						<p>Let your friends in on a good thing by sharing the Magnate platform. When you do we keep track of your invites and make it easier for you to offer the next "hookup" whenever possible.</p>
+						</div>
+						<div class="btn-middle" id="actionbtn_fix"><a href="#lightbox" class="btn" >Invite a friend</a></div>
+						</article>
 					</div>	
+					
 					<div class="actions_info">
-        				<div class="inner_empty"></div>
-						<div class="action_counter"><h4>{{ stats.feedback_given|stringformat:"02d" }}</h4></div>
 						<article>
-						<figure><img src="{% static "img/status_award_smallicon4.png" %}" alt="PHOTO"></figure>
-						<h4>Give some Feedback</h4><p>Online communities are only as good as their users. Leave the Magnate development team suggestions for how they can improve the application because good things always come back around.</p></article>
-					</div>	
-					<div class="actions_info">
-        				<div class="inner_empty"></div>
+						<figure><img src="{% static "img/community_action_03.png" %}" alt="PHOTO"></figure>
 						<div class="action_counter"><h4>{{ stats.startups_sourced|stringformat:"02d" }}</h4></div>
-						<article>
-						<figure><img src="{% static "img/status_award_smallicon7.png" %}" alt="PHOTO"></figure>
-						<h4>Source a Startup</h4><p>Finding worthwhile investments is hard work. Help the Magnate community by finding innovative early-stage companies or interesting projects and we'll make sure to treat you like the VIP you are.</p></article>
-					</div>
-					<div class="actions_info">
-        				<div class="inner_empty"></div>
-						<div class="action_counter"><h4>{{ stats.knowledge_ranking|stringformat:"02d" }}</h4></div>
-						<article>
-						<figure><img src="{% static "img/status_award_smallicon1.png" %}" alt="PHOTO"></figure>
-						<h4>Knowledge Ranking</h4><p>Looking for some good old fashioned financial independence? Better learn how to passively grow your money. Get involved, let your questions evolve into answers and remember that knowledge is its own reward.</p></article>
+						<div class="actions_info_description">
+						<h4>Source startups</h4>
+						<p>Finding worthwhile investments is hard work. Help the Magnate community by finding innovative companies or interesting projects and we'll make sure to treat you like the VIP you are.</p>
+						</div>
+						<div class="btn-middle" id="actionbtn_fix"><a href="{% url 'study_index' %}" class="btn" >Share a startup</a></div>
+						</article>
 					</div>	
+					
+					<div class="actions_info">
+						<article>
+						<figure><img src="{% static "img/community_action_04.png" %}" alt="PHOTO"></figure>
+						<div class="action_counter"><h4>{{ stats.feedback_given|stringformat:"02d" }}</h4></div>
+						<div class="actions_info_description">
+						<h4>Leave Feedback</h4>
+						<p>Want to make sure your voice is heard? Leave the Magnate development team suggestions for how they can improve the application because good things always come back around.</p>
+						</div>
+						<div class="btn-middle" id="actionbtn_fix2"><a href="{% url 'platform_main' %}" class="btn" >Leave some feedback</a></div>
+						</article>
+					</div>	
+					
+					<div class="actions_info">
+						<article>
+						<figure><img src="{% static "img/community_action_05.png" %}" alt="PHOTO"></figure>
+						<div class="action_counter"><h4>{{ stats.knowledge_ranking|stringformat:"02d" }}</h4></div>
+						<div class="actions_info_description">
+						<h4>Knowledge Ranking</h4>
+						<p>For some good old fashioned financial independence learn how to passively grow your money. The community will rate your questions and answers. Remember, knowledge is its own reward.</p>
+						</div>
+						<div class="btn-middle" id="actionbtn_fix3"><a href="{{ user.get_profile_url }}" class="btn" >Check your rank</a></div>
+						</article>
+					</div>
 						
 				<div class="karma_tip">
 					<article>
 						<figure><img src="{% static "img/status_tippointer.png" %}" alt="PHOTO"></figure>
-							<aside>
-							<h3>Extra Tip:</h3>
-							<p>Action points determine your status type and which benefits are awarded to you!</p>
-							</aside>
-						</article>
+						<aside>
+						<h3>Extra Tip:</h3>
+						<p>Increase your action points to determine your status type!</p>
+						</aside>
+					</article>
 				</div>
 	
 				</div>
@@ -166,6 +179,12 @@
         </div>
     </div><!-- contentinner -->
 	</div><!-- grid_16 -->
+
+	{% include "share/_share_lightbox.html" %}         
         
-        
+{% endblock %}
+
+{% block script_base %}
+{{ block.super }}
+<script src="{% static "js/jquery.fancybox-1.3.4.pack.js" %}"></script>
 {% endblock %}
