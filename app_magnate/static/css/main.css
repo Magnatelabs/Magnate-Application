@@ -103,6 +103,10 @@ body .dash-body-nav{
 	margin-bottom: 0px;
 	padding-right: 2px;
 }
+
+.dash-body-nav{
+	max-height: 45px;
+}
 /*----------------------------------------------------------------------------------------------------
 Site_base modifications 
 created: jmw
@@ -1703,6 +1707,42 @@ updated: jmw 09.02.14
 	background: #ffffff;
 }
 
+.nav-inner-groupselections {
+	float: right;
+	width: 31%;
+	padding-bottom: 7px;
+}
+
+.nav-inner-groupselections li{
+	float: left;
+	padding-right: 20px;
+}
+
+.nav-inner-groupselections li a{
+	color: #363636;
+	text-decoration: none;
+}
+
+.nav-inner-groupselections li a:hover{
+	color: #c5c5c5;
+}
+
+.nav-inner-groupselections li h1{
+	font-size: 16px;
+}
+
+.body-nav-inner .groupnavbtn { 
+	width: 31%;
+	padding: 4px 12px 2px 4px;
+}
+
+.nav-inner-pagetitle li{
+	list-style-type: none;
+}
+
+.dropdown .groupnavbtn .caret{
+	margin-left: 5px;
+}
 
 /*----------------------------------------------------------------------------------------------------
 Groups_objective v1 Styling 
