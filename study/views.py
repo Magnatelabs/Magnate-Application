@@ -11,7 +11,7 @@ from django.utils.translation import ugettext_lazy as _
 
 #imports to recognize forms 
 from .forms import StudyModelForm
-from .models import StudyModel
+from .models import ProposeCompanyAction
 
 #import to recognize class based view
 from django.views.generic.edit import FormView
@@ -42,18 +42,19 @@ class study_index(FormView):
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST, request.FILES)
         if form.is_valid():
+            action = ProposeCompanyAction(user=request.user, ip=request.META['REMOTE_ADDR']).save(dict(form=form))
             # Process the data in form.cleaned_data
-            entry = StudyModel()
-            entry.entity = form.data['entity']
-            entry.entity_url = form.data['entity_url']
-            entry.description = form.data['description']
-            entry.industry = form.data['industry']
-            entry.created = datetime.datetime.now()
-            if 'docfile' in request.FILES:
-              entry.docfile = request.FILES['docfile']
-            if request.user.is_authenticated():
-              entry.user = request.user
-            entry.save()
+#            entry = StudyModel()
+#            entry.entity = form.data['entity']
+#            entry.entity_url = form.data['entity_url']
+#            entry.description = form.data['description']
+#            entry.industry = form.data['industry']
+#            entry.created = datetime.datetime.now()
+#            if 'docfile' in request.FILES:
+#              entry.docfile = request.FILES['docfile']
+#            if request.user.is_authenticated():
+#              entry.user = request.user
+#            entry.save()
 	    messages.add_message(
                 self.request,
                 self.messages["survey_added"]["level"],
