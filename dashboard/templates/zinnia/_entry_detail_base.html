@@ -6,15 +6,17 @@
        <article   id="entry-{{ object.pk }}">
   {% endblock %}
   
+  {% if object.is_public %}
+  {% else %}
   <div class="fundfeed-userauthor">  
   <div class="userauthor-profile-dates"><p><!-- osQA dates -->added   10 Aug, 09:26</p></div>		
   <div class="userauthor-profile-image"><figure>{% avatar user 48 %}
   {% ifequal user request.user %}</figure></div>{% endifequal %}
-  <div class="userauthor-profile-name"><p><!-- author_name-->{{ user }}</p></div>
-  <div class="userauthor-profile-ranking"><p><!-- osQA ranking -->3,042</p></div>
-  <div class="userauthor-lobby"><figure><!-- group_tagged_icon -->{% avatar user 21 %}
+  <div class="userauthor-profile-name"><a href="{{ user.get_profile_url }}" id="special_name_hack"><p><!-- author_name-->{{ user }}</p></a></div>
+  <div class="userauthor-lobby"><figure><!-- group_tagged_icon -->
   {% ifequal user request.user %}</figure></div>{% endifequal %}
   </div>	
+  {% endif %}
 
   {% block entry-header %}
   {% endblock %}
@@ -61,6 +63,8 @@
   		<figure><img src="{% static "img/collapsebtn_normal.png" %}"  onclick="toggleArticleNotActive('entry-{{ object.pk }}', true);" alt="PHOTO" /></figure>
   	</div>  	
 
+  {% comment %}
+  No longer need this code
   {% block entry-categories %}
       {% with categories=object.categories.all %}
       {% if categories|length %}
@@ -71,7 +75,7 @@
          rel="tag category">{{ category }}</a>{% if not forloop.last %}, {% endif %}{% endfor %}{% endif %}
       {% endwith %}
       {% endblock entry-categories %}
-
+	  {% endcomment %}
 
   {% endif %}
 
