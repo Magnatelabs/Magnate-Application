@@ -308,10 +308,29 @@ updated: jmw 06.25.14
 .hangouts_dropdown .btn-middle { width:110px; margin:0 auto; }
 .hangouts_dropdown .icon-close { width:13px; height:13px; float:left; background:url(/site_media/static/img/icon_close01.png) no-repeat center center; text-indent:-99999px; position:absolute; top:13px; right:23px}
 #dashbtn_fix {font-size: 11px;}
-.section6-bg { width:100%; float:left; background:#ffffff; border-radius:0 0 2px 0; behavior: url(PIE.htc); position:relative;}
-.section6 { width:100%; float:left; background:url(/site_media/static/img/bg02.png) repeat-y top left}
-.dash_zinniafeed { width: 100%; }
-.fund-feed { width:100%; float:left}
+
+.section6-bg { 
+	width:100%; 
+	float:left; 
+	background: #cbc9ca;
+	border-radius:0 0 2px 0; 
+	behavior: url(PIE.htc); 
+	position:relative;
+}
+	
+.section6 { 
+	width:100%; 
+	float:left; 
+}
+	
+.dash_zinniafeed { 
+	width: 100%; 
+}
+	
+.fund-feed { 
+	width:100%; 
+	float:left
+}
 
 .fund-feed article { 
 	width:100%;
@@ -319,7 +338,7 @@ updated: jmw 06.25.14
 	background:#cbc9ca; 
 	border-top:1px solid #bcbbbb; 
 	padding:13px 0 10px 0
-	}
+}
 	
 .fund-feed article h4 { font-size:14px; color:#FFFFFF; font-family:"helveticaneuemedium", Arial, Helvetica, sans-serif; line-height:15px; padding:0 15% 6px 0; margin: 0px 20px;}
 
