@@ -50,3 +50,7 @@ class SimpleTest(TestCase):
         self.assertFalse(sm.docfile) # no file
 
 
+        from forum.models.action import Action
+        act = Action.objects.all()[0]
+        self.assertEquals(act.action_type, 'proposecompany')
+        self.assertEquals(act.extra, sm)

@@ -33,11 +33,12 @@ class ProposeCompanyAction(ActionProxy):
         entry.user = self.user        
         entry.save()
 
-
+        self.extra = entry
+        self.save()
 
 
     def describe(self, viewer=None):
         return _("%(user)s proposed a new startup %(entity)s") % {
             'user': self.hyperlink(self.user.get_profile_url(), self.friendly_username(viewer, self.user)),
-            'entity': self.hyperlink(self.study.entity_url, self.study.entity)
+            'entity': self.hyperlink(self.extra.entity_url, self.extra.entity)
         }
