@@ -1934,3 +1934,28 @@ updated: jmw 09.10.14
 .userprofile-menu .item a{
 	font-size: 13px;
 }
+
+.stats-container {
+	float: left;
+}
+
+.diagram-additions{
+	margin-left: 50px;
+}
+
+.diagram-detail-additions{
+	width: 100%;
+	height: auto;
+}
+
+.lobby-detail-breakdown .rightside-userprofile .short-summary{
+	width: 100%;
+}
+
+.rightside-userprofile .short-summary .question-summary-wrapper {
+	width: 70%;
+}
+
+.rightside-userprofile .short-summary .question-summary-wrapper .userinfo{
+	margin-right: 20px;
+}
