@@ -1,0 +1,20 @@
+{% load social_tags %}
+{% load staticfiles %}
+{% load i18n %}
+
+<p class="blog-entry-info">
+      {% block entry-authors %}
+      {% with authors=object.authors.all %}
+      {% if authors|length %}
+      {% trans "Written by" %}
+      {% for author in authors %}
+      <span class="vcard author">
+        <a href="#" class="fn url{% if not author.get_full_name %} nickname{% endif %}" rel="author"
+           title="{% blocktrans %}Show all {{ author }}'s entries{% endblocktrans %}">{{ author }}</a></span>{% if not forloop.last %}, {% endif %}
+      {% endfor %}
+      {% trans "on" context "on date" %}
+      {% else %}
+      {% trans "Written on" %}
+      {% endif %}
+      {% endwith %}
+      {% endblock entry-authors %}
