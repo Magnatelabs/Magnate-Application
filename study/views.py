@@ -42,7 +42,7 @@ class study_index(FormView):
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST, request.FILES)
         if form.is_valid():
-            action = ProposeCompanyAction(user=request.user, ip=request.META['REMOTE_ADDR']).save(dict(form=form))
+            action = ProposeCompanyAction(user=request.user, ip=request.META['REMOTE_ADDR']).save(dict(form=form, docfile=request.FILES['docfile'] if 'docifle' in request.FILES else None))
             # Process the data in form.cleaned_data
 #            entry = StudyModel()
 #            entry.entity = form.data['entity']

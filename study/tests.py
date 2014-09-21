@@ -23,7 +23,7 @@ class SimpleTest(TestCase):
         'entity': 'Contextuall', 
         'entity_url': 'https://contextuall.com', 
         'industry': 'other', 
-        'description': 'What would you do differently if you could predict the future?' 
+        'description': 'What would you do differently if you could predict the future?'
     }
     def test_submit_startup(self):
         c = self.client
@@ -36,15 +36,17 @@ class SimpleTest(TestCase):
         self.assertEquals(r.status_code, 200)
         self.assertTrue('Your information was not entered correctly' in r.content)
 
-        # not submit properly
-    	r=c.post(reverse('study_index'), self.startup)
+    	r=c.post(reverse('study_index'), self.startup, follow=True)
 
-    	self.assertEquals(r.status_code, 302)
-        url_next=r._headers['location'][1] 
-        r=c.get(url_next)
+#    	self.assertEquals(r.status_code, 302)
+#        url_next=r._headers['location'][1] 
+#        r=c.get(url_next)
         self.assertEquals(r.status_code, 200)
         self.assertEquals(len(StudyModel.objects.all()), 1)
 
         sm = StudyModel.objects.all()[0]
         for field in self.startup:
             self.assertEquals(getattr(sm, field), self.startup[field])
+        self.assertFalse(sm.docfile) # no file
+
+

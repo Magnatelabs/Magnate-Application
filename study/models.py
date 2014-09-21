@@ -22,20 +22,16 @@ class StudyModel(models.Model):
 class ProposeCompanyAction(ActionProxy):
     verb=_("proposed")
 
-    def process_data(self, form):
+    def process_data(self, form, docfile):
         entry = StudyModel()
         entry.entity = form.data['entity']
         entry.entity_url = form.data['entity_url']
         entry.description = form.data['description']
         entry.industry = form.data['industry']
         entry.created = datetime.datetime.now()
-        entry.user = self.user
+        entry.docfile = docfile
+        entry.user = self.user        
         entry.save()
-#            if 'docfile' in request.FILES:
-#              entry.docfile = request.FILES['docfile']
-#            if request.user.is_authenticated():
-#              entry.user = request.user
-#            entry.save()
 
 
 
