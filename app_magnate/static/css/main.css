@@ -1416,6 +1416,31 @@ updated: jmw 09.01.14
 	padding: 0px 0px 0px 20px;
 }
 
+.fundfeed-userauthor .userauthor-profile-name a{
+	font-size: 12px;
+	margin: 0 20px 0px 0px;
+	line-height: 15px;
+}
+
+.userauthor-profile-name span{
+	line-height: 12px;
+}
+
+.fund-feed .fundfeed-userauthor .blog-entry-info{
+	margin-top: 0px;
+}
+
+.fundfeed-userauthor a{
+	font-size: 10px;
+}
+
+#special_name_hack {
+	margin: 0px;
+}
+
+#special_name_hack p{
+	color: #3060A8;
+}
 
 /*----------------------------------------------------------------------------------------------------
 Groups_all v1 Styling 
