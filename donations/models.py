@@ -155,7 +155,7 @@ class Donation (PrivatelyPublishedModelMixin, models.Model):
             DonationAction(user=user).save(dict(user=user, amount=amount, transaction_id=transaction_id))
 
             logging.info('OK, DONATION SUCCESSFUL. User: %s, transaction_id: %s' % (user, transaction_id))
-            status_awards.award_badges("user_donation", user)
+            #status_awards.award_badges("user_donation", user)
             update_statistics() # This function is called to upadte the TOTAL_DONATION_AMOUNT
             #import pdb; pdb.set_trace()
         
