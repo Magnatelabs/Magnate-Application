@@ -144,7 +144,7 @@ class BadgeAwardTestCase(TestCase):
                 # We still need to call award_badges
                 # But only for regular badges, not for metabadges
                 # If you decide to award badges on signal, try making award_badges do nothing and run the tests
-                award_badges("user_donation", user)
+                award_badges("donation", user)
 
             for i in range(self.nu):
                 user=self.users[i]
