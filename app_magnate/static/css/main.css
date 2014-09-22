@@ -1408,6 +1408,7 @@ updated: jmw 09.01.14
 .fundfeed-userauthor{
 	float: left;
 	width: 20%;
+	padding-left: 20px;
 }
 
 .userauthor-profile-image{
