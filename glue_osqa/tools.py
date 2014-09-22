@@ -24,11 +24,15 @@ from forum.models.user import User as ExtendedUser
 # Two workarounds: either save before __dict__.update, and then after, or
 # set extended_user.id=None before save()
 def downcastUserToExtendedUser(user):
-    extended_user = ExtendedUser(user_ptr_id = user.pk)
+    try:
+      extended_user = ExtendedUser.objects.get(pk = user.pk)
+      return extended_user
+    except ExtendedUser.DoesNotExist:
+      extended_user = ExtendedUser(user_ptr_id = user.pk)
 
 
-    extended_user.save() # workaround; other option is to set extended_user.id=None before saving, as below
-    extended_user.__dict__.update(user.__dict__)
+      extended_user.save() # workaround; other option is to set extended_user.id=None before saving, as below
+      extended_user.__dict__.update(user.__dict__)
 
 #    extended_user.id=None # It seems that we need that. I don't understand, why. The resources linked above do not mention it, and with a standalone installation of OSQA, everything works OK without it. 
 
@@ -39,5 +43,5 @@ def downcastUserToExtendedUser(user):
 #        count -= 1
 #        if count==0:
 #            extended_user.save()
-    extended_user.save()
-
+      extended_user.save()
+      return extended_user
