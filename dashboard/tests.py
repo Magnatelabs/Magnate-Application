@@ -12,7 +12,56 @@ from django.conf import settings
 from urlparse import urlparse
 from urllib import urlencode
 
+from app_magnate.unittest import create_test_user
+from bs4 import BeautifulSoup
+from Queue import Queue
+
 class SimpleTest(TestCase):
+    # Need the fixture so the Funds page works properly.
+    fixtures=['fixtures/funds.json',]
+
+    def test_links(self):
+        c = Client()
+        user = create_test_user('temporary', 'temporary@gmail.com', 
+'temporary')
+        c.login(username='temporary', password='temporary')
+
+
+        q=Queue()
+        mark={reverse('dashboard') : False}
+        q.put(reverse('dashboard'))
+
+        external=set()
+        while not q.empty():
+            url = q.get()
+#            print 'checking %s' % (url)
+            mark[url] = True
+            r = c.get(url, follow=True)
+            self.assertEqual(r.status_code, 200)
+            soup = BeautifulSoup(r.content)
+            outgoing=set()
+            for link in soup.find_all('a'):
+                outgoing.add(link.get('href'))
+#            for form in soup.find_all('form'):
+#                outgoing.add(form.get('action'))
+            for child in outgoing:
+                if child is not None: # some links have no href
+                    self.assertEquals(type(child), unicode)
+                    if child[0]=='/': # internal
+                        if not child in mark:
+                            mark[child]=False
+                            q.put(child)
+                    elif child[:4]=='http': # external
+                        external.add(child)
+        # Those pages must be reachable from the dashboard:
+        self.assertTrue(mark[reverse('fund_home')])
+        self.assertTrue(mark[reverse('groups_all')])
+        self.assertTrue(mark[reverse('newstatus_home')])
+        self.assertTrue(mark[reverse('donations_add')])
+        
+#        for url in external:
+#            print 'External url: %s' % (url)
+
     def test_dashboard(self):
         client = Client()
         response = client.get(reverse('dashboard'))
