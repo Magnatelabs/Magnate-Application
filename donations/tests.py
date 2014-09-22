@@ -5,7 +5,7 @@ import billing
 from django.dispatch import receiver
 
 from decimal import Decimal
-from .models import Donation
+from .models import Donation, DonationAction
 from django.contrib.auth import get_user_model
 from django.conf import settings
 import hashlib
@@ -14,6 +14,7 @@ from zinnia.models.entry import Entry
 from dashboard.mixins import PrivatelyPublishedModelMixin
 from zinnia.managers import HIDDEN
 import status_awards
+from glue_osqa.tools import downcastUserToExtendedUser
 
 class DonationZinniaTestCase(TestCase):
     def setUp(self):
@@ -42,14 +43,18 @@ class DonationZinniaTestCase(TestCase):
         self.assertTrue('3.14' in entry.content, '3.14 is the domation amount. It should be mentioned somewhere in the message, shouldn''t it?')
 
     def test_donation_badge(self):
-        d=Donation(amount=123.4567, user=self.user)
-        d.save()
-        # For now we have to explicitly call award_badges ---
-        # and it is called in certain places in the code.
-        # In the future, if the badges will be given via an overload of save()
-        # on some models and/or after receiving a signal, then the tests should be adjusted.
+#        d=Donation(amount=123.4567, user=self.user)
+#        d.save()
+ 
         self.assertEquals(self.user.badges_earned.count(), 0)
-        status_awards.award_badges("user_donation", self.user)
+        
+        euser = downcastUserToExtendedUser(self.user)
+        da = DonationAction(user=euser).save(dict(user=euser, amount=123.4567, transaction_id=888))
+        d = da.extra
+        # No need to call status_awards.award_badges("user_donation", self.user)
+        # Works naturally because of DonationAction.
+                
+
         self.assertEquals(self.user.badges_earned.count(), 1)
         badge_award = self.user.badges_earned.all()[0]
         self.assertEquals(badge_award.slug, 'donated-something')
