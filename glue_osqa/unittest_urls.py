@@ -54,6 +54,7 @@ urlpatterns = patterns("",
     url(r"^rewards/", include("rewards.urls")), 
 
     url(r"^share/", include("share.urls")), 
+    url(r"^lobby/", include("groups.urls")), 
 
     url(r"^osqa_forum/", include("forum.urls")),
     #media for forum; adding here as they all point to /m/..., 
