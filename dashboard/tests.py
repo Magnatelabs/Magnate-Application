@@ -32,9 +32,10 @@ class SimpleTest(TestCase):
         q.put(reverse('dashboard'))
 
         external=set()
+        ignore=set(['/forum/account/send-validation/'])
         while not q.empty():
             url = q.get()
-#            print 'checking %s' % (url)
+            print 'checking %s' % (url)
             mark[url] = True
             r = c.get(url, follow=True)
             self.assertEqual(r.status_code, 200)
@@ -45,7 +46,8 @@ class SimpleTest(TestCase):
 #            for form in soup.find_all('form'):
 #                outgoing.add(form.get('action'))
             for child in outgoing:
-                if child is not None: # some links have no href
+                # some links have no href
+                if child is not None and len(child)>0 and not child in ignore: 
                     self.assertEquals(type(child), unicode)
                     if child[0]=='/': # internal
                         if not child in mark:
@@ -54,11 +56,12 @@ class SimpleTest(TestCase):
                     elif child[:4]=='http': # external
                         external.add(child)
         # Those pages must be reachable from the dashboard:
-        self.assertTrue(mark[reverse('fund_home')])
+#        self.assertTrue(mark[reverse('fund_home')])
         self.assertTrue(mark[reverse('groups_all')])
         self.assertTrue(mark[reverse('newstatus_home')])
-        self.assertTrue(mark[reverse('donations_add')])
-        
+ #       self.assertTrue(mark[reverse('donations_add')])
+  
+#        import pdb; pdb.set_trace()      
 #        for url in external:
 #            print 'External url: %s' % (url)
 
