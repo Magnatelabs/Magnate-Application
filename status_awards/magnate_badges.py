@@ -49,7 +49,7 @@ class DonorBadge(Badge):
 #        BadgeDetail("Karmic Donor", "Gave away everything")
     ]
     events = [
-        "user_donation",
+        "donation",
     ]
     multiple = False
 
