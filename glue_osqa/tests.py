@@ -39,10 +39,13 @@ class FirstOSQATest(TestCase):
         self.assertEqual(ExtendedUser.objects.count(), 0)
 
         from tools import downcastUserToExtendedUser
-        downcastUserToExtendedUser(u)
+        eu = downcastUserToExtendedUser(u)
 
         self.assertEqual(User.objects.count(), 1)
         self.assertEqual(ExtendedUser.objects.count(), 1)
+
+        self.assertEqual(ExtendedUser.objects.all()[0], eu)
+        self.assertEqual(ExtendedUser.objects.all()[0], downcastUserToExtendedUser(u))
 
         #reload
         u = User.objects.all()[0]
