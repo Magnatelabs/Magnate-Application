@@ -3,6 +3,7 @@ from dashboard.mixins import PrivatelyPublishedModelMixin
 
 from forum.actions.node import AskAction, AnswerAction
 from forum.actions.meta import VoteUpAction, VoteDownAction
+from donations.models import DonationAction
 from django.db.models.signals import post_save
 
 
@@ -41,3 +42,4 @@ post_save.connect(onActionSave, sender=AskAction)
 post_save.connect(onActionSave, sender=AnswerAction)
 post_save.connect(onActionSave, sender=VoteUpAction)
 post_save.connect(onActionSave, sender=VoteDownAction)
+post_save.connect(onActionSave, sender=DonationAction)
