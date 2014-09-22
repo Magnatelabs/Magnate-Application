@@ -32,7 +32,6 @@ class SimpleTest(TestCase):
         q.put(reverse('dashboard'))
 
         external=set()
-        ignore=set(['/forum/account/send-validation/'])
         while not q.empty():
             url = q.get()
             print 'checking %s' % (url)
@@ -47,7 +46,7 @@ class SimpleTest(TestCase):
 #                outgoing.add(form.get('action'))
             for child in outgoing:
                 # some links have no href
-                if child is not None and len(child)>0 and not child in ignore: 
+                if child is not None and len(child)>0 and not child.startswith('/forum'): 
                     self.assertEquals(type(child), unicode)
                     if child[0]=='/': # internal
                         if not child in mark:
