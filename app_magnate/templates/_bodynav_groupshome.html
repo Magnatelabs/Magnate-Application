@@ -1,0 +1,50 @@
+{% load i18n %}
+{% load staticfiles %}
+
+<div class="dash-body-nav">
+	<div class="container">
+		<div class="body-nav-inner">
+			
+			
+			<div class="nav-inner-pagetitle">
+			<li class="dropdown unstyled">
+				<a href="#" class="btn groupnavbtn dropdown-toggle" data-toggle="dropdown">{{ category.title }}
+					<b class="caret"></b>
+				</a>
+			
+			<ul class="dropdown-menu">
+                    <li><a href="{{ user.get_profile_url }}">{% trans "Profile" %}</a></li>
+                    {% if request.user.is_staff %}
+                        <li><a href="{% url THEME_ADMIN_URL|default:"admin:index" %}"> {% trans "Admin" %}</a></li>
+                    {% endif %}
+                    <li class="divider"></li>
+                    <li>
+                        <a id="account_logout" href="{% url "account_logout" %}"> {% trans "Log out" %}</a>
+                    </li>
+                </ul>
+			</li>
+			
+			</div>
+			<div class="nav-inner-groupselections">
+				 <ul class="unstyled">
+				 	<li><a href="#"><h1>Homepage</h1></a></li>
+				 	<li><a href="#"><h1>Objective</h1></a></li>
+				 	<li><a href="#"><h1>Information</h1></a></li>
+				 </ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% comment %}
+		<li>
+      {% with categories=object.categories.all %}
+      {% if categories|length %}
+      {% trans "in" %}
+      {% for category in categories %}
+      <a href="{% url 'category_home_page' category.pk %}"
+         title="{% blocktrans %}Show all entries in {{ category }}{% endblocktrans %}"
+         rel="tag category">{{ category }}</a>{% if not forloop.last %}, {% endif %}{% endfor %}{% endif %}
+      {% endwith %}
+      </li>
+{% endcomment %}

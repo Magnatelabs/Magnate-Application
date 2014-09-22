@@ -70,8 +70,29 @@
                                 </a>
                                 {% block site_brand_loggedin %}<a class="brand" href="{% url "dashboard" %}" title="MAGNATE"><img src="{% static "img/logo.png" %}" alt="MAGNATE" /></a>{% endblock %}
                                 {% endif %}
-                                <div class="nav-collapse">
                                 
+                                {% if request.user.is_authenticated %}
+                                <div class="nav-collapse">
+                                	<ul class='unstyled'>
+                                		<li>
+	                                		<div class="quickselect-text">
+    	                            			<a href="{% url "dashboard" %}"><p>Dashboard</p></a>
+											</div>
+                                		</li>
+                                		<li>
+	                                		<div class="quickselect-text">
+    	                            			<a href="{% url "groups_all" %}"><p>Lobbies</p></a>
+											</div>
+                                		</li>
+                                		<li>
+	                                		<div class="quickselect-text">
+    	                            			<a href="{% url "newstatus_home" %}"><p>Community</p></a>
+											</div>
+                                		</li>
+                                	</ul>
+                                </div>
+								{% endif %}
+								
                                     {% block nav %}
                                         {% comment %}
                                        <!--     <ul class="nav">
@@ -94,6 +115,10 @@
 
 			<!begin body>
             {% block body_base %}
+            	
+            	{% block body_navigation %}
+				{% endblock %}
+				
                 <div class="container">
                     {% include "_messages.html" %}
                     {% block body %}

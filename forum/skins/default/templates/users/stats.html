@@ -5,7 +5,59 @@
 {% load extra_filters %}
 {% load humanize %}
 {% load question_list_tags %}
-		{% block usercontent %}
+{% load user_tags %}
+
+{% block userjs %}
+       <script type='text/javascript' src='{% media  "/media/js/excanvas.min.js" %}'></script>
+       <script type='text/javascript' src='{% media  "/media/js/jquery.flot.min.js" %}'></script>
+       
+       <script type="text/javascript">
+        $().ready(function(){
+            var d = {{ graph_data }};
+            var placeholder = $("#diagram");
+
+            var plot = $.plot(placeholder, [d], {
+                xaxis: { mode: "time" },
+                points: { show: true },
+                lines: { show: true }
+            });
+        });
+
+        </script>
+
+        <style type="text/css">
+            div.positiveReputation {
+                float: left;
+                min-width: 20px;
+                color: green;
+                padding-right: 5px;
+            }
+            div.negativeReputation {
+                float: left;
+                min-width: 20px;
+                color: red;
+            }
+        </style>
+{% endblock %}
+
+
+{% block usercontent %}
+	<div class="stats-container" style="padding:5px;font-size:13px;">
+    	<div id="diagram" class="diagram-additions" style="width:550px;height:250px;float:left">
+        </div>
+        <div class="diagram-detail-additions" style="float:right; overflow-y:auto;word-wrap:break-word;" >
+			{% for rep in reputation %}
+            <p style="clear:both">
+				<div style="float:left;text-align:right;font-family:arial;font-weight:bold;background:#eee;padding:2px 10px 2px 10px;margin-right:5px">
+            		<div class="positiveReputation">{{ rep.positive }}</div>
+					<div class="negativeReputation">{{ rep.negative }}</div>     
+				</div>
+				{% activity_item rep.action request.user %}<br/>
+            </p>
+			{% endfor %}
+		</div>
+	</div>   
+    
     <div id="questionsBlock" class="userSection">
         <a name="questions"></a>
         {% spaceless %}
@@ -121,6 +173,7 @@
                 </tr>
             </table>
         </div>
+        {% comment %}
         <a name="badges"></a>
         {% spaceless %}
         <h2>
@@ -153,5 +206,7 @@
                 </tr>
             </table>
         </div>
+        {% endcomment %}
+        
 {% endblock %}
 <!-- end user_stats.html -->

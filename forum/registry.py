@@ -75,31 +75,31 @@ class SuperUserSwitchMenuItem(ui.UserMenuItem):
 
 ui.register(ui.USER_MENU,
             ui.UserMenuItem(
-                label=_("edit profile"),
+                label=_("Edit Profile"),
                 url=lambda u, c: reverse('edit_user', kwargs={
                     'id': c['user'].id,
                     'slug' : slugify(c['user'].username)
                 }),
-                span_attrs={'class': 'user-edit'},
+                span_attrs={'class': 'prof'},
                 weight=0,
                 name='EDIT_PROFILE'
             ),
             ui.UserMenuItem(
-                label=_("authentication settings"),
+                label=_("Account Settings"),
                 url=lambda u, c: reverse('user_authsettings', kwargs={'id': c['user'].id}),
-                span_attrs={'class': 'user-auth'},
+                span_attrs={'class': 'acc'},
                 weight=100,
                 name='AUTH_SETTINGS'
             ),
             ui.UserMenuItem(
-                label=_("email notification settings"),
+                label=_("Notification Settings"),
                 url=lambda u, c: User.objects.get(id=int(c['user'].id)).get_user_subscriptions_url(),
-                span_attrs={'class': 'user-subscriptions'},
+                span_attrs={'class': 'notif'},
                 weight=200,
                 name='EMAIL_SETTINGS'
             ),
             ui.UserMenuItem(
-                label=_("other preferences"),
+                label=_("Knowledge Bank"),
                 url=lambda u, c: reverse('user_preferences', kwargs={'id': c['user'].id, 'slug': slugify(c['user'].username)}),
                 weight=200,
                 name='OTHER_PREFS'

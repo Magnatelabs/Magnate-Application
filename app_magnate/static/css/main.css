@@ -48,6 +48,90 @@ updated: jmw 07.08.14
 	padding-top: 80px;
 }
 
+body .dash-body-nav{
+	padding: 0px 0px 10px 0px;
+	border-bottom:1px solid #bebebe;
+	background-color: transparent;
+	min-height: 0px;
+	display: inline-block;
+	width: 100%;
+}
+
+.body-nav-inner{
+	float: left;
+	width: 940px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.body-nav-inner h1{
+	font-size: 160%;
+	padding: 5px 0;
+	line-height: 110%;
+	overflow: hidden;
+	margin: 0px;
+}
+
+.nav-inner-pagetitle{
+	float: left;
+	width: 50%;
+}
+
+.nav-inner-demobtn{
+	float: right;
+	width: 21%;
+}
+
+.quickselect-text p{
+	font-size: 13px;
+	line-height: 140%;
+	margin-bottom: 13px;
+}
+
+#back-select{
+	cursor: pointer; 
+	cursor: hand;
+}
+
+#back-select:hover{
+	color: #c5c5c5;
+}
+
+#back-select p{
+	float: left;
+	line-height: 31px;
+	margin-bottom: 0px;
+	padding-right: 2px;
+}
+
+.dash-body-nav{
+	max-height: 45px;
+}
+/*----------------------------------------------------------------------------------------------------
+Site_base modifications 
+created: jmw
+updated: jmw 09.17.14
+----------------------------------------------------------------------------------------------------*/
+.nav-collapse{
+	float: left;
+	width: 40%;
+	padding-left: 40px;
+	padding: 27px 0px 0px 40px;
+}
+
+.quickselect-text{
+	float: left;
+	padding-right: 15px;
+}
+
+.quickselect-text a{
+	color: #ffffff;	
+}
+
+.quickselect-text a:hover{
+	text-decoration: none;
+}
+
 /*----------------------------------------------------------------------------------------------------
 Share Lightbox Styles
 created: jmw
@@ -136,6 +220,20 @@ Dashboard v5 Styling
 created: jmw 05.15.14
 updated: jmw 06.25.14
 ----------------------------------------------------------------------------------------------------*/
+.dash_grid { 
+	width: 940px; 
+	display: inline; 
+	float: left; 
+	margin-left: 10px; 
+	margin-right: 10px;	
+}
+
+.inner_dashcontent { 
+	width: 100%; 
+	float: left; 
+	padding: 50px 0 170px 0; 
+}
+
 #dashboard_body {
 	margin: 0; 
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
@@ -147,7 +245,20 @@ updated: jmw 06.25.14
 	}
 	
 .user_breakdown{width:100%; float:left; background:#cacac8 url(/site_media/static/img/bg01.png) repeat-y top right; border-radius: 2px 2px 0 0; behavior: url(PIE.htc); position:relative; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; padding:0px 0px 0px 30px}
-.ub_statusinfo{width:160px; float:left; background:#9AD086; border-radius:3px; behavior: url(PIE.htc); -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; position:relative; padding:16px 19px 19px 19px}
+
+.ub_statusinfo{
+	width:174px; 
+	float:left; 
+	background:#9AD086; 
+	behavior: url(PIE.htc); 
+	-moz-box-sizing: border-box; 
+	-webkit-box-sizing: border-box; 
+	box-sizing: border-box; 
+	position:relative; 
+	padding:16px 19px 19px 19px;
+	margin-left: 40px;
+	}
+	
 .ub_statusinfo p { font-size:12px; font-family:"helveticaneuebold", Arial, Helvetica, sans-serif; color:#FFFFFF; text-align:center; line-height:17px; padding-bottom:6px; margin: 0 0 0px;}
 .ub_statusinfo p span { font-size:24px}
 .ub_statusinfo figure { width:100%; float:left; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; position:relative}
@@ -197,26 +308,43 @@ updated: jmw 06.25.14
 .hangouts_dropdown .btn-middle { width:110px; margin:0 auto; }
 .hangouts_dropdown .icon-close { width:13px; height:13px; float:left; background:url(/site_media/static/img/icon_close01.png) no-repeat center center; text-indent:-99999px; position:absolute; top:13px; right:23px}
 #dashbtn_fix {font-size: 11px;}
-.section6-bg { width:100%; float:left; background:#ffffff; border-radius:0 0 2px 0; behavior: url(PIE.htc); position:relative;}
-.section6 { width:100%; float:left; background:url(/site_media/static/img/bg02.png) repeat-y top left}
-.dash_zinniafeed { width: 100%; }
-.fund-feed { width:100%; float:left}
+
+.section6-bg { 
+	width:100%; 
+	float:left; 
+	background: #cbc9ca;
+	border-radius:0 0 2px 0; 
+	behavior: url(PIE.htc); 
+	position:relative;
+}
+	
+.section6 { 
+	width:100%; 
+	float:left; 
+}
+	
+.dash_zinniafeed { 
+	width: 100%; 
+}
+	
+.fund-feed { 
+	width:100%; 
+	float:left
+}
 
 .fund-feed article { 
 	width:100%;
 	float:left; 
 	background:#cbc9ca; 
 	border-top:1px solid #bcbbbb; 
-	padding:20px 0 10px 0
-	}
+	padding:13px 0 10px 0
+}
 	
 .fund-feed article h4 { font-size:14px; color:#FFFFFF; font-family:"helveticaneuemedium", Arial, Helvetica, sans-serif; line-height:15px; padding:0 15% 6px 0; margin: 0px 20px;}
 
 .fund-feed article h4 { 
 	color:#4c4c4c; 
 	font-weight: normal;
-	cursor: pointer; 
-	cursor: hand;
 	}
 
 .fund-feed article p { 
@@ -252,12 +380,6 @@ updated: jmw 06.25.14
 .right-col { width:658px; float:right; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;}
 .question_banner { background: #f4f6f6; width:658px; float: left; margin: 5px 0px 20px 0px; border: 1px solid #e7e8e8}
 #askquestion_fix {font-size: 12px; float: right; margin: 5px 10px 5px 0px; color: #7e3630; border-color: #e7dddc;}
-
-.uppo {
-	float: left; 
-	margin-top: 20px;
-	width: 30%;
-	}
 	
 .fund-feed article .show-when-article-not-active .hover-underline:hover {cursor: pointer; cursor: hand; }
 .fund-feed article .show-when-article-not-active .nohover-underline {cursor: text;} 
@@ -276,10 +398,14 @@ updated: jmw 06.28.14
 #div_activity #listA { padding: 20px 0px 0px 0px;}
 
 /*----------------------------------------------------------------------------------------------------
-Status Home Styling
+Community page
 created: jmw 06.30.14
-updated: jmw 06.30.14
+updated: jmw 09.19.14
 ----------------------------------------------------------------------------------------------------*/
+.grid_16 .contentinner .community-bg2{
+	margin-top: 50px;
+	border: 0px;
+}
 .inner_blue { width:100%; float:left; background:#d2e3e7}
 .section1_status_display {width: 64%; float: left; margin: 2px 92px 10px 0px; background: #2e2f8f;}
 .section1_status_display h4 {color: #ffffff; padding-left: 40px;}
@@ -297,34 +423,139 @@ updated: jmw 06.30.14
 .order_right-overlay .roinner_two article ul{ width:100%; float:left; font-family:"Helvetica Neue", Arial, Helvetica, sans-serif; font-size:14px; list-style-type: none;}
 .order_right-overlay .roinner_two article ul li { width:100%; float:left; color:#4d4c4b; }
 .order_right-overlay .roinner_two article ul li a { color: #4d4c4b;	text-decoration: none;}
-.status_section1{ width:100%; float:left; padding:0px 0% 40px 0%}
-.status-info{ width:74%; float:left; padding:40px 0% 12px 0%;}
-.status-info article{ width:90%; float:left; padding:0px 0% 26px 58px;}
-.status-info figure{ width:180px; float:left; -webkit-margin-start: 0px; -webkit-margin-end: 0px; margin: 0px; padding: 0px; }
-.status-info figure img{}
-.status-info aside{ width:66.5%; float:right; padding-bottom: 10px; padding-left: 20px; }
-.status-info .btn-middle {float: right; margin-right: 16px; margin-top: 20px;}
-.status_section2 { width:100%; float:left; min-height:92px; }
-.status_section2 h4 {padding-left: 54px;}
+
+.status_section1{ 
+	width:75%; 
+	float:left; 
+	padding:0px 0% 30px 0%;
+}
+	
+.status-info{ 
+	width:100%; 
+	float:left; 
+	padding:20px 0% 0px 0%;
+}
+	
+.status-info article{ 
+	width:80%; 
+	float:left; 
+	padding:0px 0% 26px 30px;
+}
+	
+.status-info aside{ 
+	width:100%; 
+	float:right; 
+	padding-bottom: 10px; 
+	padding-left: 20px; 
+}
+
+.status-info aside p{ 
+	font-size: 16px;
+}
+	
+.status-info .btn-middle {
+	float: right; 
+	margin-right: 16px; 
+	margin-top: 15px;
+	}
+	
+.status_section2 { 
+	width:100%; 
+	float:left; 
+	min-height:92px; 
+}
+
+.status_section2 h4 {
+	padding-left: 40px;
+}
+
 .status_actions { 
 	width: 100%; 
 	float: left; 
-	padding: 0px 0% 100px 54px; 
+	padding: 0px 0% 100px 70px; 
 }
-.actions_info {width: 43%; float: left; padding: 0px 0% 26px 0%; margin: 10px 10px 0px 0px; background: #ffffff; border: 1px solid #bdbebf;}
-.actions_info .inner_empty {width: 80%; float: left; min-height: 40px;}
-.actions_info .action_counter {width: 12%; float: right; background-color: #ababab; border-radius: 4px; margin: 10px 10px 0px 0px;}
-.actions_info .action_counter h4 {padding-left: 10px; font-size: 14px; font-weight: bold; margin: 5px;}
-.actions_info article {float: left; margin-top: -20px;}
-.actions_info article figure {float: left; min-height: 100px; padding-left: 20px; padding-right: 10px;}
-.actions_info article figure img { width: 58px;}
-.actions_info article h4 {margin: 5px; }
-.actions_info article p {font-size: 10px; width: 95%; line-height: normal; }
+
+.actions_info {
+	width: 26.4%; 
+	float: left; 
+	padding: 0px 0% 26px 0%; 
+	margin: 10px 40px 30px 0px;
+	background: #ffffff; 
+/*	border: 1px solid #bdbebf; */
+}
+
+.actions_info .action_counter {
+	width: 18%; 
+	float: right; 
+	background-color: #ababab; 
+	border-radius: 4px; 
+	margin: -130px 10px 0px 0px;
+	z-index: 1000;
+	
+}
+	
+.actions_info .action_counter h4 {
+	padding-left: 10px; 
+	font-size: 14px; 
+	font-weight: bold; 
+	margin: 5px;}
+
+.actions_info_description{
+	float: left;
+	width: 85%;
+	padding-left: 20px;
+	padding-top: 15px;
+}
+
+.actions_info .actions_info_description h4{
+	padding-left: 0px;
+	font-size: 16px;
+	margin: 0px 0px 5px 0px;
+}
+
+.actions_info article {
+	float: left;
+}
+
+.actions_info article figure {
+	float: left; 
+	min-height: 100px; 
+}
+
+#actionbtn_fix{
+	font-size: 12px;
+	float: left;
+	margin: 5px 0px 0px 55px;
+}
+
+#actionbtn_fix2{
+	font-size: 12px;
+	float: left;
+	margin: 5px 0px 0px 35px;
+}
+
+#actionbtn_fix3{
+	font-size: 12px;
+	float: left;
+	margin: 5px 0px 0px 50px;
+}
+
+.actions_info article h4 {
+	margin: 5px; 
+	}
+	
+.actions_info article p {
+	font-size: 10px; 
+	width: 95%; 
+	line-height: normal; 
+}
 
 .karma_tip { 
 	width: 49.7%;
 	float: right;
 	padding: 0px 0px 0px 0px;
+	position: relative;
+	margin: -29px 0px 0px 0px;
 }
 
 .karma_tip article {
@@ -364,6 +595,22 @@ updated: jmw 06.30.14
 .section3_status_display3 {width: 100%; float: left; margin: 0px 0px 0px 0px; background: #388173; border: 1px solid #bdbebf; opacity: .65;}
 .section3_status_display4 {width: 100%; float: left; margin: 0px 0px 0px 0px; background: #ed009e; border: 1px solid #bdbebf; opacity: .65;}
 
+.ub_statusinfo span{
+	float: left;
+	padding-top: 10px;
+	width: 100%;
+}
+
+.ub_statusinfo span .status-text-large{
+	font-size: 18px;
+	border-bottom: 1px solid #6c6f70;
+}
+
+.status-text-small{
+	padding-top: 1px;
+	padding-bottom: 0px;
+
+}
 
 /*----------------------------------------------------------------------------------------------------
 Fund Home Styling
@@ -844,7 +1091,7 @@ updated: jmw 09.01.14
 	}
 
 .profile-info figure{ 
-	width:82px; 
+	width:90px; 
 	float:left; 
 	padding-right: 10px;
 	-webkit-margin-before: 0em; 
@@ -910,7 +1157,7 @@ updated: jmw 09.01.14
 .profile-info .badges{ 
 	width:100%;
 	float:left;
-	padding-top: 10px;
+	padding-top: 20px;
 	}
 
 .profile-info .badges h2{
@@ -941,7 +1188,7 @@ updated: jmw 09.01.14
 	}
 	
 .profile-info .badges a{ 
-	color:#b3b3b3
+	color:#d2f2a3;
 	}
 	
 .profile-info .badges ul{
@@ -976,28 +1223,89 @@ updated: jmw 09.01.14
 	width: 28%;
 	margin-top: 30px;
 	min-height: 281px;
+	margin-bottom: 40px;
 }
 
 .dash-activityfeed .activity-feed {
 	background: #ffffff;
-	min-height: 80px;
-	min-height: 281px;
+	height: 281px;
 	float: left;
 	width: 90%;
 }
 
+.activity-feed caption{
+	padding: 5px 0px 10px 0px;
+	border-bottom: 1px solid #ddd;
+}
+
+.activity-feed .module{
+	width: 100%;
+	max-height: 281px;
+}
+
+.activity-feed .module table{
+	border: none;
+}
+
+.activity-feed table tbody tr td {
+	padding: 10px 0px 0px 0px;
+}
+
+.action_container{
+	width: 90%;
+}
+
 .dash-search {
-	width: 70%;
+	width: 80%;
 	background: #ffffff;
 	min-height: 50px;
 	float: left;
 	border-radius: 4px;
-	margin: 20px 0px 10px 0px;
+	margin: 30px 0px 10px 0px;
 }
 
-.bgprofile-info .profile-info .dash-search input {
-	width: 80%;
+.dash-search-bar{
+	float: left;
+	width: 100%;
+	padding: 5px 0px 0px 0px;
+}
+
+.dash-search .input {
+	width: 75%;
 	margin: 10px;
+	margin: 10px 10px 2px 10px;
+}
+
+.dash-search .searchbtn {
+	width: 15%;
+	float: left;
+	margin-top: 14px;
+}
+
+.dash-search .options{
+	float: left;
+	width: 82%;
+	padding-left: 85px;
+}
+
+.dash-search .options li{
+	float: left;
+	padding-right: 10px;
+}
+
+.dash-search .options li input{
+	width: 20px;
+	float: left;
+}
+
+.searchbtn[value] {
+	font-size: 24px;
+}
+
+.dash-search .options li p{
+	float: left;
+	margin-top: 3px;
+	margin-bottom: 5px;
 }
 
 .fundfeed-title {
@@ -1008,6 +1316,44 @@ updated: jmw 09.01.14
 .fundfeed-content {
 	float: left;
 	width: 48%;
+}
+
+.fundfeed-entry-content-btns{
+	float: left;
+	width: 70%;
+}
+
+.content-btns-expand{
+	float: right;
+	margin-top: 20px;
+	width: 34%;
+}
+
+.expand-btn {
+	float: right;
+	width: 110px;
+	margin-top: -22px;
+	cursor: pointer; 
+	cursor: hand;
+}
+
+.collapse-btn {
+	float: right;
+	width: 108px;
+	margin-top: -94px;
+	cursor: pointer; 
+	cursor: hand;
+}
+
+.added-question-count{
+	float: right;
+	width: 18%;
+	margin-right: 20px;
+}
+
+.fund-feed article #listA{
+	padding: 0px 0px 40px 20px;
+	width: 75%;
 }
 
 .loadmore-entry .greyed-user {
@@ -1070,26 +1416,56 @@ updated: jmw 09.01.14
 	padding: 0px 0px 0px 20px;
 }
 
+.fundfeed-userauthor .userauthor-profile-name a{
+	font-size: 12px;
+	margin: 0 20px 0px 0px;
+	line-height: 15px;
+}
+
+.userauthor-profile-name span{
+	line-height: 12px;
+}
+
+.fund-feed .fundfeed-userauthor .blog-entry-info{
+	margin-top: 0px;
+}
+
+.fundfeed-userauthor a{
+	font-size: 10px;
+}
+
+#special_name_hack {
+	margin: 0px;
+}
+
+#special_name_hack p{
+	color: #3060A8;
+}
 
 /*----------------------------------------------------------------------------------------------------
 Groups_all v1 Styling 
 created: jmw 09.02.14
 updated: jmw 09.02.14
 ----------------------------------------------------------------------------------------------------*/
-#groups_body {
-	margin: 0; 
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
-	font-size: 14px; 
-	line-height: 20px; 
-	color: #333333; 
-	background:#edece8 url(../img/bg_body.gif) repeat-x top left; 
-	padding-top: 80px;
-	}
-
 .lobby_home {
 	width: 100%;
 	float: left;
 	padding: 40px 0 170px 0;
+}
+
+.lobby-header{
+	padding-bottom: 20px;
+}
+
+.lobby-header p{
+	font-size: 24px;
+	font-family:"helveticaneuebold", Arial, Helvetica, sans-serif;	
+}
+
+.category-available-list{
+	float: left;
+	padding-bottom: 40px;
+	min-width: 940px;
 }
 
 .available-header{
@@ -1099,7 +1475,7 @@ updated: jmw 09.02.14
 
 .available-header span{
 	float: left;
-	width: 9%;
+	padding-right: 2px;
 }
 
 .available-header h3{
@@ -1115,8 +1491,8 @@ updated: jmw 09.02.14
 
 .available-list li{
 	float: left;
-	width: 24%;
-	padding: 0px 10px 0px 10px;
+	width: 210px;
+	padding: 0px 0px 20px 20px;
 }
 
 .available-list-lobby figure img{
@@ -1375,6 +1751,42 @@ updated: jmw 09.02.14
 	background: #ffffff;
 }
 
+.nav-inner-groupselections {
+	float: right;
+	width: 31%;
+	padding-bottom: 7px;
+}
+
+.nav-inner-groupselections li{
+	float: left;
+	padding-right: 20px;
+}
+
+.nav-inner-groupselections li a{
+	color: #363636;
+	text-decoration: none;
+}
+
+.nav-inner-groupselections li a:hover{
+	color: #c5c5c5;
+}
+
+.nav-inner-groupselections li h1{
+	font-size: 16px;
+}
+
+.body-nav-inner .groupnavbtn { 
+	width: 31%;
+	padding: 4px 12px 2px 4px;
+}
+
+.nav-inner-pagetitle li{
+	list-style-type: none;
+}
+
+.dropdown .groupnavbtn .caret{
+	margin-left: 5px;
+}
 
 /*----------------------------------------------------------------------------------------------------
 Groups_objective v1 Styling 
@@ -1468,3 +1880,107 @@ updated: jmw 09.02.14
 	margin: 40px 0px 0px 20px;
 }
 
+/*----------------------------------------------------------------------------------------------------
+User_information v1 Styling 
+created: jmw 09.10.14
+updated: jmw 09.10.14
+----------------------------------------------------------------------------------------------------*/
+.leftside-userprofile{
+	width: 26.4%;
+	float: left;
+}
+
+.userprofile-image{
+	width: 100%;
+	float: left;
+	background: #ffffff;
+}
+
+.userprofile-image-container{
+	width: 83%;
+	float: left;
+	padding-left: 21px;
+}
+
+.userprofile-image-container figure{
+	margin: 20px 0px 0px 0px;
+}
+
+.userprofile-image-container .image-container-photo{
+	float: center;
+	width: 44%;
+	padding-top: 10px;
+}
+
+.userprofile-image-container .image-container-photo a{
+	color: #2398c9;
+	text-decoration: underline;
+}
+
+.rightside-userprofile{
+	width: 71%;
+	float: left;
+	background: #ffffff;
+	padding-bottom: 40px;
+	margin-left: 20px;
+}
+
+.userprofile-menu{
+	float: left;
+	width: 100%;
+	background: #dfe5e6;
+	border-bottom:1px solid #bebebe;
+	border-top:1px solid #bebebe;
+	margin-bottom: 30px;
+}
+
+.userprofile-menu ul li{
+	float: left;
+	padding: 10px 5px 10px 5px;
+	line-height: 18px;
+}
+
+.userprofile-menu ul li p{
+	margin-bottom: 0px;
+}
+
+.userprofile-menu .over{
+	padding-left: 20px;
+	padding-right: 30px;
+	width: 9%;
+}
+
+
+.userprofile-menu span{
+	padding-left: 25px;
+	float: left;
+}
+
+.userprofile-menu .item a{
+	font-size: 13px;
+}
+
+.stats-container {
+	float: left;
+}
+
+.diagram-additions{
+	margin-left: 50px;
+}
+
+.diagram-detail-additions{
+	width: 100%;
+	height: auto;
+}
+
+.lobby-detail-breakdown .rightside-userprofile .short-summary{
+	width: 100%;
+}
+
+.rightside-userprofile .short-summary .question-summary-wrapper {
+	width: 70%;
+}
+
+.rightside-userprofile .short-summary .question-summary-wrapper .userinfo{
+	margin-right: 20px;
+}

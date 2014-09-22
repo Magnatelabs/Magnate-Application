@@ -7,16 +7,17 @@ user - either the same user, if we are on the dashboard, or whoever's profile we
 if request.user==user, then we should display controls like "Change profile picture", etc.
 Otherwise it is read-only.
 {% endcomment %}
+
 	<!-- begin user_breakdown -->
   <div class="bgprofile-info">
         <div class="profile-info">
         <!-- user image -->
         <article>
-         <figure>{% avatar user 80 %}
+         <figure>{% avatar user 90 %}
         {% ifequal user request.user %}
 		
 		{% comment %}
-		#Just thinking whether or not we need to keep this for later?
+		Just thinking whether or not we need to keep this for later?
 		<span class="caption"><a href="{% url 'avatar_change' %}">Change profile photo?</a></span> -->
 		{% endcomment %}
 		
@@ -28,10 +29,35 @@ Otherwise it is read-only.
         <aside>
 		<div id="user_badges">
 		</div>
+
 		<div class="dash-search">
-		<input name type="text" class="input" value="Search for something specific...">
-		<div class="btn">go</div>
+			<div class="dash-search-bar">
+				<form action="{% url "search" %}" method="get">
+					{% csrf_token %}
+					<div>
+					<input type="text" class="input" value="{{ keywords }}" name="q" id="keywords" />
+					<input type="submit" name="Submit" value="search" class="searchbtn" />
+					</div>
+					<div class="options">
+						<ul class="unstyled">
+							<li>
+								<input id="type-question" type="radio" value="question" name="t" checked="checked" />
+								<p>questions</p>
+							</li>
+							<li>
+								<input id="type-tag" type="radio" value="tag" name="t" />
+								<p>tags</p>
+							</li>
+							<li>
+								<input id="type-user" type="radio" value="user" name="t" />
+								<p>users</p>
+							</li>
+						</ul>
+					</div>
+				</form>
+			</div>
 		</div>
+
 
 	<script type="text/javascript">
 	    // Load badges dynamically even the first time so as to prevent caching

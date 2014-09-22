@@ -338,42 +338,16 @@ def user_view(template, tab_name, tab_title, tab_description, private=False, tab
     return decorator
 
 
-@user_view('users/stats.html', 'stats', _('overview'), _('user overview'))
+
+
+@user_view('users/recent.html', 'recent', _('recent activity'), _('recent user activity'))
 def user_profile(request, user, **kwargs):
-    questions = Question.objects.filter_state(deleted=False).filter(author=user).order_by('-added_at')
-    answers = Answer.objects.filter_state(deleted=False).filter(author=user).order_by('-added_at')
+    activities = user.actions.exclude(
+            action_type__in=("voteup", "votedown", "voteupcomment", "flag", "newpage", "editpage")).order_by(
+            '-action_date')[:USERS_PAGE_SIZE]
 
-    # Check whether the passed slug matches the one for the user object
-    slug = kwargs['slug']
-    if slug != slugify(smart_unicode(user.username)):
-        return HttpResponseRedirect(user.get_absolute_url())
+    return {"view_user" : user, "activities" : activities}
 
-    up_votes = user.vote_up_count
-    down_votes = user.vote_down_count
-    votes_today = user.get_vote_count_today()
-    votes_total = user.can_vote_count_today()
-
-    user_tags = Tag.objects.filter(Q(nodes__author=user) | Q(nodes__children__author=user)) \
-        .annotate(user_tag_usage_count=Count('name')).order_by('-user_tag_usage_count')
-
-    awards = [(Badge.objects.get(id=b['id']), b['count']) for b in
-              Badge.objects.filter(awards__user=user).values('id').annotate(count=Count('cls')).order_by('-count')]
-
-    return pagination.paginated(request, (
-    ('questions', QuestionListPaginatorContext('USER_QUESTION_LIST', _('questions'), default_pagesize=15)),
-    ('answers', UserAnswersPaginatorContext())), {
-    "view_user" : user,
-    "questions" : questions,
-    "answers" : answers,
-    "up_votes" : up_votes,
-    "down_votes" : down_votes,
-    "total_votes": up_votes + down_votes,
-    "votes_today_left": votes_total-votes_today,
-    "votes_total_per_day": votes_total,
-    "user_tags" : user_tags[:50],
-    "awards": awards,
-    "total_awards" : len(awards),
-    })
     
 @user_view('users/recent.html', 'recent', _('recent activity'), _('recent user activity'))
 def user_recent(request, user, **kwargs):
@@ -383,21 +357,6 @@ def user_recent(request, user, **kwargs):
 
     return {"view_user" : user, "activities" : activities}
 
-
-@user_view('users/reputation.html', 'reputation', _('reputation history'), _('graph of user karma'))
-def user_reputation(request, user, **kwargs):
-    rep = list(user.reputes.order_by('date'))
-    values = [r.value for r in rep]
-    redux = lambda x, y: x+y
-
-    graph_data = json.dumps([
-    (time.mktime(rep[i].date.timetuple()) * 1000, reduce(redux, values[:i+1], 0))
-    for i in range(len(values))
-    ])
-
-    rep = user.reputes.filter(action__canceled=False).order_by('-date')[0:20]
-
-    return {"view_user": user, "reputation": rep, "graph_data": graph_data}
 
 @user_view('users/votes.html', 'votes', _('votes'), _('user vote record'), True)
 def user_votes(request, user, **kwargs):
@@ -464,23 +423,53 @@ def _user_subscriptions(request, user, **kwargs):
             'manage_open':manage_open,
         }
 
-@user_view('users/preferences.html', 'preferences', _('preferences'), _('preferences'), True, tabbed=False)
+@user_view('users/stats.html', 'stats', _('overview'), _('user overview'))
 def user_preferences(request, user, **kwargs):
-    if request.POST:
-        form = UserPreferencesForm(request.POST)
+    questions = Question.objects.filter_state(deleted=False).filter(author=user).order_by('-added_at')
+    answers = Answer.objects.filter_state(deleted=False).filter(author=user).order_by('-added_at')
 
-        if form.is_valid():
-            user.prop.preferences = form.cleaned_data
-            messages.info(request, _('New preferences saved'))
+    # Check whether the passed slug matches the one for the user object
+    slug = kwargs['slug']
+    if slug != slugify(smart_unicode(user.username)):
+        return HttpResponseRedirect(user.get_absolute_url())
 
-    else:
-        preferences = user.prop.preferences
+    up_votes = user.vote_up_count
+    down_votes = user.vote_down_count
+    votes_today = user.get_vote_count_today()
+    votes_total = user.can_vote_count_today()
 
-        if preferences:
-            form = UserPreferencesForm(initial=preferences)
-        else:
-            form = UserPreferencesForm()
-            
-    return {'view_user': user, 'form': form}
+    user_tags = Tag.objects.filter(Q(nodes__author=user) | Q(nodes__children__author=user)) \
+        .annotate(user_tag_usage_count=Count('name')).order_by('-user_tag_usage_count')
 
+    awards = [(Badge.objects.get(id=b['id']), b['count']) for b in
+              Badge.objects.filter(awards__user=user).values('id').annotate(count=Count('cls')).order_by('-count')]
 
+    # for the reputation history
+    rep = list(user.reputes.order_by('date'))
+    values = [r.value for r in rep]
+    redux = lambda x, y: x+y
+
+    graph_data = json.dumps([
+    (time.mktime(rep[i].date.timetuple()) * 1000, reduce(redux, values[:i+1], 0))
+    for i in range(len(values))
+    ])
+
+    rep = user.reputes.filter(action__canceled=False).order_by('-date')[0:20]
+
+    return pagination.paginated(request, (
+    ('questions', QuestionListPaginatorContext('USER_QUESTION_LIST', _('questions'), default_pagesize=15)),
+    ('answers', UserAnswersPaginatorContext())), {
+    "view_user" : user,
+    "questions" : questions,
+    "answers" : answers,
+    "up_votes" : up_votes,
+    "down_votes" : down_votes,
+    "total_votes": up_votes + down_votes,
+    "votes_today_left": votes_total-votes_today,
+    "votes_total_per_day": votes_total,
+    "user_tags" : user_tags[:50],
+    "awards": awards,
+    "total_awards" : len(awards),
+    "reputation": rep,
+    "graph_data": graph_data,
+    })

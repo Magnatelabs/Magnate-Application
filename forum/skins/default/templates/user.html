@@ -1,20 +1,24 @@
-{% extends "base_content.html" %}
+{% extends "magnate_base.html" %}
 <!-- user.html -->
 {% load extra_tags %}
 {% load extra_filters %}
 {% load humanize %}
 {% load smart_if %}
+{% load i18n %}
 
 {% block title %}{% spaceless %}{{ page_title }}{% endspaceless %}{% endblock %}
-{% block forestyle%}
+{% block forestyle %}
     <style type="text/css">
  		.history-table td { padding: 5px; }
  		.user-stats-table { margin-left:50px; }
 	</style>
 {% endblock %}
+
 {% block forejs %}
     {% if request.user.is_superuser or request.user == view_user %}
-        <script type="text/javascript">google.load("jquery", "1.4.2");google.load("jqueryui", "1.8.1");</script>
+        
+        <script type="text/javascript">google.load("jquery", "1.7.1");google.load("jqueryui", "1.8.1");</script>
+         
         <script type="text/javascript">
             response_commands['update_profile_karma'] = function(new_karma) {
                 $('#user-reputation').css('background', 'yellow');
@@ -33,11 +37,52 @@
     </style>
     {% block userjs %}{% endblock %}
 {% endblock %}
+
+{% block body_navigation %}
+{% endblock %}
+
+
+{% block body %}
 {% block content %}
-    <div id="mainbar-full">
-        {% include "users/info.html" %}
-        {% include "users/tabs.html" %}
-        {% block usercontent %}
-        {% endblock %}
-	</div>
+<div class="grid_16">
+    <div class="contentinner lobby-detail">
+    	<div class="section1 section3 lobby-detail-breakdown">
+	 
+	    	<div class="leftside-userprofile">
+				<div class="userprofile-image">
+					<div class="userprofile-image-container">
+						<figure>{% gravatar view_user 200 %}</figure>
+						<aside>
+							{% if can_view_private %}
+							<div class="image-container-photo"><p><a href="">Change photo?</a></p></div>
+							{% endif %}	
+							{% if not view_user.is_suspended %}
+							<div class="scoreNumber" id="user-reputation">{{view_user.reputation|intcomma}}</div>
+							<p><b style="color:#777;">{% trans "reputation" %}</b></p>
+							{% else %}
+							<div class="scoreNumber">{% trans "Suspended" %}</div>
+							<p>{{ view_user.suspension.extra.publicmsg }}</p>
+							{% endif %}
+						</aside>
+					</div>
+				</div>
+			</div>
+	    	
+	    	<div class="rightside-userprofile">
+				<div id="mainbar-full">
+					{% include "users/info.html" %}
+					
+					{% comment %}
+					### We no longer need the tabs	
+					{% include "users/tabs.html" %}
+					{% endcomment %}
+					
+					{% block usercontent %}
+					{% endblock %}
+				</div>
+	    	</div>
+    	</div>
+    </div>
+</div>
 {% endblock %}<!-- end user.html -->
+{% endblock %}

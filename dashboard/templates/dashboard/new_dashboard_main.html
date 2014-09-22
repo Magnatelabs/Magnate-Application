@@ -8,8 +8,6 @@
 	<link href="{% static "css/jquery.fancybox-1.3.4.css" %}" rel="stylesheet">	
 {{ block.super }}
 
-
-
 {% load i18n extra_tags extra_filters ui_registry %}
     <!-- Styling for OSQA -->
         <link href="{% media  "/media/style/style.css" %}" rel="stylesheet" type="text/css" />
@@ -51,14 +49,16 @@
 
 {% comment %} OSQA has block forejs for javascript in the beginning. For now just linking it by inserting it here {% endcomment %}
 
-  {% block forejs %}{% endblock %}
+  {% block forejs %}
+  {% endblock %}
 
-		
 {% endblock %} 
 
+{% block body_navigation %}
+	{% include "_bodynav.html" %}
+{% endblock %}
 
 {% block body %}
-
 <div class="dash_grid">
     <div class="inner_dashcontent">
     	<div class="section1 section3">
@@ -66,7 +66,7 @@
 			{% include "dashboard/_user_breakdown.html" %}
 
 		{% comment %}
-		#No need for hangouts feature or the dropdown at the momment
+		No need for hangouts feature or the drop-down at the moment
         <div class="dashboard-divider">
         	<div id="hangoutsDropdown" class="hangouts_dropdown">
 				<button type="button" id="btnHangoutsClose" class="icon-close">Close</button>
@@ -93,24 +93,26 @@
 
         <div class="dash_zinniafeed grid_3 alpha omega">
         <div class="fund-feed">
-        <h3> To configure the feed, <a href="{% url 'groups_all' %}">go to the lobby page</a>.</h3>
+        
+        {% comment %}
+        This does not belong here. Need to find a better location for this information.
         <h3>Following: </h3>{% for category in following %}
           <a href="{% url 'category_home_page' category.pk %}">{{ category.title }}</a>
         {% endfor %}
+        {% endcomment %}
+        
   	{% endif %}
 
     {% block page_center %}
       {% block content %}
       {% endblock %}
 
-
-
-      {% for object in entries.paginator.page %}
+     {% for object in entries.paginator.page %}
         {% include object.content_template with object_content=object.html_content|truncatewords_html:object.blurb_word_limit|safe continue_reading=1 %}
-      {% endfor %}
-<div class="pager" style="float: right">
+     {% endfor %}
+	  <div class="pager" style="float: right">
     {{ entries.paginator.page_numbers }}
-</div>      
+	</div>      
     {% endblock %}
 
         {% if is_dashboard %}
@@ -150,7 +152,7 @@
 {% if is_dashboard %}
 
 {% comment %}
-### No longer need to display the first item automatically
+No longer need to display the first item automatically
   <script type="text/javascript">
   // Helps to display the first item in the fund-feed
     $(document).ready(function() {
