@@ -44,7 +44,7 @@ class DonatedSomethingTestBadge(Badge):
         BadgeDetail("Nice person!", "This badge is given for any donation"),
     ]
     events = [
-        "user_donation",
+        "donation",
     ]
     multiple = False
 
