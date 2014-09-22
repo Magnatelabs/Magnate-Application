@@ -5,6 +5,7 @@
 {% load humanize %}
 {% load smart_if %}
 {% load i18n %}
+{% load avatar_tags %}
 
 {% block title %}{% spaceless %}{{ page_title }}{% endspaceless %}{% endblock %}
 {% block forestyle %}
@@ -51,10 +52,10 @@
 	    	<div class="leftside-userprofile">
 				<div class="userprofile-image">
 					<div class="userprofile-image-container">
-						<figure>{% gravatar view_user 200 %}</figure>
+						<figure>{% avatar view_user 200 %}</figure>
 						<aside>
 							{% if can_view_private %}
-							<div class="image-container-photo"><p><a href="">Change photo?</a></p></div>
+							<div class="image-container-photo"><p><a href="{% url "avatar_add" %}" >Change photo?</a></p></div>
 							{% endif %}	
 							{% if not view_user.is_suspended %}
 							<div class="scoreNumber" id="user-reputation">{{view_user.reputation|intcomma}}</div>
