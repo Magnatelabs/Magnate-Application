@@ -2,6 +2,7 @@ from django.db import models
 from django.utils import timezone
 from django import forms
 from django.contrib.auth.models import User
+from forum.models.user import User as ForumUser
 
 from billing.signals import transaction_was_successful, transaction_was_unsuccessful
 from django.dispatch import receiver
@@ -16,6 +17,9 @@ from django.utils.translation import ugettext_lazy as _
 
 from caching.base import CachingManager, CachingMixin
 # See https://cache-machine.readthedocs.org/en/latest/ about caching
+
+from forum.models.action import ActionProxy
+from glue_osqa.tools import downcastUserToExtendedUser
 
 UPLOAD_COMPANY_LOGO_TO = 'uploads/funds'
 
@@ -144,14 +148,31 @@ class Donation (PrivatelyPublishedModelMixin, models.Model):
                 return
 
             user = User.objects.get(username=data['x_cust_id'])
+            user = downcastUserToExtendedUser(user)
             amount = Decimal(data['x_amount'])
             transaction_id = data['x_trans_id']
-            donation = Donation(user=user, amount=amount, transaction_id=transaction_id)  
-            donation.save()
+
+            DonationAction(user=user).save(dict(user=user, amount=amount, transaction_id=transaction_id))
 
             logging.info('OK, DONATION SUCCESSFUL. User: %s, transaction_id: %s' % (user, transaction_id))
             status_awards.award_badges("user_donation", user)
             update_statistics() # This function is called to upadte the TOTAL_DONATION_AMOUNT
             #import pdb; pdb.set_trace()
         
+
+class DonationAction(ActionProxy):
+    verb=_("contributed")
+
+    def process_data(self, user, amount, transaction_id):
+        donation = Donation(user=user, amount=amount, transaction_id=transaction_id)  
+        donation.save()
+
+        self.extra = donation
+        self.save()
+
+    def describe(self, viewer=None):
+        return _("%(user)s contributed some funds") % {
+            'user': self.hyperlink(self.user.get_profile_url(), self.friendly_username(viewer, self.user)),
+        }
+
 
