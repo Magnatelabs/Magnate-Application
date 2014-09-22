@@ -1,10 +1,11 @@
 {% load extra_tags i18n %}
+{% load avatar_tags %}
 <div class='post-update-info post-update-info-user'>
     <p style="line-height:12px;">
         {{ node_verb }}
         <strong>{% diff_date node.added_at %}</strong>
     </p>
-    {% gravatar node.author 32 %}
+    {% avatar node.author 32 %}
     <p><a {% if node.author.is_suspended %}class="suspended-user" {% endif %}href="{{ node.author.get_profile_url }}">{{ node.author.decorated_name }}</a><br/>
     {% get_score_badge node.author %}<br />
     {% get_accept_rate node.author %}</p>
@@ -18,7 +19,7 @@
             </a>
         </p>
         {% ifnotequal node.author node.last_edited.by %}
-            {% gravatar node.last_edited.by 32 %}
+            {% avatar node.last_edited.by 32 %}
             <p><a {% if node.last_edited.by.is_suspended %}class="suspended-user" {% endif %}href="{{ node.last_edited.by.get_profile_url }}">{{ node.last_edited.by.decorated_name }}</a><br/>
             {% get_score_badge node.last_edited.by %}</p>
         {% endifnotequal %}
