@@ -1609,8 +1609,10 @@ updated: jmw 09.02.14
 
 .total-lobby-contribution{
 	background: #f8f8f8;
-	width: 108px;
+	float: left;
 	border-radius: 6px;
+	padding: 5px 17px 5px 10px;
+	margin: 15px 0px 0px 10px;
 }
 
 .total-lobby-contribution sup{
@@ -1633,9 +1635,31 @@ updated: jmw 09.02.14
 	margin-left: 20px;
 }
 
+.header-top-name  h1{
+	font-size: 41px;
+	float: left;
+}
+
+.header-top-description{
+	float: left;
+	width: 80%;
+	margin-left: 20px;
+}
+
+.header-top-description p{
+	font-size: 15px;
+}
+
+.header-bottom-followbtn{
+	float: right;
+	margin-right: 20px;
+	margin-top: 10px;
+}
+
 .description-header-bottom{
 	width: 100%;
 	float: left;
+	padding-top: 20px;
 }
 
 .description-header-moderators{
