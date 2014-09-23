@@ -107,6 +107,11 @@ body .dash-body-nav{
 .dash-body-nav{
 	max-height: 45px;
 }
+
+.extra-border{
+border: 1px solid #bebebe;
+}
+
 /*----------------------------------------------------------------------------------------------------
 Site_base modifications 
 created: jmw
@@ -360,12 +365,12 @@ updated: jmw 06.25.14
 .fund-feed .article-active { 
 	background:#ffffff; 
 	position:relative; 
-	padding:14px 0 22px 0
-	-webkit-transition: background-color 1500ms linear;
-    -moz-transition: background-color 1500ms linear;
-    -o-transition: background-color 1500ms linear;
-    -ms-transition: background-color 1500ms linear;
-    transition: background-color 1500ms linear;
+	padding:14px 0 22px 0;
+	-webkit-transition: background-color 200ms linear;
+    -moz-transition: background-color 200ms linear;
+    -o-transition: background-color 200ms linear;
+    -ms-transition: background-color 200ms linear;
+    transition: background-color 200ms linear;
 	}
 	
 .fund-feed .article-active figure { width:100%; padding-bottom:16px}
@@ -1100,6 +1105,10 @@ updated: jmw 09.01.14
 	-webkit-margin-end: 0px;
 	}
 
+.profile-info figure img{
+	border: 1px solid #bebebe;
+}
+
 .profile-info .profile-name {
 	float: left;
 	}
@@ -1310,7 +1319,7 @@ updated: jmw 09.01.14
 
 .fundfeed-title {
 	float: left;
-	width: 48%;
+	width: 60%;
 }
 
 .fundfeed-content {
@@ -1326,6 +1335,7 @@ updated: jmw 09.01.14
 .content-btns-expand{
 	float: right;
 	margin-top: 20px;
+	margin-bottom: 40px;
 	width: 34%;
 }
 
@@ -1417,6 +1427,10 @@ updated: jmw 09.01.14
 	padding: 0px 0px 0px 20px;
 }
 
+.userauthor-profile-image figure img{
+	border: 1px solid #bebebe;
+}
+
 .fundfeed-userauthor .userauthor-profile-name a{
 	font-size: 12px;
 	margin: 0 20px 0px 0px;
@@ -1429,6 +1443,10 @@ updated: jmw 09.01.14
 
 .fund-feed .fundfeed-userauthor .blog-entry-info{
 	margin-top: 0px;
+}
+
+.blog-entry-info .published{
+	border-bottom: 0px;
 }
 
 .fundfeed-userauthor a{
@@ -1497,7 +1515,7 @@ updated: jmw 09.02.14
 }
 
 .available-list-lobby figure img{
-	min-width: 220px;
+	width: 220px;
 }
 
 .list-lobby-description{
@@ -1505,12 +1523,13 @@ updated: jmw 09.02.14
 	width: 100%;
 	background: #ffffff;
 	min-height: 150px;
+	
 }
 
 .list-lobby-description span{
 	float: left;
 	width: 90%;
-	margin: 20px 0px 0px 10px;
+	margin: 15px 0px 5px 10px;
 }
 
 .list-lobby-description .lobby-description-title a{
@@ -1521,12 +1540,36 @@ updated: jmw 09.02.14
 .list-lobby-description p {
 	font-size: 12px;
 	line-height: 15px;
+	margin-bottom: 5px;	
 }
 	
 .lobby-unavailable-list{
 	float: left;
 	width: 100%;
 	padding: 50px 0px 0px 0px;
+}
+
+.lobby-description-follow {
+	float: left;
+	width: 90%;
+	margin-bottom: 10px;
+	margin-left: 40px;
+}
+
+.lobby-description-follow .btn {
+	width: 50%;
+}
+
+.lobby-description-follow p{
+	font-size: 24px;
+	color: #72bb2a;
+	margin: 0px;
+	width: 28%;
+	float: left;
+}
+
+.follow-btn-text {
+	width: 51%;
 }
 
 /*----------------------------------------------------------------------------------------------------
@@ -1963,6 +2006,7 @@ updated: jmw 09.10.14
 
 .stats-container {
 	float: left;
+	width: 100%;
 }
 
 .diagram-additions{
@@ -1984,4 +2028,13 @@ updated: jmw 09.10.14
 
 .rightside-userprofile .short-summary .question-summary-wrapper .userinfo{
 	margin-right: 20px;
+}
+
+/*----------------------------------------------------------------------------------------------------
+Question Side Menu
+created: jmw 09.22.14
+updated: jmw 09.22.14
+----------------------------------------------------------------------------------------------------*/
+#sidebar-upper {
+	display: none;
 }
