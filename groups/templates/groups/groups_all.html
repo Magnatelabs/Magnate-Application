@@ -45,20 +45,36 @@
 
         <div class="category-available-list">
             <div class="available-header">
-                <span><p>Available category</p></span><p> ({{ categories|length }})</p>
+                <span><p>Available</p></span><p> ({{ categories|length }})</p>
             </div>
             <div class="available-list">
-                <ul class="unstyled"><!-- available groups list -->
+                <ul class="unstyled">
                     {% for category in categories %}
                     <li>
-                    <div class="available-list-lobby"><!-- admin defined group image -->
-                        <div class="list-lobby-description"><!-- admin defined name and description -->
+                    <div class="available-list-lobby">
+                        <div class="list-lobby-description">
+                            {% with "/site_media/static/img/"|add:category.0.title|add:".jpg" as category_url %} 
+                            <figure><img src="{% static category_url %}"/></figure> 
+                            {% endwith %}
                             <span>
                                 <p class="lobby-description-title"><a href="{% url 'category_home_page' category.0.pk %}">{{ category.0.title }}</a></p>
                                 <p>{{ category.0.description }}</p>
                             </span>                         
-                            <div class="lobby-description-follow"><!-- select to filter tags for dashboard -->
-                                <div class="btn" id="cat-btn-{{ category.0.pk }}" onclick="follow({{ category.0.pk }}, false );">{% if category.1 %}Unfollow{% else %}Follow{% endif %}
+                            <div class="lobby-description-follow">
+                                <div class="btn" id="cat-btn-{{ category.0.pk }}" onclick="follow({{ category.0.pk }}, false );">
+
+                                	{% if category.1 %}
+                                	{% comment %}
+                                	Need to fix this so it works.
+                                	<p>+</p>
+                                	{% endcomment %}
+                                	<div class="follow-btn-text">Unfollow</div>
+                                	{% else %}
+                                	{% comment %}
+                                	<p>+</p>
+                                	{% endcomment %}
+                                	<div class="follow-btn-text">Follow</div>
+                                	{% endif %}
                                 </div>                            
                             </div>  
                         </div>
@@ -70,22 +86,22 @@
 
          <div class="category-available-list">
             <div class="available-header">
-                <span><p>Unavailable category</p></span><p>(0)</p>
+                <span><p>Unavailable</p></span><p>(0)</p>
             </div>
             
             {% comment %}
             We will have unavailable categories soon
             <div class="available-list">
-                <ul class="unstyled"><!-- available groups list -->
+                <ul class="unstyled">
                     {% for category in categories %}
                     <li>
-                    <div class="available-list-lobby"><!-- admin defined group image -->
-                        <div class="list-lobby-description"><!-- admin defined name and description -->
+                    <div class="available-list-lobby">
+                        <div class="list-lobby-description">
                             <span>
                                 <p class="lobby-description-title"><a href="{% url 'category_home_page' category.0.pk %}">{{ category.0.title }}</a></p>
                                 <p>{{ category.0.description }}</p>
                             </span>                         
-                            <div class="lobby-description-follow"><!-- select to filter tags for dashboard -->
+                            <div class="lobby-description-follow">
                                 <div class="btn" id="cat-btn-{{ category.0.pk }}" onclick="follow({{ category.0.pk }}, false );">{% if category.1 %}Unfollow{% else %}Follow{% endif %}
                                 </div>                            
                             </div>  
