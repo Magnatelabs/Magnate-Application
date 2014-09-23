@@ -16,14 +16,16 @@
 					</div>
 				</div>
 			</div>
+			<div class="header-top-description">
+				<p>{{ category.description }}</p>
+			</div>
+			<div class="header-bottom-followbtn">
+				<div class="btn">follow</div>
+			</div>
 		</div>
 							
 		<div class="description-header-bottom"> 
-			<!-- change to group description --><p>{{ fund.description }}</p>
-			<div class="btn">follow</div>
-		</div>
-			
-		<div class="description-header-moderators">
+			<div class="description-header-moderators">
 			<p>Moderators</p>
 			<div class="moderators-container">
 				<ul class="unstyled">
@@ -43,7 +45,10 @@
 			<span><p><a href="#">Want to lend a hand?</a></p></span>
 		</div>
 	</div>	
-	{% include "groups/__objective.html" %}	
+
+		</div>
+			
+			{% include "groups/__objective.html" %}	
 </div>
 
 
