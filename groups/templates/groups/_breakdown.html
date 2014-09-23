@@ -4,9 +4,11 @@
 <div class="detail-breakdown-description">
 	<div class="breakdown-description-header">			
 		<div class="description-header-top">
-			<figure><a href="#"><img src="{% static "img/dash_hangoutstest.jpg" %}" alt="PHOTO" /></a></figure>
-			<div class="header-top-name"><!-- change to name of group -->
-				<h1>{{ fund.name }}</h1>
+			{% with "/site_media/static/img/"|add:category.title|add:".jpg" as category_url %} 
+            <figure><img src="{% static category_url %}"/></figure> 
+            {% endwith %}
+           	<div class="header-top-name"><!-- change to name of group -->
+				<h1>{{ category.title }}</h1>                
 				<div class="total-lobby-contribution"><!-- manual submit through admin  -->
 					<div id="dollar">
 						<sup>$</sup>
