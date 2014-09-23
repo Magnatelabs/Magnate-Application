@@ -59,7 +59,7 @@ function toggleArticleActive(article_dom_id, is_active, is_public) {
   var a = $('#' + article_dom_id);
   a.attr("class", is_active ? "article-active" : "");
   if (is_active) {
-    a.find(".show-when-article-active").fadeIn(); // can animate, e.g. show('slow')
+    a.find(".show-when-article-active").show(); // can animate, e.g. show('slow')
     a.find('.show-when-article-not-active').children().addClass("nohover-underline");
     a.find('.fundfeed_title_active').addClass("nohover-underline"); 
     a.find(".show-when-article-not-active").hide();		
@@ -70,7 +70,7 @@ function toggleArticleActive(article_dom_id, is_active, is_public) {
     }
   } else {
     a.find(".show-when-article-active").hide();
-    a.find(".show-when-article-not-active").fadeIn(200);
+    a.find(".show-when-article-not-active").show();
     a.find('.show-when-article-not-active').children().removeClass("nohover-underline");
     a.find('.fundfeed_title_active').removeClass("nohover-underline"); 
 
