@@ -64,10 +64,8 @@
 <div class="grid_16">
     <div class="contentinner lobby-detail">
     	<div class="section1 section3 lobby-detail-breakdown">
-
-			{% for fund in funds|slice:":1" %} <!-- change_to_lobbies -->
+   		
 			{% include "groups/_breakdown.html" %}
-			{% endfor %}
    		
 	   		<div class="section6"> {% comment %}section6 is also only for the dashboard mode. We want a pure white screen otherwise{% endcomment %}
 		   		<div class="dash_zinniafeed grid_3 alpha omega">
