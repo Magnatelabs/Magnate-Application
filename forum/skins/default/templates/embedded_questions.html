@@ -22,8 +22,9 @@
     </div>
 	{% endcomment %}
 	
+{% comment %}	
 <div class="tabBar">
-{% comment %}
+
 
     Commenting out the following code for design purposes (jmw 06.27.14)
     {% include "question_list/title.html" %}
@@ -34,9 +35,9 @@
     since now we have the "Show more questions" button (Sergey 09.14.14)
 
     {{ questions.paginator.sort_tabs }}
-{% endcomment %}
-</div>
 
+</div>
+{% endcomment %}
 
 
 {% with show_more_questions_cycle=5 %}
