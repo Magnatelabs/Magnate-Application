@@ -5,7 +5,7 @@ from selenium.common.exceptions import TimeoutException
 import selenium.webdriver.support.expected_conditions as EC
 import selenium.webdriver.support.ui as ui
 from selenium.common.exceptions import NoSuchElementException
-
+from selenium.webdriver.firefox.firefox_profile import FirefoxProfile
 
 import urlparse
 HOST=''
@@ -19,11 +19,26 @@ def _(path):
 
 class MyTestCase(unittest.TestCase):
     def setUp(self):
-        self.driver = webdriver.Firefox()
+        # self.driver = webdriver.Firefox()
+        self.driver = self.firefoxNoImages()
 
     def tearDown(self):
         self.driver.quit()
 
+
+    def firefoxNoImages(self):
+        # http://stackoverflow.com/questions/7157994/do-not-want-images-to-load-and-css-to-render-on-firefox-in-selenium-webdriver-te
+        ## get the Firefox profile object
+        firefoxProfile = FirefoxProfile()
+        ## Disable CSS
+        # firefoxProfile.set_preference('permissions.default.stylesheet', 2)
+        ## Disable images
+        firefoxProfile.set_preference('permissions.default.image', 2)
+        ## Disable Flash
+        # firefoxProfile.set_preference('dom.ipc.plugins.enabled.libflashplayer.so',
+        #                              'false')
+        ## Set the modified profile while creating the browser object 
+        return webdriver.Firefox(firefoxProfile)
 
     def save_url(self):
         self.url = self.driver.current_url
