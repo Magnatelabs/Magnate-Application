@@ -79,6 +79,7 @@ if 'test' in sys.argv or 'test_coverage' in sys.argv: #Covers regular testing an
 #        'TEST_NAME': os.path.join(os.path.dirname(__file__), 'test.db'),
 #        'NAME': 'mytestdatabase',
     }
+SELENIUM_TESTING = 'SELENIUM_TESTING' in os.environ
 
 
 # Local time zone for this installation. Choices can be found here:
@@ -243,6 +244,7 @@ INSTALLED_APPS = [
     "share",
     "groups",
 ]
+
 
 
 # Note that by using this test runner to exclude particular apps, we are reverting to the pre-Django 1.5 method of test discovery
@@ -419,10 +421,11 @@ MAGNATE_NO_STATUS_PIC_URL = 'status_awards/no_status_badge.png'
 MAGNATE_CAN_STAR_RATE_EVERY = 'seconds=5'
 
 
-#django-analytical settings
-CLICKY_SITE_ID = '100664353'
-CRAZY_EGG_ACCOUNT_NUMBER = '00204380'
-GOOGLE_ANALYTICS_PROPERTY_ID = 'UA-46652906-1'
+if not SELENIUM_TESTING:
+    #django-analytical settings
+    CLICKY_SITE_ID = '100664353'
+    CRAZY_EGG_ACCOUNT_NUMBER = '00204380'
+    GOOGLE_ANALYTICS_PROPERTY_ID = 'UA-46652906-1'
 
 
 from osqa_settings import *
