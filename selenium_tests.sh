@@ -62,7 +62,7 @@ fi
 
 
 # Start Django's Dev server
-python manage.py runserver $DJANGO_PORT &
+SELENIUM_TESTING=TRUE python manage.py runserver $DJANGO_PORT &
 pid_django=$!
 echo "Starting Django server, pid=$pid_django"
 
