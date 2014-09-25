@@ -71,7 +71,14 @@ class main_page(MyTestCase):
             elt.click()
 
         # We've just created a public entry; find it in the feed!
-        entry = self.by_id('expand-entry-1')
+        # entry = self.by_id('expand-entry-1')
+
+        # Pick the first entry with id starting from expand-entry-.
+        # Essentially the same as picking expand-entry-1, but can be more robust.
+        # http://stackoverflow.com/questions/10111668/find-all-elements-whose-id-begins-with-a-common-string
+        entry = self.driver.execute_script("return document.querySelectorAll('*[id^=\"expand-entry-\"]');")[0]
+
+
 
         # Let's expand it so we can see the standard picture, the (empty) list of Q&A, etc.
 
@@ -96,7 +103,15 @@ class main_page(MyTestCase):
         # Make sure we are on the dashboard
         self.assert_on_dashboard()
         # Once again select the first entry!
-        entry = self.by_id('expand-entry-1')
+        # entry = self.by_id('expand-entry-1')
+        
+        # Pick the first entry with id starting from expand-entry-.
+        # Essentially the same as picking expand-entry-1, but can be more robust.
+        # http://stackoverflow.com/questions/10111668/find-all-elements-whose-id-begins-with-a-common-string
+        entry = self.driver.execute_script("return document.querySelectorAll('*[id^=\"expand-entry-\"]');")[0]
+
+
+
         # Select it once again; see if we can see our question on the right
         
         scroll_and_click( entry )
