@@ -48,10 +48,13 @@ def dashboard_index(request):
 
 
 from zinnia.models.entry import Entry
-from zinnia.managers import HIDDEN
+from zinnia.managers import HIDDEN, PUBLISHED
+from rewards.models import ACTIVE
 
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
+
+from rewards.models import FundraisingAgenda
 
 class DashboardView(zinnia.views.archives.EntryIndex):
 
@@ -97,6 +100,16 @@ else:
     return ctx
   f_render = f
 
+
+
+# those go to the top of the feed
+def get_highlighted_entries():
+    fundraising = FundraisingAgenda.objects.filter(entry__status=PUBLISHED).filter(status=ACTIVE).distinct()
+    # should I order by -date or by -entry__creation_date?
+    fundraising = fundraising.order_by('-date')
+    return [fa.entry for fa in fundraising if fa.target_reached()]
+    
+
 @login_required(login_url='/account/login/')
 def dashboard_index(request, *args, **kwargs):
     ctx = {
@@ -118,7 +131,12 @@ def dashboard_index(request, *args, **kwargs):
         ctx['entries'] = qs.filter(categories__pk__in=[c.pk for c in ctx['following']]) ###.distinct()
         # fix to show one's private entries no matter what
         ctx['entries'] = (ctx['entries'] | qs.filter(status=HIDDEN)).distinct()
-    ctx['entries'] = ctx['entries'].order_by('-creation_date')
+
+    ctx['highlighted_entries'] = get_highlighted_entries()
+    pk_to_exclude = [e.pk for e in ctx['highlighted_entries']]
+    ctx['entries'] = ctx['entries'].exclude(pk__in=pk_to_exclude).order_by('-creation_date')
+
+
     return render(request, 'dashboard/new_dashboard_main.html', f_render(request, ctx))
 
 
