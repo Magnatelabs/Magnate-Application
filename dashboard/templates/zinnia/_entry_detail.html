@@ -17,6 +17,9 @@
 {% block entry-header %}
 	
 		{% if continue_reading %} 
+			{% if highlighted %}
+				<b>FEATURED ENTRY</b>
+			{% endif %}
 			{% include "zinnia/__entry_authors_feed.html" %} 
 
 		{% else %}
