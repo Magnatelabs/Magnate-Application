@@ -25,15 +25,17 @@
 			<p>Moderators</p>
 			<div class="moderators-container">
 				<ul class="unstyled">
+					{% for mc in category.moderators.all %}
 					<li>
 						<div class="lobby-moderators">  
 							<div class="lobby-moderators-image"><!-- select specific users through admin -->
-								<figure>{% avatar user 28 %}{% ifequal user request.user %}</figure>
+								<figure>{% avatar mc.moderator 28 %}{% ifequal mc.moderator request.user %}</figure>
 							</div>{% endifequal %}
-							<div class="lobby-moderators-name"><p><!-- moderator's name-->{{ user }}</p></div>
-							<div class="lobby-moderators-ranking"><p><!-- moderator's osQA ranking -->3,042</p></div>
+							<div class="lobby-moderators-name"><p><!-- moderator's name-->{{ mc.moderator }}</p></div>
+							<div class="lobby-moderators-ranking"><p><!-- moderator's osQA ranking -->{{ mc.moderator.reputation }}</p></div>
 						</div>
 					</li>
+					{% endfor %}
 				</ul>
 			</div>
 			<span><p><a href="#">Want to lend a hand?</a></p></span>
