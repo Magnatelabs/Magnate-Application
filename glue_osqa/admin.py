@@ -1,3 +1,5 @@
 from django.contrib import admin
+from glue_osqa.models import ModeratorCategoryModerating
 
-# Register your models here.
+admin.site.register(ModeratorCategoryModerating)
+
