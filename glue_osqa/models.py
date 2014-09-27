@@ -45,3 +45,19 @@ from zinnia.models import Category
 class UserCategoryFollowing(models.Model):
 	user = models.ForeignKey(ForumUser, related_name='following')
 	category = models.ForeignKey(Category, related_name='users')
+
+# Adding moderators.
+# While I could have just added a file such as 'role' to UserCategoryFollowing, this
+# leads to all kinds of issues. What if a moderator accidentally unfollows his
+# category, and it automatically makes him not a moderator any longer, because
+# the UserCategoryFollowing object would be deleted?
+# 
+# On the other hand, with two different models we get two different places for
+# additional properties about a subscription or about moderatorship, respectively.
+# (That is, both models can be enhanced with additional fields.)
+#
+# Also, since there will be few moderator-category relationship, we won't have to 
+# query the big table when we don't need to.
+class ModeratorCategoryModerating(models.Model):
+	moderator = models.ForeignKey(ForumUser, related_name='moderating')
+	category = models.ForeignKey(Category, related_name='moderators')
