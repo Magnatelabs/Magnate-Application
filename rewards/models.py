@@ -129,6 +129,9 @@ class FundraisingAgenda(AgendaProxy):
     def target_amount(self):
         return self.extra['target-amount']
 
+
+    def target_reached(self):
+        return float(self.current_amount()) >= float(self.target_amount())
         
     def __unicode__(self):
         return '%s (hosted by %s on %s)' % (self.admin_note, self.user, self.date)
