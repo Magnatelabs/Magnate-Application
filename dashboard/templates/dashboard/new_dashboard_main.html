@@ -3,6 +3,7 @@
 {% load staticfiles %}
 {% load social_tags %}
 {% load zinnia_tags %}
+{% load magnate_tags %}
 
 {% block style_base %}
 	<link href="{% static "css/jquery.fancybox-1.3.4.css" %}" rel="stylesheet">	
@@ -106,13 +107,8 @@
     {% block page_center %}
       {% block content %}
       {% endblock %}
-
-     {% for object in entries.paginator.page %}
-        {% include object.content_template with object_content=object.html_content|truncatewords_html:object.blurb_word_limit|safe continue_reading=1 %}
-     {% endfor %}
-	  <div class="pager" style="float: right">
-    {{ entries.paginator.page_numbers }}
-	</div>      
+      
+      {% entry_feed entries %}
     {% endblock %}
 
         {% if is_dashboard %}
