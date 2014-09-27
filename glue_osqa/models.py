@@ -61,3 +61,6 @@ class UserCategoryFollowing(models.Model):
 class ModeratorCategoryModerating(models.Model):
 	moderator = models.ForeignKey(ForumUser, related_name='moderating')
 	category = models.ForeignKey(Category, related_name='moderators')
+
+	def __unicode__(self):
+		return '%s is moderating %s' % (self.moderator.username, self.category.title)
