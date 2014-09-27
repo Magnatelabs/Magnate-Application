@@ -1,8 +1,19 @@
+     {% if pagination %}
+
     {% for object in entries.paginator.page %}
         {% include object.content_template with object_content=object.html_content|truncatewords_html:object.blurb_word_limit|safe continue_reading=1 %}
      {% endfor %}
-     {% if pagination %}
           <div class="pager" style="float: right">
     {{ entries.paginator.page_numbers }}
         </div>     
+
+     {% else %}
+
+
+    {% for object in entries %}
+        {% include object.content_template with object_content=object.html_content|truncatewords_html:object.blurb_word_limit|safe continue_reading=1 %}
+     {% endfor %}
+
+
      {% endif %}
+
