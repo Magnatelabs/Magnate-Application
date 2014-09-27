@@ -40,7 +40,8 @@ class EntryNodeAboutRelationship(models.Model):
 
 # Users can follow certain categories such as "Education". 
 from django.contrib.auth.models import User
+from forum.models.user import User as ForumUser
 from zinnia.models import Category
 class UserCategoryFollowing(models.Model):
-	user = models.ForeignKey(User, related_name='following')
+	user = models.ForeignKey(ForumUser, related_name='following')
 	category = models.ForeignKey(Category, related_name='users')
