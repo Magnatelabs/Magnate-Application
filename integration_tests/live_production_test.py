@@ -7,7 +7,9 @@ import unittest, time, re
 import sys
 
 from seltools import MyTestCase, set_host, _
-set_host('http://magnate-prod.herokuapp.com/')
+set_host('http://magnate-%s.herokuapp.com/' % (sys.argv[1])) # 'magnate-prod' or 'magnate-staging'
+# delete extra command-line options, or python's unittest will freak out
+del sys.argv[1:] # http://stackoverflow.com/questions/1029891/python-unittest-is-there-a-way-to-pass-command-line-options-to-the-app
 
 print "Testing Live Production"
 
