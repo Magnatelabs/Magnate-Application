@@ -1,6 +1,7 @@
 #!/bin/bash
-
-HEROKU_APP=magnate-prod
+if [ ! "$HEROKU_APP" ]; then
+  HEROKU_APP=magnate-prod
+fi
 REMOTE_SHELL="heroku run python manage.py shell --app $HEROKU_APP"
 LOCAL_SHELL="python manage.py shell"
 
