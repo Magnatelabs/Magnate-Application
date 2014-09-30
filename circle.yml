@@ -6,8 +6,8 @@ deployment:
       - heroku run python manage.py migrate --app magnate-staging
       - heroku run python manage.py syncdb --app magnate-staging
       - heroku run python manage.py test_storage --app magnate-staging | grep "OK, done"
-      - ./integration_tests/ctl_user_staging.sh create-test-user
-      - python ./integration_tests/live_staging_test.python
+      - HEROKU_APP=magnate-staging ./integration_tests/ctl_user.sh create-test-user
+      - python ./integration_tests/live_production_test.py staging
   production:
     branch: production
     commands:
@@ -15,5 +15,5 @@ deployment:
       - heroku run python manage.py migrate --app magnate-prod
       - heroku run python manage.py syncdb --app magnate-prod
       - heroku run python manage.py test_storage --app magnate-prod | grep "OK, done"
-      - ./integration_tests/ctl_user.sh create-test-user
-      - python ./integration_tests/live_production_test.py
+      - HEROKU_APP=magnate-prod ./integration_tests/ctl_user.sh create-test-user
+      - python ./integration_tests/live_production_test.py prod
