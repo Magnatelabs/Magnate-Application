@@ -11,7 +11,7 @@ deployment:
   production:
     branch: production
     commands:
-      - git push git@heroku.com:magnate-prod.git $CIRCLE_SHA1:production
+      - git push git@heroku.com:magnate-prod.git $CIRCLE_SHA1:master
       - heroku run python manage.py migrate --app magnate-prod
       - heroku run python manage.py syncdb --app magnate-prod
       - heroku run python manage.py test_storage --app magnate-prod | grep "OK, done"
