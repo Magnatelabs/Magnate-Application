@@ -12,6 +12,7 @@ HOST=''
 def set_host(a):
     global HOST
     HOST=a    
+    print 'Setting the host to %s' % (HOST)
 def _(path):
     return urlparse.urljoin(HOST, path)
 
