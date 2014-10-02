@@ -1962,6 +1962,7 @@ updated: jmw 09.10.14
 	width: 100%;
 	float: left;
 	background: #ffffff;
+	border: 1px solid #bebebe;
 }
 
 .userprofile-image-container{
@@ -1991,6 +1992,7 @@ updated: jmw 09.10.14
 	background: #ffffff;
 	padding-bottom: 40px;
 	margin-left: 20px;
+	border: 1px solid #bebebe;
 }
 
 .userprofile-menu{
@@ -2062,3 +2064,157 @@ updated: jmw 09.22.14
 #sidebar-upper {
 	display: none;
 }
+
+/*----------------------------------------------------------------------------------------------------
+Contribution history page
+created: jmw 10.01.14
+updated: jmw 10.01.14
+----------------------------------------------------------------------------------------------------*/
+
+.contentinner-contribution-balance{
+	width: 100%;
+	float: left;
+	background: #ffffff;
+	border: 1px solid #bebebe;
+}
+
+.contribution-balance-content{
+	width: 83%;
+	float: left;
+	padding-left: 21px;
+}
+
+.balance-content-header {
+	width: 100%;
+	float: left;
+	border-bottom: 1px solid #bebebe;
+	padding: 10px 0px 5px 0px;
+}
+
+.grid_fix {
+	width: 100%;
+}
+
+.balance-content-list{
+	float: left;
+	width: 100%;
+	padding: 20px 0px 0px 0px;
+}
+
+.balance-content-list ul{
+	width: 40%;
+}
+
+.balance-content-list ul #dollar{
+	font-size: 24px;
+	color: #4c4c4c;
+}
+
+.balance-content-list ul #dollar sup{
+	font-size: 55%;
+}
+
+.balance-content-list ul aside p{
+	margin-top: 0px;
+	color: #747474;
+	font-size: 14px;
+}
+
+.balance-content-list .content-list-gtotal {
+	float: left;
+	padding: 20px 0px 15px 0px;
+}
+
+.balance-content-list .content-list-gtotal #dollar{
+	font-size: 60px;
+	color: #a6c987;
+}
+
+.balance-content-list .content-list-gtotal #dollar sup{
+	font-size: 55%;
+}
+
+.balance-content-list .content-list-gtotal aside p{
+	padding: 15px 0px 0px 0px;
+	margin-top: 0px;
+	color: #747474;
+	font-size: 14px;
+}
+
+.leftside-additional-actions{
+	float: left;
+	padding: 40px 0px 0px 0px;
+}
+
+.contentinner-contributions-activity{
+	float: left;
+	width: 100%;
+	min-height: 600px;
+}
+
+.header-contributions-activity {
+	float: left;
+	padding: 12px 0px 40px 20px;
+}
+
+.header-contributions-activity h1 {
+	font-size: 100%;
+}
+
+.feed-contributions-activity{
+	float: left;
+	width: 100%;
+	padding: 0px 0px 0px 0px;
+}
+
+.feed-contributions-activity ul li{
+	float: left;
+	width: 100%;
+}
+
+.date-activity-item {
+	float: left;
+	padding: 0px 10px 0px 20px;
+}
+
+.date-activity-item p,
+.classification-activity-item p,
+.details-activity-item p {
+	margin-bottom: 0px;
+}
+
+.classification-activity-item {
+	float: left;
+	padding: 0px 10px 0px 10px;
+}
+
+.details-activity-item {
+	float: left;
+	padding: 0px 0px 0px 10px;
+	width: 50%;
+}
+
+.amount-activity-item{
+	float: left;
+	width: 26%;	
+}
+
+.amount-activity-item #dollar{
+	float: right;
+	font-size: 30px;
+}
+
+.amount-activity-item #dollar span {
+	line-height: 30px;
+}
+
+.amount-activity-item #dollar span sup{
+	font-size: 52%;
+}
+
+
+
+
+
+
+
