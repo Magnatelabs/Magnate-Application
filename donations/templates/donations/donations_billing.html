@@ -1,6 +1,17 @@
 {% extends "site_base.html" %}
 {% load staticfiles %}
+{% load i18n %}
+
 {% block body_id %}dashboard_body{% endblock %}
+
+{% block style_base %}
+{{ block.super }}
+<script type="text/javascript">
+            $().ready(function(){
+                $("#back-select").bind('click', function(){history.go(-2);})
+            });
+</script>
+{% endblock %}
 
 {% block body %} 
 
@@ -70,7 +81,7 @@
         <input type="submit" value="Continue" class="startedbtn participationbtn" />
 		</form>		
 
-        <a href="{% url "fund_home" %}" class="btn-gray">Cancel</a>
+        <input id="back-select" class="btn-gray" value="{% trans "Cancel" %}" />
         </article>
         
         </div>
