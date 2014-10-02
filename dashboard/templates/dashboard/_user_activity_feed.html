@@ -13,16 +13,13 @@
             <tr>
                 <td colspan="2">
                     <table id="result_list" width="100%">
-                    {% for activity in recent_activity|slice:":4" %}
+                    {% for activity in recent_activity|slice:":3" %}
                         <tr class="{% cycle 'row1' 'row2' %}"><td>{% activity_item activity request.user %}</td></tr>
                     {% endfor %}
                     </table>
                 </td>
             </tr>
         </table>
-        <p class="paginator">
-            {{ recent_activity.paginator.page_numbers }}
-        </p>
     </div>
 
 
