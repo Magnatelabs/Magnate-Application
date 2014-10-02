@@ -1,6 +1,7 @@
 {% extends "site_base.html" %}
 {% block body_id %}dashboard_body{% endblock %}
 {% load staticfiles %}
+{% load i18n %}
 
 {% block style_base %}
 {{ block.super }}
@@ -148,6 +149,11 @@ function validate_amount(evt) {
 }
 </script>
 
+<script type="text/javascript">
+            $().ready(function(){
+                $("#back-select").bind('click', function(){history.go(-1);})
+            });
+</script>
 
 {% endblock %}
 
@@ -194,7 +200,7 @@ function validate_amount(evt) {
         </aside>
 		<input type="submit" class="startedbtn participationbtn" value="Continue" />
         </form>
-        <a href="{% url "fund_home" %}" class="btn-gray">Cancel</a>
+        <input id="back-select" class="btn-gray" value="{% trans "Cancel" %}" />
         </article>
         </div>
         </div>
