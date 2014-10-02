@@ -1229,7 +1229,7 @@ updated: jmw 09.01.14
 
 .bgprofile-info .dash-activityfeed {
 	float: left;
-	width: 28%;
+	width: 25%;
 	margin-top: 30px;
 	min-height: 281px;
 	margin-bottom: 40px;
@@ -1239,11 +1239,11 @@ updated: jmw 09.01.14
 	background: #ffffff;
 	height: 281px;
 	float: left;
-	width: 90%;
+	width: 100%;
 }
 
 .activity-feed caption{
-	padding: 5px 0px 10px 0px;
+	padding: 10px 0px 10px 0px;
 	border-bottom: 1px solid #ddd;
 }
 
