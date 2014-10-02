@@ -1,4 +1,5 @@
 {% load staticfiles %}
+{% load i18n %}
 
 <form method="post" action="{{ integration.service_url }}">
   {{ integration.generate_form.as_p }}
@@ -6,5 +7,5 @@
   <input type="checkbox" name="01" class="styled" onclick="on_click_accept_checkbox();" /><span class="text">Yes, I have read and I accept the <a href="#">Magnate Terms of Use</a> and the <a href="#">Magnate Privacy Policy</a>.</span>
         </div>
   <p><input id="startedbtn" type="submit" value="Pay" disabled="false" /></p>
-  <a href="{% url "fund_home" %}" class="btn-gray">Cancel</a>
+  <input id="back-select" class="btn-gray" value="{% trans "Cancel" %}" />
 </form>
