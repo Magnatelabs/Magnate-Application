@@ -1,0 +1,112 @@
+{% extends "magnate_base.html" %}
+<!-- user.html -->
+
+
+{% block body_navigation %}
+{% endblock %}
+
+
+{% block body %}
+<div class="grid_16 grid_fix">
+    <div class="contentinner lobby-detail">
+    	<div class="section1 section3 lobby-detail-breakdown">
+	 
+	    	<div class="leftside-userprofile">
+				<div class="contentinner-contribution-balance">
+					
+					<div class="contribution-balance-content">
+						<div class="balance-content-header">
+							<h3>Magnate Balance</h3>
+						</div>	
+						<div class="balance-content-list">
+							<ul class="unstyled">
+								<li>
+									<div id="dollar">
+										<span id="hasdonation"><sup>$</sup>{{ total_donation_amount }}</span>
+									</div>
+									<aside><p>Available</p></aside>
+								</li>
+								<li>
+									<div id="dollar">
+										<span id="hasdonation"><sup>$</sup>{{ total_donation_amount }}</span>
+									</div>
+									<aside><p>Pending</p></aside>
+								</li>
+								<li>
+									<div id="dollar">
+										<span id="hasdonation"><sup>$</sup>{{ total_donation_amount }}</span>
+									</div>
+									<aside><p>Successful</p></aside>
+								</li>
+							</ul>
+							<div class="content-list-gtotal">
+								<div id="dollar">
+										<span id="hasdonation"><sup>$</sup>{{ total_donation_amount }}</span>
+								</div>
+								<aside><p>Total</p></aside>
+							</div>							
+						</div>
+					</div>
+				</div>
+
+				<div class="leftside-additional-actions">
+					<a href="{% url "donations_add" %}"><p>Add funds</p></a>
+					<a href="#"><p>Request Available</p></a>
+				</div>
+	    	</div>
+	    	
+	    	<div class="rightside-userprofile contributions">
+	    		<div class="contentinner-contributions-activity">
+	    			<div class="header-contributions-activity">
+	    			<h1>{{ request.user }}'s Activity</h1>
+	    			</div>
+
+	    			<div class="feed-contributions-activity">
+	    				<ul class="unstyled">
+	    					<li>
+	    						<div class="feed-activity-item">
+	    							
+	    							<div class="date-activity-item">
+	    								<div class="activity-item-daymonth">
+	    									<p>08 Aug</p>
+	    								</div>
+	    								<div class="activity-item-year">
+	    									<p>2014</p>
+	    								</div>
+	    							</div>
+	    							
+	    							<div class="classification-activity-item">
+	    								<div class="activity-item-class1">
+	    									<p>cash</p>
+	    								</div>
+	    								<div class="activity-item-class2">
+	    									<p>CURR</p>
+	    								</div>
+	    							</div>
+	    							
+	    							<div class="details-activity-item">
+		    							<div class="activity-item-title">
+		    								<p>Magnanimous Magnate</p>
+	    								</div>
+	    								<div class="activity-item-type">
+	    									<p>Contribution</p>
+	    								</div>
+	    							</div>
+	    							<div class="amount-activity-item">
+	    								<div id="dollar">
+										<span id="hasdonation">+
+										<sup>$</sup>{{ total_donation_amount }}</span>
+										</div>
+	    							</div>
+	    						</div>
+	    					</li>
+	    				</ul>
+	    			</div>
+	    			
+	    		</div>
+	    	</div>
+	    	
+    	</div>
+    </div>
+</div>
+{% endblock %}<!-- end user.html -->
