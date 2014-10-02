@@ -2,6 +2,16 @@
 {% block body_id %}dashboard_body{% endblock %}
 {% load staticfiles %}
 {% load render_integration from billing_tags %}
+{% load i18n %}
+
+{% block style_base %}
+{{ block.super }}
+<script type="text/javascript">
+            $().ready(function(){
+                $("#back-select").bind('click', function(){history.go(-3);})
+            });
+</script>
+{% endblock %}
 
 
 {% block body %}
