@@ -180,3 +180,14 @@ def donation_orderpay(request, entry):
                              {"adp": int_obj,
                               "amount": donation_amount},
                              context_instance=RequestContext(request))
+
+#@login_required
+def contribution_history(request):
+#    if not request.user.is_authenticated():
+#        return redirect('/donations/user/?next=%s' % request.path)
+    tda=total_donation_amount(request.user)
+    user_has_donation = (tda > 0)
+    tba=total_bonus_amount(request.user)
+    gt= tda+tba
+
+    return render(request, 'donations/contribution_history.html', {'user_has_donation': user_has_donation, 'total_donation_amount': tda, 'total_bonus_amount': tba, 'grand_total': gt })
