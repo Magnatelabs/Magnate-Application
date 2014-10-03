@@ -6,7 +6,6 @@
 {% load extra_filters %}
 {% load smart_if %}
 {% load user_tags %}
-{% load avatar_tags %}
 
 {% block title %}{% spaceless %}{% trans "Edit user profile" %}{% endspaceless %}{% endblock %}
 {% block forejs %}
@@ -50,9 +49,11 @@
 				<div class="userprofile-image">
 					<div class="userprofile-image-container">
 						
-						<figure>{% avatar user 200 %}</figure>
+						<figure>{% gravatar user 200 %}</figure>
 						<aside>
-							<div class="image-container-photo"><p><a href="{% url "avatar_add" %}">Change photo?</a></p></div>
+							{% if can_view_private %}
+							<div class="image-container-photo"><p><a href="">Change photo?</a></p></div>
+							{% endif %}	
 							{% if not view_user.is_suspended %}
 							<div class="scoreNumber" id="user-reputation">{{view_user.reputation|intcomma}}</div>
 							<p><b style="color:#777;">{% trans "reputation" %}</b></p>
