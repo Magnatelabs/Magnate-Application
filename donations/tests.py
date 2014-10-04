@@ -145,14 +145,14 @@ class DonationTestCase(TestCase):
 
 
         c = self.client
-        response_forbidden = c.post('/fund/authorize_net/authorize_net-notify-handler/', self.authorize_net_success_request_POST)
+        response_forbidden = c.post('/contributions/authorize_net/authorize_net-notify-handler/', self.authorize_net_success_request_POST)
         # The MD5 Hash that we had by default is wrong. So expect 403 error, because the app can't
         # verify that the request came from Authorize.net.
         self.assertEqual(response_forbidden.status_code, 403)
         # Fixing the md5 hash
         self.authorize_net_success_request_POST['x_MD5_Hash'] = self.TEST_MD5_HASH
         # Now it's signed with the proper MD5 hash. Should succeed.
-        response = c.post('/fund/authorize_net/authorize_net-notify-handler/', self.authorize_net_success_request_POST)
+        response = c.post('/contributions/authorize_net/authorize_net-notify-handler/', self.authorize_net_success_request_POST)
         self.assertEqual(response.status_code, 200)
 
         self.assertEqual(DonationTestCase.success_count, 1)
