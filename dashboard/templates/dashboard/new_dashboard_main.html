@@ -112,6 +112,9 @@
       {% entry_feed entries %}
     {% endblock %}
 
+		{% comment %}
+		Keeping this until we automatically load zinnia articles
+		
         {% if is_dashboard %}
         <article class="loadmore-entry">
         <div class="greyed-user">
@@ -129,19 +132,20 @@
         
         </div>
         </div>
-        
-	{% endif %}
-
+		{% endif %}
+		{% endcomment %}
 
         </div>
       </div>
 
     </div><!-- contentinner -->
     </div><!-- grid_16 -->
-
+    
 {% include "share/_share_lightbox.html" %} 
 {% endblock %}
 
+{% block footer_base %}
+{% endblock %}
 
 {% block script_base %}
 {{ block.super }}
