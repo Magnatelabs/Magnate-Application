@@ -1322,21 +1322,26 @@ updated: jmw 09.01.14
 	width: 60%;
 }
 
+.entry-fundfeed-content{
+	float: left;
+	width: 60%;
+}
+
 .fundfeed-content {
 	float: left;
-	width: 48%;
+	width: 88%;
 }
 
 .fundfeed-entry-content-btns{
 	float: left;
-	width: 70%;
+	width: 100%;
 }
 
 .content-btns-expand{
 	float: right;
 	margin-top: 20px;
 	margin-bottom: 40px;
-	width: 34%;
+	width: 50%;
 }
 
 .expand-btn {
@@ -1350,7 +1355,7 @@ updated: jmw 09.01.14
 .collapse-btn {
 	float: right;
 	width: 108px;
-	margin-top: -94px;
+	margin-top: -48px;
 	cursor: pointer; 
 	cursor: hand;
 }
@@ -2211,8 +2216,6 @@ updated: jmw 10.01.14
 .amount-activity-item #dollar span sup{
 	font-size: 52%;
 }
-
-
 
 
 
