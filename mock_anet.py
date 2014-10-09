@@ -46,7 +46,7 @@ PORT_NUMBER = 9000
 # LOGIN_ID = ...
 
 # Actually, import from django.settings, as set for the merchant library
-from django.db import settings
+from django.conf import settings
 merchant_settings = getattr(settings, "MERCHANT_SETTINGS")
 assert merchant_settings and merchant_settings.get("authorize_net")
 authorize_net_settings = merchant_settings["authorize_net"]
