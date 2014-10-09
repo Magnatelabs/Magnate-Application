@@ -63,7 +63,8 @@ def donation_add(request):
     return render(request, 'donations/donations_add.html')
 
 def enter_billing_info(request):
-    return render(request, 'donations/donations_billing.html', {'amount': request.POST['amount']})
+    return render(request, 'donations/donations_billing.html', {
+        'amount': request.POST['amount'], 'objective': request.POST.get('objective', None)})
 
 
 class DonationBilling(FormView):
@@ -158,6 +159,7 @@ def donation_orderpay(request, entry):
 #        return redirect('/donations/user/?next=%s' % request.path)
 
     donation_amount = request.POST['amount']
+    objective = request.POST.get('objective', None)
 #    donation_amount = request.POST['donation_amount']
     int_obj = get_integration("authorize_net_dpm")
     fields = {'x_amount': donation_amount,
@@ -166,6 +168,7 @@ def donation_orderpay(request, entry):
           'x_recurring_bill': 'F',
           'x_relay_url': request.build_absolute_uri(reverse("authorize_net_notify_handler")),
           'x_cust_id': request.user,
+          'x_extra_data': '{}',
           'x_first_name': entry.first_name,
           'x_last_name': entry.last_name,
           'x_zip': entry.zip,
@@ -173,6 +176,8 @@ def donation_orderpay(request, entry):
           'x_city': entry.city,
           'x_country': entry.country,
         }
+    if objective is not None:
+        fields['x_extra_data'] = '{ objective: %s }' % objective
     int_obj.add_fields(fields)
 
     logging.info("User '%s' is prepared to donate. Entering payment info..." % (request.user))
