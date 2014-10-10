@@ -6220,48 +6220,6 @@ a.startedbtn:hover, a.startedbtn:active, a.startedbtn.active, a.startedbtn.disab
 a.startedbtn:active, a.startedbtn.active, #startedbtn:active, #startedbtn.active  { background:#80bc46; background:-moz-linear-gradient(#8ebc60, #72bb2b); background: -webkit-gradient(linear, left top, left bottom, from(#8ebc60), to(#72bb2b)); background: -o-linear-gradient(#8ebc60, #72bb2b); -pie-background: linear-gradient(#8ebc60, #72bb2b); box-shadow: inset #5a872e 0 2px 3px, #393128 0 1px 3px; }
 
 
-/* Getstarted Questionnaire added styling 09.11.13
-----------------------------------------------------------------------------------------------------*/
-.row li { width: 100%; float: left; }
-.row .leftcolumn { width: 44%; float: left; list-style-type: none; -webkit-padding-start: 0px; }
-.row .leftcolumn form aside { font-size: 12px; color: #c4c4c4; line-height: 7px; }
-.row .leftcolumn form p { -webkit-margin-after: 1em; }
-#id_first_name {width: 100%; }
-#id_last_name {width: 100%; }
-#id_waitinglistemail { width: 85%; }
-#id_sex { width: 49%; }
-#gstart_dob { -webkit-margin-after: 0em; -webkit-margin-before: 0em; }
-#id_dob { width: 44%; }
-.row .rightcolumn { width: 44%; float: right; list-style-type: none; -webkit-padding-start: 0px; }
-.row .rightcolumn ul { list-style-type: none; -webkit-padding-start: 0px; }
-#noob_radial { padding-left: 20px; list-style-type: none; padding-right: 20px; }
-#amateur_radial { padding-left: 20px; list-style-type: none; padding-right: 20px; }
-#expert_radial { padding-left: 20px; list-style-type: none; padding-right: 20px; }
-#what_radial { padding-left: 20px; list-style-type: none; padding-right: 20px; padding-bottom: 10px; }
-.row .startedq_email {width: 80%; float: left;}
-.row .startedq_code {width: 59%; float: left; }
-.row .startedq_gender { width: 37.3%; float: left; }
-.right label {width: 100%; float: left; font-family: "Helvetica Neue", Arial, Helvetica, sans-serif; font-size: 14px; color: #363636; padding-bottom: 5px; margin-bottom: 0; }
-.question_btn { display: inline-block; *display: inline; float:left; width:154px; height:50px; margin-top: 20px; *margin-left: .3em; font-size: 20px; font-family:"helveticaneuelight",Arial, Helvetica, sans-serif; color: #FFFFFF; text-align: center; text-shadow:none; vertical-align: middle; cursor: pointer; background:#80bc46; background:-moz-linear-gradient(#8ebc60, #72bb2b); background: -webkit-gradient(linear, left top, left bottom, from(#8ebc60), to(#72bb2b)); background: -o-linear-gradient(#8ebc60, #72bb2b); -pie-background: linear-gradient(#8ebc60, #72bb2b); border:none; text-decoration:none !important; box-shadow: #393128 0 1px 3px; border-radius:6px; behavior: url(PIE.htc); position:relative; right: 0px; top: 0px;}
-
-a.question_btn:hover,
-a.question_btn:active,
-a.question_btn.active,
-a.question_btn.disabled,
-a.question_btn[disabled] { color: #FFFFFF; background:#80bc46; background:-moz-linear-gradient(#8ebc60, #8ebc60); background: -webkit-gradient(linear, left top, left bottom, from(#8ebc60), to(#8ebc60)); background: -o-linear-gradient(#8ebc60, #8ebc60); -pie-background: linear-gradient(#8ebc60, #8ebc60); }
-
-a.question_btn:active,
-a.question_btn.active { background:#80bc46; background:-moz-linear-gradient(#8ebc60, #72bb2b); background: -webkit-gradient(linear, left top, left bottom, from(#8ebc60), to(#72bb2b)); background: -o-linear-gradient(#8ebc60, #72bb2b); -pie-background: linear-gradient(#8ebc60, #72bb2b); box-shadow: inset #5a872e 0 2px 3px, #393128 0 1px 3px; }
-
-
-/* Waitinglist added styles
-----------------------------------------------------------------------------------------------------*/
-#errorsbtn { float: right; right: 5px; top: -72px;}
-#waitinglist_errors { padding-top: 100px; padding-bottom: 300px; }
-.row #codesignup { position: relative; top: 50px; left: -154px; font-size: 2px; font-family: "Helvetica Neue", Arial, Helvetica, sans-serif; color: #363636; text-align: center; }
-.row #codesignup #what { font-size: 14px; }
-#closedcode { padding-bottom: 300px; }
-
 
 /*--------------------------------------------------------------------------------------------------- 
 Dashboard styling 
