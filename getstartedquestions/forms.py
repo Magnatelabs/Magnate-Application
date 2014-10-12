@@ -13,11 +13,11 @@ class HorizontalRadioRenderer(forms.RadioSelect.renderer):
     return mark_safe(u'\n'.join([u'%s\n' % w for w in self]))
 
 SEX_CHOICES=(('F', 'Female',), ('M', 'Male',),)
-FUNDING_KNOWLEDGE_CHOICES = (('noob', 'serious noob'), ('amateur', 'skeptical amateur'), ('expert', 'seasoned expert'), ('what?', 'wait, what?'))
+FUNDING_KNOWLEDGE_CHOICES = (('no_savings', 'Umm...I plead the fifth'), ('100_saved_whenever', "I add to my savings account whenever I can"), ('20percent', 'Roughly 10-20% of my yearly salary'), ('lotech_unknown_amount', 'I keep all of my savings in a jar'))
 INCOME_CHOICES=(('0-31k', 'less than $32,000'), ('32-60k', 'between $32,000 and $60,000'), ('61-100k', 'between $60,000 and $100,000'), ('101-200k', 'between $100,000 and $200,000'), ('201k-infinity', 'greater than $200,000'))
-FUNDING_PREFERENCE_CHOICES=(('non-profits', 'to help non-profits'), ('rewards', 'for the rewards'), ('ideas', 'just to help out great ideas'), ('money', 'to save money, or to make extra money'))
-INDUSTRY_PREFERENCE_CHOICES = (('film-tv', 'Film & TV'), ('music', 'Music'), ('technology', 'Technology'), ('games', 'Games'), ('social-causes', 'Social Causes'))
-SITE_REC_CHOICES = (('other', 'Other'), ('friends', 'Friends'), ('facebook', 'Facebook'), ('twitter', 'Twitter'), ('pinterest', 'Pinterest'), ('blogs', 'Blogs'), ('google', 'Google'))
+FUNDING_PREFERENCE_CHOICES=(('accountant', 'No, but I have an accountant'), ('investment_app', 'I use an online investment app instead!'), ('no_advice', "I'll probably get one when I have more money"), ('wealth_manager', 'You mean my wealth manager, right?'))
+INDUSTRY_PREFERENCE_CHOICES = (('finance_noob', "I'm a total financial noob"), ('stocks_bonds', "I know what stocks and bonds are. That's pretty much it"), ("mutual_index_funds", "I've got a portfolio of index funds with and a good asset allocation."), ('pro_status', 'Mutual funds are for the lemmings. I know where and when to invest my own money'))
+SITE_REC_CHOICES = (('personal_referral', 'In person referral'), ('inapp_invite', 'Email invite fron a friend'), ('facebook', 'A post on my Facebook feed/timeline'), ('twitter', 'Saw a Magnate related tweet'), ('google', 'Searching on Google'), ('other', 'Other'))
 
 class QuestionListForm(forms.Form):
 
