@@ -78,7 +78,7 @@
         </li>        
         
         <li>
-        <p><input id="id_amount" type="hidden" name="amount" value="{{amount}}" /></p> 
+        <p><input id="id_amount" type="hidden" name="amount" value="{{ request.POST.amount }}" /></p> 
         {% if request.POST.objective %}
             <input name="objective" type="hidden" value="{{ request.POST.objective }}" />
         {% endif %}
@@ -107,11 +107,11 @@
         <ul class="unstyled">
         <li class="nodivider">
         <div class="column1">MagnateFund donation</div>
-        <div class="column2">${{amount}}</div>
+        <div class="column2">${{request.POST.amount}}</div>
         </li>
         <li class="total">
         <div class="column1">Total</div>
-        <div class="column2">${{amount}}</div>
+        <div class="column2">${{request.POST.amount}}</div>
         </li>        
         </ul>
         </article>
