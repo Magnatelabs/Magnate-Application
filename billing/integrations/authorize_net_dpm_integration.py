@@ -74,18 +74,20 @@ class AuthorizeNetDpmIntegration(Integration):
             print "LOG WARN: Returning HttpResponseForbidden, the response was not from Authorize.Net. MD5 checksum mismatch. Make sure MD5_HASH in Django settings matches the MD5 key set on the Authorize.Net server"
             return HttpResponseForbidden() # FIXED BUG; was return HttpResponseForbidden
         result = request.POST["x_response_reason_text"]
+        extra_data = request.POST.get('x_extra_data', '{}')
         if request.POST['x_response_code'] == '1':
             transaction_was_successful.send(sender=self,
                                              request=request)
             redirect_url = "%s?%s" % (request.build_absolute_uri(reverse("authorize_net_success_handler")),
                                      urllib.urlencode({"response": result,
-                                                       "transaction_id": request.POST["x_trans_id"]}))
+                                                       "transaction_id": request.POST["x_trans_id"],
+                                                       "extra_data": extra_data}))
             return render_to_response("billing/authorize_net_relay_snippet.html",
                                       {"redirect_url": redirect_url})
         print "WARN: Authorize.Net transaction rejected. x_response_code=%s, x_response_reason_code=%s" % (request.POST['x_response_code'], request.POST['x_response_reason_code'])
          # Check http://www.authorize.net/support/merchant/Transaction_Response/Response_Reason_Codes_and_Response_Reason_Text.htm for codes
         redirect_url = "%s?%s" % (request.build_absolute_uri(reverse("donations_add")),
-                                 urllib.urlencode({"response": result}))
+                                 urllib.urlencode({"response": result, "extra_data": extra_data}))
         transaction_was_unsuccessful.send(sender=self,
                                           request=request)
         return render_to_response("billing/authorize_net_relay_snippet.html",
@@ -93,8 +95,15 @@ class AuthorizeNetDpmIntegration(Integration):
 
     def authorize_net_success_handler(self, request):
         response = request.GET
+            
+        import json
+        extra_data = json.loads(request.GET.get('extra_data', '{}'))
+        objective=None
+        if 'objective' in extra_data:
+            from rewards.models import Agenda
+            objective=Agenda.objects.get(pk=int(extra_data['objective']))
         return render_to_response("billing/authorize_net_success.html",
-                                  {"response": response},
+                                  {"response": response, "objective": objective},
                                   context_instance=RequestContext(request))
 
     def authorize_net_failure_handler(self, request):
