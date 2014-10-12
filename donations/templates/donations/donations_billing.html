@@ -34,27 +34,37 @@
         <ul class="unstyled">
         <li>
         <p><label for="id_first_name">First Name</label>
-		<input id="id_first_name" type="text" name="first_name" maxlength="200" /></p>
+        {{ form.first_name.errors }}
+        {{ form.first_name }}
+		<!--<input id="id_first_name" type="text" name="first_name" maxlength="200" /></p>-->
         </li>
         
         <li>
         <p><label for="id_last_name">Last Name</label>
-		<input id="id_last_name" type="text" name="last_name" maxlength="200" /></p> 
+        {{ form.last_name.errors }}
+        {{ form.last_name }}
+		<!-- <input id="id_last_name" type="text" name="last_name" maxlength="200" /></p> -->
         </li>
         
         <li>
         <p><label for="id_address">Address</label>
-		<input id="id_address" type="text" name="address" maxlength="200" /></p> 
+        {{ form.address.errors }}
+        {{ form.address }}
+		<!--<input id="id_address" type="text" name="address" maxlength="200" /></p> -->
         </li>
 
         <li>
         <p><label for="id_city">City</label>
-		<input id="id_city" type="text" name="city" maxlength="200" /></p> 
+        {{ form.city.errors }}
+        {{ form.city }}
+		<!--<input id="id_city" type="text" name="city" maxlength="200" /></p> -->
         </li>
         
         <li>
         <p><label for="id_zipcode">Zip Code</label>
-		<input id="id_zipcode" type="text" name="zipcode" maxlength="200" /></p> 
+        {{ form.zipcode.errors }}
+        {{ form.zipcode }}
+		<!--<input id="id_zipcode" type="text" name="zipcode" maxlength="200" /></p> -->
         </li>
 
         <li>
@@ -69,8 +79,8 @@
         
         <li>
         <p><input id="id_amount" type="hidden" name="amount" value="{{amount}}" /></p> 
-        {% if objective %}
-            <input name="objective" type="hidden" value="{{ objective }}" />
+        {% if request.POST.objective %}
+            <input name="objective" type="hidden" value="{{ request.POST.objective }}" />
         {% endif %}
         </li>
         
