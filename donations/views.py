@@ -62,9 +62,9 @@ def donation_add(request):
 
     return render(request, 'donations/donations_add.html')
 
-def enter_billing_info(request):
+def enter_billing_info(request, form=None):
     return render(request, 'donations/donations_billing.html', {
-        'amount': request.POST['amount'], 'objective': request.POST.get('objective', '')})
+        'amount': request.POST['amount'], 'form': form})
 
 
 class DonationBilling(FormView):
@@ -92,14 +92,18 @@ class DonationBilling(FormView):
 
 #    @login_required
     def get(self, request, *args, **kwargs):
-#        import pdb #(test for checking each process)
-#        pdb.set_trace()
+        # This is actually never used, as the previous page donations_add is doing POST
         print 'GET!!!'
         form = self.form_class(initial=self.initial)
         return render(request, self.template_name, {'form': form})
 
 #    @login_required
     def post(self, request, *args, **kwargs):
+        if 'coming_from_donations_add' in request.POST:
+            # display the form for the first time
+            form = self.form_class(initial=self.initial)
+            return enter_billing_info(request, form)
+
         print 'POST!!!'
 #        import pdb #(test for checking each process)
 #        pdb.set_trace()
