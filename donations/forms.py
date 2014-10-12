@@ -19,9 +19,7 @@ class BillingInfoForm(forms.Form):
     country = forms.CharField(max_length=200)
     amount = forms.CharField(max_length=200)
     
-    def __init__(self, *args, **kwargs):
-        super(BillingInfoForm, self).__init__(*args, **kwargs)
-        self.fields['first_name'].widget.attrs['id'] = 'super_first'
+        
 
 
         
