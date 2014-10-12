@@ -14,6 +14,9 @@ import hashlib
 import hmac
 import urllib
 
+import logging
+logger=logging.getLogger(__name__)
+
 csrf_exempt_m = method_decorator(csrf_exempt)
 require_POST_m = method_decorator(require_POST)
 
@@ -75,19 +78,20 @@ class AuthorizeNetDpmIntegration(Integration):
             return HttpResponseForbidden() # FIXED BUG; was return HttpResponseForbidden
         result = request.POST["x_response_reason_text"]
         extra_data = request.POST.get('x_extra_data', '{}')
+        import json
+        extra_data = json.loads(extra_data)
         if request.POST['x_response_code'] == '1':
             transaction_was_successful.send(sender=self,
                                              request=request)
             redirect_url = "%s?%s" % (request.build_absolute_uri(reverse("authorize_net_success_handler")),
-                                     urllib.urlencode({"response": result,
-                                                       "transaction_id": request.POST["x_trans_id"],
-                                                       "extra_data": extra_data}))
+                                     urllib.urlencode(dict({"response": result,
+                                                       "transaction_id": request.POST["x_trans_id"]}.items() + extra_data.items())))
             return render_to_response("billing/authorize_net_relay_snippet.html",
                                       {"redirect_url": redirect_url})
         print "WARN: Authorize.Net transaction rejected. x_response_code=%s, x_response_reason_code=%s" % (request.POST['x_response_code'], request.POST['x_response_reason_code'])
          # Check http://www.authorize.net/support/merchant/Transaction_Response/Response_Reason_Codes_and_Response_Reason_Text.htm for codes
         redirect_url = "%s?%s" % (request.build_absolute_uri(reverse("donations_add")),
-                                 urllib.urlencode({"response": result, "extra_data": extra_data}))
+                                 urllib.urlencode(dict({"response": result}.items() + extra_data.items())))
         transaction_was_unsuccessful.send(sender=self,
                                           request=request)
         return render_to_response("billing/authorize_net_relay_snippet.html",
@@ -96,12 +100,14 @@ class AuthorizeNetDpmIntegration(Integration):
     def authorize_net_success_handler(self, request):
         response = request.GET
             
-        import json
-        extra_data = json.loads(request.GET.get('extra_data', '{}'))
-        objective=None
-        if 'objective' in extra_data:
-            from rewards.models import Agenda
-            objective=Agenda.objects.get(pk=int(extra_data['objective']))
+        objective=request.GET.get('objective', None)
+        if objective is not None:
+            from rewards.models import FundraisingAgenda
+            try:
+              objective=FundraisingAgenda.objects.get(pk=int(objective))
+            except:
+              logging.exception("Contributed donation to nonexistent objective %s" % request.GET['objective'])
+              objective = None
         return render_to_response("billing/authorize_net_success.html",
                                   {"response": response, "objective": objective},
                                   context_instance=RequestContext(request))
