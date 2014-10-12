@@ -20,6 +20,7 @@ from caching.base import CachingManager, CachingMixin
 
 from forum.models.action import ActionProxy
 from glue_osqa.tools import downcastUserToExtendedUser
+from rewards.models import Agenda
 
 UPLOAD_COMPANY_LOGO_TO = 'uploads/funds'
 
@@ -102,6 +103,8 @@ class Donation (PrivatelyPublishedModelMixin, models.Model):
     amount = models.DecimalField(max_digits=16, decimal_places=2)
     timestamp = models.DateTimeField(auto_now_add=True)
 
+    objective = models.ForeignKey(Agenda, null=True)
+
     def __unicode__(self):
         return '$%.2f by %s on %s' % (self.amount, self.user, self.timestamp)
 
@@ -146,13 +149,23 @@ class Donation (PrivatelyPublishedModelMixin, models.Model):
             except User.DoesNotExist, e:
                 logging.fatal('Error while processing a successful donation: User %s does not exist' % data['x_cust_id'])
                 return
+            extra_data={}
+            try:
+                import json
+                extra_data = json.loads(data['x_extra_data'])
+            except:
+                logging.exception('Error while retrieving x_extra_data for a successful Authorize.Net transaction')
 
             user = User.objects.get(username=data['x_cust_id'])
             user = downcastUserToExtendedUser(user)
             amount = Decimal(data['x_amount'])
             transaction_id = data['x_trans_id']
 
-            DonationAction(user=user).save(dict(user=user, amount=amount, transaction_id=transaction_id))
+            objective = None
+            if 'objective' in extra_data:
+                objective = Agenda.objects.get(pk=extra_data['objective'])
+
+            DonationAction(user=user, extra=extra_data).save(dict(user=user, amount=amount, transaction_id=transaction_id, objective=objective))
 
             logging.info('OK, DONATION SUCCESSFUL. User: %s, transaction_id: %s' % (user, transaction_id))
             #status_awards.award_badges("user_donation", user)
@@ -163,11 +176,11 @@ class Donation (PrivatelyPublishedModelMixin, models.Model):
 class DonationAction(ActionProxy):
     verb=_("contributed")
 
-    def process_data(self, user, amount, transaction_id):
-        donation = Donation(user=user, amount=amount, transaction_id=transaction_id)  
+    def process_data(self, user, amount, transaction_id, objective):
+        donation = Donation(user=user, amount=amount, transaction_id=transaction_id, objective=objective)  
         donation.save()
 
-        self.extra = donation
+        self.extra = donation.pk
         self.save()
 
     def describe(self, viewer=None):
