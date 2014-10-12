@@ -64,7 +64,7 @@ def donation_add(request):
 
 def enter_billing_info(request):
     return render(request, 'donations/donations_billing.html', {
-        'amount': request.POST['amount'], 'objective': request.POST.get('objective', None)})
+        'amount': request.POST['amount'], 'objective': request.POST.get('objective', '')})
 
 
 class DonationBilling(FormView):
@@ -183,7 +183,8 @@ def donation_orderpay(request, entry):
     logging.info("User '%s' is prepared to donate. Entering payment info..." % (request.user))
     return render_to_response("donations/donations_orderpay.html",
                              {"adp": int_obj,
-                              "amount": donation_amount},
+                              "amount": donation_amount,
+                              "objective": objective},
                              context_instance=RequestContext(request))
 
 #@login_required
