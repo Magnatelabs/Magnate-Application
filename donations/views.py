@@ -177,7 +177,7 @@ def donation_orderpay(request, entry):
           'x_country': entry.country,
         }
     if objective is not None:
-        fields['x_extra_data'] = '{ objective: %s }' % objective
+        fields['x_extra_data'] = '{ "objective": %s }' % objective
     int_obj.add_fields(fields)
 
     logging.info("User '%s' is prepared to donate. Entering payment info..." % (request.user))
