@@ -20,7 +20,7 @@ from caching.base import CachingManager, CachingMixin
 
 from forum.models.action import ActionProxy
 from glue_osqa.tools import downcastUserToExtendedUser
-from rewards.models import Agenda
+from rewards.models import FundraisingAgenda, Agenda
 
 UPLOAD_COMPANY_LOGO_TO = 'uploads/funds'
 
@@ -163,7 +163,10 @@ class Donation (PrivatelyPublishedModelMixin, models.Model):
 
             objective = None
             if 'objective' in extra_data:
-                objective = Agenda.objects.get(pk=extra_data['objective'])
+                try:
+                    objective = FundraisingAgenda.objects.get(pk=extra_data['objective'])
+                except:
+                    logging.exception('Donation with nonexistent objective %s' % extra_data['objective'])
 
             DonationAction(user=user, extra=extra_data).save(dict(user=user, amount=amount, transaction_id=transaction_id, objective=objective))
 
