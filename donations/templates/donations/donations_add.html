@@ -187,7 +187,7 @@ function validate_amount(evt) {
 			{% csrf_token %}
 		
         {% if request.GET.objective %}
-            <input name="objective" value="{{ request.GET.objective }}" />
+            <input name="objective" type="hidden" value="{{ request.GET.objective }}" />
         {% endif %}
 		<input type="hidden" id="id_donation_amountd" name="amount1" value="0.00" />
 			
