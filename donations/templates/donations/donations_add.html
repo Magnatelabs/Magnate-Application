@@ -186,6 +186,7 @@ function validate_amount(evt) {
         <ul class="unstyled"><form method="POST" action="{% url 'donations_billing' %}">
 			{% csrf_token %}
 		
+        <input type="hidden" name="coming_from_donations_add" />
         {% if request.GET.objective %}
             <input name="objective" type="hidden" value="{{ request.GET.objective }}" />
         {% endif %}
