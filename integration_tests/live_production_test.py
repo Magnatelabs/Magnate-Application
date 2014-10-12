@@ -83,7 +83,9 @@ class main_page(MyTestCase):
             select = Select(self.by_id("id_country"))
             select.select_by_visible_text("China")
             self.by_id("id_country").submit()
-            self.check_url()
+
+# This is now the same URL; do not check.
+#            self.check_url()
 
             self.save_url()
 
