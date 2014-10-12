@@ -49,8 +49,8 @@ class DonationZinniaTestCase(TestCase):
         self.assertEquals(self.user.badges_earned.count(), 0)
         
         euser = downcastUserToExtendedUser(self.user)
-        da = DonationAction(user=euser).save(dict(user=euser, amount=123.4567, transaction_id=888))
-        d = da.extra
+        da = DonationAction(user=euser).save(dict(user=euser, amount=123.4567, transaction_id=888, objective=None))
+        d = Donation.objects.get(pk=da.extra)
         # No need to call status_awards.award_badges("user_donation", self.user)
         # Works naturally because of DonationAction.
                 
@@ -85,7 +85,7 @@ class DonationTestCase(TestCase):
         self.TEST_AMOUNT=Decimal(23.1268327) # purposely many digits after the decimal!
         self.TEST_TRANS_ID=u'2202244589'
         self.TEST_MD5_HASH=self.compute_authorize_net_md5_hash(self.TEST_TRANS_ID, self.TEST_AMOUNT)
-        self.authorize_net_success_request_POST = {u'x_response_reason_text': [u'This transaction has been approved.'], u'x_fax': [u''], u'x_auth_code': [u'XYWDLN'], u'x_ship_to_zip': [u''], u'x_phone': [u''], u'x_ship_to_last_name': [u''], u'x_cavv_response': [u'2'], u'x_ship_to_state': [u''], u'x_cust_id': [self.TEST_EMAIL], u'x_zip': [u'95455'], u'x_amount': [unicode(self.TEST_AMOUNT)], u'x_ship_to_company': [u''], u'x_freight': [u'0.00'], u'x_method': [u'CC'], u'x_email': [u''], u'x_test_request': [u'false'], u'x_card_type': [u'Visa'], u'x_ship_to_first_name': [u''], u'x_last_name': [u'Cardpoop'], u'x_trans_id': [self.TEST_TRANS_ID], u'x_company': [u''], u'x_tax': [u'0.00'], u'x_tax_exempt': [u'FALSE'], u'x_avs_code': [u'Y'], u'x_ship_to_city': [u''], u'x_address': [u'132 afsaaksn'], u'x_po_num': [u''], u'x_account_number': [u'XXXX8888'], u'x_type': [u'auth_capture'], u'x_description': [u''], u'x_ship_to_address': [u''], u'x_MD5_Hash': [u'78178FB8746F96A3618E19E357F43242'], u'x_ship_to_country': [u''], u'x_cvv2_resp_code': [u'P'], u'x_city': [u'What'], u'x_response_code': [u'1'], u'x_country': [u'USA'], u'x_invoice_num': [u''], u'x_first_name': [u'JCB'], u'x_response_reason_code': [u'1'], u'x_duty': [u'0.00'], u'x_state': [u'CA']}
+        self.authorize_net_success_request_POST = {u'x_response_reason_text': [u'This transaction has been approved.'], u'x_fax': [u''], u'x_auth_code': [u'XYWDLN'], u'x_ship_to_zip': [u''], u'x_phone': [u''], u'x_ship_to_last_name': [u''], u'x_cavv_response': [u'2'], u'x_ship_to_state': [u''], u'x_cust_id': [self.TEST_EMAIL], u'x_extra_data': '{}', u'x_zip': [u'95455'], u'x_amount': [unicode(self.TEST_AMOUNT)], u'x_ship_to_company': [u''], u'x_freight': [u'0.00'], u'x_method': [u'CC'], u'x_email': [u''], u'x_test_request': [u'false'], u'x_card_type': [u'Visa'], u'x_ship_to_first_name': [u''], u'x_last_name': [u'Cardpoop'], u'x_trans_id': [self.TEST_TRANS_ID], u'x_company': [u''], u'x_tax': [u'0.00'], u'x_tax_exempt': [u'FALSE'], u'x_avs_code': [u'Y'], u'x_ship_to_city': [u''], u'x_address': [u'132 afsaaksn'], u'x_po_num': [u''], u'x_account_number': [u'XXXX8888'], u'x_type': [u'auth_capture'], u'x_description': [u''], u'x_ship_to_address': [u''], u'x_MD5_Hash': [u'78178FB8746F96A3618E19E357F43242'], u'x_ship_to_country': [u''], u'x_cvv2_resp_code': [u'P'], u'x_city': [u'What'], u'x_response_code': [u'1'], u'x_country': [u'USA'], u'x_invoice_num': [u''], u'x_first_name': [u'JCB'], u'x_response_reason_code': [u'1'], u'x_duty': [u'0.00'], u'x_state': [u'CA']}
 
     
     def reset_counts(self):
