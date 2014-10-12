@@ -62,9 +62,6 @@ def donation_add(request):
 
     return render(request, 'donations/donations_add.html')
 
-def enter_billing_info(request, form=None):
-    return render(request, 'donations/donations_billing.html', {'form': form})
-
 
 class DonationBilling(FormView):
 #    if not request.user.is_authenticated():
