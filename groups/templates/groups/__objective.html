@@ -3,16 +3,14 @@
 	
 	<div class="description-header-quickobjective"><!-- compact version of groups_objective.html -->
 		<div class="quickobjective-container">
+{% if current_objective %}
+
 			<div class="quickobjective-image">
 				<figure><!-- small version of admin defined image -->
 					<a href="#"><img src="{% static "img/dash_hangoutstest.jpg" %}" alt="PHOTO" /></a>
 					<p><a href="#">Read more</a></p>
 				</figure>
-				{% if current_objective %}
 				<p>current lobby interest: {{ current_objective.entry.title }}</p> 
-				{% else %}
-				There are no active fundraisers in this lobby. Come back later...
-				{% endif %}
 			</div>
 			<div class="quickobjective-amount">
 				<div class="quickobjective-amount-total" id="dollar">
@@ -28,10 +26,14 @@
 				</div>
 			</div>
 			<div class="quickobjective-button">
-				<div class="btn">Contribute to interest</div>
+				<a href="{% url 'donations_add' %}?objective={{ current_objective.pk }}"><div class="btn">Contribute to interest</div></a>
 			</div>
 			<aside>
 				<p>If at least the minimum of {{ total_donation_amount }} is raised this investment will be presented to the greater Magnate community for integration into a Magnate Fund.</p>
 			</aside>
+{% else %}
+	There are no active fundraisers in this lobby. Come back later...
+{% endif %}
+
 		</div>						        
 	</div>

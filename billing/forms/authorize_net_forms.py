@@ -24,5 +24,6 @@ class AuthorizeNetDPMForm(forms.Form):
     x_type = forms.CharField(widget=forms.HiddenInput())
     
     x_cust_id = forms.CharField(widget=forms.HiddenInput(), required=True)
+    x_extra_data = forms.CharField(widget=forms.HiddenInput(), required=True)    
     x_relay_url = forms.CharField(widget=forms.HiddenInput(), required=True)
     x_relay_response = forms.CharField(initial="TRUE", widget=forms.HiddenInput())
