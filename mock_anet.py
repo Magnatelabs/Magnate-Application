@@ -83,7 +83,12 @@ class myHandler(BaseHTTPRequestHandler):
                         response_reason_text = 'This transaction_has_been_approved'
                         response_code = 1
 
-                        data = {'x_MD5_Hash': md5_hash, 'x_trans_id': trans_id, 'x_amount': amount, 'x_response_reason_text': response_reason_text, 'x_response_code': 1 }
+                        data = {'x_MD5_Hash': md5_hash, 'x_trans_id': trans_id, 'x_amount': amount, 'x_response_reason_text': response_reason_text, 'x_response_code': response_code }
+
+                        if str(amount)=='13.13': # simulate failure
+                            data['x_response_reason_text'] = 'This transaction_has_been_rejected'
+                            data['x_response_code'] = 13
+                            data['x_response_reason_code'] = 123
 
                         # pass the data
                         # todo: check x_fp_hash against x_fp_timestamp, x_fp_sequence
