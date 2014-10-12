@@ -63,8 +63,7 @@ def donation_add(request):
     return render(request, 'donations/donations_add.html')
 
 def enter_billing_info(request, form=None):
-    return render(request, 'donations/donations_billing.html', {
-        'amount': request.POST['amount'], 'form': form})
+    return render(request, 'donations/donations_billing.html', {'form': form})
 
 
 class DonationBilling(FormView):
@@ -102,7 +101,7 @@ class DonationBilling(FormView):
         if 'coming_from_donations_add' in request.POST:
             # display the form for the first time
             form = self.form_class(initial=self.initial)
-            return enter_billing_info(request, form)
+            return render(request, 'donations/donations_billing.html', {'form': form})
 
         print 'POST!!!'
 #        import pdb #(test for checking each process)
@@ -141,8 +140,7 @@ class DonationBilling(FormView):
                 self.messages["input_error"]["level"],
                 self.messages["input_error"]["text"]
             ) 
-            # monkey patch: passing the amount back to itself
-            return render(request, self.template_name, {'form': form, 'amount': form.data['amount']})
+            return render(request, self.template_name, {'form': form})
             print 'DEBUG: form is not valid!!!', form.errors
 
 #def confirmation_index(request):
