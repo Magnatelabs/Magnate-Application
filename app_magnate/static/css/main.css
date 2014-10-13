@@ -970,7 +970,6 @@ updated: jmw 08.05.14
 .blogpublic-entry-content {
 	padding: 30px 0px 50px 20px;
 	float: left;
-	width: 70%;
 }
 
 .blog-entry-footer {
@@ -1111,6 +1110,7 @@ updated: jmw 09.01.14
 
 .profile-info .profile-name {
 	float: left;
+	min-width: 220px;
 	}
 
 .profile-info .profile-name h3 {
@@ -1684,12 +1684,12 @@ updated: jmw 09.02.14
 	width: 100%;
 	float: left;
 	border: 1px solid #acacac;
+	padding: 5px 0px 15px 15px;
 }
 
 .lobby-moderators{
 	float: left;
-	width: 81%;
-	padding: 10px 20px 20px 20px;
+	padding: 10px 0px 0px 0px;
 }
 
 .lobby-moderators-image{
@@ -1701,7 +1701,7 @@ updated: jmw 09.02.14
 .lobby-moderators-name{
 	float: left;
 	width: 70%;
-	margin: 0px 0px 0px 5px;
+	margin: 10px 0px 0px 5px;
 	line-height: 10px;
 }
 
@@ -1712,6 +1712,7 @@ updated: jmw 09.02.14
 
 .lobby-moderators-ranking{
 	float: left;
+	width: 70%;
 	margin: 0px 0px 0px 5px;
 }
 
