@@ -26,46 +26,46 @@ class LikesBadge(Badge):
     def award(self, **state):
         user = state["user"]
         likes = total_likes_by_user(user)
-        if likes >= 5:
+        if likes >= 500:
             return BadgeAwarded(3)
-        elif likes >= 2:
+        elif likes >= 200:
             return BadgeAwarded(2)
-        elif likes >= 1:
+        elif likes >= 100:
             return BadgeAwarded(1)
 
 
 
-class DonorBadge(Badge):
-    slug="donor"
-    levels = [
-        BadgeDetail("New Donor Badge", "Some skin is now in the game. You are a bona fide member of the Magnate community"),
-        BadgeDetail("Intermediate Donor Badge", "A second donation? Wow, you just upped the game"),
-        BadgeDetail("Organ Donor Badge", "Hand over the card, Magnate is now a serious part of your life"),
-        BadgeDetail("Karmic Donor Badge", "Give away everything")
+#class DonorBadge(Badge):
+#    slug="donor"
+#    levels = [
+#        BadgeDetail("New Donor Badge", "Some skin is now in the game. You are a bona fide member of the Magnate community"),
+#        BadgeDetail("Intermediate Donor Badge", "A second donation? Wow, you just upped the game"),
+#        BadgeDetail("Organ Donor Badge", "Hand over the card, Magnate is now a serious part of your life"),
+#        BadgeDetail("Karmic Donor Badge", "Give away everything")
 
 #        BadgeDetail("New Donor", "Donated a lilttle"),
 #        BadgeDetail("Intermediate Donor", "Donated more"),
 #        BadgeDetail("Advanced Donor", "Donated a lot "),
 #        BadgeDetail("Karmic Donor", "Gave away everything")
-    ]
-    events = [
-        "donation",
-    ]
-    multiple = False
+#    ]
+#    events = [
+#        "donation",
+#    ]
+#    multiple = False
 
-    def award(self, **state):
-        user = state["user"]
-        donations = all_donations_by_user(user)
-        count = len(donations)
-        amount = sum([d.amount for d in donations])
-        if (amount > 10000):
-            return BadgeAwarded(4)            # Note that conditions on different levels are not monotonous
-        elif (count > 4) and (amount > 500):  # Expected behavior? Do you need lower level to qualify for higher?
-            return BadgeAwarded(3)            # Probably not... But once you qualify for higher, you 
-        elif (count > 2) and (amount > 100):  # won't get the lower ones ;-)
-            return BadgeAwarded(2)
-        elif (count > 0) and (amount > 0):
-            return BadgeAwarded(1)
+#    def award(self, **state):
+#        user = state["user"]
+#        donations = all_donations_by_user(user)
+#        count = len(donations)
+#        amount = sum([d.amount for d in donations])
+#        if (amount > 10000):
+#            return BadgeAwarded(4)            # Note that conditions on different levels are not monotonous
+#        elif (count > 4) and (amount > 500):  # Expected behavior? Do you need lower level to qualify for higher?
+#            return BadgeAwarded(3)            # Probably not... But once you qualify for higher, you 
+#        elif (count > 2) and (amount > 100):  # won't get the lower ones ;-)
+#            return BadgeAwarded(2)
+#        elif (count > 0) and (amount > 0):
+#            return BadgeAwarded(1)
 
 class RaterBadge(Badge):
     slug='rater'
@@ -88,13 +88,13 @@ class RaterBadge(Badge):
     def award(self, **state):
         user=state["user"]
         ratings = total_ratings_by_user(user)
-        if ratings >= 10:
+        if ratings >= 1000:
             return BadgeAwarded(4)
-        elif ratings >= 5:
+        elif ratings >= 500:
             return BadgeAwarded(3)
-        elif ratings >= 2:
+        elif ratings >= 200:
             return BadgeAwarded(2)
-        elif ratings >= 1:
+        elif ratings >= 100:
             return BadgeAwarded(1)
 
 class QuestionerBadge(Badge):
@@ -119,41 +119,41 @@ class QuestionerBadge(Badge):
         user=state["user"]
         questions = Question.objects.filter(author=user).count()
 
-        if questions >= 10:
+        if questions >= 1000:
             return BadgeAwarded(4)
-        elif questions >= 5:
+        elif questions >= 500:
             return BadgeAwarded(3)
-        elif questions >= 4:
+        elif questions >= 400:
             return BadgeAwarded(2)
-        elif questions >= 3:
+        elif questions >= 300:
             return BadgeAwarded(1)
 
 
-class MemeMagnate(MetaBadge):
-    slug="meme_magnate"
-    levels = [
-        BadgeDetail("Meme Magnate", "Slowly learning to be a magnate..."),
-    ]
-    requirements = [
-        { 'likes' : 0, 'donor' : 0 }
-    ]
-    events = ['badge_awarded_'+s for s in set(s for s_l in requirements for s in s_l.keys())]
+#class MemeMagnate(MetaBadge):
+#    slug="meme_magnate"
+#    levels = [
+#        BadgeDetail("Meme Magnate", "Slowly learning to be a magnate..."),
+#    ]
+#    requirements = [
+#        { 'likes' : 0, 'donor' : 0 }
+#    ]
+#    events = ['badge_awarded_'+s for s in set(s for s_l in requirements for s in s_l.keys())]
 
-class FavouriteMagnate(MetaBadge):
-    slug='favourite'
-    levels = [
-        BadgeDetail("Starter Magnate", "Good job, but it's kind of easy to earn this one..."),
-        BadgeDetail("Favourite Magnate", "Given after you win Meme Magnate and Favourite Magnate"),
-    ]
-    requirements = [
-        { 'rater' : 0, 'donor' : 0 },
-        { 'favourite' : 0, 'meme_magnate' : 0 },
-    ]
-    events = ['badge_awarded_'+s for s in set(s for s_l in requirements for s in s_l.keys())]
+#class FavouriteMagnate(MetaBadge):
+#    slug='favourite'
+#    levels = [
+#        BadgeDetail("Starter Magnate", "Good job, but it's kind of easy to earn this one..."),
+#        BadgeDetail("Favourite Magnate", "Given after you win Meme Magnate and Favourite Magnate"),
+#    ]
+#    requirements = [
+#        { 'rater' : 0, 'donor' : 0 },
+#        { 'favourite' : 0, 'meme_magnate' : 0 },
+#    ]
+#    events = ['badge_awarded_'+s for s in set(s for s_l in requirements for s in s_l.keys())]
 
 badges.register(LikesBadge)
-badges.register(DonorBadge)
+#badges.register(DonorBadge)
 badges.register(RaterBadge)
 badges.register(QuestionerBadge)
-badges.register(MemeMagnate)
-badges.register(FavouriteMagnate)
+#badges.register(MemeMagnate)
+#badges.register(FavouriteMagnate)
