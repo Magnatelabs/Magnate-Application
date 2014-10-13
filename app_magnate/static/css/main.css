@@ -1977,7 +1977,7 @@ updated: jmw 09.10.14
 }
 
 .userprofile-image-container figure{
-	margin: 20px 0px 0px 0px;
+	margin: 20px 0px 10px 0px;
 }
 
 .userprofile-image-container .image-container-photo{
@@ -1986,9 +1986,18 @@ updated: jmw 09.10.14
 	padding-top: 10px;
 }
 
+.userprofile-image-container .image-change-text{
+	float: center;
+	padding-top: 10px;
+}
+
 .userprofile-image-container .image-container-photo a{
 	color: #2398c9;
 	text-decoration: underline;
+}
+
+.userprofile-image-container aside form p input[type="file"]{
+	line-height: normal;
 }
 
 .rightside-userprofile{
