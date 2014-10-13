@@ -1,6 +1,6 @@
 {% load staticfiles %}
 {% load avatar_tags %}
-	
+
 <div class="detail-breakdown-description">
 	<div class="breakdown-description-header">			
 		<div class="description-header-top">
@@ -31,13 +31,14 @@
 				<ul class="unstyled">
 					{% for mc in category.moderators.all %}
 					<li>
-						<div class="lobby-moderators">  
-							<div class="lobby-moderators-image"><!-- select specific users through admin -->
-								<figure>{% avatar mc.moderator 28 %}{% ifequal mc.moderator request.user %}</figure>
-							</div>{% endifequal %}
-							<div class="lobby-moderators-name"><p><!-- moderator's name-->{{ mc.moderator }}</p></div>
-							<div class="lobby-moderators-ranking"><p><!-- moderator's osQA ranking -->{{ mc.moderator.reputation }}</p></div>
+						<div class="lobby-moderators">
+							<div class="lobby-moderators-image"><!-- select specific users through admin -->	
+							<figure>{% avatar mc.moderator 28 %}{% ifequal mc.moderator request.user %}</figure>{% endifequal %}
+							</div>												
 						</div>
+						<div class="lobby-moderators-name"><p><!-- moderator's name-->{{ mc.moderator }}</p></div>
+						<div class="lobby-moderators-ranking"><p><!-- moderator's osQA ranking -->{{ mc.moderator.reputation }}</p></div>
+						
 					</li>
 					{% endfor %}
 				</ul>
