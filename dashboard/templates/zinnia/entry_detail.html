@@ -23,11 +23,17 @@
 
 {% block entry-comments %}
 
+{% comment %}
+I don't know why we're displaying the question
+feed on the zinnia article page, so I'm just 
+going to comment it out for now.
+
 <script type="text/javascript">
 $(document).ready(function(){ loadQuestionFeed( $('#question-feed'), {{ entry.pk }} ); });
 </script>
 <div id="question-feed"/>
 
+{% endcomment %}
 
 <!-- Not sure if we want to use this comments feature
 {% if object.is_public %}
