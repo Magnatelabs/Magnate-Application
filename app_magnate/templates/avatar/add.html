@@ -1,0 +1,41 @@
+{% extends "magnate_base.html" %}
+{% load i18n avatar_tags %}
+{% load url from future %}
+{% load humanize %}
+
+
+{% block body_navigation %}
+	{% include "_bodynav_backselect.html" %}
+{% endblock %}
+
+{% block body %}
+	{% block content %}
+    
+    <div class="grid_16" style="width:100%">
+    <div class="contentinner lobby-detail">
+    	<div class="section1 section3 lobby-detail-breakdown">
+	 
+	    	<div class="leftside-userprofile">
+				<div class="userprofile-image">
+					<div class="userprofile-image-container">
+						<div class="image-change-text"><p>{% trans "Your current photo: " %}</p></div>
+						<figure>{% avatar user 200 %}</figure>
+						{% if not avatars %}
+						<p>{% trans "You haven't uploaded an photo yet. Please upload one now." %}</p>
+						{% endif %}
+						<aside>							
+							<form enctype="multipart/form-data" method="POST" action="{% url 'avatar_add' %}">
+								{{ upload_avatar_form.as_p }}
+								<p>{% csrf_token %}<input type="submit" value="{% trans "Upload New Image" %}" /></p>
+							</form>
+						</aside>
+					</div>
+				</div>
+			</div>
+           
+    	</div>
+    </div>
+    </div>
+	{% endblock %}
+{% endblock %}
+
