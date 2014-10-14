@@ -11,6 +11,9 @@ from social.models import toggle_like_unlike, total_likes_by_user, Like
 from donations.models import Donation
 import math
 from . import award_badges
+from app_magnate.unittest import create_test_user
+from django.test.client import Client
+from django.core.urlresolvers import reverse
 
 # Create your tests here.
 class BadgeAwardTestCase(TestCase):
@@ -44,6 +47,20 @@ class BadgeAwardTestCase(TestCase):
         self.assertEqual(entry.content, 'Fantastic! You have just been awarded the Salsa! ... <p> The best badge ever')
 
 
+    def test_nonexistent(self):
+        user=create_test_user('she', 'she@is.here', 'is here')
+        user.save()
+        from brabeion import badges
+        # hack: fake the existence of this badge so an object can be created
+        # simulating the situation where some badges were awarded, then a particular
+        # badge was removed (in principle), but the previously awarded badges still
+        # persist in the database
+        badges._registry['thereisnosuchbadge']=badges._registry['horse']
+        b=BadgeAward.objects.create(user=user, slug='thereisnosuchbadge', level=0)
+        del badges._registry['thereisnosuchbadge']
+        c = Client()
+        self.assertTrue(c.login(username='she', password='is here'))
+        response = c.get(reverse('dashboard'), follow=True)
 
     def test_metabadge(self):
         user=self.User(username='she', password='is here')
