@@ -62,12 +62,28 @@ class main_page(MyTestCase):
         # Try the same thing several times
         for ind in range(3): 
 
-            # pick the first amount, probably $10.00
             self.save_url()
-            elt_radio = self.by_class_name("radio")
-            elt_radio.click()
-            elt_radio.submit()
+            if ind == 0:
+                # pick the first amount, probably $10.00
+                elt_radio = self.by_class_name("radio")
+                elt_radio.click()
+                elt_radio.submit()
+            else:
+                # let's enter some ridiculous amount to be rounded to $0.01 (one cent)
+
+                # Use Backspace to clear the donation amount box
+                for i in range(len('0.00')):
+                    self.by_id("id_donation_amount").send_keys(u'\u0008')
+                    
+                self.by_id("id_donation_amount").send_keys("0.0123456789")
+                # change focus, so the donation amount can be fixed by Javascript code
+                self.driver.find_element_by_css_selector('body').send_keys(" ")
+                # now submit the form
+                self.by_class_name("radio").submit()
+
+
             self.check_url()
+            self.assertFalse('34567' in self.driver.page_source, "It should not allow us to enter such ridiculous amounts. 0.0123456789 should have been rounded to something sensible")
 
             # Enter some billing address. Use China as the country.
             self.save_url()
