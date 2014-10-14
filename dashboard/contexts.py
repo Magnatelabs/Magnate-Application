@@ -2,6 +2,8 @@ import donations.utils as du
 from brabeion.models import BadgeAward
 from forum.views.admin import get_recent_activity
 
+import logging
+logger=logging.getLogger(__name__)
 
 
 # Choosing which badge to display as the status badge.
@@ -10,13 +12,17 @@ from forum.views.admin import get_recent_activity
 # In this case picking the latest sql id among those with the latest
 # awarded_at. 
 def magnate_status_badge(user):
-    if not user.is_authenticated():
-        return None
+    try:
+        if not user.is_authenticated():
+            return None
 
-    for badge in user.badges_earned.order_by('-awarded_at', '-id'):
-        if badge.is_metabadge():
-            return badge
-    return None
+        for badge in user.badges_earned.order_by('-awarded_at', '-id'):
+            if badge.is_metabadge():
+                return badge
+        return None
+    except:
+        logging.exception("Error while retrieving magnate status badge for user '%s'" % str(user))
+        return None
 
 # Stupid patch to disable recent activity while testing.
 # Somehow django generates ... WHERE NOT... in a query when we are
