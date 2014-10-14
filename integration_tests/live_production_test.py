@@ -59,11 +59,13 @@ class main_page(MyTestCase):
 #        elt_link.click()
 #        self.check_url()
 
-        # Try the same thing several times
+        
         for ind in range(3): 
+            # deliberately fail the first two times
+            to_succeed = (ind==2)
 
             self.save_url()
-            if ind == 0:
+            if not to_succeed:
                 # pick the first amount, probably $10.00
                 elt_radio = self.by_class_name("radio")
                 elt_radio.click()
@@ -71,13 +73,15 @@ class main_page(MyTestCase):
             else:
                 # let's enter some ridiculous amount to be rounded to $0.01 (one cent)
 
+                da_elt = self.by_id("id_donation_amount")
                 # Use Backspace to clear the donation amount box
                 for i in range(len('0.00')):
-                    self.by_id("id_donation_amount").send_keys(u'\u0008')
+                    da_elt.send_keys(u'\u0008')
                     
-                self.by_id("id_donation_amount").send_keys("0.0123456789")
+                da_elt.send_keys("0.0123456789")
                 # change focus, so the donation amount can be fixed by Javascript code
                 self.driver.find_element_by_css_selector('body').send_keys(" ")
+                self.assertEqual(da_elt.get_attribute('value'), '0.01')
                 # now submit the form
                 self.by_class_name("radio").submit()
 
