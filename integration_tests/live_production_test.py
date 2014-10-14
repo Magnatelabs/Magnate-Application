@@ -160,7 +160,7 @@ class main_page(MyTestCase):
                 self.assertNotIn("The+credit+card+number+is+invalid", self.driver.current_url)
                 self.assertIn('success', self.driver.current_url)
                 # Neither perfect nor necessary, but I want to triple-check that the donation went through
-                self.assertEqual(self.by_class_name('light').text, 'You are now ready to participate in the Magnate Fund!')
+                self.assertEqual(self.by_class_name('light').text, 'You are now ready to participate in the MagnateFund!')
             else:
                 ## Do not rely on page_source, may take time to load
                 ## self.assertIn("The credit card number is invalid", driver.page_source)
