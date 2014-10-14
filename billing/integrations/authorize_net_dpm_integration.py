@@ -121,6 +121,6 @@ class AuthorizeNetDpmIntegration(Integration):
     def get_urls(self):
         urlpatterns = patterns('',
            url('^authorize_net-notify-handler/$', self.authorizenet_notify_handler, name="authorize_net_notify_handler"),
-           url('^authorize_net-sucess-handler/$', self.authorize_net_success_handler, name="authorize_net_success_handler"),
+           url('^authorize_net-success-handler/$', self.authorize_net_success_handler, name="authorize_net_success_handler"),
            url('^authorize_net-failure-handler/$', self.authorize_net_failure_handler, name="authorize_net_failure_handler"),)
         return urlpatterns
