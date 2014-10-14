@@ -44,7 +44,12 @@ class main_page(MyTestCase):
         # Make sure we are on the dashboard
         self.assert_on_dashboard()
 
-    def test_login(self):
+    def test_contribution(self):
+        real_credit_card='4111111111111111'
+        broken_credit_card='123192038'
+        exp_date='12/30' # increase this number after 2030
+        card_code='123'  # three digits on the back
+
         driver = self.driver
 
         self.login_into_magnate(TEST_USERNAME, TEST_PASSWORD)
@@ -124,24 +129,42 @@ class main_page(MyTestCase):
 # Now pick Visa.
 ###            self.by_partial_link_text('Visa').click()
 
-            self.by_id("id_x_card_num").send_keys("123192038")
-            self.by_id("id_x_exp_date").send_keys("01/05")
-            self.by_id("id_x_card_code").send_keys("123")
+            self.by_id("id_x_card_num").send_keys([broken_credit_card, real_credit_card][to_succeed])
+            self.by_id("id_x_exp_date").send_keys(exp_date)
+            self.by_id("id_x_card_code").send_keys(card_code)
             # First name is already entered
             ###driver.find_element_by_id("id_x_first_name").send_keys("Test")
             # Last name is already entered
             ###driver.find_element_by_id("id_x_last_name").send_keys("Selenium")
             # Zip code is already entered
             ###driver.find_element_by_id("id_x_zip").send_keys("10118")
-            
+
+            import seltools
+            # Exactly one must be true
+            self.assertTrue(bool('staging' in seltools.HOST) != bool('prod' in seltools.HOST))
+            if 'staging' in seltools.HOST:
+                self.assertIn('test.authorize.net', self.driver.page_source)
+                self.assertNotIn('secure.authorize.net', self.driver.page_source)
+            else:
+                self.assertIn('secure.authorize.net', self.driver.page_source)
+                self.assertNotIn('test.authorize.net', self.driver.page_source)
+
             # Checkbox "I accept the terms and conditions...""
             checkbox = self.by_name("01")
             checkbox.click()
             checkbox.submit()
 
-            ## Do not rely on page_source, may take time to load
-            ## self.assertIn("The credit card number is invalid", driver.page_source)
-            self.assertIn("The+credit+card+number+is+invalid", self.driver.current_url)
+            if to_succeed:                
+                ## Do not rely on page_source, may take time to load
+                ## self.assertNotIn("The credit card number is invalid", driver.page_source)
+                self.assertNotIn("The+credit+card+number+is+invalid", self.driver.current_url)
+                self.assertIn('success', self.driver.current_url)
+                # Neither perfect nor necessary, but I want to triple-check that the donation went through
+                self.assertEqual(self.by_class_name('light').text, 'You are now ready to participate in the Magnate Fund!')
+            else:
+                ## Do not rely on page_source, may take time to load
+                ## self.assertIn("The credit card number is invalid", driver.page_source)
+                self.assertIn("The+credit+card+number+is+invalid", self.driver.current_url)
 
 
 
