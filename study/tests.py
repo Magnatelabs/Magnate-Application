@@ -22,7 +22,7 @@ class SimpleTest(TestCase):
     startup = {
         'entity': 'Contextuall', 
         'entity_url': 'https://contextuall.com', 
-        'industry': 'other', 
+        'industry': 'currency', 
         'description': 'What would you do differently if you could predict the future?'
     }
     def test_submit_startup(self):
