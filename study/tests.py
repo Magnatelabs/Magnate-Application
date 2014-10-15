@@ -32,7 +32,7 @@ class SimpleTest(TestCase):
     	# Pretend we have found a cool startup and want to suggest it to Magnate
 
         # incorrect submission: not enough info
-        r=c.post(reverse('study_index'), {'entity': 'Google', 'industry': 'social-network'})
+        r=c.post(reverse('study_index'), {'entity': 'Google', 'industry': 'currency'})
         self.assertEquals(r.status_code, 200)
         self.assertTrue('Your information was not entered correctly' in r.content)
 
