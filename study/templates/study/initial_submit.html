@@ -11,7 +11,7 @@
 
         <div class="contentinner_header">
 		<div class="inner_blue">
-		<h1>Source a Company</h1>
+		<h1>Suggest an Opportunity</h1>
 		</div>
 	   	</div>
         
@@ -19,7 +19,7 @@
         <div class="left_sourcepage-container">
         <div class="left_sourcepage-contentinner">
         	<div class="sourceinfo_main">
-        	<p>Want the Magnate community to consider funding a startup or idea that you're in love with? Leave some information and keep your 					fingers crossed--it might be the next Fund addition.</p>
+        	<p class="sourceinfo-text-intro">Want the Magnate community to consider funding a startup, idea or strategy that you're in love with? Leave some information and keep your eyes peeled--it will most definitely get mentioned in the related lobby.</p>
        
         <form action="{% url "study_index" %}" method="post" enctype="multipart/form-data">
 			{% csrf_token %}
@@ -31,7 +31,7 @@
         <li>
         <p>
         {{ form.entity.errors }}
-        <label for="id_entity">Company Name</label>
+        <label for="id_entity">Opportunity Name</label>
 		{{ form.entity }}
         </p>
         </li>
@@ -39,7 +39,7 @@
         <li>
         <p>
         {{ form.entity_url.errors }}
-        <label for="id_entity_url">Website URL</label>
+        <label for="id_entity_url">Related URL</label>
 	    {{ form.entity_url }}  
          </p>
         </li>
@@ -48,7 +48,7 @@
         <li>
         <p>
         {{ form.description.errors }}
-        <label for="id_description">Description of Company or Idea</label>
+        <label for="id_description">Description of Opportunity</label>
         {{ form.description }}
         </p> 
         </li>
@@ -75,7 +75,7 @@
         <li class="nodivider">
 			<p>
             {{ form.industry.errors }}
-            <label for="id_industry">Select an Industry</label>
+            <label for="id_industry">Select a lobby</label>
             {{ form.industry }}
             </p> 
         </li>
