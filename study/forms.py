@@ -2,7 +2,7 @@ from django import forms
 from .models import StudyModel
 from django.utils.safestring import mark_safe
 
-INDUSTRY_CHOICES = (('mobile', 'Mobile'), ('e-commerce', 'E-commerce'), ('social-network', 'Social Network'), ('fitness', 'Fitness'), ('other', 'Other'))
+INDUSTRY_CHOICES = (('currency', 'Currently Currency'), ('etf', 'ETF Strategies'), ('infrastructure', 'Infrastructure'), ('late-stage', 'Late-stage Startups'), ('non-profit', 'Nonprofit'), ('options', 'Options Associated'), ('realestate', 'Real Estate'), ('seedlings', 'Seedlings'), ('stocks', 'Stocks'), ('commodities', 'The Commodities'))
 
 class StudyModelForm(forms.Form):
     entity = forms.CharField(max_length=255)
