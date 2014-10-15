@@ -545,6 +545,10 @@ updated: jmw 09.19.14
 	margin: 5px 0px 0px 50px;
 }
 
+.status_opportunitiy_fix {
+	margin: 0px 0px 0px -9px;
+}
+
 .actions_info article h4 {
 	margin: 5px; 
 	}
@@ -813,7 +817,16 @@ updated: jmw 07.03.14
 .sourcepage_content { width: 87.5%; float: left; padding: 0 6.3% 70px 6.3%;}
 .left_sourcepage-container { width: 500px; float: left; background: #ffffff; }
 .left_sourcepage-contentinner { width: 86%; float: left; padding: 30px 0px 0px 30px;}
-.sourceinfo_main {width: 100%; float: left;}
+
+.sourceinfo_main {
+	width: 100%; 
+	float: left;
+	}
+
+.sourceinfo_main .sourceinfo-text-intro {
+	margin-bottom: 30px;
+}
+	
 .sourceinfo_main article { width: 100%; float: left; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; padding: 0 0 40px 0px;}
 .sourceinfo_main article h2 { font-weight: normal; color: #4d4c4b; padding-bottom: 0px; }
 .sourceinfo_main article aside { width: 97%; float: left; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; padding: 0 0 10px 0px; }
@@ -827,9 +840,13 @@ updated: jmw 07.03.14
 
 .sourceinfo_main form article input { 
 	width: auto; 
+	line-height: 16px;
 }
 
-.sourceinfo_main article aside p input[type="file"] { line-height: 0px;}
+.sourceinfo_main article aside p input[type="file"] { 
+	line-height: 0px;
+}
+	
 .right_sourcepage-container {width: 280px; float: right; display: inline; }
 .right_sourcepage-contentinner { width:100%; float:right; background:#ffffff}
 .right_sourcepage-contentinner article{ width:71.6%; float:left; padding:38px 14.6% 20px 14.6%}
