@@ -22,7 +22,7 @@ class SimpleTest(TestCase):
     startup = {
         'entity': 'Contextuall', 
         'entity_url': 'https://contextuall.com', 
-        'industry': 'currency', 
+        'industry': 'infrastructure', 
         'description': 'What would you do differently if you could predict the future?'
     }
     def test_submit_startup(self):
@@ -32,7 +32,7 @@ class SimpleTest(TestCase):
     	# Pretend we have found a cool startup and want to suggest it to Magnate
 
         # incorrect submission: not enough info
-        r=c.post(reverse('study_index'), {'entity': 'Google', 'industry': 'currency'})
+        r=c.post(reverse('study_index'), {'entity': 'Google', 'industry': 'infrastructure'})
         self.assertEquals(r.status_code, 200)
         self.assertTrue('Your information was not entered correctly' in r.content)
 
