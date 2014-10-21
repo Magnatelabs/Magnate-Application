@@ -110,7 +110,7 @@ class feedback_entry(FormView):
         },
         "input_error": {
             "level": messages.ERROR,
-            "text": _(u"Your feedback was not entered correctly. Please type something and try again.")
+            "text": _(u"Your information was not entered correctly. Please try again.")
         }
     }
 
@@ -141,7 +141,7 @@ class feedback_entry(FormView):
                 self.messages["input_error"]["level"],
                 self.messages["input_error"]["text"]
             )
-            return render(request, self.template_name, {'form': form})
+            print 'DEBUG: form is not valid!!!', form.errors
 
 
 
