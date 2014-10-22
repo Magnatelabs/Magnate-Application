@@ -21,25 +21,13 @@
         <p style="{{ p_style }}">{% trans "Username: " %} {{ recipient.username }}<br />
         <b>{% trans "Password: As IF we would send your password in cleartext!" %}</b></p>
 
-		<p style="{{ p_style }}">{% trans "Click the following link to access your account:" %}</p>
-
-		<p style="{{ p_style }}"><a  style="{{ a_style }}" href="http://magnate.io/account/login/">{% trans "Log into my Magnate account" %}</a></p>
-		
-        <p style="{{ p_style }}">{% trans "If the above link is not clickable, copy and paste this url into your web browser's address bar:" %}</p>
-
-        <p style="{{ p_style }}">http://magnate.io/account/login</p>
-		
-		{% comment %}
-		This is the original message that tried to allow 
-		users to validate their emails. This does not
-		work, but should in the future.
-		
         <p style="{{ p_style }}">{% trans "The following link will help us verify your email address:" %}</p>
+
         <p style="{{ p_style }}"><a  style="{{ a_style }}" href="{% fullurl "auth_validate_email" user=recipient.id code=validation_code %}">{% trans "Validate my email address" %}</a></p>
+
         <p style="{{ p_style }}">{% trans "If the above link is not clickable, copy and paste this url into your web browser's address bar:" %}</p>
+
         <p style="{{ p_style }}">{% fullurl "auth_validate_email" user=recipient.id code=validation_code %}</p>
-        {% endcomment %}
-        
     {% endhtmlcontent %}
 
 {% textcontent notifications/base_text.html %}
