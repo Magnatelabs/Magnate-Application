@@ -112,6 +112,10 @@ body .dash-body-nav{
 border: 1px solid #bebebe;
 }
 
+.extra-padding {
+	padding: 0px 0px 20px 0px
+}
+
 /*----------------------------------------------------------------------------------------------------
 Site_base modifications 
 created: jmw
@@ -143,7 +147,7 @@ created: jmw
 updated: jmw 07.18.14
 ----------------------------------------------------------------------------------------------------*/
 .lightbox{ width:500px; float:left; padding:5px}
-.lightbox form{ width:100%; float:left; padding: 0px 0px 0px 0px;}
+.lightbox form{ width:100%; float:left; padding: 0px 0px 4	0px 0px;}
 lightbox form p{ width:100%; float: left; text-align:right}
 lightbox form p a{ color:#00468c}
 
@@ -151,7 +155,11 @@ lightbox form p a{ color:#00468c}
 .lightbox form .input{ width:91.5%; height:16px; float:left; background:#FFFFFF; box-shadow:none; box-shadow:inset #aeaeae 1px 1px 2px; border:1px solid #bebebe; border-radius:4px; behavior: url(PIE.htc); position:relative; font-family:"HelveticaNeueLTStd55Roman", Arial, Helvetica, sans-serif; font-size:14px; padding:7px 4%}
 .lightbox form ul{ width:100%; float:left; }
 .lightbox form ul li{  width:100%; float:left; padding-bottom:15px}
-.lightbox form .btn{}
+
+.lightbox form input[type="submit"].btn{
+	width: 72px;
+}
+
 .lightboxsignup{ width:564px; float:left; padding:5px}
 .lightboxsignup aside{ width:100%; float:left; padding:28px 0}
 .lightboxsignup h3{ text-align:center}
@@ -167,7 +175,10 @@ lightbox form p a{ color:#00468c}
 .share_main_add-container {width: 77%; float: left;}
 .share_main_add-container textarea {font-size: 11px;}
 #sharebox-aside {padding: 0px 0px 0px 0px;}
-#sharebox-article {padding: 0px 0px 50px 0px;}
+
+#sharebox-article {
+	padding: 0px 0px 0px 0px;
+}
 
 /*----------------------------------------------------------------------------------------------------
 Account Detail Styles
@@ -236,7 +247,7 @@ updated: jmw 06.25.14
 .inner_dashcontent { 
 	width: 100%; 
 	float: left; 
-	padding: 50px 0 170px 0; 
+	padding: 20px 0 170px 0; 
 }
 
 #dashboard_body {
@@ -408,7 +419,7 @@ created: jmw 06.30.14
 updated: jmw 09.19.14
 ----------------------------------------------------------------------------------------------------*/
 .grid_16 .contentinner .community-bg2{
-	margin-top: 50px;
+	margin-top: 20px;
 	border: 0px;
 }
 .inner_blue { width:100%; float:left; background:#d2e3e7}
@@ -1130,6 +1141,10 @@ updated: jmw 09.01.14
 	min-width: 220px;
 	}
 
+.profile-info .info figure img {
+	border: 0px solid #bebebe;
+}
+
 .profile-info .profile-name h3 {
 	line-height: 20px;
 	}
@@ -1248,13 +1263,12 @@ updated: jmw 09.01.14
 	float: left;
 	width: 25%;
 	margin-top: 30px;
-	min-height: 281px;
 	margin-bottom: 40px;
 }
 
 .dash-activityfeed .activity-feed {
 	background: #ffffff;
-	height: 281px;
+	height: 260px;
 	float: left;
 	width: 100%;
 }
@@ -1491,7 +1505,7 @@ updated: jmw 09.02.14
 .lobby_home {
 	width: 100%;
 	float: left;
-	padding: 40px 0 170px 0;
+	padding: 20px 0 170px 0;
 }
 
 .lobby-header{
@@ -1602,7 +1616,7 @@ updated: jmw 09.02.14
 .lobby-detail{
 	width: 100%;
 	float: left;
-	padding: 40px 0 170px 0;
+	padding: 20px 0 170px 0;
 }
 
 .lobby-detail-breakdown{

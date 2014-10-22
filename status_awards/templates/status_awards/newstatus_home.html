@@ -76,7 +76,7 @@
 						<h4>Spread the news</h4>
 						<p>Let your friends in on a good thing by sharing the Magnate platform. When you do we keep track of your invites and make it easier for you to offer the next "hookup" whenever possible.</p>
 						</div>
-						<div class="btn-middle" id="actionbtn_fix"><a href="#lightbox" class="btn" >Invite a friend</a></div>
+						<div class="btn-middle" id="actionbtn_fix"><a href="#lightbox" class="btn magnate" >Invite a friend</a></div>
 						</article>
 					</div>	
 					
@@ -183,10 +183,8 @@
 	</div><!-- grid_16 -->
 
 	{% include "share/_share_lightbox.html" %}         
-        
+
+
+<script src="{% static "js/jquery.fancybox-1.3.4.pack.js" %}"></script>        
 {% endblock %}
 
-{% block script_base %}
-{{ block.super }}
-<script src="{% static "js/jquery.fancybox-1.3.4.pack.js" %}"></script>
-{% endblock %}

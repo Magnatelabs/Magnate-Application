@@ -31,7 +31,7 @@ class share_index(FormView):
         },
         "input_error": {
             "level": messages.ERROR,
-            "text": _(u"Your information was not entered correctly. Please try again.")
+            "text": _(u"Some information was not entered correctly. Please try to share again.")
         }
     }
 
@@ -54,7 +54,7 @@ class share_index(FormView):
                 self.messages["survey_added"]["level"],
                 self.messages["survey_added"]["text"]
             )
-            return redirect('dashboard') # Redirect after POST    
+            return redirect('newstatus_home') # Redirect after POST    
 #            return redirect('confirm_questions') # Redirect after POST
         else:
             messages.add_message(
@@ -62,4 +62,4 @@ class share_index(FormView):
                 self.messages["input_error"]["level"],
                 self.messages["input_error"]["text"]
             )
-            print 'DEBUG: form is not valid!!!', form.errors
+            return render(request, 'status_awards/newstatus_home.html', {'form': form})
