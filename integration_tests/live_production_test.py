@@ -9,6 +9,8 @@ import sys
 from seltools import MyTestCase, set_host, _
 set_host('http://magnate-%s.herokuapp.com/' % (sys.argv[1])) # 'magnate-prod' or 'magnate-staging'
 # delete extra command-line options, or python's unittest will freak out
+is_production = (sys.argv[1]=='prod')
+
 del sys.argv[1:] # http://stackoverflow.com/questions/1029891/python-unittest-is-there-a-way-to-pass-command-line-options-to-the-app
 
 print "Testing Live Production"
@@ -49,6 +51,10 @@ class main_page(MyTestCase):
         broken_credit_card='123192038'
         exp_date='12/30' # increase this number after 2030
         card_code='123'  # three digits on the back
+        if is_production:
+            real_credit_card = '4847189098102791'
+            exp_date='09/22'
+            card_code='385'
 
         driver = self.driver
 
