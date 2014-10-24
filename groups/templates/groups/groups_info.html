@@ -1,35 +1,122 @@
 {% extends "site_base.html" %}
-{% block body_id %}groups_body{% endblock %}
+{% block body_id %}normal_body{% endblock %}
 {% load staticfiles %}
+{% load magnate_tags %}
+{% load i18n %}
 
+{% load extra_tags extra_filters ui_registry %}
+    <!-- Styling for OSQA -->
+        <link href="{% media  "/media/style/style.css" %}" rel="stylesheet" type="text/css" />
+
+        <script src="http://www.google.com/jsapi" type="text/javascript"></script>
+
+        <script type="text/javascript">
+        /*<![CDATA[*/
+            // OSQA defines all those things - try to do without them   
+
+            // google.load("jquery", "1");
+            // google.load("jqueryui", "1", {autoload:true});
+
+             var i18nLang = '{{ settings.LANGUAGE_CODE }}';
+            // var appUrl = '{{ settings.APP_URL }}'
+             var scriptUrl = '{{ settings.FORCE_SCRIPT_NAME }}/'
+             var osqaSkin = '{{ settings.OSQA_SKIN }}';
+
+            var messages = {
+                username: '{{ user.username }}',
+                confirm: "{% trans "Are you sure?" %}",
+                yes: "{% trans "Yes" %}",
+                no: "{% trans "No" %}",
+                message: "{% trans "Message:" %}",
+                cancel: "{% trans "Cancel" %}",
+                close: "{% trans "Close" %}",
+                ok: "{% trans "Ok" %}",
+                matching_tags_url: "{% url 'matching_tags' %}",
+                word: "{% trans "word" %}",
+                words: "{% trans "words" %}",
+                character: "{% trans "character" %}",
+                characters: "{% trans "characters" %}"
+            }
+        /*]]>*/
+        </script>
+
+        <script type="text/javascript" src="{% media  "/media/js/osqa.main.js" %}"></script>
+
+
+{% comment %} OSQA has block forejs for javascript in the beginning. For now just linking it by inserting it here {% endcomment %}
+
+  {% block forejs %}{% endblock %}
+
+{% block body_navigation %}
+	{% include "_bodynav_groupshome.html" %}
+{% endblock %}  
 
 {% block body %} 
 <div class="grid_16">
     <div class="contentinner lobby-detail">
     	<div class="section1 section3 lobby-detail-breakdown"><!-- should be user selected groups -->
-			{% for fund in funds|slice:":1" %} 
 			{% include "groups/_breakdown.html" %}
-			{% endfor %}
-			
-			<div class="lobby-information-container">
 				
-				{{ fund.statistics_as_html | safe }} <!-- stats are now associated to a group -->
+			<div class="lobby-information-container">
+				<div class="fund_metrics-container">
+        <div class="metrics-contentinner">
+			<div class="metric">
+			<article>
+			<div class="metric-text">
+			<p>Number of new Investments</p>
+			</div>
+			<div class="metric-amount1">
+			<p>17</p>			
+			</div>
+			</article>       
+			</div>
+			
+			<div class="metric">
+			<article>
+			<div class="metric-amount2">
+			<p>$62,205</p>	
+			</div>
+			<div class="metric-text2">
+			<p>New Asset Inflows</p>
+			</div>
+			</article>       
+			</div>
+			
+			<div class="metric">
+			<article>
+			<div class="metric-amount2">
+			<p>$32,603</p>	
+			</div>
+			<div class="metric-text2">
+			<p>Number of Participants</p>
+			</div>
+			</article>       
+			</div>
+			
+			<div class="metric">
+			<article>
+			<div class="metric-text">
+			<p>Number of new Investments</p>
+			</div>
+			<div class="metric-amount1 no_change">
+			<p>00</p>			
+			</div>
+			</article>       
+			</div>
+		</div>	
+			<div class="fundbtn"><a href="#" class="btn disabled" id="dashbtn_fix">Detailed View</a></div>	
+        </div>
 
 				<div class="section1 section3" id="portfolio_breakdown"><!-- portfolios are now associated to a group -->		
-			  		{% for company in portfolio %} 
 			  		<div class="portfolio_breakdown-container">
-						{% if company.image %}
 						<img src="{{ company.image.url }}" alt="LOGO" />
-						{% else %}
 						<img src="{% static "img/fundHome_tempimg1.jpg" %}" alt="PHOTO" />
-						{% endif %}
 						<div class="portfolio_breakdown-text">
 							<h1>{{ company.name }}</h1>
 							<p>{{ company.description }}</p>  
 							<p class="portfolio-tags">{{ company.tags }}</p>
 						</div>
 					</div>  
-					{% endfor %}
 					<div class="portfolio_btn"><a href="#" class="btn" id="dashbtn_fix">See more</a></div>
 				</div>
 			
