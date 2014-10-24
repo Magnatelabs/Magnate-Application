@@ -28,9 +28,9 @@
 			</div>
 			<div class="nav-inner-groupselections">
 				 <ul class="unstyled">
-				 	<li><a><h1>Homepage</h1></a></li>
-				 	<li><a href="{% url "groups_detail_objective" %}"><h1>Opportunity</h1></a></li>
-				 	<li><a href="{% url "groups_detail_info" %}"><h1>Information</h1></a></li>
+				 	<li><a href="{% url 'category_home_page' category.pk %}"><h1>Homepage</h1></a></li>
+				 	<li><a href="{% url 'groups_detail_objective' %}"><h1>Opportunity</h1></a></li>
+				 	<li><a href="{% url 'groups_detail_info' category.pk %}"><h1>Information</h1></a></li>
 				 </ul>
 			</div>
 		</div>
