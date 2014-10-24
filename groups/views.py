@@ -93,7 +93,14 @@ def groups_detail_home(request, id):
 
 
 @login_required 
-def groups_detail_information(request):
+def groups_detail_information(request, id):
+	category = get_object_or_404(Category, id=id)
+	user = request.user
+	fundraising = FundraisingAgenda.objects.filter(entry__categories__pk__in=[category.pk]).filter(entry__status=PUBLISHED).filter(status=ACTIVE).distinct()
+	fundraising = fundraising.order_by('-date')
+	feed = [fa.entry for fa in fundraising]
+	current_objective = fundraising[0] if not len(fundraising)==0 else None
+	
 	#for fake data in page
 	tda=total_donation_amount(request.user)
 	user_has_donation = (tda > 0)
@@ -104,8 +111,18 @@ def groups_detail_information(request):
 	portfolio = PortfolioCompany.objects.all()
 
 
-	return render(request, 'groups/groups_info.html', {'funds': funds, 'portfolio': portfolio, 'user_has_donation': user_has_donation, 'total_donation_amount': tda, 'total_bonus_amount': tba, 'grand_total': gt, 'all_donations_by_user': adu })
-#	return render(request, 'groups/groups_info.html')
+	return render(request, 'groups/groups_info.html', {
+		'category': category, 
+		'feed': feed, 
+		'current_objective': current_objective, 
+		'funds': funds, 
+		'portfolio': portfolio, 
+		'user_has_donation': user_has_donation, 
+		'total_donation_amount': tda, 
+		'total_bonus_amount': tba, 
+		'grand_total': gt, 
+		'all_donations_by_user': adu })
+#	return render(request, 'groups/groups_detail.html')
 
 @login_required 
 def groups_detail_objective(request):
