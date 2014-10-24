@@ -1,7 +1,12 @@
 {% extends "site_base.html" %}
-{% block body_id %}groups_body{% endblock %}
+{% block body_id %}normal_body{% endblock %}
 {% load staticfiles %}
 {% load avatar_tags %}	
+
+{% block body_navigation %}
+
+{% endblock %}
+
 
 {% block body %} 
 <div class="grid_16">
@@ -30,7 +35,12 @@
 					</div>
 				</div>
 				<div class="detail-objective-sidemenu">
-					{% include "groups/__objective.html" %}					
+					{% include "groups/__objective.html" %}	
+					
+					{% comment %}
+					Removing it for now, this should
+					be added later to let people know
+					who is the most active in the lobby				
 					<div class="objective-sidemenu-contributors">
 						<p>Contributors</p>
 						<div class="moderators-container">
@@ -47,6 +57,8 @@
 							</ul>
 						</div>
 					</div>
+					{% endcomment %}
+					
 				</div>
 			</div>
 			
