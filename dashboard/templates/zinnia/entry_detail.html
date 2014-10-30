@@ -2,6 +2,17 @@
 {% load i18n zinnia_tags %}
 {% load avatar_tags %}
 
+
+{% block body_navigation %}
+{% if object.agenda.agenda_type == "fundraising" %} 
+	{% include "_bodynav_groupshome.html" with category=object.categories.first %}
+{% else %}
+{{ block.super }}
+{% endif %}
+{% endblock %}
+
+
+
 {% block entry-widgets %}
   {% with entry_related=object.related_published %}
   {% if entry_related %}
