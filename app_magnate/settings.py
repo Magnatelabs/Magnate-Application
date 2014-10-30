@@ -367,6 +367,9 @@ EMAIL_HOST_PASSWORD = os.environ.get('SENDGRID_PASSWORD')
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
+# For Pinax waitinglist emails sent because it relies on default
+DEFAULT_FROM_EMAIL = "admin@magnate.io"
+
 ACCOUNT_OPEN_SIGNUP = False 
 ACCOUNT_USE_OPENID = False
 ACCOUNT_REQUIRED_EMAIL = False
