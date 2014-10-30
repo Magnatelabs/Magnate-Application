@@ -85,17 +85,22 @@
 			</div>
         </div><!--dashboard divider-->
         {% endcomment %}
+		
+		{% if is_dashboard %}
+        <div class="section6-bg">{{ current_objective }}
+	    {% else %}
+	    <div class="section6-bg zinniacontent">
+		{% endif %}        
+		
+		{% comment %}
+		If is_dashboard, then wrap the block content so it goes into the left column. Otherwise it gets all the space.
+		{% endcomment %}
 
-        <div class="section6-bg">
-	{% comment %}
-	If is_dashboard, then wrap the block content so it goes into the left column. Otherwise it gets all the space.
-	{% endcomment %}
+			{% if is_dashboard %}
+			<div class="section6"> {% comment %}section6 is also only for the dashboard mode. We want a pure white screen otherwise{% endcomment %}
 
-	{% if is_dashboard %}
-	<div class="section6"> {% comment %}section6 is also only for the dashboard mode. We want a pure white screen otherwise{% endcomment %}
-
-        <div class="dash_zinniafeed grid_3 alpha omega">
-        <div class="fund-feed">
+				<div class="dash_zinniafeed grid_3 alpha omega">
+				<div class="fund-feed">
         
         {% comment %}
         This does not belong here. Need to find a better location for this information.
