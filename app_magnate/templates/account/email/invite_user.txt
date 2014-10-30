@@ -1,3 +1,12 @@
-You have been invited to sign up at {{ current_site.name }}.
+Hello!
+
+Thank you for taking the time to stop by and check out Magnate.
+You have been invited to our closed beta! 
+Please click the link below to sign up:
 
 {{ signup_url }}
+
+
+Thanks,
+
+Magnate Team
