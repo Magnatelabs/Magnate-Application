@@ -995,6 +995,10 @@ Zinnia blog Styling
 created: jmw 08.05.14
 updated: jmw 08.05.14
 ----------------------------------------------------------------------------------------------------*/
+.dash_grid .inner_dashcontent .zinniacontent{
+	background: #ffffff;
+}
+
 .blogpublic-entry-content {
 	padding: 30px 0px 50px 20px;
 	float: left;
