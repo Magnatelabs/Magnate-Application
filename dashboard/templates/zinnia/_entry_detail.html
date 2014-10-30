@@ -3,7 +3,6 @@
 {% load staticfiles %}
 {% load i18n %}
 
-
 {% block style_base %}
     {{ block.super }}
     {% if continue_reading %} 
@@ -17,6 +16,9 @@
 {% block entry-header %}
 	
 		{% if continue_reading %} 
+			{% comment %}
+			THIS HIGHLIGHTED IS TO HELP CHANGE THE DISPLAY FOR FUNDRAISERS
+			{% endcomment %}
 			{% if highlighted %}
 				<b>FEATURED ENTRY</b>
 			{% endif %}
@@ -131,7 +133,7 @@
 	    {% if object.is_public %}
 	    <a href="{{ object.get_absolute_url }}" class="btn-more2 fundfeed_btn_mod">Read more</a>
         <a href="/forum/questions/ask/?entry_id={{ object.pk }}" class="btn-more2">Ask Question</a>
-        {% endif %}  
+        {% endif %}
 	    </div>
 	</span>
 	</div>	
