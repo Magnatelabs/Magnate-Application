@@ -22,10 +22,17 @@
   {% endblock %}
   {% block entry-image %}
   {% endblock %}
+  
+  {% comment %} #This is added to help fundraising entries look like a fundraiser in a lobby {% endcomment %}
+  {% if not continue_reading  %}  
+  {% if object.agenda.agenda_type == "fundraising" %}  
+  {% include "groups/__objective.html" %}	
+  {% endif %}
+  {% endif %}
 
   {% block related-questions %}
     {% if not continue_reading  %}    
-    
+	{% if not object.agenda.agenda_type == "fundraising" %}     
     <div class="section1 section3" id="relatedArticle-breakdown">
 			<h3>Related Questions</h3>
           {% for question in related_questions %}
@@ -38,7 +45,7 @@
           {% endfor %}
         	
     </div>         	
-  
+	{% endif %}
 	{% endif %}
   {% endblock %}
   
