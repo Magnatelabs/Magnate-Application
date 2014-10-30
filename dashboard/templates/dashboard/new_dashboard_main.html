@@ -65,9 +65,9 @@
 <div class="dash_grid">
     <div class="inner_dashcontent">
     	<div class="section1 section3 extra-border">
-        	
+        	{% if is_dashboard %}
 			{% include "dashboard/_user_breakdown.html" %}
-
+			{% endif %}
 		{% comment %}
 		No need for hangouts feature or the drop-down at the moment
         <div class="dashboard-divider">
