@@ -14,14 +14,11 @@
 				</a>
 			
 			<ul class="dropdown-menu">
-                    <li><a href="{{ user.get_profile_url }}">{% trans "Profile" %}</a></li>
-                    {% if request.user.is_staff %}
-                        <li><a href="{% url THEME_ADMIN_URL|default:"admin:index" %}"> {% trans "Admin" %}</a></li>
-                    {% endif %}
-                    <li class="divider"></li>
+				{% for user_following_category in request.user.following.all %}
                     <li>
-                        <a id="account_logout" href="{% url "account_logout" %}"> {% trans "Log out" %}</a>
+                    <a href="{% url 'category_home_page' user_following_category.category.pk %}">{{ user_following_category.category }}</a>
                     </li>
+                    {% endfor %}
                 </ul>
 			</li>
 			
@@ -29,7 +26,7 @@
 			<div class="nav-inner-groupselections">
 				 <ul class="unstyled">
 				 	<li><a href="{% url 'category_home_page' category.pk %}"><h1>Homepage</h1></a></li>
-				 	<li><a href="{% url 'groups_detail_objective' %}"><h1>Opportunity</h1></a></li>
+				 	<li><a href="{{ current_objective.entry.get_absolute_url }}"><h1>Opportunity</h1></a></li>
 				 	<li><a href="{% url 'groups_detail_info' category.pk %}"><h1>Information</h1></a></li>
 				 </ul>
 			</div>
