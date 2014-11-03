@@ -11,6 +11,8 @@ SUSPENDED = 2
 CANCELED = 3
 COMPLETED = 4
 
+FUNDRAISER_LOGO_IMAGES = 'uploads/fundraiser_logos'
+
 class AgendaManager(models.Manager):
     def get_queryset(self):
         qs = super(AgendaManager, self).get_queryset()
@@ -46,6 +48,9 @@ class Agenda(PrivatelyPublishedModelMixin, models.Model):
 
     objects = AgendaManager()
 
+    # added for the Lobby opportunities page
+    title = models.CharField(max_length=200)
+    image = models.ImageField('fundraiser_logo', blank=True, upload_to=FUNDRAISER_LOGO_IMAGES)
 
     def __unicode__(self):
         return '%s %s (event by %s on %s)' % (self.__class__.__name__, self.admin_note, self.user, self.date)
@@ -54,6 +59,10 @@ class Agenda(PrivatelyPublishedModelMixin, models.Model):
     def get_type(cls):
         return re.sub(r'agenda$', '', cls.__name__.lower())
 
+    #Hack to help fundraising content fit into Lobbies
+    def as_fundraising_agenda(self):
+        self.__class__ = FundraisingAgenda
+        return self
 
     #override
     def create_entry_title(self):
