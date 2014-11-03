@@ -6,6 +6,24 @@
        <article   id="entry-{{ object.pk }}">
   {% endblock %}
   
+{% if not continue_reading %}
+{% if object.agenda.agenda_type == "fundraising" %}  
+<div class="objective-description-content">	
+<div class="description-content-header">
+	{% with "/site_media/static/img/"|add:object.agenda.admin_note|add:".jpg" as category_url %}
+	        <figure><a href="{% url 'category_home_page' object.categories.first.id %}"><img src="{% static category_url %}" alt="PHOTO" /></a></figure>
+    {% endwith %}
+	<div class="description-header-title"><!-- change to name of {{ group.name }} -->
+		<p>{{ object.categories.first }} presents...</p>
+		<div class="header-title-objective"><!-- manual submit through admin  -->
+			<h1>{{ object.agenda.title }}</h1>								
+		</div>
+	</div>
+</div>			
+</div>
+{% endif %}
+{% endif %}
+  
   {% if object.is_public %}
   {% else %}
   <div class="fundfeed-userauthor">  
@@ -26,7 +44,7 @@
   {% comment %} #This is added to help fundraising entries look like a fundraiser in a lobby {% endcomment %}
   {% if not continue_reading  %}  
   {% if object.agenda.agenda_type == "fundraising" %}  
-  {% include "groups/__objective.html" %}	
+  {% include "groups/__objective.html" with current_objective=object.agenda.as_fundraising_agenda %}
   {% endif %}
   {% endif %}
 
