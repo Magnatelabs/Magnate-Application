@@ -1,7 +1,7 @@
 {% extends "zinnia/entry_detail_base.html" %}
 {% load i18n zinnia_tags %}
 {% load avatar_tags %}
-
+{% load staticfiles %}
 
 {% block body_navigation %}
 {% if object.agenda.agenda_type == "fundraising" %} 
@@ -10,9 +10,8 @@
 {{ block.super }}
 {% endif %}
 {% endblock %}
-
-
-
+  
+  
 {% block entry-widgets %}
   {% with entry_related=object.related_published %}
   {% if entry_related %}
