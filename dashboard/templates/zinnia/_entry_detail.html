@@ -13,25 +13,24 @@
 {% endblock %}   
 
 
-{% block entry-header %}
-	
-		{% if continue_reading %} 
-			{% comment %}
+{% block entry-header %}	
+	{% if continue_reading %} 
+		{% comment %}
 			THIS HIGHLIGHTED IS TO HELP CHANGE THE DISPLAY FOR FUNDRAISERS
-			{% endcomment %}
-			{% if highlighted %}
-				<b>FEATURED ENTRY</b>
-			{% endif %}
+		{% endcomment %}
+		{% if highlighted %}
+			<b>FEATURED ENTRY</b>
+		{% endif %}
 			{% include "zinnia/__entry_authors_feed.html" %} 
-
 		{% else %}
+			{% if object.agenda.agenda_type == "fundraising" %}
+			{% else %} 
 			<div class="blog-entry-header">
-				<h2 class="blog-entry-title">{{ object.title }}</h2>
-				
+				<h2 class="blog-entry-title">{{ object.title }}</h2>				
 		{% include "zinnia/__entry_authors_article.html" %}
-		
 			</div>
-{% endif %}
+			{% endif %}
+		{% endif %}
 {% endblock %}
 
 
@@ -92,7 +91,11 @@
 	  	{% endcomment %}
 	  	
           {% else %}
+          {% if object.agenda.agenda_type == "fundraising" %}
+          <span class="blog-entry-image image_fundraiser">
+          {% else %} 
           <span class="blog-entry-image">
+          {% endif %}
           <a href="{{ object.get_absolute_url }}" title="{{ object.title }}" rel="bookmark">
 			  <figure><img src=" {{ object.image.url }}" alt="{{ object.title }}" class="left"  /></figure>
           </a>
