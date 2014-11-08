@@ -41,6 +41,8 @@ from rewards.models import FundraisingAgenda
 from zinnia.managers import PUBLISHED
 from rewards.models import ACTIVE
 
+from .models import PortfolioCompany
+
 @login_required 
 def groups_index(request):
 	#for fake data in page
@@ -92,6 +94,17 @@ def groups_detail_home(request, id):
 #	return render(request, 'groups/groups_detail.html')
 
 
+## Whenever you create a new category you must restart
+## the server to access a newly added MAGNATE_LOBBY_TEMPLATE 
+## from the os_qa admin.
+def category_statistics_as_html(category):
+	from forum_modules.magnate.settings import MAGNATE_LOBBY_TEMPLATES
+	if category.pk in MAGNATE_LOBBY_TEMPLATES:
+		return MAGNATE_LOBBY_TEMPLATES[category.pk].value
+	else:
+		return "Missing"	
+
+
 @login_required 
 def groups_detail_information(request, id):
 	category = get_object_or_404(Category, id=id)
@@ -100,6 +113,7 @@ def groups_detail_information(request, id):
 	fundraising = fundraising.order_by('-date')
 	feed = [fa.entry for fa in fundraising]
 	current_objective = fundraising[0] if not len(fundraising)==0 else None
+	portfolio = PortfolioCompany.objects.all()
 	
 	#for fake data in page
 	tda=total_donation_amount(request.user)
@@ -108,8 +122,7 @@ def groups_detail_information(request, id):
 	adu=all_donations_by_user(request.user)
 	gt= tda+tba
 	funds = MagnateFund.objects.all()
-	portfolio = PortfolioCompany.objects.all()
-
+	statistics = category_statistics_as_html(category)
 
 	return render(request, 'groups/groups_info.html', {
 		'category': category, 
@@ -121,7 +134,8 @@ def groups_detail_information(request, id):
 		'total_donation_amount': tda, 
 		'total_bonus_amount': tba, 
 		'grand_total': gt, 
-		'all_donations_by_user': adu })
+		'all_donations_by_user': adu,
+		'statistics': statistics, })
 #	return render(request, 'groups/groups_detail.html')
 
 @login_required 
