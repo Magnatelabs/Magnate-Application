@@ -420,7 +420,6 @@ updated: jmw 09.19.14
 ----------------------------------------------------------------------------------------------------*/
 .grid_16 .contentinner .community-bg2{
 	margin-top: 20px;
-	border: 0px;
 }
 .inner_blue { width:100%; float:left; background:#d2e3e7}
 .section1_status_display {width: 64%; float: left; margin: 2px 92px 10px 0px; background: #2e2f8f;}
@@ -672,8 +671,20 @@ updated: jmw 07.03.14
 .amplification-contentinner ul {width: 100%; float: left; padding-left: 10px; -webkit-margin-before: 0em; -webkit-margin-after: .4em;}
 .amplification-contentinner ul li { float: left; padding-right: 2px; list-style: none; opacity: .65;}
 .amplification-contentinner .amplified-active {opacity: 1;}
-#portfolio_breakdown {width: 56%; margin-bottom: 100px;}
-.portfolio_heading-inner {width: 100%; float: left; min-height: 46px; background: #cacac8; border-bottom:1px solid #e3e4e4; margin-bottom: 20px;}
+
+#portfolio_breakdown {
+	width: 56%; 
+	margin-bottom: 100px; 
+	padding-left: 40px;
+	}
+	
+.portfolio_heading-inner {
+	width: 100%; 
+	float: left; 
+	min-height: 46px; 
+	margin-bottom: 20px;
+	}
+	
 .portfolio_heading-inner h1 {font-family: "helveticaneuelight", Arial, Helvetica, sans-serif; font-size: 20px; color: #4c4c4c; padding: 10px 0 0 6.2%; -webkit-margin-after: 0em;}
 .portfolio_breakdown-container {width: 90%; float: left; margin-left: 40px; padding-bottom: 15px;}
 .portfolio_breakdown-container img {width: 100px; float: left; border:1px solid #e3e4e4;}
@@ -1994,6 +2005,11 @@ updated: jmw 09.02.14
 	margin: 40px 0px 0px 20px;
 }
 
+.no_objective_text{
+	float: left;
+	padding: 5% 0px 0px 10%;
+}
+
 /*----------------------------------------------------------------------------------------------------
 User_information v1 Styling 
 created: jmw 09.10.14
@@ -2219,7 +2235,7 @@ updated: jmw 10.01.14
 .feed-contributions-activity{
 	float: left;
 	width: 100%;
-	padding: 0px 0px 0px 0px;
+	padding: 0px 0px 10px 0px;
 }
 
 .feed-contributions-activity ul li{
