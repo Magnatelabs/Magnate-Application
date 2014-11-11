@@ -37,11 +37,11 @@
 
       {% badges_for_user user as badges %}
 
-
+{% comment %}
         <div class="badges">
 			<!--Now groups-->
-        <h2>You are following ({{following | length }}) lobbies.</h2><span><a href="{% url 'groups_all' %}">Click to see all</a></span>
-{% comment %}
+        <h2>You are following ( {{following | length }}) lobbies.</h2><span><a href="{% url 'groups_all' %}">Click to see all</a></span>
+
 	<ul class="unstyled">
 	{% for badge in badges %}
           {% if not badge.is_metabadge %}
