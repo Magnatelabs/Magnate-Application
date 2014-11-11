@@ -24,19 +24,19 @@
 							<ul class="unstyled">
 								<li>
 									<div id="dollar">
-										<span id="hasdonation"><sup>$</sup>{{ total_donation_amount }}</span>
+										<span id="hasdonation"><sup>$</sup>{{ no_objective_total }}</span>
 									</div>
 									<aside><p>Available</p></aside>
 								</li>
 								<li>
 									<div id="dollar">
-										<span id="hasdonation"><sup>$</sup>{{ total_donation_amount }}</span>
+										<span id="hasdonation"><sup>$</sup>{{ with_objective_total }}</span>
 									</div>
-									<aside><p>Pending</p></aside>
+									<aside><p>Allocated</p></aside>
 								</li>
 								<li>
 									<div id="dollar">
-										<span id="hasdonation"><sup>$</sup>{{ total_donation_amount }}</span>
+										<span id="hasdonation"><sup>$</sup>0</span>
 									</div>
 									<aside><p>Successful</p></aside>
 								</li>
@@ -62,21 +62,23 @@
 	    			<div class="header-contributions-activity">
 	    			<h1>{{ request.user }}'s Activity</h1>
 	    			</div>
-
+	    			{% for d in donations %}
 	    			<div class="feed-contributions-activity">
 	    				<ul class="unstyled">
 	    					<li>
 	    						<div class="feed-activity-item">
-	    							
 	    							<div class="date-activity-item">
 	    								<div class="activity-item-daymonth">
-	    									<p>08 Aug</p>
+	    									<p>{{d.timestamp|date}}</p>
 	    								</div>
 	    								<div class="activity-item-year">
-	    									<p>2014</p>
+	    									<p>{{d.timestamp|time}}</p>
 	    								</div>
 	    							</div>
 	    							
+	    							{% comment %}
+									For when we can understand what type
+									of investment we've made
 	    							<div class="classification-activity-item">
 	    								<div class="activity-item-class1">
 	    									<p>cash</p>
@@ -85,25 +87,36 @@
 	    									<p>CURR</p>
 	    								</div>
 	    							</div>
+	    							{% endcomment %}
 	    							
 	    							<div class="details-activity-item">
 		    							<div class="activity-item-title">
-		    								<p>Magnanimous Magnate</p>
-	    								</div>
+			    							{% if d.objective %}
+		    								<p>{{ d.objective.title }} </p>
+		    								{% else %}
+		    								<p>Deposit</p>
+		    								{% endif %}
+	    								</div>	    								
 	    								<div class="activity-item-type">
+	    									{% if d.objective %}
 	    									<p>Contribution</p>
-	    								</div>
+	    									{% else %}
+	    									<p>Addition to balance</p>
+	    								{% endif %}
+	    								</div>	    								
 	    							</div>
 	    							<div class="amount-activity-item">
 	    								<div id="dollar">
 										<span id="hasdonation">+
-										<sup>$</sup>{{ total_donation_amount }}</span>
+										<sup>$</sup>{{ d.amount }}</span>
 										</div>
 	    							</div>
 	    						</div>
 	    					</li>
 	    				</ul>
 	    			</div>
+	    			
+	    			{% endfor %}
 	    			
 	    		</div>
 	    	</div>
