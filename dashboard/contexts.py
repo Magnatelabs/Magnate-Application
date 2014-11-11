@@ -44,9 +44,8 @@ def magnate_user_info(request):
     total_donation_amount = du.total_donation_amount(request.user)
     user_has_donation = (total_donation_amount > 0)
     status_badge = magnate_status_badge(request.user)
-    dvd = du.donation_vesting_date(request.user)
     has_status_badge = (status_badge is not None)
 
-    return {'recent_activity': recent_activity, 'total_donation_count': total_donation_count, 'total_donation_amount': total_donation_amount, 'user_has_donation': user_has_donation, 'has_status_badge': has_status_badge, 'status_badge': status_badge, 'donation_vesting_date': dvd}
+    return {'recent_activity': recent_activity, 'total_donation_count': total_donation_count, 'total_donation_amount': total_donation_amount, 'user_has_donation': user_has_donation, 'has_status_badge': has_status_badge, 'status_badge': status_badge,}
 
 
