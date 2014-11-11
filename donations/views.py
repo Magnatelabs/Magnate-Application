@@ -21,8 +21,8 @@ from django.views.generic.edit import FormView
 
 #imports to recognize forms 
 from .forms import BillingInfoForm
-from .models import BillingInfo, MagnateFund, PortfolioCompany
-from .utils import total_donation_amount
+from .models import BillingInfo, MagnateFund, PortfolioCompany, Donation
+from .utils import total_donation_amount, no_objective_total
 from bonus_awards.utils import total_bonus_amount
 
 from django.views.decorators.http import require_http_methods
@@ -194,5 +194,8 @@ def contribution_history(request):
     user_has_donation = (tda > 0)
     tba=total_bonus_amount(request.user)
     gt= tda+tba
+    tnoj=no_objective_total(request.user)
+    twoj= tda - tnoj 
+    donations = Donation.objects.filter(user__username=request.user).order_by('timestamp')
 
-    return render(request, 'donations/contribution_history.html', {'user_has_donation': user_has_donation, 'total_donation_amount': tda, 'total_bonus_amount': tba, 'grand_total': gt })
+    return render(request, 'donations/contribution_history.html', {'user_has_donation': user_has_donation, 'total_donation_amount': tda, 'total_bonus_amount': tba, 'grand_total': gt, "no_objective_total": tnoj, "with_objective_total": twoj, "donations": donations, })
