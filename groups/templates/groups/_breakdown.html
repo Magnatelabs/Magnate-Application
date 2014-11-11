@@ -10,7 +10,7 @@
            	<div class="header-top-name"><!-- change to name of group -->
 				<h1>{{ category.title }}</h1>                
 				<div class="total-lobby-contribution"><!-- manual submit through admin  -->
-					<div id="dollar">
+					<div class="dollar quickobjective-amount-total">
 						<sup>$</sup>
 						<span>{{ grand_total }}</span>								
 					</div>
@@ -19,9 +19,16 @@
 			<div class="header-top-description">
 				<p>{{ category.description }}</p>
 			</div>
+			
+			{% comment %}
+			This button does not actually help the user
+			follow the corresponding lobby.
+			
 			<div class="header-bottom-followbtn">
 				<div class="btn">follow</div>
 			</div>
+			{% endcomment %}
+			
 		</div>
 							
 		<div class="description-header-bottom"> 
