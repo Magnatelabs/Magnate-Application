@@ -29,6 +29,10 @@ Otherwise it is read-only.
         <aside>
 		<div id="user_badges">
 		</div>
+		<div class="badges">
+			<!--Now groups-->
+        <h2>You are following ( {{ following|length }} ) lobbies.</h2><span><a href="{% url 'groups_all' %}">Click to see all</a></span>
+		</div>
 
 		<div class="dash-search">
 			<div class="dash-search-bar">
@@ -76,6 +80,6 @@ Otherwise it is read-only.
         </aside>
         </article>      
         </div>
-        {% include "dashboard/_user_activity_feed.html" %}
+        {% include "dashboard/_user_activity_feed.html" with following=following  %}
   </div>
 
