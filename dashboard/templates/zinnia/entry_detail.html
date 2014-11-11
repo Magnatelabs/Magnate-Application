@@ -7,7 +7,7 @@
 {% if object.agenda.agenda_type == "fundraising" %} 
 	{% include "_bodynav_groupshome.html" with category=object.categories.first %}
 {% else %}
-{{ block.super }}
+	{% include "_bodynav_backselect.html" %}
 {% endif %}
 {% endblock %}
   
