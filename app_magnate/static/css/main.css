@@ -1516,6 +1516,11 @@ updated: jmw 09.01.14
 	color: #3060A8;
 }
 
+.loading_text {
+	clear: both;	
+	padding-left: 40px;
+}
+
 /*----------------------------------------------------------------------------------------------------
 Groups_all v1 Styling 
 created: jmw 09.02.14
@@ -1910,6 +1915,21 @@ updated: jmw 09.02.14
 
 .dropdown .groupnavbtn .caret{
 	margin-left: 5px;
+}
+
+.description-header-top .lobbyhome_follow {
+	float: right;
+	margin-top: 4%;
+	width: 20%;
+}
+
+.lobbyhome_follow .lobby-description-follow {
+	margin-bottom: 1%;
+	margin-left: 4%;
+}
+
+.dropdown .dropdown-menu p {
+	padding: 4% 0% 0% 10%;
 }
 
 /*----------------------------------------------------------------------------------------------------
