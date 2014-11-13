@@ -1,6 +1,29 @@
 {% load staticfiles %}
 {% load avatar_tags %}
 
+<script type="text/javascript">
+  function follow(category_pk, to_follow) {
+    // tricky without hard-coding the address
+    $.ajax({
+        'type': 'POST',
+        'url': "/lobby/follow_category/"+category_pk+ "/",
+        'data': {
+            'command': '' + to_follow ? 'follow' : 'unfollow',
+            'csrfmiddlewaretoken': '{{ csrf_token }}',
+         },
+         success: function(data) {
+            if (!data['success']) {
+                alert(data['error_message']);
+                return;
+            }
+            $('#cat-btn-'+category_pk).html(data['commands']['update_button_text']);
+         }   
+
+    });
+  }
+</script>
+
+
 <div class="detail-breakdown-description">
 	<div class="breakdown-description-header">			
 		<div class="description-header-top">
@@ -20,14 +43,25 @@
 				<p>{{ category.description }}</p>
 			</div>
 			
-			{% comment %}
-			This button does not actually help the user
-			follow the corresponding lobby.
-			
-			<div class="header-bottom-followbtn">
-				<div class="btn">follow</div>
+			<div class="header-bottom-followbtn lobbyhome_follow">
+				<div class="lobby-description-follow">
+                                <div class="btn" id="cat-btn-{{ category.pk }}" onclick="follow( {{ category.pk }}, false );">
+
+                                	{% if is_following %}
+                                	{% comment %}
+                                	Need to fix this so it works.
+                                	<p>+</p>
+                                	{% endcomment %}
+                                	<div class="">Unfollow</div>
+                                	{% else %}
+                                	{% comment %}
+                                	<p>+</p>
+                                	{% endcomment %}
+                                	<div class="">Follow</div>
+                                	{% endif %}
+                                </div>                            
+                            </div>  
 			</div>
-			{% endcomment %}
 			
 		</div>
 							
@@ -60,7 +94,7 @@
 </div>
 
 
-
+{% comment %}
 <script type="text/javascript">
 var newYear = new Date(); 
 
@@ -74,7 +108,7 @@ newYear = new Date({{ donation_vesting_date.year }}, {{ donation_vesting_date.mo
 $('#defaultCountdown').countdown({until: newYear}); 
 // the -1 for the month is because -python counts months at 1 and javascript frmo 0. The -1 allows it to sync better
 </script>
-
+{% endcomment %}
 
 
 
