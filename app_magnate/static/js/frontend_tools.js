@@ -46,7 +46,17 @@ function autosize_font ( i, box ) {
 
 // article_id is an integer: the primary key of the Zinnia entry
 function loadQuestionFeed(jqDiv, article_id) {
-  jqDiv.load('/f/?entry=' + article_id );
+  var start_time = new Date();
+  jqDiv.hide();
+  jqDiv.load('/f/?entry=' + article_id, function( chicken, chicken2, chicken3 ) {
+	  if ( chicken2 == "success") {		  
+		  var elapsed_time = new Date() - start_time;
+		  setTimeout( function() { 
+			  jqDiv.show();
+			  $('#div_loading_'+article_id).hide();
+			  }, Math.max(0, 750 - elapsed_time));
+		}
+  });
 }
 
 function toggleArticleActive(article_dom_id, is_active, is_public) {
@@ -66,6 +76,7 @@ function toggleArticleActive(article_dom_id, is_active, is_public) {
 
     if (is_public) {
       // Only for public entries: load questions about this entry in the main div
+      $('#div_loading_'+article_dom_id.replace('entry-', '')).show();
       loadQuestionFeed($('#div_activity_'+article_dom_id.replace('entry-', '')), article_dom_id.replace('entry-',''))
     }
   } else {
