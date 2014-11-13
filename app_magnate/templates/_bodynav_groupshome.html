@@ -19,6 +19,9 @@
                     <a href="{% url 'category_home_page' user_following_category.category.pk %}">{{ user_following_category.category }}</a>
                     </li>
                     {% endfor %}
+                    {% if not request.user.following.all %}
+                    	<p>You are not following<br>any lobbies</p>
+                   	{% endif %}
                 </ul>
 			</li>
 			
