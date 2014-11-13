@@ -70,7 +70,7 @@ def groups_detail_home(request, id):
 	feed = [fa.entry for fa in fundraising]
 	current_objective = fundraising[0] if not len(fundraising)==0 else None
 	entries = Entry.objects.filter(categories__pk__in=[category.pk]).filter(status=PUBLISHED).order_by('-creation_date')
-
+	is_following = request.user.following.filter(category__id=category.pk).exists()
 
 	#for fake data in page
 	tda=total_donation_amount(request.user)
@@ -93,7 +93,8 @@ def groups_detail_home(request, id):
 		'total_bonus_amount': tba, 
 		'grand_total': gt, 
 		'all_donations_by_user': adu,
-		'entries': entries })
+		'entries': entries,
+		'is_following': is_following })
 #	return render(request, 'groups/groups_detail.html')
 
 
