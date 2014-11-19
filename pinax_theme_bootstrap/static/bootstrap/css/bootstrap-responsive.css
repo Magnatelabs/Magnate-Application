@@ -806,6 +806,10 @@
 }
 
 @media (max-width: 767px) {
+  .container .indexbanner {
+	display: none;
+  }	
+	
   body {
     padding-right: 20px;
     padding-left: 20px;
@@ -956,12 +960,16 @@
 }
 
 @media (max-width: 979px) {
+  .container .indexbanner figure {
+	  width: 94%;
+  }
+  
   body {
     padding-top: 0;
   }
   .navbar-fixed-top,
   .navbar-fixed-bottom {
-    position: static;
+  
   }
   .navbar-fixed-top {
     margin-bottom: 20px;
