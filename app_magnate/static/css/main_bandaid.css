@@ -1,0 +1,64 @@
+/*----------------------------------------------------------------------------------------------------
+Navigation Modifications
+created 01.16.15
+updated 01.16.15
+----------------------------------------------------------------------------------------------------*/
+
+#homepage_body {
+	padding-top: 80px;
+}
+
+@media (min-width: 478px){
+body .navbar-fixed-top .container {
+width: 750px;
+}
+}
+
+@media (min-width: 768px){
+body .navbar-fixed-top .container {
+width: 750px;
+}
+}
+
+@media (min-width: 992px){
+body .navbar-fixed-top .container {
+	width: 970px;
+}
+}
+
+@media (min-width:1200px){
+body .navbar-fixed-top .container {
+	width:1200px;
+}
+}
+
+@media (max-width: 980px){
+body .navbar .btn-navbar {
+	display: none;
+}
+}
+
+@media (max-width: 768px){
+body .navbar .btn-navbar {
+	display: block;
+}
+}
+
+.container {
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+#navbar-scroll-fix .navbar-inner .navbar-login-bandaid {
+	padding-left: 30px;
+}
+
+body .navbar-inner .navbar-login-bandaid {
+	padding-left: 45px;
+}
+
+
+
+
