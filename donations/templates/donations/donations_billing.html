@@ -5,7 +5,71 @@
 {% block body_id %}dashboard_body{% endblock %}
 
 {% block style_base %}
-{{ block.super }}
+    <link href="{% static "css/main.css" %}" rel="stylesheet">
+    <link href="{% static "css/main_bandaid.css" %}" rel="stylesheet">
+    <link href="{% static "css/ui.css" %}" rel="stylesheet">
+    <link href="{% static "css/960.css" %}" rel="stylesheet">   
+           
+    <link href="{% static "pinax/css/theme.css" %}" rel="stylesheet">
+	<link href="{% static "bootstrap/css/bootstrap.css" %}" rel="stylesheet">
+	<link href="{% static "bootstrap/css/bootstrap-responsive.css" %}" rel="stylesheet">		
+	<link href="{% static "css/typography.css" %}" rel="stylesheet">
+            
+    <script src="{% static "js/jquery-1.9.0.min.js" %}"></script>
+			
+	<script type="text/javascript">
+	// Prevent caching ajax calls so the dynamic content is always updated
+	// This way we don't need to add the wasteful /?cache=nocache to every request
+	// (var nocache = new Date().getTime(), for example)
+        $(document).ready(function() {
+	    	$.ajaxSetup({ cache: false });
+	    });
+	</script>
+    {% block extra_style %}{% endblock %}
+
+{% load extra_tags extra_filters ui_registry %}
+    <!-- Styling for OSQA -->
+        <link href="{% media  "/media/style/style.css" %}" rel="stylesheet" type="text/css" />
+
+        <script src="http://www.google.com/jsapi" type="text/javascript"></script>
+
+        <script type="text/javascript">
+        /*<![CDATA[*/
+            // OSQA defines all those things - try to do without them   
+
+            // google.load("jquery", "1");
+            // google.load("jqueryui", "1", {autoload:true});
+
+             var i18nLang = '{{ settings.LANGUAGE_CODE }}';
+            // var appUrl = '{{ settings.APP_URL }}'
+             var scriptUrl = '{{ settings.FORCE_SCRIPT_NAME }}/'
+             var osqaSkin = '{{ settings.OSQA_SKIN }}';
+
+            var messages = {
+                username: '{{ user.username }}',
+                confirm: "{% trans "Are you sure?" %}",
+                yes: "{% trans "Yes" %}",
+                no: "{% trans "No" %}",
+                message: "{% trans "Message:" %}",
+                cancel: "{% trans "Cancel" %}",
+                close: "{% trans "Close" %}",
+                ok: "{% trans "Ok" %}",
+                matching_tags_url: "{% url 'matching_tags' %}",
+                word: "{% trans "word" %}",
+                words: "{% trans "words" %}",
+                character: "{% trans "character" %}",
+                characters: "{% trans "characters" %}"
+            }
+        /*]]>*/
+        </script>
+
+        <script type="text/javascript" src="{% media  "/media/js/osqa.main.js" %}"></script>
+
+{% comment %} OSQA has block forejs for javascript in the beginning. For now just linking it by inserting it here {% endcomment %}
+
+  {% block forejs %}
+  {% endblock %}
+
 <script type="text/javascript">
             $().ready(function(){
                 $("#back-select").bind('click', function(){history.go(-2);})
@@ -13,8 +77,71 @@
 </script>
 {% endblock %}
 
-{% block body %} 
+<!begin header>
+{% block topbar_base %}
+                <div class="navbar {% block navbar_class %}navbar-fixed-top{% endblock %}">
+                    <div class="navbar-inner">
+                        <div class="container navbar-login-bandaid">
+                            {% block topbar %}
+                                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                {% if not request.user.is_authenticated %}
+                                </a>
+                                {% block site_brand_loggedout %}<a class="brand" href="{% url "home" %}" title="MAGNATE"><img src="{% static "img/logo.png" %}" alt="MAGNATE" /></a>{% endblock %}
+                                {% endif %}
+                                
+                                {% if request.user.is_authenticated %}
+                                </a>
+                                {% block site_brand_loggedin %}<a class="brand" href="{% url "dashboard" %}" title="MAGNATE"><img src="{% static "img/logo.png" %}" alt="MAGNATE" /></a>{% endblock %}
+                                {% endif %}
+                                
+                                {% if request.user.is_authenticated %}
+                                <div class="nav-collapse">
+                                	<ul class='unstyled'>
+                                		<li>
+	                                		<div class="quickselect-text">
+    	                            			<a href="{% url "dashboard" %}"><p>Dashboard</p></a>
+											</div>
+                                		</li>
+                                		<li>
+	                                		<div class="quickselect-text">
+    	                            			<a href="{% url "groups_all" %}"><p>Lobbies</p></a>
+											</div>
+                                		</li>
+                                		<li>
+	                                		<div class="quickselect-text">
+    	                            			<a href="{% url "newstatus_home" %}"><p>Community</p></a>
+											</div>
+                                		</li>
+                                	</ul>
+                                </div>
+								{% endif %}
+								
+                                    {% block nav %}
+                                        {% comment %}
+                                       <!--     <ul class="nav">
+                                                <li><a href="#tab_one">One</a></li>
+                                                <li><a href="#tab_two">Two</a></li>
+                                            </ul> what is this?-->
+                                        {% endcomment %}
+                                    {% endblock %}                                 
+                                    {% block account_bar %}
+                                    <! Above django tag refers to "_account_bar" template>
+                                    {% include "_account_bar.html" %}
+                                    {% endblock %}
+                                </div>
+                            {% endblock %}
+                        </div>
+                    </div>
+                </div>
+{% endblock %}
+<!end header>
 
+{% block body %} 
+<div class="container">
+	
 <div class="grid_16">
     <div class="contentinner">
     	<div class="bgsection2">
@@ -79,6 +206,7 @@
         
         <li>
         <p><input id="id_amount" type="hidden" name="amount" value="{{ request.POST.amount }}" /></p> 
+        <p><input id="id_payment_method" type="hidden" name="payment_method" value="{{ request.POST.payment_method }}" /></p> 
         {% if request.POST.objective %}
             <input name="objective" type="hidden" value="{{ request.POST.objective }}" />
         {% endif %}
@@ -122,5 +250,78 @@
     </div><!-- contentinner -->
     </div><!-- grid_16 -->
     
-    
+</div>    
 {% endblock %}
+
+{% block footer_base %}
+{% endblock %}
+
+{% block script_base %}
+<!ogscript base in place because of landing page hack>
+            <script src="{% static "js/selectjquery.js" %}"></script>
+      	    <script src="{% static "js/frontend_tools.js" %}"></script>
+	  		<script src="{% static "bootstrap/js/bootstrap.min.js" %}"></script>
+            <script src="{% static "pinax/js/theme.js" %}"></script>
+<!--            <script src="{% static "js/select_functions.js" %}"></script>-->
+	    
+	    <!-- Automatically resize font inside every container with CSS class .dollar -->
+	    <script type="text/javascript">$( '.dollar' ).each(autosize_font);</script>
+	    <!-- Avoid window jump with CSS class .nojump -->
+	    <script type="text/javascript">$(".nojump").click(function(e) {e.preventDefault();
+			// Do your stuff
+		});</script>	
+            
+            {% block extra_script %}{% endblock %}
+
+{% if is_dashboard %}
+
+{% comment %}
+No longer need to display the first item automatically
+  <script type="text/javascript">
+  // Helps to display the first item in the fund-feed
+    $(document).ready(function() {
+      toggleArticleActive($('.fund-feed article:first-child').attr("id"), true);
+    });
+  </script>
+{% endcomment %}  
+
+{% endif %}
+
+<script type="text/javascript">
+  // User liked a post. 
+  function on_click_like_entry(clicked_id, clicked_dom_id) {
+      $.ajax({
+           type: "POST",
+           url:  "{% url 'ajax_like_entry' %}",
+           data: { 'entry_id': clicked_id,
+                   'csrfmiddlewaretoken': '{{csrf_token}}'},
+           dataType: "text",
+           success: function(response) { 
+               // Like went through!
+               var resp = JSON.parse(response);
+               // response has a section new_html
+               // This is a dictionary of the form { dom_id : new_html }
+               // The new_html has to be inserted into the div (p, etc.) specified by the id
+               $.each(resp.update_html, function(dom_id, new_html) {
+                   $('#'+dom_id).html(new_html);
+               })
+               $('#div-'+clicked_dom_id).html(resp.new_html);               
+//               alert(resp.message);
+//               $('#'+clicked_dom_id).text("cool");
+               //$('#'+clicked_dom_id).attr("disabled", resp.liked);
+//               $('#'+clicked_dom_id).attr("value", "Unlike");
+//               toggleLike(clicked_dom_id, !resp.liked, " ("+resp.total_likes+")");
+           }, error: function(rs, e) {
+              alert(rs.responseText);
+           }
+      });
+  }
+</script>
+{% comment %}
+Short polling. Poll the server every once in a while to see if there is a new article, new badge, new private message, etc., so we can display those even if the user does not refresh a page. 
+{% endcomment %}
+
+<script src="{% static "js/jquery.fancybox-1.3.4.pack.js" %}"></script> 
+<script src="{% static "js/jquery.idTabs.js" %}"></script> 
+<script type="text/javascript" src="{% static "js/receive_updates.js" %}"></script>
+{% endblock %} 
