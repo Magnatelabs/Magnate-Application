@@ -15,7 +15,7 @@ updated: jmw 07.08.14
 	line-height: 20px;
 	color: #333333; 
 	background:#edece8 url(../img/bg_body.gif) repeat-x top left; 
-	padding-top: 80px;
+	padding-top: 0px;
 }
 
 #about_body{
@@ -119,7 +119,7 @@ border: 1px solid #bebebe;
 /*----------------------------------------------------------------------------------------------------
 Site_base modifications 
 created: jmw
-updated: jmw 09.17.14
+updated: jmw 02.15.15
 ----------------------------------------------------------------------------------------------------*/
 .nav-collapse{
 	float: left;
@@ -139,6 +139,153 @@ updated: jmw 09.17.14
 
 .quickselect-text a:hover{
 	text-decoration: none;
+}
+
+.home #header .navbar {
+	background: #4d4c4b;
+/*	height: 80px; */
+}
+
+#wrapper #home .carousel-inner .item.item-1{
+	background-image:url(../img/bg_home-1.jpg)
+}
+
+#wrapper #home {
+	height: 730px;
+}
+
+.home #header .navbar .container {
+}
+
+#header .container .navbar-collapse {
+	background: none;
+}
+
+#header .container .navbar-nav>li.active>a{
+	color: #ffffff;
+}
+
+#header .container .navbar-nav>li>a{
+	color: #ffffff;
+}
+
+.navbar-collapse ul{
+/*	padding-top: .5%; */
+}
+
+#header .navbar-header {
+	padding-top: .85%;
+}
+
+@media (min-width: 992px){
+#header .container .navbar-nav>li>a {
+	padding-left: 15px;
+	padding-right: 15px;
+}
+}
+
+.navbar-right .pull-right ul li {
+	padding-top: 19%;
+}
+
+.navbar-right .pull-right ul li a {
+/*	color: #55a51c;	Not sure about the color */ 
+}
+
+#wrapper section header h1 {
+	text-transform: none;
+	font-size: 36px;
+}
+
+#wrapper #features h3 {
+	text-transform: none;
+}
+
+#about .row p {
+	font-size: 21px;
+	margin: 20px 0 10px 0px;
+}
+
+#wrapper #features .row .i:first-child .icon {
+	float: left;
+}
+
+#wrapper #features .row .i:first-child {
+	text-align: inherit;
+}
+
+#wrapper #features .i .icon .c {
+	border: 0px solid black;		
+}
+
+#wrapper #contact h2 {
+	text-transform: none;
+}
+
+#wrapper #team {
+	background: #2a2e37;
+	color: #ffffff;
+}
+
+#wrapper #team h1 {
+	color: 
+}
+
+#wrapper #team .i h3 {
+	text-transform: none;
+}
+
+#about .row ul li p {
+	margin: 0px;
+} 
+
+#wrapper #about .aboutbullet_head{
+	margin: 25px 0 10px 0px; 
+}
+
+#wrapper #about .aboutbullet_head ul li{
+	margin: 2px 0 2px 0; 
+}
+
+#wrapper #team .i .c {
+	border: 0px;
+}
+
+#wrapper #home .scrollDown {
+	bottom: 90px;
+}
+
+.home #header .navbar {
+	height: 63px;
+}
+
+/*----------------------------------------------------------------------------------------------------
+Footer styles and fixes 
+created: jmw
+updated: jmw 02.15.15
+----------------------------------------------------------------------------------------------------*/
+
+.btmagpage {
+	padding-top: 50px;
+	padding-bottom: 50px;
+	position: relative;
+}
+
+.footer_browser a img {
+	width: 20px;
+}
+
+.magfooter_info {
+	line-height: 14px;
+	list-style: none;
+}
+
+.magfooter_space {
+	padding-left: 10px;
+}
+
+.footer_browser a {
+	color: #333333;
 }
 
 /*----------------------------------------------------------------------------------------------------
@@ -794,6 +941,11 @@ updated: jmw 07.03.14
 	font-size: 16px;
 	color: #4c4c4c;
 }
+
+.add_payment_method{
+	padding-left: 2%;
+}
+
 /* Donation Billing forms styling REMOVE */
 .billing_forms ul li {padding-bottom: 0px; } 
 .billing_forms ul li p {padding-bottom: 0px; }
