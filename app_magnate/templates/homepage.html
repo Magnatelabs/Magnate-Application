@@ -12,32 +12,254 @@
 
 {% block body %}
 
-  <div class="indexbanner">
-        <figure>
-          <img src="{% static "img/homepage_image1.jpg" %}" alt="PHOTO" />
-        </figure>
-        <aside>
-        <h1>Unleash your inner mogul</h1>
-        <p>Discover the world of alternative investments</p>
-        <a href="#codesignup" class="indexbtn">Get Started</a>
-    </aside>
-  </div>
+  <div id="wrapper">
 
+		<!-- Home: carousel -->
+		<div id="home" class="section carousel slide home-carousel carousel-fade" data-ride="carousel">
 
-  {% if not request.user.is_authenticated %}
-    <div class="row">
-        <h2>Sign up</h2>
-        <p>Want to join our community? Reserve a spot today, and leave your mark on Magnate as we build out the application.</p> 
-          <p>Enter your email address and we'll put you on the invite list&hellip;</p>
+			<!-- Wrapper for slide *only 1 img -->
+			<div class="carousel-inner">
+				<div class="item item-1 active">
+					<div class="container">
+						<div class="content">
+							<div class="text font-white">
+								<div class="row">
+									<div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2">
+										<h1 class="">Unleash your inner mogul</h1>
+										<h2 class="">Discover the world of alternative investments</h2>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+	
+			<!-- Scroll to the next section -->
+			<a class="j-scroll scrollDown" href="#features">
+				<span class="fa fa-arrow-circle-down"></span>
+			</a>
+			
+		</div>
+		
+		<!-- Section: Services -->
+		<section id="features">
+			<div class="container">
+				<!-- Header -->
+				<header>
+					<div class="row">
+						<div class="col-sm-8 col-sm-offset-2">
+								<h1>We only attract money</h1>
+							<p>Magnate is an online service that makes being financially responsible suck just a little bit less than it actually has to. We offer the information you need, the guidance you want and the access you wish you had.</p>
+						</div>
+					</div>
+				</header>
 
+				<!-- Content -->
+				<div class="row">
+					<div class="col-xs-6 col-sm-6 i">
+						<div class="row">
+							<div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-5 col-md-offset-0 col-lg-4 icon">
+								<div class="c">
+									<div class="fill">
+										<i class="fa fa-code"></i>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-12 col-md-7 col-lg-8">
+								<h3>Approachable Expertise</h3>
+								<p>Access practically presented financial advice from many leading experts so you can more effectively save and grow your money.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-6 col-sm-6 i">
+						<div class="row">
+							<div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-5 col-md-offset-0 col-lg-4 icon">
+								<div class="c">
+									<div class="fill">
+										B
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-12 col-md-7 col-lg-8">
+								<h3>Unprecedented Opportunities</h3>
+								<p>Reach your financial potential by tapping into investments that are potentially more lucrative, but traditionally restricted to only the most wealthy individuals.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-6 col-sm-6 i">
+						<div class="row">
+							<div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-5 col-md-offset-0 col-lg-4 icon">
+								<div class="c">
+									<div class="fill">
+										<i class="fa fa-wrench"></i>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-12 col-md-7 col-lg-8">
+								<h3>Active Management</h3>
+								<p>Partner with an experienced money manager committed to helping you efficiently achieve your short and long-term financial goals.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-6 col-sm-6 i">
+						<div class="row">
+							<div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-5 col-md-offset-0 col-lg-4 icon">
+								<div class="c">
+									<div class="fill">
+										<i class="fa fa-mobile"></i>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-12 col-md-7 col-lg-8">
+								<h3>Personal Touch </h3>
+								<p>Engage directly with your money manager whenever you want to feel more empowered about what is being done with your investments.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		
+		<!-- About -->
+		<section id="about" >
+			<div class="container">
+				<!-- Header -->
+				<header class="font-white">
+				</header>
 
-      {% include "waitinglist/_list_signup.html" %}         
-        
-      <div id="codesignup">
-         <p id="what"><a href="{% url 'account_signup' %}">Already have a code? Log in</a></p>
-        </div>
-    </div>  
-  {% endif %}
+				<!-- Content -->
+				<div class="row">
+					<div class="col-xs-12 col-sm-6">
+						<h1>The reason we started Magnate? We like free sh%t.</h1>
+						<p>We believe that world-class advising and financial services should be readily available to anyone—regardless of your income or investment experience. Magnate has a plan that is tailor made for your individual financial goals.</p>
+						<p class="aboutbullet_head">Magnate is the people’s choice</p>
+						<ul class="">
+							<li><p>No hidden fees, ever!</p></li> 
+							<li><p>No minimums. Invest any amount</p></li>
+							<li><p>Any skill level welcomed</p></li>
+							<li><p>Gain access to top experts</p></li>
+							<li><p>Honest and objective opinions</p></li>
+							<li><p>Users come before profits</p></li>
+							<li><p>Did we mention it’s always free?</p></li>
+						</ul>
+					</div>
+					<div class="col-xs-12 col-sm-6">
+						<img src="img/phone.png" alt="" width="514" height="336" class="img-responsive">
+					</div>
+				</div>
+			</div>
+		</section>
+		
+		<!-- Team -->
+		<section id="team">
+			<div class="container">
+				<!-- Header -->
+				<header>
+					<div class="row">
+						<div class="col-sm-8 col-sm-offset-2">
+							<h1>Meet our team</h1>
+							<p>Nulla diam ex, aliquet vel iaculis vitae, consectetur et lectus. Mauris eu scelerisque ligula. Fusce in purus accumsan, faucibus lorem eget, posuere eros. Etiam ultricies vel leo at euismod. Morbi id nisi vitae felis consequat consequat ut non arcu.</p>
+						</div>
+					</div>
+				</header>
+
+				<!-- Content -->
+				<div class="row">
+					<div class="col-xs-12 col-sm-4 i">
+						<div class="c">
+							<div class="wrap">
+								<div class="info">
+									<div class="info-wrap">
+										<div class="share">Share</div>
+										<div class="social">
+											<a href="#" title="#"><i class="fa fa-facebook"></i></a>
+											<a href="#" title="#"><i class="fa fa-twitter"></i></a>
+											<a href="#" title="#"><i class="fa fa-linkedin"></i></a>
+											<a href="#" title="#"><i class="fa fa-google-plus"></i></a>
+										</div>
+									</div>
+								</div>
+								<img src="{% static "img/team-1.jpg" %}" alt="#" width="600" height="350" class="img-responsive">
+							</div>
+						</div>
+						<h3>Napoleon Hoang</h3>
+						<p>Nulla diam ex, aliquet vel iaculis vitae, consectetur. Mauris eu scelerisque ligula. Fusce in purus accumsan, fauc ibus lorem eros. Etiam ultricies vel leo at.</p>
+					</div>
+					<div class="col-xs-12 col-sm-4 i">
+						<div class="c">
+							<div class="wrap">
+								<div class="info">
+									<div class="info-wrap">
+										<div class="share">Share</div>
+										<div class="social">
+											<a href="#" title="#"><i class="fa fa-facebook"></i></a>
+											<a href="#" title="#"><i class="fa fa-twitter"></i></a>
+											<a href="#" title="#"><i class="fa fa-linkedin"></i></a>
+											<a href="#" title="#"><i class="fa fa-google-plus"></i></a>
+										</div>
+									</div>
+								</div>
+								<img src="{% static "img/team-2.jpg" %}" alt="#" width="310" height="310" class="img-responsive">
+							</div>
+						</div>
+						<h3>Sergey Orshanskiy</h3>
+						<p>Nulla diam ex, aliquet vel iaculis vitae, consectetur. Mauris eu scelerisque ligula. Fusce in purus accumsan, fauc ibus lorem eros. Etiam ultricies vel leo at.</p>
+					</div>
+					<div class="col-xs-12 col-sm-4 i">
+						<div class="c">
+							<div class="wrap">
+								<div class="info">
+									<div class="info-wrap">
+										<div class="share">Share</div>
+										<div class="social">
+											<a href="#" title="#"><i class="fa fa-facebook"></i></a>
+											<a href="#" title="#"><i class="fa fa-twitter"></i></a>
+											<a href="#" title="#"><i class="fa fa-linkedin"></i></a>
+											<a href="#" title="#"><i class="fa fa-google-plus"></i></a>
+										</div>
+									</div>
+								</div>
+								<img src="{% static "img/team-3.jpg" %}" alt="#" width="310" height="310" class="img-responsive">
+							</div>
+						</div>
+						<h3>Farzad Samimi</h3>
+						<p>Nulla diam ex, aliquet vel iaculis vitae, consectetur. Mauris eu scelerisque ligula. Fusce in purus accumsan, fauc ibus lorem eros. Etiam ultricies vel leo at.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+		
+		<!-- Contact -->
+		<section id="contact" >
+			<div class="container">
+				<!-- Header -->
+				<header class="font-white">
+					<div class="row">
+						<div class="col-sm-8 col-sm-offset-2">
+							<h1>Want to learn more?</h1>
+							<h2>Hit us up. Whether you want to join the community, or simply just want to stay up to date on our progress, we appreciate your interest and will get back to you as soon as possible.</h2>
+						</div>
+					</div>
+				</header>
+
+				<!-- Content -->		
+				<div class="row">
+					<div class="col-xs-12 col-sm-8 col-sm-offset-2">
+						<form role="form" data-parsley-validate>
+							<input type="text" class="form-control" placeholder="Name" required data-parsley-error-message="Enter name">
+							<input type="email" class="form-control" placeholder="Email" required data-parsley-error-message="Enter email">
+							<textarea class="form-control" rows="6" placeholder="Message" required data-parsley-error-message="Enter message"></textarea>
+							<button type="submit" class="btn btn-lg">Submit	</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</section>
+		
+  </div>		
 
 {% endblock %}
 
