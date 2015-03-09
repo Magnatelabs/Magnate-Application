@@ -12,6 +12,8 @@ import logging
 
 from billing import get_integration
 
+from billing.forms.authorize_net_forms import AuthorizeNetDPMFormCheck
+
 #imports to recognize django messages
 from django.contrib import messages
 from django.utils.translation import ugettext_lazy as _
@@ -161,6 +163,10 @@ def donation_orderpay(request, entry):
     objective = request.POST.get('objective', None)
 #    donation_amount = request.POST['donation_amount']
     int_obj = get_integration("authorize_net_dpm")
+    payment_method = request.POST.get('payment_method', 'Credit')
+    if payment_method == 'ACH':
+        setattr(int_obj, 'form_class', lambda: AuthorizeNetDPMFormCheck)
+    
     fields = {'x_amount': donation_amount,
           'x_fp_sequence': datetime.datetime.now().strftime('%Y%m%d%H%M%S'), # any identifier for the transaction
           'x_fp_timestamp': str(int(time.time())), # the timestamp when x_fp_sequence was generated
@@ -170,10 +176,12 @@ def donation_orderpay(request, entry):
           'x_extra_data': '{}',
           'x_first_name': entry.first_name,
           'x_last_name': entry.last_name,
+          'x_bank_acct_name': '%s %s' % (entry.first_name, entry.last_name),
           'x_zip': entry.zip,
           'x_address': entry.address,
           'x_city': entry.city,
           'x_country': entry.country,
+          'x_payment_method': payment_method,
         }
     if objective is not None:
         fields['x_extra_data'] = '{ "objective": %s }' % objective
