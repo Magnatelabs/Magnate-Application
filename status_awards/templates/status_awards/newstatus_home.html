@@ -8,7 +8,19 @@
 	{% load i18n extra_tags extra_filters ui_registry %}
 	<link href="{% static "css/jquery.fancybox-1.3.4.css" %}" rel="stylesheet">	
 	<link href="{% media  "/media/style/style.css" %}" rel="stylesheet" type="text/css" />
-{{ block.super }}
+
+	<link href="{% static "css/main.css" %}" rel="stylesheet">
+    <link href="{% static "css/main_bandaid.css" %}" rel="stylesheet">
+    <link href="{% static "css/ui.css" %}" rel="stylesheet">
+    <link href="{% static "css/960.css" %}" rel="stylesheet">   
+           
+    <link href="{% static "pinax/css/theme.css" %}" rel="stylesheet">
+	<link href="{% static "bootstrap/css/bootstrap.css" %}" rel="stylesheet">
+	<link href="{% static "bootstrap/css/bootstrap-responsive.css" %}" rel="stylesheet">		
+	<link href="{% static "css/typography.css" %}" rel="stylesheet">
+            
+    <script src="{% static "js/jquery-1.9.0.min.js" %}"></script>
+
 {% endblock %}
 
 {% block head_title %}{% trans "Community" %}{% endblock %}
@@ -17,7 +29,71 @@
 	{% include "_bodynav_community.html" %}
 {% endblock %}
 
-{% block body %}       
+<!begin header>
+{% block topbar_base %}
+                <div class="navbar {% block navbar_class %}navbar-fixed-top{% endblock %}">
+                    <div class="navbar-inner">
+                        <div class="container navbar-login-bandaid">
+                            {% block topbar %}
+                                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                {% if not request.user.is_authenticated %}
+                                </a>
+                                {% block site_brand_loggedout %}<a class="brand" href="{% url "home" %}" title="MAGNATE"><img src="{% static "img/logo.png" %}" alt="MAGNATE" /></a>{% endblock %}
+                                {% endif %}
+                                
+                                {% if request.user.is_authenticated %}
+                                </a>
+                                {% block site_brand_loggedin %}<a class="brand" href="{% url "dashboard" %}" title="MAGNATE"><img src="{% static "img/logo.png" %}" alt="MAGNATE" /></a>{% endblock %}
+                                {% endif %}
+                                
+                                {% if request.user.is_authenticated %}
+                                <div class="nav-collapse">
+                                	<ul class='unstyled'>
+                                		<li>
+	                                		<div class="quickselect-text">
+    	                            			<a href="{% url "dashboard" %}"><p>Dashboard</p></a>
+											</div>
+                                		</li>
+                                		<li>
+	                                		<div class="quickselect-text">
+    	                            			<a href="{% url "groups_all" %}"><p>Lobbies</p></a>
+											</div>
+                                		</li>
+                                		<li>
+	                                		<div class="quickselect-text">
+    	                            			<a href="{% url "newstatus_home" %}"><p>Community</p></a>
+											</div>
+                                		</li>
+                                	</ul>
+                                </div>
+								{% endif %}
+								
+                                    {% block nav %}
+                                        {% comment %}
+                                       <!--     <ul class="nav">
+                                                <li><a href="#tab_one">One</a></li>
+                                                <li><a href="#tab_two">Two</a></li>
+                                            </ul> what is this?-->
+                                        {% endcomment %}
+                                    {% endblock %}                                 
+                                    {% block account_bar %}
+                                    <! Above django tag refers to "_account_bar" template>
+                                    {% include "_account_bar.html" %}
+                                    {% endblock %}
+                                </div>
+                            {% endblock %}
+                        </div>
+                    </div>
+                </div>
+{% endblock %}
+<!end header>
+
+
+{% block body %} 
+<div class="container">      
     <div class="grid_16">
     	<div class="contentinner">
     		<div class="bgsection2 community-bg2">
@@ -193,6 +269,31 @@
 	{% include "share/_share_lightbox.html" %}         
 
 
-<script src="{% static "js/jquery.fancybox-1.3.4.pack.js" %}"></script>        
+<script src="{% static "js/jquery.fancybox-1.3.4.pack.js" %}"></script>   
+</div>     
 {% endblock %}
 
+{% block footer_base %}
+{% endblock %}
+
+{% block script_base %}
+<!ogscript base in place because of landing page hack>
+            <script src="{% static "js/selectjquery.js" %}"></script>
+      	    <script src="{% static "js/frontend_tools.js" %}"></script>
+	  		<script src="{% static "bootstrap/js/bootstrap.min.js" %}"></script>
+            <script src="{% static "pinax/js/theme.js" %}"></script>
+<!--            <script src="{% static "js/select_functions.js" %}"></script>-->
+	    
+	    <!-- Automatically resize font inside every container with CSS class .dollar -->
+	    <script type="text/javascript">$( '.dollar' ).each(autosize_font);</script>
+	    <!-- Avoid window jump with CSS class .nojump -->
+	    <script type="text/javascript">$(".nojump").click(function(e) {e.preventDefault();
+			// Do your stuff
+		});</script>	
+            
+            {% block extra_script %}{% endblock %}
+
+<script src="{% static "js/jquery.fancybox-1.3.4.pack.js" %}"></script> 
+<script src="{% static "js/jquery.idTabs.js" %}"></script> 
+<script type="text/javascript" src="{% static "js/receive_updates.js" %}"></script>
+{% endblock %} 
