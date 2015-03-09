@@ -1,5 +1,5 @@
 from billing import Integration, IntegrationNotConfigured
-from billing.forms.authorize_net_forms import AuthorizeNetDPMForm
+from billing.forms.authorize_net_forms import AuthorizeNetDPMForm, AuthorizeNetDPMFormCheck
 from billing.signals import transaction_was_successful, transaction_was_unsuccessful
 from django.conf import settings
 from django.conf.urls import patterns, url
@@ -35,6 +35,7 @@ class AuthorizeNetDpmIntegration(Integration):
 
     def form_class(self):
         return AuthorizeNetDPMForm
+#        return AuthorizeNetDPMFormCheck
 
     def generate_form(self):
         transaction_key = self.authorize_net_settings["TRANSACTION_KEY"]
@@ -55,7 +56,7 @@ class AuthorizeNetDpmIntegration(Integration):
     def service_url(self):
         if self.test_mode:
 #            return "http://localhost:9000"
-            return "https://test.authorize.net/gateway/transact.dll"
+             return "https://test.authorize.net/gateway/transact.dll"
         return "https://secure.authorize.net/gateway/transact.dll"
 
     def verify_response(self, request):
