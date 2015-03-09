@@ -6,7 +6,19 @@
 
 {% block style_base %}
 	<link href="{% static "css/jquery.fancybox-1.3.4.css" %}" rel="stylesheet">	
-{{ block.super }}
+
+	<link href="{% static "css/main.css" %}" rel="stylesheet">
+    <link href="{% static "css/main_bandaid.css" %}" rel="stylesheet">
+    <link href="{% static "css/ui.css" %}" rel="stylesheet">
+    <link href="{% static "css/960.css" %}" rel="stylesheet">   
+           
+    <link href="{% static "pinax/css/theme.css" %}" rel="stylesheet">
+	<link href="{% static "bootstrap/css/bootstrap.css" %}" rel="stylesheet">
+	<link href="{% static "bootstrap/css/bootstrap-responsive.css" %}" rel="stylesheet">		
+	<link href="{% static "css/typography.css" %}" rel="stylesheet">
+            
+    <script src="{% static "js/jquery-1.9.0.min.js" %}"></script>
+
 
 {% load extra_tags extra_filters ui_registry %}
     <!-- Styling for OSQA -->
@@ -57,7 +69,70 @@
 	{% include "_bodynav_groupshome.html" %}
 {% endblock %}  
 
-{% block body %} 
+<!begin header>
+{% block topbar_base %}
+                <div class="navbar {% block navbar_class %}navbar-fixed-top{% endblock %}">
+                    <div class="navbar-inner">
+                        <div class="container navbar-login-bandaid">
+                            {% block topbar %}
+                                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                {% if not request.user.is_authenticated %}
+                                </a>
+                                {% block site_brand_loggedout %}<a class="brand" href="{% url "home" %}" title="MAGNATE"><img src="{% static "img/logo.png" %}" alt="MAGNATE" /></a>{% endblock %}
+                                {% endif %}
+                                
+                                {% if request.user.is_authenticated %}
+                                </a>
+                                {% block site_brand_loggedin %}<a class="brand" href="{% url "dashboard" %}" title="MAGNATE"><img src="{% static "img/logo.png" %}" alt="MAGNATE" /></a>{% endblock %}
+                                {% endif %}
+                                
+                                {% if request.user.is_authenticated %}
+                                <div class="nav-collapse">
+                                	<ul class='unstyled'>
+                                		<li>
+	                                		<div class="quickselect-text">
+    	                            			<a href="{% url "dashboard" %}"><p>Dashboard</p></a>
+											</div>
+                                		</li>
+                                		<li>
+	                                		<div class="quickselect-text">
+    	                            			<a href="{% url "groups_all" %}"><p>Lobbies</p></a>
+											</div>
+                                		</li>
+                                		<li>
+	                                		<div class="quickselect-text">
+    	                            			<a href="{% url "newstatus_home" %}"><p>Community</p></a>
+											</div>
+                                		</li>
+                                	</ul>
+                                </div>
+								{% endif %}
+								
+                                    {% block nav %}
+                                        {% comment %}
+                                       <!--     <ul class="nav">
+                                                <li><a href="#tab_one">One</a></li>
+                                                <li><a href="#tab_two">Two</a></li>
+                                            </ul> what is this?-->
+                                        {% endcomment %}
+                                    {% endblock %}                                 
+                                    {% block account_bar %}
+                                    <! Above django tag refers to "_account_bar" template>
+                                    {% include "_account_bar.html" %}
+                                    {% endblock %}
+                                </div>
+                            {% endblock %}
+                        </div>
+                    </div>
+                </div>
+{% endblock %}
+<!end header>
+
+{% block body %}
+<div class="container"> 
 <div class="grid_16">
     <div class="contentinner lobby-detail">
     	<div class="section1 section3 lobby-detail-breakdown extra-border"><!-- should be user selected groups -->
@@ -134,8 +209,11 @@
 		</div>
     </div> <!-- contentinner -->
 </div> <!-- grid -->
+</div>
 {% endblock %}
 
+{% block footer_base %}
+{% endblock %}
 
 
 
